@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_overview"
+            android:icon="@drawable/ic_menu_overview"
+            android:title="@string/menu_overview" />
+        <item
+            android:id="@+id/nav_team"
+            android:icon="@drawable/ic_menu_team"
+            android:title="@string/menu_team" />
+        <item
+            android:id="@+id/nav_players"
+            android:icon="@drawable/ic_menu_player"
+            android:title="@string/menu_players" />
+
+
+    </group>
+    <item android:title="@string/subtitle2">
+        <menu>
+            <item
+                android:id="@+id/nav_fixture"
+                android:icon="@drawable/ic_menu_fixture"
+                android:title="@string/menu_fixture" />
+            <item
+                android:id="@+id/nav_result"
+                android:icon="@drawable/ic_menu_result"
+                android:title="@string/menu_result" />
+
+        </menu>
+    </item>
+
+    <item android:title="@string/subtitle">
+        <menu>
+            <item
+                android:id="@+id/nav_playerStats"
+                android:icon="@drawable/ic_menu_stats"
+                android:title="@string/menu_playerStats" />
+            <item
+                android:id="@+id/nav_teamStats"
+                android:icon="@drawable/ic_menu_stats"
+                android:title="@string/menu_teamStats" />
+
+        </menu>
+    </item>
+
+</menu>
