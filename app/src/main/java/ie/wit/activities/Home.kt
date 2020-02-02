@@ -6,19 +6,28 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
 import ie.wit.R
+import ie.wit.fragments.FixtureFragment
+import ie.wit.fragments.FixtureListFragment
+import ie.wit.fragments.ResultListFragment
+import ie.wit.models.FixtureModel
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.home.*
+
 import org.jetbrains.anko.toast
 
-class Home : AppCompatActivity(),
-    NavigationView.OnNavigationItemSelectedListener {
+class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    lateinit var ft: FragmentTransaction
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home)
         setSupportActionBar(toolbar)
+
 
         navView.setNavigationItemSelectedListener(this)
 
@@ -29,23 +38,42 @@ class Home : AppCompatActivity(),
         )
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
+
+        ft = supportFragmentManager.beginTransaction()
+
+        val fragment =  FixtureFragment.newInstance()
+        ft.replace(R.id.homeFrame, fragment)
+        ft.commit()
+
+    }
+
+    private fun navigateTo(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.homeFrame, fragment)
+            .addToBackStack(null)
+            .commit()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
-            R.id.nav_fixture -> toast("You Selected Fixture")
-            R.id.nav_result -> toast("You Selected Results")
-            R.id.nav_overview -> toast("You Selected OverView")
-            R.id.nav_players -> toast("You Selected Players")
-            R.id.nav_team -> toast("You Selected Teams")
-            R.id.nav_playerStats -> toast("You Selected Player Statistics")
-            R.id.nav_teamStats -> toast("You Selected Team Statistics")
+            R.id.nav_fixture -> navigateTo(FixtureListFragment.newInstance())
+            R.id.nav_result -> navigateTo(FixtureFragment.newInstance())
+
 
             else -> toast("You Selected Something Else")
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+            R.id.action_fixture -> toast("You Selected Add Fixture")
+            R.id.action_result -> toast("You Selected Fixture List")
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -9,8 +9,8 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_overview">Overview</string>
-    <string name="menu_fixture">Fixtures</string>
-    <string name="menu_result">Results</string>
+    <string name="menu_fixture">Add Fixtures</string>
+    <string name="menu_result">Fixture List</string>
     <string name="menu_playerStats">Player Statistics</string>
     <string name="menu_teamStats">Team Statistics</string>
     <string name="menu_players">Players</string>
@@ -19,5 +19,39 @@
     <string name="menu_statistics">Statistics</string>
 
     <string name="subtitle">Satistics</string>
-    <string name="subtitle2">Fixtures and Results</string>
+    <string name="subtitle2">Fixtures</string>
+
+    <string name="add_fixture">Add Fixture</string>
+    <string name="add_result">Add Result</string>
+    <string name="result_title">Fixture List</string>
+    <string name="fixture_title">Add Fixture</string>
+
+    //buttons
+    <string name="button_addFixture">Add Fixture</string>
+    <string name="button_addResult">Add Result</string>
+    <string name="button_addTeamALogo">Team A Logo</string>
+    <string name="button_addTeamBLogo">Team B Logo</string>
+
+    //Hints
+    <string name="hint_teamA">Team A</string>
+    <string name="hint_teamALogo">Team A Logo</string>
+    <string name="hint_teamB">Team B</string>
+    <string name="hint_teamBLogo">Team B Logo</string>
+    <string name="hint_time">Enter A Time</string>
+    <string name="hint_date">Enter A Date</string>
+    <string name="hint_location">Enter A Location</string>
+    <string name="hint_Division">Enter A Division</string>
+
+    //Player
+    <string name="hint_playerName">Player Name</string>
+    <string name="btn_addPlayer">Add Player</string>
+    <string name="playerAge">Player Age</string>
+    <string name="playerPosition">Player Position</string>
+
+
+    <string name="enter_fteamAName">Please Enter Team A Name</string>
+    <string name="enter_fteamBName">Please Enter Team B Name</string>
+    <string name="enter_fLocation">Please Enter A Location</string>
+
+
 </resources>
