@@ -12,8 +12,8 @@ import com.google.android.material.navigation.NavigationView
 import ie.wit.R
 import ie.wit.fragments.FixtureFragment
 import ie.wit.fragments.FixtureListFragment
-import ie.wit.fragments.ResultListFragment
-import ie.wit.models.FixtureModel
+import ie.wit.fragments.PlayerFragment
+import ie.wit.fragments.TeamFragment
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.home.*
 
@@ -41,7 +41,7 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
 
         ft = supportFragmentManager.beginTransaction()
 
-        val fragment =  FixtureFragment.newInstance()
+        val fragment =  FixtureListFragment.newInstance()
         ft.replace(R.id.homeFrame, fragment)
         ft.commit()
 
@@ -57,8 +57,12 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
-            R.id.nav_fixture -> navigateTo(FixtureListFragment.newInstance())
-            R.id.nav_result -> navigateTo(FixtureFragment.newInstance())
+            //R.id.nav_overview -> navigateTo(FixtureFragment.newInstance())
+            //R.id.nav_add_player -> navigateTo(FixtureFragment.newInstance())
+            R.id.nav_add_player -> navigateTo(PlayerFragment.newInstance())
+            R.id.nav_team -> navigateTo(TeamFragment.newInstance())
+            R.id.nav_fixture -> navigateTo(FixtureFragment.newInstance())
+            R.id.nav_fixture_list -> navigateTo(FixtureListFragment.newInstance())
 
 
             else -> toast("You Selected Something Else")
@@ -66,7 +70,7 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
-
+    /*
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId) {
@@ -75,6 +79,7 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
         }
         return super.onOptionsItemSelected(item)
     }
+    */
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)

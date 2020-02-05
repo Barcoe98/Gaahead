@@ -16,8 +16,8 @@ class FixtureMemStore : FixtureStore {
         return fixtures
     }
 
-    override fun findById(id:Long) : FixtureModel? {
-        val foundFixture: FixtureModel? = fixtures.find { it.fId == id }
+     fun findByFid(fId:Long) : FixtureModel? {
+        val foundFixture: FixtureModel? = fixtures.find { it.fId == fId }
         return foundFixture
     }
 

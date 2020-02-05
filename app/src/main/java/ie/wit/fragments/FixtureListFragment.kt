@@ -8,6 +8,7 @@ import ie.wit.R
 import ie.wit.adapters.FixtureAdapter
 import ie.wit.main.MainApp
 import ie.wit.models.FixtureModel
+import kotlinx.android.synthetic.main.fragment_fixture_list.*
 import kotlinx.android.synthetic.main.fragment_fixture_list.view.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.startActivityForResult
@@ -33,6 +34,7 @@ class FixtureListFragment : Fragment() {
         root.fRecyclerView.adapter = FixtureAdapter(app.fixturesStore.findAll())
 
         return root
+        loadFixtures()
     }
 
     companion object {
@@ -41,5 +43,15 @@ class FixtureListFragment : Fragment() {
             FixtureListFragment().apply {
                 arguments = Bundle().apply { }
             }
+    }
+
+
+    private fun loadFixtures() {
+        showFixtures(app.fixturesStore.findAll())
+    }
+
+    fun showFixtures (fixtures: List<FixtureModel>) {
+        fRecyclerView.adapter = FixtureAdapter(fixtures)
+        fRecyclerView.adapter?.notifyDataSetChanged()
     }
 }

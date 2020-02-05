@@ -9,6 +9,15 @@
             android:id="@+id/nav_overview"
             android:icon="@drawable/ic_menu_overview"
             android:title="@string/menu_overview" />
+
+
+    </group>
+    <item android:title="@string/management_subtitle">
+    <menu>
+        <item
+            android:id="@+id/nav_add_player"
+            android:icon="@drawable/ic_menu_add"
+            android:title="@string/menu_add_player" />
         <item
             android:id="@+id/nav_team"
             android:icon="@drawable/ic_menu_team"
@@ -19,33 +28,33 @@
             android:title="@string/menu_players" />
 
 
-    </group>
-    <item android:title="@string/subtitle2">
+    </menu>
+</item>
+    <item android:title="@string/fixtures_subtitle">
         <menu>
             <item
                 android:id="@+id/nav_fixture"
-                android:icon="@drawable/ic_menu_fixture"
+                android:icon="@drawable/ic_menu_add"
                 android:title="@string/menu_fixture" />
             <item
-                android:id="@+id/nav_result"
+                android:id="@+id/nav_fixture_list"
                 android:icon="@drawable/ic_menu_result"
-                android:title="@string/menu_result" />
+                android:title="@string/menu_fixture_list" />
 
         </menu>
     </item>
 
-    <item android:title="@string/subtitle">
+    <item android:title="@string/results_subtitle">
         <menu>
             <item
-                android:id="@+id/nav_playerStats"
-                android:icon="@drawable/ic_menu_stats"
-                android:title="@string/menu_playerStats" />
+                android:id="@+id/nav_result"
+                android:icon="@drawable/ic_menu_add"
+                android:title="@string/menu_result" />
             <item
-                android:id="@+id/nav_teamStats"
-                android:icon="@drawable/ic_menu_stats"
-                android:title="@string/menu_teamStats" />
+                android:id="@+id/nav_result_list"
+                android:icon="@drawable/ic_menu_result"
+                android:title="@string/menu_result_list" />
 
         </menu>
     </item>
-
 </menu>

@@ -10,16 +10,21 @@
 
     <string name="menu_overview">Overview</string>
     <string name="menu_fixture">Add Fixtures</string>
-    <string name="menu_result">Fixture List</string>
+    <string name="menu_fixture_list">Fixture List</string>
+    <string name="menu_result">Add Result</string>
+    <string name="menu_result_list">Results List</string>
     <string name="menu_playerStats">Player Statistics</string>
     <string name="menu_teamStats">Team Statistics</string>
     <string name="menu_players">Players</string>
+    <string name="menu_add_player">Add Player</string>
     <string name="menu_team">Team</string>
     <string name="menu_about">About Us</string>
     <string name="menu_statistics">Statistics</string>
 
     <string name="subtitle">Satistics</string>
-    <string name="subtitle2">Fixtures</string>
+    <string name="fixtures_subtitle">Fixtures</string>
+    <string name="results_subtitle">Results</string>
+    <string name="management_subtitle">Management</string>
 
     <string name="add_fixture">Add Fixture</string>
     <string name="add_result">Add Result</string>
@@ -48,10 +53,14 @@
     <string name="playerAge">Player Age</string>
     <string name="playerPosition">Player Position</string>
 
+    //Enter Hints
+    <string name="enter_teamAName">Please Enter Team A Name</string>
+    <string name="enter_teamBName">Please Enter Team B Name</string>
+    <string name="enter_location">Please Enter A Location</string>
+    <string name="enter_time">Please Enter A Time</string>
+    <string name="enter_date">Please Enter A Date</string>
 
-    <string name="enter_fteamAName">Please Enter Team A Name</string>
-    <string name="enter_fteamBName">Please Enter Team B Name</string>
-    <string name="enter_fLocation">Please Enter A Location</string>
-
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

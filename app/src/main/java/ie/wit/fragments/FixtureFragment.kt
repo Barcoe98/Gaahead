@@ -52,12 +52,29 @@ class FixtureFragment : Fragment() {
             fixture.teamAName = teamAName.text.toString()
             fixture.teamBName = teamBName.text.toString()
             fixture.date = date.text.toString()
-            fixture.location = location.text.toString()
             fixture.time = time.text.toString()
-            
-            app.fixturesStore.create(fixture.copy())
+            fixture.location = location.text.toString()
+
+
+            when {
+                fixture.teamAName.isEmpty() ->  Toast.makeText(app,R.string.enter_teamAName,Toast.LENGTH_LONG).show()
+                fixture.teamBName.isEmpty() ->  Toast.makeText(app,R.string.enter_teamBName,Toast.LENGTH_LONG).show()
+                fixture.date.isEmpty() ->  Toast.makeText(app,R.string.enter_date,Toast.LENGTH_LONG).show()
+                fixture.time.isEmpty() ->  Toast.makeText(app,R.string.enter_time,Toast.LENGTH_LONG).show()
+                fixture.location.isEmpty() ->  Toast.makeText(app,R.string.enter_location,Toast.LENGTH_LONG).show()
+
+            else -> app.fixturesStore.create(fixture.copy())
+
+            }
+
+            fixture.teamAName = teamAName.setText("").toString()
+            fixture.teamBName = teamBName.setText("").toString()
+            fixture.location = location.setText("").toString()
+            fixture.date = date.setText("").toString()
+            fixture.time = time.setText("").toString()
 
         }
+
     }
 
 
