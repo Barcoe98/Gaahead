@@ -7,5 +7,7 @@
     <dimen name="nav_title_size">22dp</dimen>
 
     <dimen name="position_margin">12dp</dimen>
+    <dimen name="btn_padding">20dp</dimen>
+    <dimen name="btn_margin">20dp</dimen>
 
 </resources>

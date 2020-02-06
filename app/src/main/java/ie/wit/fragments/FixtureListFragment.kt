@@ -30,10 +30,12 @@ class FixtureListFragment : Fragment() {
         // Inflate the layout for this fragment
         var root = inflater.inflate(R.layout.fragment_fixture_list, container, false)
 
-        root.fRecyclerView.setLayoutManager(LinearLayoutManager(activity))
+        root.fRecyclerView.layoutManager = LinearLayoutManager(activity)
         root.fRecyclerView.adapter = FixtureAdapter(app.fixturesStore.findAll())
 
         return root
+
+        //Loads Fixtures from json file
         loadFixtures()
     }
 
@@ -50,7 +52,7 @@ class FixtureListFragment : Fragment() {
         showFixtures(app.fixturesStore.findAll())
     }
 
-    fun showFixtures (fixtures: List<FixtureModel>) {
+    private fun showFixtures (fixtures: List<FixtureModel>) {
         fRecyclerView.adapter = FixtureAdapter(fixtures)
         fRecyclerView.adapter?.notifyDataSetChanged()
     }

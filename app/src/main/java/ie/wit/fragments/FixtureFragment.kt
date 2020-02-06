@@ -1,26 +1,26 @@
 package ie.wit.fragments
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import ie.wit.R
+import ie.wit.helpers.showImagePicker
 import ie.wit.main.MainApp
 import ie.wit.models.FixtureModel
-import kotlinx.android.synthetic.main.card_fixture.*
-import kotlinx.android.synthetic.main.card_fixture.view.*
 import kotlinx.android.synthetic.main.fragment_fixture.*
 import kotlinx.android.synthetic.main.fragment_fixture.view.*
-import kotlinx.android.synthetic.main.fragment_fixture_list.*
-import org.jetbrains.anko.info
-import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.toast
+import kotlinx.android.synthetic.main.home.*
+
 
 class FixtureFragment : Fragment() {
 
     lateinit var app: MainApp
     var fixture = FixtureModel()
+    val IMAGE_REQUEST = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +35,10 @@ class FixtureFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_fixture, container, false)
         activity?.title = getString(R.string.fixture_title)
         setButtonListener(root)
+        setImgBtnListener(root)
         return root
+
+
     }
 
     companion object {
@@ -44,6 +47,17 @@ class FixtureFragment : Fragment() {
             FixtureFragment().apply {
                 arguments = Bundle().apply {}
             }
+    }
+
+    fun setImgBtnListener( layout: View){
+
+        layout.teamBLogoBtn.setOnClickListener {
+            showImagePicker(this, IMAGE_REQUEST)
+        }
+
+        layout.teamALogoBtn.setOnClickListener {
+            showImagePicker(this, IMAGE_REQUEST)
+        }
     }
 
     fun setButtonListener( layout: View) {
@@ -76,6 +90,19 @@ class FixtureFragment : Fragment() {
         }
 
     }
+/*
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when (requestCode){
+            IMAGE_REQUEST -> {
+                if (data !=null){
+                    fixture.image = data.getData().toString()
+                    logoTeamA.setImageBitmap(readImage(this, resultCode, data))
+                }
+            }
+        }
+    }
 
+ */
 
 }
