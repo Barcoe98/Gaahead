@@ -6,7 +6,6 @@
     <string name="btn_managerScreen">Manager</string>
     <string name="btn_playerScreen">Player</string>
 
-
     <string name="title_activity_home">Home</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -14,11 +13,12 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    //Nav Drawer Item Titles
     <string name="menu_overview">Overview</string>
     <string name="menu_fixture">Add Fixtures</string>
-    <string name="menu_fixture_list">Fixture List</string>
+    <string name="menu_fixture_list">Fixtures</string>
     <string name="menu_result">Add Result</string>
-    <string name="menu_result_list">Results List</string>
+    <string name="menu_result_list">Results</string>
     <string name="menu_playerStats">Player Statistics</string>
     <string name="menu_teamStats">Team Statistics</string>
     <string name="menu_players">Players</string>
@@ -27,17 +27,18 @@
     <string name="menu_about">About Us</string>
     <string name="menu_statistics">Statistics</string>
 
-    <string name="subtitle">Satistics</string>
+    //Nav Drawer Titles
+    <string name="subtitle">Statistics</string>
     <string name="fixtures_subtitle">Fixtures</string>
     <string name="results_subtitle">Results</string>
     <string name="management_subtitle">Management</string>
-
     <string name="add_fixture">Add Fixture</string>
     <string name="add_result">Add Result</string>
     <string name="result_title">Fixture List</string>
     <string name="fixture_title">Add Fixture</string>
 
-    //buttons
+
+    //Buttons Titles
     <string name="button_addFixture">Add Fixture</string>
     <string name="button_addResult">Add Result</string>
     <string name="button_addTeamALogo">Team A Logo</string>
@@ -59,18 +60,18 @@
     <string name="playerAge">Player Age</string>
     <string name="playerPosition">Player Position</string>
 
-    //Enter Hints
+    //Toast Error Message
     <string name="enter_teamAName">Please Enter Team A Name</string>
     <string name="enter_teamBName">Please Enter Team B Name</string>
     <string name="enter_location">Please Enter A Location</string>
     <string name="enter_time">Please Enter A Time</string>
     <string name="enter_date">Please Enter A Date</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
     <string name="select_teamA_image">Select Team A image</string>
     <string name="select_teamB_image">Select Team B image</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

@@ -1,12 +1,16 @@
 package ie.wit.helpers
 
 import android.app.Activity
+import android.app.PendingIntent.getActivity
+import android.content.ContentResolver
 import android.content.Intent
 import android.graphics.Bitmap
 import android.provider.MediaStore
+import android.provider.MediaStore.Images.Media.getBitmap
 import androidx.fragment.app.Fragment
 import ie.wit.R
 import java.io.IOException
+
 
 fun showImagePicker(parent: Fragment, id: Int) {
     val intent = Intent()
@@ -20,9 +24,10 @@ fun showImagePicker(parent: Fragment, id: Int) {
 /*
 fun readImage(fragment: Fragment, resultCode: Int, data: Intent?): Bitmap? {
     var bitmap: Bitmap? = null
-    if (resultCode == Activity.RESULT_OK && data != null && data.data != null) {
+    if (resultCode == Fragment.RESULT_OK && data != null && data.data != null) {
         try {
-            bitmap = MediaStore.Images.Media.getBitmap(fragment.contentResolver, data.data)
+            bitmap = getBitmap(getActivity().fragment.contentResolver, data.data)
+
         } catch (e: IOException) {
             e.printStackTrace()
         }
@@ -31,3 +36,5 @@ fun readImage(fragment: Fragment, resultCode: Int, data: Intent?): Bitmap? {
 }
 
  */
+
+

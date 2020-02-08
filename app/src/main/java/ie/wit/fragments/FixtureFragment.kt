@@ -1,11 +1,10 @@
 package ie.wit.fragments
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.SearchView
 import android.widget.Toast
+import androidx.core.view.MenuItemCompat
 import androidx.fragment.app.Fragment
 import ie.wit.R
 import ie.wit.helpers.showImagePicker
@@ -13,10 +12,9 @@ import ie.wit.main.MainApp
 import ie.wit.models.FixtureModel
 import kotlinx.android.synthetic.main.fragment_fixture.*
 import kotlinx.android.synthetic.main.fragment_fixture.view.*
-import kotlinx.android.synthetic.main.home.*
 
 
-class FixtureFragment : Fragment() {
+class FixtureFragment :  Fragment() {
 
     lateinit var app: MainApp
     var fixture = FixtureModel()
@@ -49,7 +47,7 @@ class FixtureFragment : Fragment() {
             }
     }
 
-    fun setImgBtnListener( layout: View){
+    private fun setImgBtnListener(layout: View){
 
         layout.teamBLogoBtn.setOnClickListener {
             showImagePicker(this, IMAGE_REQUEST)
@@ -60,27 +58,37 @@ class FixtureFragment : Fragment() {
         }
     }
 
-    fun setButtonListener( layout: View) {
-        layout.addFixtureBtn.setOnClickListener {
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_main, menu)
 
+    }
+
+    fun onQueryTextChange(query: String?): Boolean { // Here is where we are going to implement our filter logic
+        return false
+    }
+
+    fun onQueryTextSubmit(query: String?): Boolean {
+        return false
+    }
+
+    private fun setButtonListener(layout: View) {
+
+        layout.addFixtureBtn.setOnClickListener {
             fixture.teamAName = teamAName.text.toString()
             fixture.teamBName = teamBName.text.toString()
             fixture.date = date.text.toString()
             fixture.time = time.text.toString()
             fixture.location = location.text.toString()
 
-
             when {
-                fixture.teamAName.isEmpty() ->  Toast.makeText(app,R.string.enter_teamAName,Toast.LENGTH_LONG).show()
+                fixture.teamAName.isEmpty()  ->  Toast.makeText(app,R.string.enter_teamAName,Toast.LENGTH_LONG).show()
                 fixture.teamBName.isEmpty() ->  Toast.makeText(app,R.string.enter_teamBName,Toast.LENGTH_LONG).show()
                 fixture.date.isEmpty() ->  Toast.makeText(app,R.string.enter_date,Toast.LENGTH_LONG).show()
                 fixture.time.isEmpty() ->  Toast.makeText(app,R.string.enter_time,Toast.LENGTH_LONG).show()
                 fixture.location.isEmpty() ->  Toast.makeText(app,R.string.enter_location,Toast.LENGTH_LONG).show()
 
-            else -> app.fixturesStore.create(fixture.copy())
-
+                else -> app.fixturesStore.create(fixture.copy())
             }
-
             fixture.teamAName = teamAName.setText("").toString()
             fixture.teamBName = teamBName.setText("").toString()
             fixture.location = location.setText("").toString()
@@ -90,19 +98,19 @@ class FixtureFragment : Fragment() {
         }
 
     }
-/*
+    /*
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode){
             IMAGE_REQUEST -> {
                 if (data !=null){
-                    fixture.image = data.getData().toString()
+                    fixture.logoA = data.data.toString()
                     logoTeamA.setImageBitmap(readImage(this, resultCode, data))
                 }
             }
         }
     }
 
- */
+     */
 
 }

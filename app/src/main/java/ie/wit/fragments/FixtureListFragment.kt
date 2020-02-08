@@ -1,7 +1,11 @@
 package ie.wit.fragments
 
+import android.app.SearchManager
+import android.content.Context
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.widget.SearchView
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import ie.wit.R
@@ -33,7 +37,10 @@ class FixtureListFragment : Fragment() {
         root.fRecyclerView.layoutManager = LinearLayoutManager(activity)
         root.fRecyclerView.adapter = FixtureAdapter(app.fixturesStore.findAll())
 
+
         return root
+
+
 
         //Loads Fixtures from json file
         loadFixtures()
@@ -56,4 +63,7 @@ class FixtureListFragment : Fragment() {
         fRecyclerView.adapter = FixtureAdapter(fixtures)
         fRecyclerView.adapter?.notifyDataSetChanged()
     }
+
+
+
 }

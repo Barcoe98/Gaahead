@@ -37,7 +37,7 @@
                 android:icon="@drawable/ic_menu_add"
                 android:title="@string/menu_fixture" />
             <item
-                android:id="@+id/nav_fixture_list"
+                android:id="@+id/nav_fixtures"
                 android:icon="@drawable/ic_menu_result"
                 android:title="@string/menu_fixture_list" />
 
@@ -51,7 +51,7 @@
                 android:icon="@drawable/ic_menu_add"
                 android:title="@string/menu_result" />
             <item
-                android:id="@+id/nav_result_list"
+                android:id="@+id/nav_results"
                 android:icon="@drawable/ic_menu_result"
                 android:title="@string/menu_result_list" />
 
