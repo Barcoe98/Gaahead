@@ -38,10 +38,13 @@
     <string name="fixture_title">Add Fixture</string>
 
     //buttons
-    <string name="button_addFixture">Add Fixture</string>
-    <string name="button_addResult">Add Result</string>
-    <string name="button_addTeamALogo">Team A Logo</string>
-    <string name="button_addTeamBLogo">Team B Logo</string>
+    <string name="btn_addFixture">Add Fixture</string>
+    <string name="btn_addResult">Add Result</string>
+    <string name="btn_addTeamALogo">Team A Logo</string>
+    <string name="btn_addTeamBLogo">Team B Logo</string>
+    <string name="btn_addToResults">Add to Results</string>
+
+
 
     //Hints
     <string name="hint_teamA">Team A</string>
@@ -52,6 +55,11 @@
     <string name="hint_date">Enter A Date</string>
     <string name="hint_location">Enter A Location</string>
     <string name="hint_Division">Enter A Division</string>
+    <string name="hint_type">Enter Type Of sport</string>
+    <string name="hint_teamAScore">Enter Team A Score</string>
+    <string name="hint_teamBScore">Enter Team B Score</string>
+    <string name="select_teamA_image">Select Team A image</string>
+    <string name="select_teamB_image">Select Team B image</string>
 
     //Player
     <string name="hint_playerName">Player Name</string>
@@ -69,8 +77,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="select_teamA_image">Select Team A image</string>
-    <string name="select_teamB_image">Select Team B image</string>
+
 
 
 </resources>

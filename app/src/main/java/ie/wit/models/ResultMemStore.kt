@@ -16,7 +16,7 @@ class ResultMemStore : ResultStore {
         return results
     }
 
-    override fun findById(rId:Long) : ResultModel? {
+     fun findById(rId:Long) : ResultModel? {
         val foundResult: ResultModel? = results.find { it.rId == rId }
         return foundResult
     }

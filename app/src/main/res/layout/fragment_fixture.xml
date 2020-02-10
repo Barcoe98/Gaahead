@@ -48,7 +48,7 @@
                 android:layout_weight="1"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                android:text="@string/button_addTeamALogo" />
+                android:text="@string/btn_addTeamALogo" />
 
             <Button
                 android:id="@+id/teamBLogoBtn"
@@ -57,7 +57,7 @@
                 android:layout_weight="1"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                android:text="@string/button_addTeamBLogo" />
+                android:text="@string/btn_addTeamBLogo" />
 
         </LinearLayout>
 
@@ -87,31 +87,22 @@
                 android:paddingBottom="8dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:id="@+id/date"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/hint_date"
+            android:ems="10"
+            android:inputType="date"
+            android:hint="@string/hint_date" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_date"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:id="@+id/time"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/time"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_time"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp" />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/hint_time"
+            android:inputType="time" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -131,7 +122,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:text="@string/button_addFixture" />
+            android:text="@string/btn_addFixture" />
+
+        <Button
+            android:id="@+id/addToResultsBtn"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/btn_addToResults" />
 
     </LinearLayout>
 

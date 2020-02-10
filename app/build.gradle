@@ -38,6 +38,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     implementation "org.jetbrains.anko:anko-commons:$anko_version"
 
+    implementation"com.wajahatkarim3.easyvalidation:easyvalidation-core:$ev_version"
     implementation "com.google.code.gson:gson:2.8.5"
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'

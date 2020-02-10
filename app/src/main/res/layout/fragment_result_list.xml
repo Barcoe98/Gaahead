@@ -8,11 +8,10 @@
     tools:context=".fragments.ResultListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/resultsRecyclerView"
-        android:layout_width="399dp"
-        android:layout_height="601dp"
-        android:layout_marginTop="116dp"
+        android:id="@+id/rRecyclerView"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

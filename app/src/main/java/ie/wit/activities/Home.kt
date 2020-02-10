@@ -10,10 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
 import ie.wit.R
-import ie.wit.fragments.FixtureFragment
-import ie.wit.fragments.FixtureListFragment
-import ie.wit.fragments.PlayerFragment
-import ie.wit.fragments.TeamFragment
+import ie.wit.fragments.*
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.home.*
 
@@ -27,7 +24,6 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home)
         setSupportActionBar(toolbar)
-
 
         navView.setNavigationItemSelectedListener(this)
 
@@ -58,12 +54,12 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
 
         when (item.itemId) {
             //R.id.nav_overview -> navigateTo(FixtureFragment.newInstance())
-            //R.id.nav_add_player -> navigateTo(FixtureFragment.newInstance())
             R.id.nav_add_player -> navigateTo(PlayerFragment.newInstance())
             R.id.nav_team -> navigateTo(TeamFragment.newInstance())
             R.id.nav_fixture -> navigateTo(FixtureFragment.newInstance())
             R.id.nav_fixture_list -> navigateTo(FixtureListFragment.newInstance())
-
+            R.id.nav_result -> navigateTo(ResultFragment.newInstance())
+            R.id.nav_result_list -> navigateTo(ResultListFragment.newInstance())
 
             else -> toast("You Selected Something Else")
         }

@@ -47,7 +47,6 @@ class FixtureListFragment : Fragment() {
             }
     }
 
-
     private fun loadFixtures() {
         showFixtures(app.fixturesStore.findAll())
     }

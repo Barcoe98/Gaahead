@@ -8,8 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import ie.wit.R
 import ie.wit.adapters.FixtureAdapter
+import ie.wit.adapters.ResultAdapter
 import ie.wit.main.MainApp
+import ie.wit.models.ResultModel
 import kotlinx.android.synthetic.main.fragment_fixture_list.view.*
+import kotlinx.android.synthetic.main.fragment_result_list.*
+import kotlinx.android.synthetic.main.fragment_result_list.view.*
 
 class ResultListFragment : Fragment() {
 
@@ -28,7 +32,13 @@ class ResultListFragment : Fragment() {
         // Inflate the layout for this fragment
         var root = inflater.inflate(R.layout.fragment_result_list, container, false)
 
+        root.rRecyclerView.layoutManager = LinearLayoutManager(activity)
+        root.rRecyclerView.adapter = ResultAdapter(app.resultsStore.findAll())
+
         return root
+
+        //Loads Results from json file
+        loadResults()
     }
 
     companion object {
@@ -37,5 +47,15 @@ class ResultListFragment : Fragment() {
             ResultListFragment().apply {
                 arguments = Bundle().apply { }
             }
+    }
+
+
+    private fun loadResults() {
+        showResults(app.resultsStore.findAll())
+    }
+
+    private fun showResults (results: List<ResultModel>) {
+        rRecyclerView.adapter = ResultAdapter(results)
+        rRecyclerView.adapter?.notifyDataSetChanged()
     }
 }
