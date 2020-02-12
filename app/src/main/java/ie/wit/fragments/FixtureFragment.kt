@@ -82,9 +82,8 @@ class FixtureFragment : Fragment() {
             fixture.time = time.text.toString()
             fixture.location = location.text.toString()
 
-
             when {
-                fixture.teamAName.isEmpty()  ->  Toast.makeText(app,R.string.enter_teamAName,Toast.LENGTH_LONG).show()
+                fixture.teamAName.isEmpty() ->  Toast.makeText(app,R.string.enter_teamAName,Toast.LENGTH_LONG).show()
                 fixture.teamBName.isEmpty() ->  Toast.makeText(app,R.string.enter_teamBName,Toast.LENGTH_LONG).show()
                 fixture.date.isEmpty() ->  Toast.makeText(app,R.string.enter_date,Toast.LENGTH_LONG).show()
                 fixture.time.isEmpty() ->  Toast.makeText(app,R.string.enter_time,Toast.LENGTH_LONG).show()

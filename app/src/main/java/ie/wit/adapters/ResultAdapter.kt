@@ -5,9 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ie.wit.R
-import ie.wit.models.FixtureModel
 import ie.wit.models.ResultModel
-import kotlinx.android.synthetic.main.card_fixture.view.*
 import kotlinx.android.synthetic.main.card_result.view.*
 
 class ResultAdapter constructor(private var results: List<ResultModel>)
@@ -15,7 +13,7 @@ class ResultAdapter constructor(private var results: List<ResultModel>)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
         return MainHolder(
-            LayoutInflater.from(parent?.context).inflate(
+            LayoutInflater.from(parent.context).inflate(
                 R.layout.card_result,
                 parent,
                 false
@@ -33,9 +31,12 @@ class ResultAdapter constructor(private var results: List<ResultModel>)
     class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(result: ResultModel) {
-            /////textview//////////////////////////model
+            /////cardview//////////////////////////model
             itemView.rTeamAName.text = result.teamAName
             itemView.rTeamBName.text = result.teamBName
+            itemView.rTeamAScore.text = result.teamAScore
+            itemView.rTeamBScore.text = result.teamBScore
+            itemView.rSportType.text = result.type
         }
     }
 }

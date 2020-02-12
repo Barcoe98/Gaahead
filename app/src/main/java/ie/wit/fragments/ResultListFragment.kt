@@ -7,11 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import ie.wit.R
-import ie.wit.adapters.FixtureAdapter
 import ie.wit.adapters.ResultAdapter
 import ie.wit.main.MainApp
 import ie.wit.models.ResultModel
-import kotlinx.android.synthetic.main.fragment_fixture_list.view.*
 import kotlinx.android.synthetic.main.fragment_result_list.*
 import kotlinx.android.synthetic.main.fragment_result_list.view.*
 

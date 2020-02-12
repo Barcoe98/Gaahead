@@ -34,8 +34,10 @@
 
     <string name="add_fixture">Add Fixture</string>
     <string name="add_result">Add Result</string>
-    <string name="result_title">Fixture List</string>
+    <string name="result_title">Results List</string>
     <string name="fixture_title">Add Fixture</string>
+    <string name="playerAge">Player Age</string>
+    <string name="playerPosition">Player Position</string>
 
     //buttons
     <string name="btn_addFixture">Add Fixture</string>
@@ -43,8 +45,7 @@
     <string name="btn_addTeamALogo">Team A Logo</string>
     <string name="btn_addTeamBLogo">Team B Logo</string>
     <string name="btn_addToResults">Add to Results</string>
-
-
+    <string name="btn_addPlayer">Add Player</string>
 
     //Hints
     <string name="hint_teamA">Team A</string>
@@ -58,26 +59,18 @@
     <string name="hint_type">Enter Type Of sport</string>
     <string name="hint_teamAScore">Enter Team A Score</string>
     <string name="hint_teamBScore">Enter Team B Score</string>
+    <string name="hint_playerName">Player Name</string>
     <string name="select_teamA_image">Select Team A image</string>
     <string name="select_teamB_image">Select Team B image</string>
-
-    //Player
-    <string name="hint_playerName">Player Name</string>
-    <string name="btn_addPlayer">Add Player</string>
-    <string name="playerAge">Player Age</string>
-    <string name="playerPosition">Player Position</string>
 
     //Enter Hints
     <string name="enter_teamAName">Please Enter Team A Name</string>
     <string name="enter_teamBName">Please Enter Team B Name</string>
+    <string name="enter_teamAScore">Please Enter Team A Score</string>
+    <string name="enter_teamBScore">Please Enter Team B Score</string>
     <string name="enter_location">Please Enter A Location</string>
     <string name="enter_time">Please Enter A Time</string>
     <string name="enter_date">Please Enter A Date</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
-
-
+    <string name="enter_type">Please Enter A Type</string>
 
 </resources>

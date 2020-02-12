@@ -12,7 +12,7 @@ import java.util.*
 
 val JSON_FILE_result = "results.json"
 val resultGsonBuilder = GsonBuilder().setPrettyPrinting().create()
-val resultListType = object : TypeToken<ArrayList<FixtureModel>>() {}.type
+val resultListType = object : TypeToken<ArrayList<ResultModel>>() {}.type
 
 fun generateRandomRid(): Long {
     return Random().nextLong()

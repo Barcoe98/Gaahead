@@ -14,7 +14,10 @@ import ie.wit.models.ResultModel
 import kotlinx.android.synthetic.main.card_fixture.*
 import kotlinx.android.synthetic.main.card_fixture.view.*
 import kotlinx.android.synthetic.main.fragment_fixture.*
+import kotlinx.android.synthetic.main.fragment_fixture.teamAName
+import kotlinx.android.synthetic.main.fragment_fixture.teamBName
 import kotlinx.android.synthetic.main.fragment_fixture.view.*
+import kotlinx.android.synthetic.main.fragment_result.*
 import kotlinx.android.synthetic.main.fragment_result.view.*
 import org.jetbrains.anko.info
 import org.jetbrains.anko.toast
@@ -57,19 +60,25 @@ class ResultFragment : Fragment() {
 
             result.teamAName = teamAName.text.toString()
             result.teamBName = teamBName.text.toString()
-            //result.type = teamBName.text.toString()
+            result.teamAScore = teamAScore.text.toString()
+            result.teamBScore = teamBScore.text.toString()
+            result.type = type.text.toString()
 
             when {
                 result.teamAName.isEmpty()  ->  Toast.makeText(app,R.string.enter_teamAName, Toast.LENGTH_LONG).show()
                 result.teamBName.isEmpty() ->  Toast.makeText(app,R.string.enter_teamBName, Toast.LENGTH_LONG).show()
-                //result.type.isEmpty() ->  Toast.makeText(app,R.string.hint_type, Toast.LENGTH_LONG).show()
+                result.teamAScore.isEmpty() ->  Toast.makeText(app,R.string.enter_teamAScore, Toast.LENGTH_LONG).show()
+                result.teamBScore.isEmpty() ->  Toast.makeText(app,R.string.enter_teamBScore, Toast.LENGTH_LONG).show()
+                result.type.isEmpty() ->  Toast.makeText(app,R.string.enter_type, Toast.LENGTH_LONG).show()
 
                 else -> app.resultsStore.create(result.copy())
 
             }
             result.teamAName = teamAName.setText("").toString()
             result.teamBName = teamBName.setText("").toString()
-            //result.type = teamBName.setText("").toString()
+            result.teamAScore = teamAScore.setText("").toString()
+            result.teamBScore = teamBScore.setText("").toString()
+            result.type = type.setText("").toString()
 
         }
 
