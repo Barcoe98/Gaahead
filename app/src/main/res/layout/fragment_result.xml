@@ -9,6 +9,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:orientation="vertical"
         android:padding="20dp">
 
@@ -42,7 +46,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/teamALogoBtn"
+                android:id="@+id/logoABtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -51,7 +55,7 @@
                 android:text="@string/btn_addTeamALogo" />
 
             <Button
-                android:id="@+id/teamBLogoBtn"
+                android:id="@+id/logoBBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -138,22 +142,48 @@
                 android:paddingBottom="8dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Sport Type:" />
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <RadioButton
+                    android:id="@+id/hurlingRBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hurling" />
+
+                <RadioButton
+                    android:id="@+id/footbalRBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Football" />
+            </RadioGroup>
+        </LinearLayout>
+
         <Button
             android:id="@+id/addResultBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             android:text="@string/btn_addResult" />
 
         <Button
             android:id="@+id/addToResultsBtn"
-            android:visibility="invisible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_margin="10dp"
             android:text="@string/btn_addToResults" />
 
     </LinearLayout>

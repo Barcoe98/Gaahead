@@ -4,8 +4,21 @@
     tools:context="ie.wit.activities.Donate">
 
     <item
-        android:id="@+id/action_fixture"
+        android:id="@+id/item_cancelFixture"
+        android:orderInCategory="100"
+        android:title="@string/cancel_fixture"
+        android:icon="@drawable/ic_cancel"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/item_deleteFixture"
+        android:orderInCategory="100"
+        android:title="@string/delete_fixture"
+        android:icon="@drawable/ic_remove"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/item_addFixture"
         android:orderInCategory="100"
         android:title="@string/add_fixture"
+        android:icon="@drawable/ic_menu_add"
         app:showAsAction="never" />
 </menu>

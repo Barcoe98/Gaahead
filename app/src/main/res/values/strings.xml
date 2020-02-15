@@ -46,6 +46,8 @@
     <string name="btn_addTeamBLogo">Team B Logo</string>
     <string name="btn_addToResults">Add to Results</string>
     <string name="btn_addPlayer">Add Player</string>
+    <string name="btn_editFixture">Edit Fixture</string>
+    <string name="btn_deleteFixture">Delete Fixture</string>
 
     //Hints
     <string name="hint_teamA">Team A</string>
@@ -72,5 +74,11 @@
     <string name="enter_time">Please Enter A Time</string>
     <string name="enter_date">Please Enter A Date</string>
     <string name="enter_type">Please Enter A Type</string>
+
+
+    //appBar
+    <string name="cancel_fixture">Cancel</string>
+    <string name="delete_fixture">Delete</string>
+
 
 </resources>

@@ -1,37 +1,46 @@
 package ie.wit.fragments
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.*
+import android.provider.MediaStore
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import ie.wit.R
+import ie.wit.activities.FixtureActivity
+import ie.wit.activities.FixtureDetailActivity
 import ie.wit.adapters.FixtureAdapter
+import ie.wit.adapters.FixtureListener
 import ie.wit.main.MainApp
 import ie.wit.models.FixtureModel
+import kotlinx.android.synthetic.main.fragment_fixture.view.*
 import kotlinx.android.synthetic.main.fragment_fixture_list.*
 import kotlinx.android.synthetic.main.fragment_fixture_list.view.*
-import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.startActivityForResult
+import org.jetbrains.anko.intentFor
 
-class FixtureListFragment : Fragment() {
+
+class FixtureListFragment : Fragment(), FixtureListener {
 
     lateinit var app: MainApp
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         app = activity?.application as MainApp
-
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
         var root = inflater.inflate(R.layout.fragment_fixture_list, container, false)
 
         root.fRecyclerView.layoutManager = LinearLayoutManager(activity)
-        root.fRecyclerView.adapter = FixtureAdapter(app.fixturesStore.findAll())
+        root.fRecyclerView.adapter = FixtureAdapter(app.fixturesStore.findAll(),this)
 
         return root
 
@@ -47,12 +56,22 @@ class FixtureListFragment : Fragment() {
             }
     }
 
-    private fun loadFixtures() {
+     fun loadFixtures() {
         showFixtures(app.fixturesStore.findAll())
     }
 
-    private fun showFixtures (fixtures: List<FixtureModel>) {
-        fRecyclerView.adapter = FixtureAdapter(fixtures)
+     fun showFixtures (fixtures: List<FixtureModel>) {
+        fRecyclerView.adapter = FixtureAdapter(fixtures,this)
         fRecyclerView.adapter?.notifyDataSetChanged()
+    }
+
+    override fun onFixtureClick(fixture: FixtureModel) {
+        val intent = Intent(activity, FixtureActivity::class.java).putExtra("fixture_edit", fixture)
+        startActivity(intent)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        loadFixtures()
+        super.onActivityResult(requestCode, resultCode, data)
     }
 }

@@ -1,13 +1,13 @@
-package ie.wit.fragments
+package ie.wit.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import ie.wit.R
 
-class FixtureActivity : AppCompatActivity() {
+class FixtureDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_fixture)
+        setContentView(R.layout.activity_fixture_detail)
     }
 }
