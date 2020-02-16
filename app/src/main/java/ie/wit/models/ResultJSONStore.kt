@@ -4,8 +4,10 @@ import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
+import ie.wit.helpers.exists
+import ie.wit.helpers.read
+import ie.wit.helpers.write
 import org.jetbrains.anko.AnkoLogger
-import org.wit.helpers.*
 import java.util.*
 
 val JSON_FILE_result = "results.json"

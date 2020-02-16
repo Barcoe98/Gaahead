@@ -66,31 +66,21 @@
 
             </LinearLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
+            <EditText
+                android:id="@+id/teamAName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/hint_teamA"
+                android:inputType="textPersonName" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/teamAName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/hint_teamA"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
+            <EditText
+                android:id="@+id/teamBName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/teamBName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/hint_teamB"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp" />
-            </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/hint_teamB"
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/date"
@@ -109,18 +99,13 @@
                 android:hint="@string/hint_time"
                 android:inputType="time" />
 
-            <com.google.android.material.textfield.TextInputLayout
+            <EditText
+                android:id="@+id/location"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/location"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/hint_location"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp" />
-            </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/hint_location"
+                android:inputType="textPersonName" />
 
             <Button
                 android:id="@+id/addFixtureBtn"

@@ -1,4 +1,4 @@
-package org.wit.helpers
+package ie.wit.helpers
 
 import android.content.Context
 import android.util.Log
@@ -10,7 +10,7 @@ fun write(context: Context, fileName: String, data: String) {
         outputStreamWriter.write(data)
         outputStreamWriter.close()
     } catch (e: Exception) {
-        Log.e("Error: ", "Cannot read file: " + e.toString())
+        Log.e("Error: ", "Cannot read file: $e")
     }
 }
 
@@ -32,9 +32,9 @@ fun read(context: Context, fileName: String): String {
             str = partialStr.toString()
         }
     } catch (e: FileNotFoundException) {
-        Log.e("Error: ", "file not found: " + e.toString())
+        Log.e("Error: ", "file not found: $e")
     } catch (e: IOException) {
-        Log.e("Error: ", "cannot read file: " + e.toString())
+        Log.e("Error: ", "cannot read file: $e")
     }
     return str
 }
