@@ -32,7 +32,7 @@ class PlayerFragment : Fragment() {
     ): View? {
 
         val root = inflater.inflate(R.layout.fragment_player, container, false)
-        activity?.title = getString(R.string.fixture_title)
+        activity?.title = getString(R.string.player_title)
         return root
     }
 

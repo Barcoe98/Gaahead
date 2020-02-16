@@ -1,3 +1,5 @@
+@file:Suppress("UNREACHABLE_CODE")
+
 package ie.wit.fragments
 
 import android.os.Bundle
@@ -29,6 +31,7 @@ class ResultListFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         var root = inflater.inflate(R.layout.fragment_result_list, container, false)
+        activity?.title = getString(R.string.result_title)
 
         root.rRecyclerView.layoutManager = LinearLayoutManager(activity)
         root.rRecyclerView.adapter = ResultAdapter(app.resultsStore.findAll())
@@ -37,6 +40,7 @@ class ResultListFragment : Fragment() {
 
         //Loads Results from json file
         loadResults()
+
     }
 
     companion object {

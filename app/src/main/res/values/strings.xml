@@ -16,9 +16,9 @@
 
     <string name="menu_overview">Overview</string>
     <string name="menu_fixture">Add Fixtures</string>
-    <string name="menu_fixture_list">Fixture List</string>
+    <string name="menu_fixture_list">Fixture</string>
     <string name="menu_result">Add Result</string>
-    <string name="menu_result_list">Results List</string>
+    <string name="menu_result_list">Results</string>
     <string name="menu_playerStats">Player Statistics</string>
     <string name="menu_teamStats">Team Statistics</string>
     <string name="menu_players">Players</string>
@@ -27,6 +27,13 @@
     <string name="menu_about">About Us</string>
     <string name="menu_statistics">Statistics</string>
 
+    <string name="menu_fixture_result">Fixtures &amp; Results</string>
+
+    <string name="result_title">Results</string>
+    <string name="fixture_title">Fixtures</string>
+    <string name="team_title"> Team</string>
+    <string name="player_title">Players</string>
+
     <string name="subtitle">Satistics</string>
     <string name="fixtures_subtitle">Fixtures</string>
     <string name="results_subtitle">Results</string>
@@ -34,8 +41,7 @@
 
     <string name="add_fixture">Add Fixture</string>
     <string name="add_result">Add Result</string>
-    <string name="result_title">Results List</string>
-    <string name="fixture_title">Add Fixture</string>
+
     <string name="playerAge">Player Age</string>
     <string name="playerPosition">Player Position</string>
 

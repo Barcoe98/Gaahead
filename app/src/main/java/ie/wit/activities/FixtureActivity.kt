@@ -7,8 +7,6 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import ie.wit.R
-import ie.wit.adapters.FixtureAdapter
-import ie.wit.adapters.FixtureListener
 import ie.wit.fragments.FixtureListFragment
 import ie.wit.helpers.readImage
 import ie.wit.helpers.readImageFromPath
@@ -16,7 +14,6 @@ import ie.wit.helpers.showImagePicker
 import ie.wit.main.MainApp
 import ie.wit.models.FixtureModel
 import kotlinx.android.synthetic.main.activity_fixture.*
-import kotlinx.android.synthetic.main.fragment_fixture_list.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.startActivityForResult

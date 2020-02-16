@@ -1,3 +1,5 @@
+@file:Suppress("UNREACHABLE_CODE")
+
 package ie.wit.fragments
 
 import android.content.Intent
@@ -38,11 +40,15 @@ class FixtureListFragment : Fragment(), FixtureListener {
 
         // Inflate the layout for this fragment
         var root = inflater.inflate(R.layout.fragment_fixture_list, container, false)
+        activity?.title = getString(R.string.fixture_title)
 
         root.fRecyclerView.layoutManager = LinearLayoutManager(activity)
         root.fRecyclerView.adapter = FixtureAdapter(app.fixturesStore.findAll(),this)
 
         return root
+
+
+
 
         //Loads Fixtures from json file
         loadFixtures()
@@ -56,11 +62,11 @@ class FixtureListFragment : Fragment(), FixtureListener {
             }
     }
 
-     fun loadFixtures() {
+     private fun loadFixtures() {
         showFixtures(app.fixturesStore.findAll())
     }
 
-     fun showFixtures (fixtures: List<FixtureModel>) {
+     private fun showFixtures (fixtures: List<FixtureModel>) {
         fRecyclerView.adapter = FixtureAdapter(fixtures,this)
         fRecyclerView.adapter?.notifyDataSetChanged()
     }

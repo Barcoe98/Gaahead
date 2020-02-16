@@ -51,14 +51,13 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-
         when (item.itemId) {
             //R.id.nav_overview -> navigateTo(FixtureFragment.newInstance())
             R.id.nav_add_player -> navigateTo(PlayerFragment.newInstance())
             R.id.nav_team -> navigateTo(TeamFragment.newInstance())
             //R.id.nav_fixture -> navigateTo(FixtureFragment.newInstance())
             R.id.nav_fixture_list -> navigateTo(FixtureListFragment.newInstance())
-            R.id.nav_result -> navigateTo(ResultFragment.newInstance())
+            //R.id.nav_result -> navigateTo(ResultFragment.newInstance())
             R.id.nav_result_list -> navigateTo(ResultListFragment.newInstance())
             else -> toast("You Selected Something Else")
         }
@@ -67,22 +66,18 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
         when (item.itemId) {
             R.id.item_addFixture -> {
                 startActivityForResult<FixtureActivity>(0)
                 navigateTo(FixtureListFragment.newInstance())
-
             }
-            R.id.item_cancelFixture -> toast("You Selected Fixture List")
-            R.id.item_cancelFixture -> toast("You Selected Fixture List")
         }
         return super.onOptionsItemSelected(item)
     }
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_fixture, menu)
+        menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
 

@@ -32,7 +32,7 @@ class TeamFragment : Fragment() {
     ): View? {
 
         val root = inflater.inflate(R.layout.fragment_team, container, false)
-        activity?.title = getString(R.string.fixture_title)
+        activity?.title = getString(R.string.team_title)
         return root
     }
 

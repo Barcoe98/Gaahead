@@ -38,16 +38,6 @@ class FixtureJSONStore : FixtureStore, AnkoLogger {
         serialize()
     }
 
-    private fun serialize() {
-        val jsonString = gsonBuilder.toJson(fixtures, listType)
-        write(context, JSON_FILE, jsonString)
-    }
-
-    private fun deserialize() {
-        val jsonString = read(context, JSON_FILE)
-        fixtures = Gson().fromJson(jsonString, listType)
-    }
-
     override fun update(fixture: FixtureModel) {
 
         val fixturesList = findAll() as ArrayList<FixtureModel>
@@ -58,7 +48,6 @@ class FixtureJSONStore : FixtureStore, AnkoLogger {
             foundFixture.time = fixture.time
             foundFixture.date = fixture.date
             foundFixture.location = fixture.location
-
         }
         serialize()
     }
@@ -67,4 +56,15 @@ class FixtureJSONStore : FixtureStore, AnkoLogger {
         fixtures.remove(fixture)
         serialize()
     }
+
+    private fun serialize() {
+        val jsonString = gsonBuilder.toJson(fixtures, listType)
+        write(context, JSON_FILE, jsonString)
+    }
+
+    private fun deserialize() {
+        val jsonString = read(context, JSON_FILE)
+        fixtures = Gson().fromJson(jsonString, listType)
+    }
+
 }
