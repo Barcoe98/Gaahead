@@ -11,15 +11,21 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import ie.wit.R
 import ie.wit.activities.FixtureActivity
+import ie.wit.activities.PlayerActivity
 import ie.wit.activities.ResultActivity
+import ie.wit.adapters.PlayerAdapter
+import ie.wit.adapters.PlayerListener
 import ie.wit.adapters.ResultAdapter
 import ie.wit.adapters.ResultListener
 import ie.wit.main.MainApp
+import ie.wit.models.PlayerModel
 import ie.wit.models.ResultModel
+import kotlinx.android.synthetic.main.fragment_player_list.*
+import kotlinx.android.synthetic.main.fragment_player_list.view.*
 import kotlinx.android.synthetic.main.fragment_result_list.*
 import kotlinx.android.synthetic.main.fragment_result_list.view.*
 
-class ResultListFragment : Fragment(), ResultListener {
+class PlayerListFragment : Fragment(), PlayerListener {
 
     lateinit var app: MainApp
 
@@ -35,38 +41,38 @@ class ResultListFragment : Fragment(), ResultListener {
     ): View? {
 
         // Inflate the layout for this fragment
-        var root = inflater.inflate(R.layout.fragment_result_list, container, false)
-        activity?.title = getString(R.string.result_title)
+        var root = inflater.inflate(R.layout.fragment_player_list, container, false)
+        activity?.title = getString(R.string.player_title)
 
-        root.rRecyclerView.layoutManager = LinearLayoutManager(activity)
-        root.rRecyclerView.adapter = ResultAdapter(app.resultsStore.findAll(),this)
+        root.pRecyclerView.layoutManager = LinearLayoutManager(activity)
+        root.pRecyclerView.adapter = PlayerAdapter(app.playersStore.findAll(),this)
         return root
 
-        //Loads Results from json file
-        loadResults()
+        //Loads Players from json file
+        loadPlayers()
     }
 
     companion object {
         @JvmStatic
         fun newInstance() =
-            ResultListFragment().apply {
+            PlayerListFragment().apply {
                 arguments = Bundle().apply { }
             }
     }
 
 
-    private fun loadResults() {
-        showResults(app.resultsStore.findAll())
+    private fun loadPlayers() {
+        showPlayers(app.playersStore.findAll())
     }
 
-    private fun showResults (results: List<ResultModel>) {
-        rRecyclerView.adapter = ResultAdapter(results,this)
-        rRecyclerView.adapter?.notifyDataSetChanged()
+    private fun showPlayers (players: List<PlayerModel>) {
+        pRecyclerView.adapter = PlayerAdapter(players,this)
+        pRecyclerView.adapter?.notifyDataSetChanged()
     }
 
-    override fun onResultClick(result: ResultModel) {
-        val intent = Intent(activity, ResultActivity::class.java).putExtra("result_edit", result)
+    override fun onPlayerClick(player: PlayerModel) {
+        val intent = Intent(activity, PlayerActivity::class.java).putExtra("player_edit", player)
         startActivity(intent)
-        loadResults()
+        loadPlayers()
     }
 }

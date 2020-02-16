@@ -86,6 +86,18 @@
     <string name="home_text5">Keep Track of Players Attributes</string>
     <string name="home_more">\More Features to come</string>
     <string name="info_title">Information</string>
-
+    <string name="btn_addPlayerImage">Add Player Image</string>
+    <string name="hint_playerAge">Player Age</string>
+    <string name="hint_playerHeight">Player Height(cm)</string>
+    <string name="hint_playerWeight">Player Weight(kg)</string>
+    <string name="hint_playerPosition">Player Position</string>
+    <string name="btn_player">Add Player</string>
+    <string name="btn_editPlayer">Edit Player</string>
+    <string name="error_playerName">Please Enter a Player Name</string>
+    <string name="error_playerWeight">Please Enter a Player Weight </string>
+    <string name="error_playerHeight" >Please Enter a Player Height </string>
+    <string name="error_playerPosition" >Please Enter a Player Position </string>
+    <string name="error_playerAge" >Please Enter a Age Name </string>
+    <string name="add_player">Add Player</string>
 
 </resources>

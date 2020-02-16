@@ -53,7 +53,6 @@ class FixtureListFragment : Fragment(), FixtureListener {
                 arguments = Bundle().apply { }
             }
     }
-
       fun loadFixtures() {
         showFixtures(app.fixturesStore.findAll())
     }
@@ -67,10 +66,5 @@ class FixtureListFragment : Fragment(), FixtureListener {
         val intent = Intent(activity, FixtureActivity::class.java).putExtra("fixture_edit", fixture)
         startActivity(intent)
         loadFixtures()
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        loadFixtures()
-        super.onActivityResult(requestCode, resultCode, data)
     }
 }
