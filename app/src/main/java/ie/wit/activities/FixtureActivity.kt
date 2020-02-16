@@ -108,7 +108,6 @@ class FixtureActivity : AppCompatActivity(), AnkoLogger {
             R.id.item_deleteFixture -> {
                 app.fixturesStore.remove(fixture)
                 finish()
-                navigateTo(FixtureListFragment.newInstance())
             }
         }
         return super.onOptionsItemSelected(item)
