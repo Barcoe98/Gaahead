@@ -32,15 +32,15 @@
 </item>
     <item android:title="@string/menu_fixture_result">
         <menu>
-            <item
-                android:id="@+id/nav_result_list"
-                android:icon="@drawable/ic_menu_result"
-                android:title="@string/menu_result_list" />
 
             <item
                 android:id="@+id/nav_fixture_list"
                 android:icon="@drawable/ic_menu_result"
                 android:title="@string/menu_fixture_list" />
+            <item
+                android:id="@+id/nav_result_list"
+                android:icon="@drawable/ic_menu_result"
+                android:title="@string/menu_result_list" />
 
         </menu>
     </item>

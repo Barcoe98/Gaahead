@@ -16,7 +16,7 @@
 
     <string name="menu_overview">Overview</string>
     <string name="menu_fixture">Add Fixtures</string>
-    <string name="menu_fixture_list">Fixture</string>
+    <string name="menu_fixture_list">Fixtures</string>
     <string name="menu_result">Add Result</string>
     <string name="menu_result_list">Results</string>
     <string name="menu_playerStats">Player Statistics</string>
@@ -85,6 +85,7 @@
     //appBar
     <string name="cancel_fixture">Cancel</string>
     <string name="delete_fixture">Delete</string>
+    <string name="btn_editResult">Edit Result</string>
 
 
 </resources>

@@ -11,6 +11,8 @@ import ie.wit.R
 import ie.wit.main.MainApp
 import ie.wit.models.FixtureModel
 import ie.wit.models.ResultModel
+import kotlinx.android.synthetic.main.activity_result.*
+import kotlinx.android.synthetic.main.activity_result.view.*
 import kotlinx.android.synthetic.main.card_fixture.*
 import kotlinx.android.synthetic.main.card_fixture.view.*
 import kotlinx.android.synthetic.main.fragment_fixture.*
@@ -23,7 +25,7 @@ import org.jetbrains.anko.info
 import org.jetbrains.anko.toast
 
 class ResultFragment : Fragment() {
-
+/*
     lateinit var app: MainApp
     var result = ResultModel()
     private val imageRequest = 1
@@ -83,4 +85,6 @@ class ResultFragment : Fragment() {
         }
 
     }
+
+ */
 }

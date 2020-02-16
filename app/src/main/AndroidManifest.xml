@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_bw_crest"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.FixtureDetailActivity"></activity>
+        <activity android:name=".activities.ResultActivity"></activity>
+        <activity android:name=".activities.FixtureDetailActivity" />
         <activity android:name=".activities.FixtureActivity" />
         <activity android:name=".fragments.FixtureFragment" />
         <activity

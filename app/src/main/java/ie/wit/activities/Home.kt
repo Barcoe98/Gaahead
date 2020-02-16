@@ -69,12 +69,13 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
         when (item.itemId) {
             R.id.item_addFixture -> {
                 startActivityForResult<FixtureActivity>(0)
-                navigateTo(FixtureListFragment.newInstance())
+            }
+            R.id.item_addResult -> {
+                startActivityForResult<ResultActivity>(0)
             }
         }
         return super.onOptionsItemSelected(item)
     }
-
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)

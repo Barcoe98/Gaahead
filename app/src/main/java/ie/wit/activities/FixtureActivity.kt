@@ -14,6 +14,11 @@ import ie.wit.helpers.showImagePicker
 import ie.wit.main.MainApp
 import ie.wit.models.FixtureModel
 import kotlinx.android.synthetic.main.activity_fixture.*
+import kotlinx.android.synthetic.main.activity_fixture.logoTeamA
+import kotlinx.android.synthetic.main.activity_fixture.logoTeamB
+import kotlinx.android.synthetic.main.activity_fixture.teamAName
+import kotlinx.android.synthetic.main.activity_fixture.teamBName
+import kotlinx.android.synthetic.main.activity_result.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.startActivityForResult
@@ -24,7 +29,6 @@ class FixtureActivity : AppCompatActivity(), AnkoLogger {
 
     var fixture = FixtureModel()
     lateinit var app: MainApp
-    //lateinit var fixa: FixtureListFragment
     var edit = false
     val IMAGE_REQUEST = 1
 
@@ -32,8 +36,6 @@ class FixtureActivity : AppCompatActivity(), AnkoLogger {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fixture)
         app = application as MainApp
-        //fixa = application as FixtureListFragment
-
 
         if (intent.hasExtra("fixture_edit")) {
             fixture = intent.extras?.getParcelable("fixture_edit")!!
@@ -64,32 +66,24 @@ class FixtureActivity : AppCompatActivity(), AnkoLogger {
                 }
                 info("Add Button Pressed. name: ${fixture.teamAName}")
                 setResult(RESULT_OK)
-                //fixa.loadFixtures()
                 finish()
 
             } else {
                 toast(R.string.hint_playerName)
             }
-            logoABtn.setOnClickListener {
-                showImagePicker(this, IMAGE_REQUEST)
-            }
 
-            logoBBtn.setOnClickListener {
-                showImagePicker(this, IMAGE_REQUEST)
-            }
+        }
+
+        addToResultsBtn.setOnClickListener {
+
+            startActivityForResult<ResultActivity>(0)
+            finish()
+            deleteCurrentFixture()
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        when (requestCode){
-            IMAGE_REQUEST -> {
-                if (data !=null){
-                    fixture.logoA = data.data.toString()
-                    logoTeamA.setImageBitmap(readImage(this, resultCode, data))
-                }
-            }
-        }
+    private fun deleteCurrentFixture() {
+        app.fixturesStore.remove(fixture)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -108,15 +102,9 @@ class FixtureActivity : AppCompatActivity(), AnkoLogger {
         when (item.itemId) {
             R.id.item_deleteFixture -> {
                 app.fixturesStore.remove(fixture)
-                //fRecyclerView.adapter?.notifyDataSetChanged()
-                //navigateTo(FixtureListFragment.newInstance())
-                //navigateTo(FixtureListFragment)
-                //fixa.loadFixtures()
                 finish()
             }
             R.id.item_cancelFixture -> navigateTo(FixtureListFragment.newInstance())
-            R.id.item_addFixture -> startActivityForResult<FixtureActivity>(0)
-
         }
         return super.onOptionsItemSelected(item)
     }

@@ -4,8 +4,6 @@ import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
-import ie.wit.models.FixtureModel
-import ie.wit.models.FixtureStore
 import org.jetbrains.anko.AnkoLogger
 import org.wit.helpers.*
 import java.util.*
@@ -40,9 +38,23 @@ class ResultJSONStore : ResultStore, AnkoLogger {
         serialize()
     }
 
+    override fun update(result: ResultModel) {
 
-    fun update(result: ResultModel) {
-        // todo
+        val resultsList = findAll() as ArrayList<ResultModel>
+        var foundResult: ResultModel? = resultsList.find { p -> p.rId == result.rId }
+        if (foundResult != null) {
+            foundResult.teamAName = result.teamAName
+            foundResult.teamBName = result.teamBName
+            foundResult.teamAScore = result.teamAScore
+            foundResult.teamBScore = result.teamBScore
+            foundResult.type = result.type
+        }
+        serialize()
+    }
+
+    override fun remove(result: ResultModel) {
+        results.remove(result)
+        serialize()
     }
 
     private fun serialize() {

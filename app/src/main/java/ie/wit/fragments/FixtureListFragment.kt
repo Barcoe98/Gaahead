@@ -47,9 +47,6 @@ class FixtureListFragment : Fragment(), FixtureListener {
 
         return root
 
-
-
-
         //Loads Fixtures from json file
         loadFixtures()
     }
@@ -62,11 +59,11 @@ class FixtureListFragment : Fragment(), FixtureListener {
             }
     }
 
-     private fun loadFixtures() {
+      fun loadFixtures() {
         showFixtures(app.fixturesStore.findAll())
     }
 
-     private fun showFixtures (fixtures: List<FixtureModel>) {
+      fun showFixtures (fixtures: List<FixtureModel>) {
         fRecyclerView.adapter = FixtureAdapter(fixtures,this)
         fRecyclerView.adapter?.notifyDataSetChanged()
     }
@@ -74,6 +71,7 @@ class FixtureListFragment : Fragment(), FixtureListener {
     override fun onFixtureClick(fixture: FixtureModel) {
         val intent = Intent(activity, FixtureActivity::class.java).putExtra("fixture_edit", fixture)
         startActivity(intent)
+        loadFixtures()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
