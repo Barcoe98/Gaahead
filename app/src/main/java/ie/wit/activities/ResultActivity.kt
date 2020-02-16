@@ -44,18 +44,25 @@ class ResultActivity : AppCompatActivity(), AnkoLogger{
             result.teamBScore = teamBScore.text.toString()
             result.type = type.text.toString()
 
-            if (result.teamAName.isNotEmpty()) {
-                if (edit) {
-                    app.resultsStore.update(result.copy())
-                } else {
-                    app.resultsStore.create(result.copy())
-                }
-                info("Add Button Pressed. name: ${result.teamAName}")
-                setResult(RESULT_OK)
-                finish()
+            when {
 
-            } else {
-                toast(R.string.hint_playerName)
+                result.teamAName.isEmpty() -> { toast(R.string.error_teamAName) }
+                result.teamBName.isEmpty() -> { toast(R.string.error_teamBName) }
+                result.teamAScore.isEmpty() -> { toast(R.string.error_teamAScore) }
+                result.teamBScore.isEmpty() -> { toast(R.string.error_teamBScore) }
+                result.type.isEmpty() -> { toast(R.string.error_type) }
+
+                else -> {
+                    if (edit) {
+                        app.resultsStore.update(result.copy())
+                    } else {
+                        app.resultsStore.create(result.copy())
+                    }
+                    info("Add Button Pressed. name: ${result.teamAName}")
+                    setResult(RESULT_OK)
+                    finish()
+
+                }
             }
         }
     }

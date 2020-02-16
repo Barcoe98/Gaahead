@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import ie.wit.R
 import ie.wit.fragments.FixtureListFragment
 import ie.wit.helpers.readImage
@@ -30,7 +31,6 @@ class FixtureActivity : AppCompatActivity(), AnkoLogger {
     var fixture = FixtureModel()
     lateinit var app: MainApp
     var edit = false
-    val IMAGE_REQUEST = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,33 +45,38 @@ class FixtureActivity : AppCompatActivity(), AnkoLogger {
             time.setText(fixture.time)
             location.setText(fixture.location)
 
-            logoTeamA.setImageBitmap(readImageFromPath(this, fixture.logoA))
-            logoTeamB.setImageBitmap(readImageFromPath(this, fixture.logoB))
             addFixtureBtn.setText(R.string.btn_editFixture)
             edit = true
         }
 
         addFixtureBtn.setOnClickListener {
+
             fixture.teamAName = teamAName.text.toString()
             fixture.teamBName = teamBName.text.toString()
             fixture.time = time.text.toString()
             fixture.date = date.text.toString()
             fixture.location = location.text.toString()
 
-            if (fixture.teamAName.isNotEmpty()) {
-                if (edit) {
-                    app.fixturesStore.update(fixture.copy())
-                } else {
-                    app.fixturesStore.create(fixture.copy())
+            when {
+
+                fixture.teamAName.isEmpty() -> { toast(R.string.error_teamAName) }
+                fixture.teamBName.isEmpty() -> { toast(R.string.error_teamBName) }
+                fixture.date.isEmpty() -> { toast(R.string.error_date) }
+                fixture.time.isEmpty() -> { toast(R.string.error_time) }
+                fixture.location.isEmpty() -> { toast(R.string.error_location) }
+
+                else -> {
+                    if (edit) {
+                        app.fixturesStore.update(fixture.copy())
+                    } else {
+                        app.fixturesStore.create(fixture.copy())
+                    }
+                    info("Add Button Pressed. name: ${fixture.teamAName}")
+                    setResult(RESULT_OK)
+                    finish()
+
                 }
-                info("Add Button Pressed. name: ${fixture.teamAName}")
-                setResult(RESULT_OK)
-                finish()
-
-            } else {
-                toast(R.string.hint_playerName)
             }
-
         }
 
         addToResultsBtn.setOnClickListener {
@@ -103,8 +108,8 @@ class FixtureActivity : AppCompatActivity(), AnkoLogger {
             R.id.item_deleteFixture -> {
                 app.fixturesStore.remove(fixture)
                 finish()
+                navigateTo(FixtureListFragment.newInstance())
             }
-            R.id.item_cancelFixture -> navigateTo(FixtureListFragment.newInstance())
         }
         return super.onOptionsItemSelected(item)
     }

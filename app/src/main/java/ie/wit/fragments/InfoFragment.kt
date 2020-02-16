@@ -2,20 +2,11 @@ package ie.wit.fragments
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import ie.wit.R
 import ie.wit.main.MainApp
-import ie.wit.models.FixtureModel
-import kotlinx.android.synthetic.main.card_fixture.*
-import kotlinx.android.synthetic.main.card_fixture.view.*
-import kotlinx.android.synthetic.main.fragment_fixture_list.*
-import org.jetbrains.anko.info
-import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.toast
 
-class TeamFragment : Fragment() {
+class InfoFragment : Fragment() {
 
     lateinit var app: MainApp
 
@@ -29,15 +20,15 @@ class TeamFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val root = inflater.inflate(R.layout.fragment_team, container, false)
-        activity?.title = getString(R.string.team_title)
+        val root = inflater.inflate(R.layout.fragment_info, container, false)
+        activity?.title = getString(R.string.info_title)
         return root
     }
 
     companion object {
         @JvmStatic
         fun newInstance() =
-            TeamFragment().apply {
+            InfoFragment().apply {
                 arguments = Bundle().apply {}
             }
     }

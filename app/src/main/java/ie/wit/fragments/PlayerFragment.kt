@@ -10,8 +10,6 @@ import ie.wit.main.MainApp
 import ie.wit.models.FixtureModel
 import kotlinx.android.synthetic.main.card_fixture.*
 import kotlinx.android.synthetic.main.card_fixture.view.*
-import kotlinx.android.synthetic.main.fragment_fixture.*
-import kotlinx.android.synthetic.main.fragment_fixture.view.*
 import kotlinx.android.synthetic.main.fragment_fixture_list.*
 import org.jetbrains.anko.info
 import org.jetbrains.anko.startActivity

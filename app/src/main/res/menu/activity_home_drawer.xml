@@ -6,18 +6,14 @@
     <group android:checkableBehavior="single">
 
         <item
-            android:id="@+id/nav_overview"
+            android:id="@+id/nav_info"
             android:icon="@drawable/ic_menu_overview"
-            android:title="@string/menu_overview" />
+            android:title="@string/menu_info" />
 
 
     </group>
     <item android:title="@string/management_subtitle">
     <menu>
-        <item
-            android:id="@+id/nav_add_player"
-            android:icon="@drawable/ic_menu_add"
-            android:title="@string/menu_add_player" />
         <item
             android:id="@+id/nav_team"
             android:icon="@drawable/ic_menu_team"
@@ -30,7 +26,7 @@
 
     </menu>
 </item>
-    <item android:title="@string/menu_fixture_result">
+    <item android:title="@string/fixture_result_subtitle">
         <menu>
 
             <item

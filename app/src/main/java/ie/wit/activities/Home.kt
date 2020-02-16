@@ -52,13 +52,12 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            //R.id.nav_overview -> navigateTo(FixtureFragment.newInstance())
-            R.id.nav_add_player -> navigateTo(PlayerFragment.newInstance())
+            R.id.nav_info -> navigateTo(InfoFragment.newInstance())
+            R.id.nav_players -> navigateTo(TeamFragment.newInstance())
             R.id.nav_team -> navigateTo(TeamFragment.newInstance())
-            //R.id.nav_fixture -> navigateTo(FixtureFragment.newInstance())
             R.id.nav_fixture_list -> navigateTo(FixtureListFragment.newInstance())
-            //R.id.nav_result -> navigateTo(ResultFragment.newInstance())
             R.id.nav_result_list -> navigateTo(ResultListFragment.newInstance())
+
             else -> toast("You Selected Something Else")
         }
         drawerLayout.closeDrawer(GravityCompat.START)

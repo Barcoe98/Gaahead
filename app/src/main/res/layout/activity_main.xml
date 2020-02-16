@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fragments.FixtureFragment">
+    android:background="@drawable/homescreen"
+    tools:context=".activities.MainActivity">
 
 
     <LinearLayout
@@ -12,36 +13,11 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@mipmap/ic_bw_crest_foreground" />
-
-        <TextView
-            android:id="@+id/Info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".5"
-            android:padding="40dp"
-            android:text="@string/info_splash"
-            android:textAlignment="center"
-            android:textSize="18sp" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1.5"
+            android:layout_marginTop="500dp"
             android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/playerBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/btn_margin"
-                android:layout_weight="1"
-                android:text="@string/btn_playerScreen" />
 
             <Button
                 android:id="@+id/managerBtn"
@@ -49,7 +25,20 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/btn_margin"
                 android:layout_weight="1"
-                android:text="@string/btn_managerScreen" />
+                android:background="@android:color/black"
+                android:text="@string/btn_managerScreen"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/playerBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/btn_margin"
+                android:layout_weight="1"
+                android:text="@string/btn_playerScreen"
+                android:background="@android:color/black"
+                android:textColor="@android:color/white"/>
+
         </LinearLayout>
 
     </LinearLayout>

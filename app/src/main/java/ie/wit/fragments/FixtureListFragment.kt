@@ -4,24 +4,19 @@ package ie.wit.fragments
 
 import android.content.Intent
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import ie.wit.R
 import ie.wit.activities.FixtureActivity
-import ie.wit.activities.FixtureDetailActivity
 import ie.wit.adapters.FixtureAdapter
 import ie.wit.adapters.FixtureListener
 import ie.wit.main.MainApp
 import ie.wit.models.FixtureModel
-import kotlinx.android.synthetic.main.fragment_fixture.view.*
 import kotlinx.android.synthetic.main.fragment_fixture_list.*
 import kotlinx.android.synthetic.main.fragment_fixture_list.view.*
-import org.jetbrains.anko.intentFor
 
 
 class FixtureListFragment : Fragment(), FixtureListener {
