@@ -1,7 +1,7 @@
 @file:Suppress("UNREACHABLE_CODE")
 
 package ie.wit.fragments
-
+/*
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,9 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import ie.wit.R
-import ie.wit.activities.FixtureActivity
-import ie.wit.activities.PlayerActivity
-import ie.wit.activities.ResultActivity
+
 import ie.wit.adapters.PlayerAdapter
 import ie.wit.adapters.PlayerListener
 import ie.wit.adapters.ResultAdapter
@@ -76,3 +74,6 @@ class PlayerListFragment : Fragment(), PlayerListener {
         loadPlayers()
     }
 }
+
+
+ */

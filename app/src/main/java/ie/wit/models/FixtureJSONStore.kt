@@ -1,5 +1,6 @@
 package ie.wit.models
 
+/*
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -35,7 +36,7 @@ class FixtureJSONStore : FixtureStore, AnkoLogger {
     }
 
     override fun create(fixture: FixtureModel) {
-        fixture.fId = generateRandomId()
+        fixture._id = generateRandomId()
         fixtures.add(fixture)
         serialize()
     }
@@ -43,7 +44,7 @@ class FixtureJSONStore : FixtureStore, AnkoLogger {
     override fun update(fixture: FixtureModel) {
 
         val fixturesList = findAll() as ArrayList<FixtureModel>
-        var foundFixture: FixtureModel? = fixturesList.find { p -> p.fId == fixture.fId }
+        var foundFixture: FixtureModel? = fixturesList.find { p -> p._id == fixture._id }
         if (foundFixture != null) {
             foundFixture.teamAName = fixture.teamAName
             foundFixture.teamBName = fixture.teamBName
@@ -70,3 +71,4 @@ class FixtureJSONStore : FixtureStore, AnkoLogger {
     }
 
 }
+*/

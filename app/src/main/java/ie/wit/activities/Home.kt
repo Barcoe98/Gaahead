@@ -52,11 +52,11 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_info -> navigateTo(InfoFragment.newInstance())
-            R.id.nav_players -> navigateTo(PlayerListFragment.newInstance())
-            R.id.nav_team -> navigateTo(TeamFragment.newInstance())
-            R.id.nav_fixture_list -> navigateTo(FixtureListFragment.newInstance())
-            R.id.nav_result_list -> navigateTo(ResultListFragment.newInstance())
+           // R.id.nav_info -> navigateTo(InfoFragment.newInstance())
+            //R.id.nav_players -> navigateTo(PlayerListFragment.newInstance())
+           // R.id.nav_team -> navigateTo(TeamFragment.newInstance())
+            //R.id.nav_fixture_list -> navigateTo(FixtureListFragment.newInstance())
+            //R.id.nav_result_list -> navigateTo(ResultListFragment.newInstance())
 
             else -> toast("You Selected Something Else")
         }
@@ -67,13 +67,13 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.item_addFixture -> {
-                startActivityForResult<FixtureActivity>(0)
+                //startActivityForResult<FixtureActivity>(0)
             }
             R.id.item_addResult -> {
-                startActivityForResult<ResultActivity>(0)
+                //startActivityForResult<ResultActivity>(0)
             }
             R.id.item_addPlayer -> {
-                startActivityForResult<PlayerActivity>(0)
+                //startActivityForResult<PlayerActivity>(0)
             }
         }
         return super.onOptionsItemSelected(item)

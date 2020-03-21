@@ -1,5 +1,6 @@
 package ie.wit.activities
 
+/*
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -113,3 +114,5 @@ class FixtureActivity : AppCompatActivity(), AnkoLogger {
         return super.onOptionsItemSelected(item)
     }
 }
+
+*/

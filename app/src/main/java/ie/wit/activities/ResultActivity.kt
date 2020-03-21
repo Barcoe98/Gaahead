@@ -12,7 +12,7 @@ import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.toast
 
-
+/*
 class ResultActivity : AppCompatActivity(), AnkoLogger{
 
     var result = ResultModel()
@@ -82,3 +82,6 @@ class ResultActivity : AppCompatActivity(), AnkoLogger{
         return super.onOptionsItemSelected(item)
     }
 }
+
+
+ */

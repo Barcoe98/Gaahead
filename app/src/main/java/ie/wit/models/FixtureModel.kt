@@ -4,7 +4,7 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class FixtureModel(var fId: Long = 0,
+data class FixtureModel(var _id: String = "N/A",
                         var logoA: String = "",
                         var logoB: String = "",
                         var teamAName: String = "",

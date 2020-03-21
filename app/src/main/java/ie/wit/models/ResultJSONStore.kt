@@ -1,5 +1,5 @@
 package ie.wit.models
-
+/*
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -69,3 +69,6 @@ class ResultJSONStore : ResultStore, AnkoLogger {
         results = Gson().fromJson(jsonString, resultListType)
     }
 }
+
+
+ */

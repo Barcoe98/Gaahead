@@ -6,7 +6,6 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import ie.wit.R
-import ie.wit.fragments.PlayerListFragment
 import ie.wit.main.MainApp
 import ie.wit.models.PlayerModel
 import kotlinx.android.synthetic.main.activity_player.*
@@ -14,7 +13,7 @@ import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.toast
 
-
+/*
 class PlayerActivity : AppCompatActivity(), AnkoLogger {
 
     var player = PlayerModel()
@@ -86,3 +85,7 @@ class PlayerActivity : AppCompatActivity(), AnkoLogger {
         return super.onOptionsItemSelected(item)
     }
 }
+
+
+
+ */

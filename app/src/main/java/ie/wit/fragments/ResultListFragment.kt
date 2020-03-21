@@ -2,6 +2,8 @@
 
 package ie.wit.fragments
 
+/*
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -70,3 +72,5 @@ class ResultListFragment : Fragment(), ResultListener {
         loadResults()
     }
 }
+
+ */
