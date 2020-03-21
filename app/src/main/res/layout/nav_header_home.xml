@@ -17,6 +17,7 @@
         android:layout_margin="10dp"
         android:layout_weight="1"
         android:text="@string/nav_header_title"
+        android:id="@+id/nav_header_email"
         android:textAlignment="center"
         android:textColor="@color/textColor"
         android:textSize="@dimen/nav_title_size" />

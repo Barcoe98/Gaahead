@@ -2,21 +2,21 @@ package ie.wit.main
 
 import android.app.Application
 import android.util.Log
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
 import ie.wit.models.*
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.info
 
-class MainApp : Application() {
+class MainApp : Application(), AnkoLogger {
 
-    //lateinit var fixturesStore: FixtureStore
-    //lateinit var resultsStore: ResultStore
-    //lateinit var playersStore: PlayerStore
+    lateinit var auth: FirebaseAuth
+    lateinit var database: DatabaseReference
+    //var fixtures = ArrayList<FixtureModel>()
+
 
     override fun onCreate() {
         super.onCreate()
-        //fixturesStore = FixtureJSONStore(applicationContext)
-        ///resultsStore = ResultJSONStore(applicationContext)
-        //playersStore = PlayerJSONStore(applicationContext)
-
-
-        Log.v("Fixture","Gaahead App started")
+        info("GAAhead App started")
     }
 }

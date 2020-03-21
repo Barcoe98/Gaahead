@@ -11,23 +11,26 @@ import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
 import ie.wit.R
 import ie.wit.fragments.*
+import ie.wit.main.MainApp
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.home.*
-import org.jetbrains.anko.startActivityForResult
+import kotlinx.android.synthetic.main.nav_header_home.view.*
+import org.jetbrains.anko.startActivity
 
 import org.jetbrains.anko.toast
 
 class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     lateinit var ft: FragmentTransaction
+    lateinit var app: MainApp
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home)
         setSupportActionBar(toolbar)
+        app = application as MainApp
 
         navView.setNavigationItemSelectedListener(this)
-
         val toggle = ActionBarDrawerToggle(
             this, drawerLayout, toolbar,
             R.string.navigation_drawer_open,
@@ -36,8 +39,9 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
-        ft = supportFragmentManager.beginTransaction()
+        navView.getHeaderView(0).nav_header_email.text = app.auth.currentUser?.email
 
+        ft = supportFragmentManager.beginTransaction()
         val fragment =  InfoFragment.newInstance()
         ft.replace(R.id.homeFrame, fragment)
         ft.commit()
@@ -55,8 +59,10 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
            // R.id.nav_info -> navigateTo(InfoFragment.newInstance())
             //R.id.nav_players -> navigateTo(PlayerListFragment.newInstance())
            // R.id.nav_team -> navigateTo(TeamFragment.newInstance())
-            //R.id.nav_fixture_list -> navigateTo(FixtureListFragment.newInstance())
+            R.id.nav_fixture_list -> navigateTo(FixtureListFragment.newInstance())
+            R.id.nav_fixture -> navigateTo(FixtureFragment.newInstance())
             //R.id.nav_result_list -> navigateTo(ResultListFragment.newInstance())
+            R.id.nav_sign_out -> signOut()
 
             else -> toast("You Selected Something Else")
         }
@@ -89,5 +95,11 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
             drawerLayout.closeDrawer(GravityCompat.START)
         else
             super.onBackPressed()
+    }
+
+    private fun signOut() {
+        app.auth.signOut()
+        startActivity<Login>()
+        finish()
     }
 }

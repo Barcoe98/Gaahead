@@ -6,7 +6,7 @@ import ie.wit.R
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivityForResult
 
-class MainActivity : AppCompatActivity() {
+class UserSelection : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

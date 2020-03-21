@@ -126,6 +126,8 @@
     <string name="emailpassword_status_fmt">Email User: %1$s (verified: %2$b)</string>
     <string name="emailpassword_title_text">Please Login Below</string>
     <string name="btn_editToResults">Edit Results</string>
+    <string name="menu_fixture">Add Fixture</string>
+    <string name="action_edit">Edit Donation</string>
 
     <!--END Firebase Resources-->
 

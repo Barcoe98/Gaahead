@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "944807842021",
+    "firebase_url": "https://mb-donation.firebaseio.com",
+    "project_id": "mb-donation",
+    "storage_bucket": "mb-donation.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944807842021:android:bb8f6fc970b764b539040c",
+        "android_client_info": {
+          "package_name": "ie.wit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "944807842021-qtr11j447s25s15mg1uh3d9rolkojr5i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ie.wit",
+            "certificate_hash": "cd10f32f6c503212e06fa57b0958c440b9f976d9"
+          }
+        },
+        {
+          "client_id": "944807842021-mk2ig624m4tkct4b7kupcusb2sppm86d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCsxucB_V09WgF1rZN5gSI-SDD9FJF-b4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "944807842021-mk2ig624m4tkct4b7kupcusb2sppm86d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944807842021:android:d81b42d02c6e560139040c",
+        "android_client_info": {
+          "package_name": "ie.wit.gaahead"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "944807842021-mk2ig624m4tkct4b7kupcusb2sppm86d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCsxucB_V09WgF1rZN5gSI-SDD9FJF-b4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "944807842021-mk2ig624m4tkct4b7kupcusb2sppm86d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
