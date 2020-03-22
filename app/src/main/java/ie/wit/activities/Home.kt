@@ -13,8 +13,10 @@ import ie.wit.R
 import ie.wit.fragments.*
 import ie.wit.main.MainApp
 import kotlinx.android.synthetic.main.app_bar_home.*
-import kotlinx.android.synthetic.main.home.*
+import kotlinx.android.synthetic.main.manager_home.*
+import kotlinx.android.synthetic.main.manager_home.drawerLayout
 import kotlinx.android.synthetic.main.nav_header_home.view.*
+import kotlinx.android.synthetic.main.supporter_home.*
 import org.jetbrains.anko.startActivity
 
 import org.jetbrains.anko.toast
@@ -26,11 +28,11 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.home)
+        setContentView(R.layout.supporter_home)
         setSupportActionBar(toolbar)
         app = application as MainApp
 
-        navView.setNavigationItemSelectedListener(this)
+        navViewSupporter.setNavigationItemSelectedListener(this)
         val toggle = ActionBarDrawerToggle(
             this, drawerLayout, toolbar,
             R.string.navigation_drawer_open,
@@ -39,7 +41,7 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
-        navView.getHeaderView(0).nav_header_email.text = app.auth.currentUser?.email
+        navViewSupporter.getHeaderView(0).nav_header_email.text = app.auth.currentUser?.email
 
         ft = supportFragmentManager.beginTransaction()
         val fragment =  InfoFragment.newInstance()
@@ -85,6 +87,7 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
         return super.onOptionsItemSelected(item)
     }
 
+    //redundant
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return true

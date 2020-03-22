@@ -7,15 +7,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import com.google.firebase.database.ValueEventListener
 import ie.wit.R
 import ie.wit.helpers.createLoader
 import ie.wit.helpers.hideLoader
 import ie.wit.helpers.showLoader
 import ie.wit.main.MainApp
 import ie.wit.models.FixtureModel
-import kotlinx.android.synthetic.main.activity_fixture.*
-import kotlinx.android.synthetic.main.activity_fixture.view.*
+import kotlinx.android.synthetic.main.fragment_fixture.*
+import kotlinx.android.synthetic.main.fragment_fixture.view.*
+import kotlinx.android.synthetic.main.login.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import java.util.HashMap
@@ -40,7 +40,7 @@ class FixtureFragment : Fragment(), AnkoLogger {
         savedInstanceState: Bundle?
     ): View? {
 
-        val root = inflater.inflate(R.layout.activity_fixture, container, false)
+        val root = inflater.inflate(R.layout.fragment_fixture, container, false)
         loader = createLoader(activity!!)
         activity?.title = getString(R.string.fixture_title)
 
@@ -77,11 +77,11 @@ class FixtureFragment : Fragment(), AnkoLogger {
     private fun setButtonListener(layout: View) {
         layout.addFixtureBtn.setOnClickListener {
 
-            val teamAName = teamAName.toString()
-            val teamBName = teamBName.toString()
-            val date = date.toString()
-            val time = time.toString()
-            val location = location.toString()
+            val teamAName = teamAName.text.toString()
+            val teamBName = teamBName.text.toString()
+            val date = date.text.toString()
+            val time = time.text.toString()
+            val location = location.text.toString()
 
             when {
                 layout.teamAName.text.isEmpty() -> Toast.makeText(app, R.string.error_teamAName, Toast.LENGTH_LONG).show()
@@ -91,11 +91,11 @@ class FixtureFragment : Fragment(), AnkoLogger {
                 layout.location.text.isEmpty() -> Toast.makeText(app, R.string.error_location, Toast.LENGTH_LONG).show()
                 else -> writeNewFixture(FixtureModel(teamAName = teamAName, teamBName = teamBName, time = time, date = date, location = location, email = app.auth.currentUser?.email))
             }
-            layout.teamAName.setText("").toString()
-            layout.teamBName.setText("").toString()
-            layout.location.setText("").toString()
-            layout.date.setText("").toString()
-            layout.time.setText("").toString()
+            layout.teamAName.setText("")
+            layout.teamBName.setText("")
+            layout.location.setText("")
+            layout.date.setText("")
+            layout.time.setText("")
         }
     }
 
