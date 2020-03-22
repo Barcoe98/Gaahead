@@ -8,16 +8,15 @@ import ie.wit.R
 import ie.wit.models.FixtureModel
 import kotlinx.android.synthetic.main.card_fixture.view.*
 
-interface FixListener {
-    fun onFixClick(fixture: FixtureModel)
+interface FixtureListener {
+    fun onFixtureClick(fixture: FixtureModel)
 }
 
-class FixAdapter constructor(var fixtures: ArrayList<FixtureModel>,  private val listener: FixListener)
-    : RecyclerView.Adapter<FixAdapter.MainHolder>() {
+class FixtureAdapter constructor(var fixtures: ArrayList<FixtureModel>, private val listener: FixtureListener)
+    : RecyclerView.Adapter<FixtureAdapter.MainHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
-        return MainHolder(
-            LayoutInflater.from(parent.context).inflate(
+        return MainHolder(LayoutInflater.from(parent.context).inflate(
                 R.layout.card_fixture,
                 parent,
                 false
@@ -39,14 +38,14 @@ class FixAdapter constructor(var fixtures: ArrayList<FixtureModel>,  private val
 
     class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(fixture: FixtureModel, listener: FixListener) {
+        fun bind(fixture: FixtureModel, listener: FixtureListener) {
             /////Card Text//////////////////////////model
             itemView.fTeamAName.text = fixture.teamAName
             itemView.fTeamBName.text = fixture.teamBName
             itemView.fDate.text = fixture.date
             itemView.fTime.text = fixture.time
             itemView.fLocation.text = fixture.location
-            itemView.setOnClickListener { listener.onFixClick(fixture) }
+            itemView.setOnClickListener { listener.onFixtureClick(fixture) }
 
         }
     }

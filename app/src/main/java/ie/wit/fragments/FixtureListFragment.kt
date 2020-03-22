@@ -10,13 +10,12 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import ie.wit.R
-import ie.wit.adapters.FixAdapter
-import ie.wit.adapters.FixListener
+import ie.wit.adapters.FixtureAdapter
+import ie.wit.adapters.FixtureListener
 import ie.wit.helpers.createLoader
 import ie.wit.helpers.hideLoader
 import ie.wit.helpers.showLoader
@@ -29,7 +28,7 @@ import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 
 
-class FixtureListFragment : Fragment(), AnkoLogger, FixListener {
+class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
 
     lateinit var app: MainApp
     lateinit var loader: AlertDialog
@@ -51,13 +50,10 @@ class FixtureListFragment : Fragment(), AnkoLogger, FixListener {
 
         val swipeDeleteHandler = object : SwipeToDeleteCallback(activity!!) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val adapter = root.fRecyclerView.adapter as FixAdapter
+                val adapter = root.fRecyclerView.adapter as FixtureAdapter
                 adapter.removeAt(viewHolder.adapterPosition)
                 deleteFixture((viewHolder.itemView.tag as FixtureModel).uid)
-                deleteUserFixture(
-                    app.auth.currentUser!!.uid,
-                    (viewHolder.itemView.tag as FixtureModel).uid
-                )
+                deleteUserFixture(app.auth.currentUser!!.uid, (viewHolder.itemView.tag as FixtureModel).uid)
             }
         }
         val itemTouchDeleteHelper = ItemTouchHelper(swipeDeleteHandler)
@@ -65,7 +61,7 @@ class FixtureListFragment : Fragment(), AnkoLogger, FixListener {
 
         val swipeEditHandler = object : SwipeToEditCallback(activity!!) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                onFixClick(viewHolder.itemView.tag as FixtureModel)
+                onFixtureClick(viewHolder.itemView.tag as FixtureModel)
             }
         }
         val itemTouchEditHelper = ItemTouchHelper(swipeEditHandler)
@@ -100,7 +96,6 @@ class FixtureListFragment : Fragment(), AnkoLogger, FixListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         snapshot.ref.removeValue()
                     }
-
                     override fun onCancelled(error: DatabaseError) {
                         info("Firebase Fixture error : ${error.message}")
                     }
@@ -114,14 +109,13 @@ class FixtureListFragment : Fragment(), AnkoLogger, FixListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         snapshot.ref.removeValue()
                     }
-
                     override fun onCancelled(error: DatabaseError) {
                         info("Firebase Fixture error : ${error.message}")
                     }
                 })
     }
 
-    override fun onFixClick(fixture: FixtureModel) {
+    override fun onFixtureClick(fixture: FixtureModel) {
         activity!!.supportFragmentManager.beginTransaction()
             .replace(R.id.homeFrame, EditFragment.newInstance(fixture))
             .addToBackStack(null)
@@ -146,7 +140,7 @@ class FixtureListFragment : Fragment(), AnkoLogger, FixListener {
 
                         fixturesList.add(fixture!!)
                         root.fRecyclerView.adapter =
-                            FixAdapter(fixturesList, this@FixtureListFragment)
+                            FixtureAdapter(fixturesList, this@FixtureListFragment)
                         root.fRecyclerView.adapter?.notifyDataSetChanged()
                         checkSwipeRefresh()
 
