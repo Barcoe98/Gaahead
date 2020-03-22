@@ -94,7 +94,7 @@
                 android:autofillHints="@string/hint_date"
                 android:ems="10"
                 android:hint="@string/hint_date"
-                android:inputType="date" />
+                android:inputType="text" />
 
             <EditText
                 android:id="@+id/time"

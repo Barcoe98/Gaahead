@@ -28,11 +28,11 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.supporter_home)
+        setContentView(R.layout.manager_home)
         setSupportActionBar(toolbar)
         app = application as MainApp
 
-        navViewSupporter.setNavigationItemSelectedListener(this)
+        navViewManager.setNavigationItemSelectedListener(this)
         val toggle = ActionBarDrawerToggle(
             this, drawerLayout, toolbar,
             R.string.navigation_drawer_open,
@@ -41,10 +41,10 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
-        navViewSupporter.getHeaderView(0).nav_header_email.text = app.auth.currentUser?.email
+        navViewManager.getHeaderView(0).nav_header_email.text = app.auth.currentUser?.email
 
         ft = supportFragmentManager.beginTransaction()
-        val fragment =  InfoFragment.newInstance()
+        val fragment =  FixtureListFragment.newInstance()
         ft.replace(R.id.homeFrame, fragment)
         ft.commit()
     }

@@ -20,7 +20,6 @@ import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import java.util.HashMap
 
-
 class FixtureFragment : Fragment(), AnkoLogger {
 
     lateinit var app: MainApp
@@ -96,6 +95,7 @@ class FixtureFragment : Fragment(), AnkoLogger {
             layout.location.setText("")
             layout.date.setText("")
             layout.time.setText("")
+
         }
     }
 

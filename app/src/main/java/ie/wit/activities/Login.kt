@@ -44,7 +44,7 @@ class Login : AppCompatActivity(), View.OnClickListener {
             startActivityForResult<Home>(0)
 
         }
-    }   
+    }
 
     public override fun onStart() {
         super.onStart()
