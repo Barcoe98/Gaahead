@@ -13,19 +13,19 @@
 
     </group>
     <item android:title="@string/management_subtitle">
-    <menu>
-        <item
-            android:id="@+id/nav_team"
-            android:icon="@drawable/ic_menu_team"
-            android:title="@string/menu_team" />
-        <item
-            android:id="@+id/nav_players"
-            android:icon="@drawable/ic_menu_player"
-            android:title="@string/menu_players" />
+        <menu>
+            <item
+                android:id="@+id/nav_team"
+                android:icon="@drawable/ic_menu_team"
+                android:title="@string/menu_team" />
+            <item
+                android:id="@+id/nav_players"
+                android:icon="@drawable/ic_menu_player"
+                android:title="@string/menu_players" />
 
 
-    </menu>
-</item>
+        </menu>
+    </item>
     <item android:title="@string/fixture_result_subtitle">
         <menu>
             <item

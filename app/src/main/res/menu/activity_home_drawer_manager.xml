@@ -37,6 +37,10 @@
                 android:icon="@drawable/ic_menu_result"
                 android:title="@string/menu_fixture_list" />
             <item
+                android:id="@+id/nav_result"
+                android:icon="@drawable/ic_menu_add"
+                android:title="@string/menu_result" />
+            <item
                 android:id="@+id/nav_result_list"
                 android:icon="@drawable/ic_menu_result"
                 android:title="@string/menu_result_list" />
@@ -52,4 +56,12 @@
                 android:title="@string/sign_out" />
         </menu>
     </item>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_rate"
+            android:icon="@android:drawable/ic_menu_add"
+            android:title="@string/rate_app" />
+    </group>
+
 </menu>

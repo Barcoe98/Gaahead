@@ -16,18 +16,9 @@ import ie.wit.helpers.createLoader
 import ie.wit.helpers.hideLoader
 import ie.wit.helpers.showLoader
 import ie.wit.main.MainApp
-import kotlinx.android.synthetic.main.login.detail
-import kotlinx.android.synthetic.main.login.emailCreateAccountButton
-import kotlinx.android.synthetic.main.login.emailPasswordButtons
-import kotlinx.android.synthetic.main.login.emailPasswordFields
-import kotlinx.android.synthetic.main.login.emailSignInButton
-import kotlinx.android.synthetic.main.login.fieldEmail
-import kotlinx.android.synthetic.main.login.fieldPassword
-import kotlinx.android.synthetic.main.login.signOutButton
-import kotlinx.android.synthetic.main.login.signedInButtons
-import kotlinx.android.synthetic.main.login.status
-import kotlinx.android.synthetic.main.login.verifyEmailButton
+import kotlinx.android.synthetic.main.login.*
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.startActivityForResult
 
 class Login : AppCompatActivity(), View.OnClickListener {
 
@@ -48,7 +39,12 @@ class Login : AppCompatActivity(), View.OnClickListener {
         app.auth = FirebaseAuth.getInstance()
         app.database = FirebaseDatabase.getInstance().reference
         loader = createLoader(this)
-    }
+
+        skipSignInBtn.setOnClickListener{
+            startActivityForResult<Home>(0)
+
+        }
+    }   
 
     public override fun onStart() {
         super.onStart()

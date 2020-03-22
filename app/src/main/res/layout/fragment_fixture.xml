@@ -20,6 +20,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_input_margin"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -44,6 +45,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_input_margin"
                 android:orientation="horizontal">
 
                 <Button
@@ -70,6 +72,7 @@
                 android:id="@+id/teamAName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_input_margin"
                 android:ems="10"
                 android:hint="@string/hint_teamA"
                 android:inputType="textPersonName" />
@@ -78,6 +81,7 @@
                 android:id="@+id/teamBName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_input_margin"
                 android:ems="10"
                 android:hint="@string/hint_teamB"
                 android:inputType="textPersonName" />
@@ -86,6 +90,7 @@
                 android:id="@+id/date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_input_margin"
                 android:autofillHints="@string/hint_date"
                 android:ems="10"
                 android:hint="@string/hint_date"
@@ -95,6 +100,7 @@
                 android:id="@+id/time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_input_margin"
                 android:ems="10"
                 android:hint="@string/hint_time"
                 android:inputType="time" />
@@ -103,6 +109,7 @@
                 android:id="@+id/location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_input_margin"
                 android:ems="10"
                 android:hint="@string/hint_location"
                 android:inputType="textPersonName" />
@@ -111,18 +118,16 @@
                 android:id="@+id/addFixtureBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_margin="12dp"
                 android:text="@string/btn_addFixture" />
 
             <Button
                 android:id="@+id/addToResultsBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="20dp"
-                android:text="@string/btn_addToResults" />
+                android:layout_margin="12dp"
+                android:text="@string/btn_addToResults"
+                android:visibility="invisible" />
 
         </LinearLayout>
     </ScrollView>

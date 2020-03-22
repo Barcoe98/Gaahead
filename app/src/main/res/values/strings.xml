@@ -51,18 +51,17 @@
 
 
     //Hints
-    <string name="hint_teamA">Team A</string>
+    <string name="hint_teamA">Please Team A\'s Name</string>
     <string name="hint_teamALogo">Team A Logo</string>
-    <string name="hint_teamB">Team B</string>
+    <string name="hint_teamB">Please Enter Team B\'s Name</string>
     <string name="hint_teamBLogo">Team B Logo</string>
-    <string name="hint_time">Enter A Time</string>
-    <string name="hint_date">Enter A Date</string>
-    <string name="hint_location">Enter A Location</string>
-    <string name="hint_Division">Enter A Division</string>
-    <string name="hint_type">Enter Type Of sport</string>
-    <string name="hint_teamAScore">Enter Team A Score</string>
-    <string name="hint_teamBScore">Enter Team B Score</string>
-    <string name="hint_playerName">Player Name</string>
+    <string name="hint_time">Please Enter A Time</string>
+    <string name="hint_date">Please Enter A Date</string>
+    <string name="hint_location">Please Enter A Location</string>
+    <string name="hint_Division">Please Enter A Division</string>
+    <string name="hint_type">Please Enter A Type Of Sport</string>
+    <string name="hint_teamAScore">Please Enter Team A\'s Score</string>
+    <string name="hint_teamBScore">Please Enter Team B\'s Score</string>
     <string name="select_teamA_image">Select Team A image</string>
     <string name="select_teamB_image">Select Team B image</string>
 
@@ -86,13 +85,18 @@
     <string name="home_text5">Keep Track of Players Attributes</string>
     <string name="home_more">\More Features to come</string>
     <string name="info_title">Information</string>
+
+    //HINTS FOR PLAYER
     <string name="btn_addPlayerImage">Add Player Image</string>
+    <string name="hint_playerName">Player Name</string>
     <string name="hint_playerAge">Player Age</string>
     <string name="hint_playerHeight">Player Height(cm)</string>
     <string name="hint_playerWeight">Player Weight(kg)</string>
     <string name="hint_playerPosition">Player Position</string>
     <string name="btn_player">Add Player</string>
     <string name="btn_editPlayer">Edit Player</string>
+
+    //PLAYER ERROR HINTS
     <string name="error_playerName">Please Enter a Player Name</string>
     <string name="error_playerWeight">Please Enter a Player Weight </string>
     <string name="error_playerHeight" >Please Enter a Player Height </string>
@@ -128,6 +132,11 @@
     <string name="btn_editToResults">Edit Results</string>
     <string name="menu_fixture">Add Fixture</string>
     <string name="action_edit">Edit Donation</string>
+    <string name="menu_result">Add Result</string>
+    <string name="rate_app">Rate App</string>
+    <string name="nav_header_sub_title">GAAhead</string>
+    <string name="skip_sign_in">Skip Sign In</string>
+    <string name="skip_sign_in_text">Supporter ??</string>
 
     <!--END Firebase Resources-->
 
