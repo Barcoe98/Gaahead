@@ -19,4 +19,9 @@
     <dimen name="text_input_margin">5dp</dimen>
 
 
+    <dimen name="logo_padding">10dp</dimen>
+    <dimen name="card_banner_padding">3dp</dimen>
+    <dimen name="card_content_margin">10dp</dimen>
+
+
 </resources>

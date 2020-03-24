@@ -15,7 +15,7 @@ import ie.wit.helpers.hideLoader
 import ie.wit.helpers.showLoader
 import ie.wit.main.MainApp
 import ie.wit.models.FixtureModel
-import kotlinx.android.synthetic.main.fragment_edit.view.*
+import kotlinx.android.synthetic.main.fragment_edit_fixture.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 
@@ -40,7 +40,7 @@ class EditFragment : Fragment(), AnkoLogger {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        root = inflater.inflate(R.layout.fragment_edit, container, false)
+        root = inflater.inflate(R.layout.fragment_edit_fixture, container, false)
         activity?.title = getString(R.string.action_edit)
         loader = createLoader(activity!!)
 

@@ -25,7 +25,7 @@
             android:layout_weight="1"
             android:text="@string/nav_header_sub_title"
             android:textAlignment="center"
-            android:textColor="@color/textColor"
+            android:textColor="@color/text_light_grey"
             android:textSize="@dimen/nav_sub_title_size" />
 
         <TextView
@@ -36,7 +36,7 @@
             android:layout_weight="1"
             android:text="@string/nav_header_title"
             android:textAlignment="center"
-            android:textColor="@color/textColor"
+            android:textColor="@color/text_light_grey"
             android:textSize="@dimen/nav_title_size" />
     </LinearLayout>
 
