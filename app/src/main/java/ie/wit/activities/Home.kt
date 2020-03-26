@@ -9,9 +9,11 @@ import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
+import com.squareup.picasso.Picasso
 import ie.wit.R
 import ie.wit.fragments.*
 import ie.wit.main.MainApp
+import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.manager_home.*
 import kotlinx.android.synthetic.main.manager_home.drawerLayout
@@ -42,6 +44,15 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
         toggle.syncState()
 
         navViewManager.getHeaderView(0).nav_header_email.text = app.auth.currentUser?.email
+        navViewManager.getHeaderView(0).nav_header_name.text = app.auth.currentUser?.displayName
+
+        if (app.auth.currentUser?.photoUrl != null) {
+            navViewManager.getHeaderView(0).nav_header_name.text = app.auth.currentUser?.displayName
+            Picasso.get().load(app.auth.currentUser?.photoUrl)
+                .resize(180, 180)
+                .transform(CropCircleTransformation())
+                .into(navViewManager.getHeaderView(0).imageView)
+        }
 
         ft = supportFragmentManager.beginTransaction()
         val fragment =  FixtureListFragment.newInstance()
