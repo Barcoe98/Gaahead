@@ -28,7 +28,7 @@ import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 
 
-class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
+open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
 
     lateinit var app: MainApp
     lateinit var loader: AlertDialog
@@ -140,7 +140,7 @@ class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
 
                         fixturesList.add(fixture!!)
                         root.fRecyclerView.adapter =
-                            FixtureAdapter(fixturesList, this@FixtureListFragment)
+                            FixtureAdapter(fixturesList, this@FixtureListFragment, false)
                         root.fRecyclerView.adapter?.notifyDataSetChanged()
                         checkSwipeRefresh()
 
@@ -153,6 +153,7 @@ class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
 
     override fun onResume() {
         super.onResume()
+        if(this::class == FixtureListFragment::class)
         getAllFixtures(app.auth.currentUser!!.uid)
     }
 

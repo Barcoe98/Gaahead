@@ -99,9 +99,9 @@
     //PLAYER ERROR HINTS
     <string name="error_playerName">Please Enter a Player Name</string>
     <string name="error_playerWeight">Please Enter a Player Weight </string>
-    <string name="error_playerHeight" >Please Enter a Player Height </string>
-    <string name="error_playerPosition" >Please Enter a Player Position </string>
-    <string name="error_playerAge" >Please Enter a Age Name </string>
+    <string name="error_playerHeight">Please Enter a Player Height </string>
+    <string name="error_playerPosition">Please Enter a Player Position </string>
+    <string name="error_playerAge">Please Enter a Age Name </string>
     <string name="add_player">Add Player</string>
 
     <string name="messageLoading">Please wait while we Connect to the Server...</string>
@@ -137,6 +137,10 @@
     <string name="nav_header_sub_title">GAAhead</string>
     <string name="skip_sign_in">Skip Sign In</string>
     <string name="skip_sign_in_text">Supporter ??</string>
+    <string name="menu_report_all">All Fixtures</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!--END Firebase Resources-->
 

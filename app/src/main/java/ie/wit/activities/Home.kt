@@ -76,6 +76,7 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
             R.id.nav_fixture -> navigateTo(FixtureFragment.newInstance())
             //R.id.nav_result_list -> navigateTo(ResultListFragment.newInstance())
             R.id.nav_sign_out -> signOut()
+            R.id.nav_fixture_all -> navigateTo(FixtureAllFragment.newInstance())
 
             else -> toast("You Selected Something Else")
         }

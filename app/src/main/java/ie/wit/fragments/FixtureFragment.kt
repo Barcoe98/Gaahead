@@ -20,7 +20,7 @@ import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import java.util.HashMap
 
-class FixtureFragment : Fragment(), AnkoLogger {
+open class FixtureFragment : Fragment(), AnkoLogger {
 
     lateinit var app: MainApp
     //private val imageRequest = 1
