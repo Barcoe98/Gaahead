@@ -12,15 +12,14 @@ import com.google.firebase.database.ValueEventListener
 import ie.wit.R
 import ie.wit.adapters.FixtureAdapter
 import ie.wit.adapters.FixtureListener
-import ie.wit.helpers.createLoader
-import ie.wit.helpers.hideLoader
-import ie.wit.helpers.showLoader
 import ie.wit.models.FixtureModel
+import ie.wit.utils.createLoader
+import ie.wit.utils.hideLoader
+import ie.wit.utils.showLoader
 import kotlinx.android.synthetic.main.fragment_fixture_list.view.*
 import org.jetbrains.anko.info
 
-class FixtureAllFragment : FixtureListFragment(),
-    FixtureListener {
+class FixtureAllFragment : FixtureListFragment(), FixtureListener {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,7 +43,7 @@ class FixtureAllFragment : FixtureListFragment(),
             }
     }
 
-     fun setSwipeRefresh() {
+    override fun setSwipeRefresh() {
         root.swiperefresh.setOnRefreshListener {
             root.swiperefresh.isRefreshing = true
             getAllUsersFixtures()

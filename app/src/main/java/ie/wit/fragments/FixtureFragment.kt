@@ -1,5 +1,6 @@
 package ie.wit.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,15 +8,18 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.google.firebase.database.ValueEventListener
+import com.squareup.picasso.Callback
+import com.squareup.picasso.Picasso
 import ie.wit.R
-import ie.wit.helpers.createLoader
-import ie.wit.helpers.hideLoader
-import ie.wit.helpers.showLoader
 import ie.wit.main.MainApp
 import ie.wit.models.FixtureModel
+import ie.wit.utils.*
+import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import kotlinx.android.synthetic.main.fragment_fixture.*
 import kotlinx.android.synthetic.main.fragment_fixture.view.*
-import kotlinx.android.synthetic.main.login.view.*
+import kotlinx.android.synthetic.main.manager_home.*
+import kotlinx.android.synthetic.main.nav_header_home.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import java.util.HashMap
@@ -24,9 +28,9 @@ open class FixtureFragment : Fragment(), AnkoLogger {
 
     lateinit var app: MainApp
     //private val imageRequest = 1
-    lateinit var loader : AlertDialog
+    lateinit var loader: AlertDialog
     //lateinit var eventListener : ValueEventListener
-
+    val IMAGE_REQUEST = 1
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,6 +48,7 @@ open class FixtureFragment : Fragment(), AnkoLogger {
         activity?.title = getString(R.string.fixture_title)
 
         setButtonListener(root)
+        setImgBtnListener(root)
 
         return root
     }
@@ -57,20 +62,17 @@ open class FixtureFragment : Fragment(), AnkoLogger {
             }
     }
 
-    /*
-    private fun setImgBtnListener(layout: View){
 
-        layout.teamBLogoBtn.setOnClickListener {
-            showImagePicker(this, imageRequest)
+    private fun setImgBtnListener(layout: View) {
+
+        layout.logoABtn.setOnClickListener {
+            showImagePickerFragment(this, IMAGE_REQUEST)
         }
 
-        layout.teamALogoBtn.setOnClickListener {
-            showImagePicker(this, imageRequest)
+        layout.logoBBtn.setOnClickListener {
+            showImagePickerFragment(this, IMAGE_REQUEST)
         }
     }
-
-
-     */
 
 
     private fun setButtonListener(layout: View) {
@@ -83,12 +85,41 @@ open class FixtureFragment : Fragment(), AnkoLogger {
             val location = location.text.toString()
 
             when {
-                layout.teamAName.text.isEmpty() -> Toast.makeText(app, R.string.error_teamAName, Toast.LENGTH_LONG).show()
-                layout.teamBName.text.isEmpty() -> Toast.makeText(app, R.string.error_teamBName, Toast.LENGTH_LONG).show()
-                layout.date.text.isEmpty() -> Toast.makeText(app, R.string.error_date, Toast.LENGTH_LONG).show()
-                layout.time.text.isEmpty() -> Toast.makeText(app, R.string.error_time, Toast.LENGTH_LONG).show()
-                layout.location.text.isEmpty() -> Toast.makeText(app, R.string.error_location, Toast.LENGTH_LONG).show()
-                else -> writeNewFixture(FixtureModel(teamAName = teamAName, teamBName = teamBName, time = time, date = date, location = location, email = app.auth.currentUser?.email))
+                layout.teamAName.text.isEmpty() -> Toast.makeText(
+                    app,
+                    R.string.error_teamAName,
+                    Toast.LENGTH_LONG
+                ).show()
+                layout.teamBName.text.isEmpty() -> Toast.makeText(
+                    app,
+                    R.string.error_teamBName,
+                    Toast.LENGTH_LONG
+                ).show()
+                layout.date.text.isEmpty() -> Toast.makeText(
+                    app,
+                    R.string.error_date,
+                    Toast.LENGTH_LONG
+                ).show()
+                layout.time.text.isEmpty() -> Toast.makeText(
+                    app,
+                    R.string.error_time,
+                    Toast.LENGTH_LONG
+                ).show()
+                layout.location.text.isEmpty() -> Toast.makeText(
+                    app,
+                    R.string.error_location,
+                    Toast.LENGTH_LONG
+                ).show()
+                else -> writeNewFixture(
+                    FixtureModel(
+                        teamAName = teamAName,
+                        teamBName = teamBName,
+                        time = time,
+                        date = date,
+                        location = location,
+                        email = app.auth.currentUser?.email
+                    )
+                )
             }
             layout.teamAName.setText("")
             layout.teamBName.setText("")
@@ -98,6 +129,7 @@ open class FixtureFragment : Fragment(), AnkoLogger {
 
         }
     }
+
 
     override fun onPause() {
         super.onPause()
@@ -127,4 +159,45 @@ open class FixtureFragment : Fragment(), AnkoLogger {
         app.database.updateChildren(childUpdates)
         hideLoader(loader)
     }
+
+
+     fun onResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when (requestCode) {
+            IMAGE_REQUEST -> {
+                if (data != null) {
+                    //fixture.logoTeamA
+                    uploadImageView(app,logoTeamA)
+                    uploadImageView(app,logoTeamB)
+                   // logoTeamA.setImageBitmap(readImage(this, resultCode, data))
+                }
+            }
+        }
+    }
+
+
+    /*
+
+    override fun onResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when (requestCode) {
+            1 -> {
+                if (data != null) {
+                    Picasso.get().load(readImageUri(resultCode, data).toString())
+                        .resize(180, 180)
+                        .transform(CropCircleTransformation())
+                        .into(navViewManager.getHeaderView(0).logoTeamA, object : Callback {
+                            override fun onSuccess() {
+                                // Drawable is ready
+                                uploadImageView(app,navViewManager.getHeaderView(0).logoTeamA)
+                            }
+                            override fun onError(e: Exception) {}
+                        })
+                }
+            }
+        }
+    }
+
+     */
+
 }

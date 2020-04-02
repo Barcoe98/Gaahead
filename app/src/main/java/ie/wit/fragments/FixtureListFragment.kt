@@ -10,15 +10,16 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import ie.wit.R
 import ie.wit.adapters.FixtureAdapter
 import ie.wit.adapters.FixtureListener
-import ie.wit.helpers.createLoader
-import ie.wit.helpers.hideLoader
-import ie.wit.helpers.showLoader
+import ie.wit.utils.createLoader
+import ie.wit.utils.hideLoader
+import ie.wit.utils.showLoader
 import ie.wit.main.MainApp
 import ie.wit.models.FixtureModel
 import ie.wit.utils.SwipeToDeleteCallback
@@ -77,7 +78,7 @@ open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
                 arguments = Bundle().apply { }
             }
     }
-
+/*
     private fun setSwipeRefresh() {
         root.swiperefresh.setOnRefreshListener {
             root.swiperefresh.isRefreshing = true
@@ -85,8 +86,34 @@ open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
         }
     }
 
+ */
+
+    open fun setSwipeRefresh() {
+        root.swiperefresh.setOnRefreshListener(object : SwipeRefreshLayout.OnRefreshListener {
+            override fun onRefresh() {
+                root.swiperefresh.isRefreshing = true
+                getAllFixtures(app.auth.currentUser!!.uid)
+            }
+        })
+    }
+
+
     fun checkSwipeRefresh() {
         if (root.swiperefresh.isRefreshing) root.swiperefresh.isRefreshing = false
+    }
+
+
+    fun deleteFixture(uid: String?) {
+        app.database.child("fixtures").child(uid!!)
+            .addListenerForSingleValueEvent(
+                object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        snapshot.ref.removeValue()
+                    }
+                    override fun onCancelled(error: DatabaseError) {
+                        info("Firebase Fixture error : ${error.message}")
+                    }
+                })
     }
 
     fun deleteUserFixture(userId: String, uid: String?) {
@@ -102,18 +129,7 @@ open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
                 })
     }
 
-    fun deleteFixture(uid: String?) {
-        app.database.child("fixtures").child(uid!!)
-            .addListenerForSingleValueEvent(
-                object : ValueEventListener {
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        snapshot.ref.removeValue()
-                    }
-                    override fun onCancelled(error: DatabaseError) {
-                        info("Firebase Fixture error : ${error.message}")
-                    }
-                })
-    }
+
 
     override fun onFixtureClick(fixture: FixtureModel) {
         activity!!.supportFragmentManager.beginTransaction()

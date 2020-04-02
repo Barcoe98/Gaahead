@@ -4,10 +4,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
+import com.squareup.picasso.Picasso
 import ie.wit.R
 import ie.wit.models.FixtureModel
+import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import kotlinx.android.synthetic.main.card_fixture.view.*
 import kotlinx.android.synthetic.main.fragment_fixture.view.*
 import kotlinx.android.synthetic.main.login.*
@@ -56,12 +59,24 @@ class FixtureAdapter constructor(var fixtures: ArrayList<FixtureModel>, private 
 
             if(!fixtureAll)
                 itemView.setOnClickListener { listener.onFixtureClick(fixture) }
+
+            if(!fixture.logoA.isEmpty()) {
+                Picasso.get().load(fixture.logoA.toUri())
+                    //.resize(180, 180)
+                    .transform(CropCircleTransformation())
+                    .into(itemView.fTeamALogo)
+            }
+
+            else if(!fixture.logoB.isEmpty()) {
+                Picasso.get().load(fixture.logoB.toUri())
+                    //.resize(180, 180)
+                    .transform(CropCircleTransformation())
+                    .into(itemView.fTeamBLogo)
+
+            }
             else
-                //itemView.logoTeamA.setImageResource(R.mipmap.ic_app_icon_round)
-                itemView.setOnClickListener { listener.onFixtureClick(fixture)}
-                //itemView.logoTeamB.setImageResource(R.mipmap.ic_app_icon_round)
-
-
+                itemView.fTeamALogo.setImageResource(R.mipmap.ic_app_icon_round)
+                itemView.fTeamBLogo.setImageResource(R.mipmap.ic_app_icon_round)
+        }
         }
     }
-}

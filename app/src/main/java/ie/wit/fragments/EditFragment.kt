@@ -10,11 +10,11 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import ie.wit.R
-import ie.wit.helpers.createLoader
-import ie.wit.helpers.hideLoader
-import ie.wit.helpers.showLoader
 import ie.wit.main.MainApp
 import ie.wit.models.FixtureModel
+import ie.wit.utils.createLoader
+import ie.wit.utils.hideLoader
+import ie.wit.utils.showLoader
 import kotlinx.android.synthetic.main.fragment_edit_fixture.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info

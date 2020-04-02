@@ -18,12 +18,14 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
 import ie.wit.R
-import ie.wit.helpers.createLoader
-import ie.wit.helpers.hideLoader
-import ie.wit.helpers.showLoader
 import ie.wit.main.MainApp
+import ie.wit.utils.createLoader
+import ie.wit.utils.hideLoader
+import ie.wit.utils.showLoader
 import kotlinx.android.synthetic.main.login.*
+import kotlinx.android.synthetic.main.supporter_home.*
 import org.jetbrains.anko.startActivity
 
 class Login : AppCompatActivity(), View.OnClickListener {
@@ -186,6 +188,7 @@ class Login : AppCompatActivity(), View.OnClickListener {
         return valid
     }
 
+
     private fun updateUI(user: FirebaseUser?) {
         hideLoader(loader)
         if (user != null) {
@@ -199,6 +202,8 @@ class Login : AppCompatActivity(), View.OnClickListener {
 
             verifyEmailButton.isEnabled = !user.isEmailVerified
             app.database = FirebaseDatabase.getInstance().reference
+            app.storage = FirebaseStorage.getInstance().reference
+
             startActivity<Home>()
         } else {
             status.setText(R.string.signed_out)
