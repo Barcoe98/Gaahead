@@ -1,4 +1,4 @@
-package ie.wit.fragments
+package ie.wit.fragments.FixtureFragments
 
 
 import android.os.Bundle
@@ -27,7 +27,7 @@ class FixtureAllFragment : FixtureListFragment(), FixtureListener {
     ): View? {
         // Inflate the layout for this fragment
         root = inflater.inflate(R.layout.fragment_fixture_list, container, false)
-        activity?.title = getString(R.string.menu_report_all)
+        activity?.title = getString(R.string.menu_fixture_all)
 
         root.fRecyclerView.layoutManager = LinearLayoutManager(activity)
         setSwipeRefresh()

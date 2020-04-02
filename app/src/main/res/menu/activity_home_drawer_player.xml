@@ -4,48 +4,54 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-
         <item
-            android:id="@+id/nav_info"
-            android:icon="@drawable/ic_menu_overview"
-            android:title="@string/menu_info" />
-
+            android:id="@+id/nav_my_info"
+            android:icon="@drawable/ic_menu_my_info"
+            android:title="@string/menu_my_info" />
+        <item
+            android:id="@+id/nav_players"
+            android:icon="@drawable/ic_menu_player"
+            android:title="@string/menu_players" />
+        <item
+            android:id="@+id/nav_timer"
+            android:icon="@drawable/ic_menu_timer"
+            android:title="@string/menu_timer" />
+        <item
+            android:id="@+id/nav_training"
+            android:icon="@drawable/ic_menu_training"
+            android:title="@string/menu_training" />
 
     </group>
-    <item android:title="@string/management_subtitle">
-        <menu>
-            <item
-                android:id="@+id/nav_team"
-                android:icon="@drawable/ic_menu_team"
-                android:title="@string/menu_team" />
-            <item
-                android:id="@+id/nav_players"
-                android:icon="@drawable/ic_menu_player"
-                android:title="@string/menu_players" />
 
 
-        </menu>
-    </item>
     <item android:title="@string/fixture_result_subtitle">
         <menu>
             <item
-                android:id="@+id/nav_fixture"
-                android:icon="@drawable/ic_menu_add"
-                android:title="@string/menu_fixture" />
-            <item
                 android:id="@+id/nav_fixture_list"
-                android:icon="@drawable/ic_menu_result"
+                android:icon="@drawable/ic_menu_fixture_list"
                 android:title="@string/menu_fixture_list" />
             <item
+                android:id="@+id/nav_fixture_all"
+                android:icon="@drawable/ic_menu_fixtures_all"
+                android:title="@string/menu_fixtures_all" />
+            <item
                 android:id="@+id/nav_result_list"
-                android:icon="@drawable/ic_menu_result"
+                android:icon="@drawable/ic_menu_result_list"
                 android:title="@string/menu_result_list" />
+            <item
+                android:id="@+id/nav_results_all"
+                android:icon="@drawable/ic_menu_results_all"
+                android:title="@string/menu_results_all" />
 
         </menu>
     </item>
 
     <item android:title="Access Control">
         <menu>
+            <item
+                android:id="@+id/nav_info"
+                android:icon="@drawable/ic_menu_overview"
+                android:title="@string/menu_info" />
             <item
                 android:id="@+id/nav_sign_out"
                 android:icon="@android:drawable/ic_menu_revert"

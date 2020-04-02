@@ -1,4 +1,4 @@
-package ie.wit.fragments
+package ie.wit.fragments.FixtureFragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -47,7 +47,7 @@ class EditFragment : Fragment(), AnkoLogger {
         root.editTeamAName.setText(editFixture!!.teamAName)
         root.editTeamBName.setText(editFixture!!.teamBName)
         root.editDate.setText(editFixture!!.date)
-        root.editTime.setText(editFixture!!.time.toString())
+        root.editTime.setText(editFixture!!.time)
         root.editLocation.setText(editFixture!!.location)
 
         root.editFixtureBtn.setOnClickListener {
@@ -87,7 +87,9 @@ class EditFragment : Fragment(), AnkoLogger {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         snapshot.ref.setValue(fixture)
                         activity!!.supportFragmentManager.beginTransaction()
-                        .replace(R.id.homeFrame, FixtureListFragment.newInstance())
+                        .replace(R.id.homeFrame,
+                            FixtureListFragment.newInstance()
+                        )
                         .addToBackStack(null)
                         .commit()
                         hideLoader(loader)

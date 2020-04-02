@@ -3,7 +3,6 @@ package ie.wit.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
@@ -13,7 +12,9 @@ import com.google.android.material.navigation.NavigationView
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import ie.wit.R
-import ie.wit.fragments.*
+import ie.wit.fragments.FixtureFragments.FixtureAllFragment
+import ie.wit.fragments.FixtureFragments.FixtureFragment
+import ie.wit.fragments.FixtureFragments.FixtureListFragment
 import ie.wit.main.MainApp
 import ie.wit.utils.readImageUri
 import ie.wit.utils.showImagePicker
@@ -24,7 +25,6 @@ import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.manager_home.*
 import kotlinx.android.synthetic.main.manager_home.drawerLayout
 import kotlinx.android.synthetic.main.nav_header_home.view.*
-import kotlinx.android.synthetic.main.supporter_home.*
 import org.jetbrains.anko.startActivity
 
 import org.jetbrains.anko.toast
@@ -33,6 +33,8 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
 
     lateinit var ft: FragmentTransaction
     lateinit var app: MainApp
+    val IMAGE_REQUEST = 1
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,9 +53,7 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
 
         navViewManager.getHeaderView(0).nav_header_email.text = app.auth.currentUser?.email
         navViewManager.getHeaderView(0).nav_header_name.text = app.auth.currentUser?.displayName
-
-        navViewManager.getHeaderView(0).imageView
-            .setOnClickListener { showImagePicker(this,1) }
+        navViewManager.getHeaderView(0).imageView.setOnClickListener { showImagePicker(this,IMAGE_REQUEST) }
 
         ft = supportFragmentManager.beginTransaction()
         val fragment =  FixtureListFragment.newInstance()
@@ -70,14 +70,17 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-           // R.id.nav_info -> navigateTo(InfoFragment.newInstance())
+            // R.id.nav_team_info -> navigateTo(TeamInfoFragment.newInstance())
+            // R.id.nav_team -> navigateTo(TeamFragment.newInstance())
             //R.id.nav_players -> navigateTo(PlayerListFragment.newInstance())
-           // R.id.nav_team -> navigateTo(TeamFragment.newInstance())
+            R.id.nav_add_fixture -> navigateTo(FixtureFragment.newInstance())
             R.id.nav_fixture_list -> navigateTo(FixtureListFragment.newInstance())
-            R.id.nav_fixture -> navigateTo(FixtureFragment.newInstance())
-            //R.id.nav_result_list -> navigateTo(ResultListFragment.newInstance())
-            R.id.nav_sign_out -> signOut()
             R.id.nav_fixture_all -> navigateTo(FixtureAllFragment.newInstance())
+            //R.id.nav_add_result -> navigateTo(ResultFragment.newInstance())
+            //R.id.nav_result_list -> navigateTo(ResultListFragment.newInstance())
+            //R.id.nav_result_all -> navigateTo(ResultAllFragment.newInstance())
+            // R.id.nav_info -> navigateTo(InfoFragment.newInstance())
+            R.id.nav_sign_out -> signOut()
 
             else -> toast("You Selected Something Else")
         }
@@ -85,6 +88,7 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
         return true
     }
 
+    /*
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.item_addFixture -> {
@@ -105,6 +109,8 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
+     */
+
 
     override fun onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START))
@@ -122,7 +128,7 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
-            1 -> {
+            IMAGE_REQUEST -> {
                 if (data != null) {
                     writeImageRef(app, readImageUri(resultCode, data).toString())
                     Picasso.get().load(readImageUri(resultCode, data).toString())

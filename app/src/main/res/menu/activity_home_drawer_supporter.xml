@@ -4,6 +4,30 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_fixtures"
+            android:icon="@drawable/ic_menu_fixtures_all"
+            android:title="@string/menu_fixtures" />
+
+        <item
+            android:id="@+id/nav_results"
+            android:icon="@drawable/ic_menu_results_all"
+            android:title="@string/menu_results" />
+
+        <item
+            android:id="@+id/nav_tables"
+            android:icon="@drawable/ic_menu_fixtures_all"
+            android:title="@string/menu_tables" />
+
+        <item
+            android:id="@+id/nav_teams"
+            android:icon="@drawable/ic_menu_team"
+            android:title="@string/menu_teams" />
+
+        <item
+            android:id="@+id/nav_players"
+            android:icon="@drawable/ic_menu_player"
+            android:title="@string/menu_players" />
 
         <item
             android:id="@+id/nav_info"
@@ -11,18 +35,4 @@
             android:title="@string/menu_info" />
 
     </group>
-
-    <item android:title="@string/fixture_result_subtitle">
-        <menu>
-            <item
-                android:id="@+id/nav_fixture_list"
-                android:icon="@drawable/ic_menu_result"
-                android:title="@string/menu_fixture_list" />
-            <item
-                android:id="@+id/nav_result_list"
-                android:icon="@drawable/ic_menu_result"
-                android:title="@string/menu_result_list" />
-
-        </menu>
-    </item>
 </menu>

@@ -1,5 +1,5 @@
 
-package ie.wit.fragments
+package ie.wit.fragments.FixtureFragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

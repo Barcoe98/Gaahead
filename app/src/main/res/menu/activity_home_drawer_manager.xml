@@ -5,15 +5,12 @@
 
     <group android:checkableBehavior="single">
 
-        <item
-            android:id="@+id/nav_info"
-            android:icon="@drawable/ic_menu_overview"
-            android:title="@string/menu_info" />
-
-
-    </group>
     <item android:title="@string/management_subtitle">
     <menu>
+        <item
+            android:id="@+id/nav_team_info"
+            android:icon="@drawable/ic_menu_my_info"
+            android:title="@string/menu_team_info" />
         <item
             android:id="@+id/nav_team"
             android:icon="@drawable/ic_menu_team"
@@ -26,28 +23,38 @@
 
     </menu>
 </item>
-    <item android:title="@string/fixture_result_subtitle">
+
+    <item android:title="@string/fixture_subtitle">
         <menu>
             <item
-                android:id="@+id/nav_fixture"
+                android:id="@+id/nav_add_fixture"
                 android:icon="@drawable/ic_menu_add"
                 android:title="@string/menu_fixture" />
             <item
                 android:id="@+id/nav_fixture_list"
-                android:icon="@drawable/ic_menu_result"
+                android:icon="@drawable/ic_menu_fixture_list"
                 android:title="@string/menu_fixture_list" />
             <item
                 android:id="@+id/nav_fixture_all"
                 android:icon="@drawable/ic_menu_fixtures_all"
-                android:title="@string/menu_report_all" />
+                android:title="@string/menu_fixture_all" />
+        </menu>
+    </item>
+
+    <item android:title="@string/result_subtitle">
+        <menu>
             <item
-                android:id="@+id/nav_result"
+                android:id="@+id/nav_add_result"
                 android:icon="@drawable/ic_menu_add"
-                android:title="@string/menu_result" />
+                android:title="@string/menu_add_result" />
             <item
                 android:id="@+id/nav_result_list"
-                android:icon="@drawable/ic_menu_result"
+                android:icon="@drawable/ic_menu_fixture_list"
                 android:title="@string/menu_result_list" />
+            <item
+                android:id="@+id/nav_results_all"
+                android:icon="@drawable/ic_menu_fixtures_all"
+                android:title="@string/menu_result_all" />
 
         </menu>
     </item>
@@ -59,12 +66,13 @@
                 android:icon="@android:drawable/ic_menu_revert"
                 android:title="@string/sign_out" />
             <item
-                android:id="@+id/nav_rate"
-                android:icon="@android:drawable/ic_menu_add"
-                android:title="@string/rate_app" />
+                android:id="@+id/nav_info"
+                android:icon="@drawable/ic_menu_overview"
+                android:title="@string/menu_info" />
+
 
         </menu>
     </item>
 
-
+    </group>
 </menu>

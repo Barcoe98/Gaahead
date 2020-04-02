@@ -10,7 +10,7 @@
     <string name="title_activity_home">Home</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Blacks and Whites</string>
+    <string name="nav_header_email">barcoe98@gmail.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
@@ -20,6 +20,19 @@
     <string name="menu_players">Players</string>
     <string name="menu_team">Team</string>
     <string name="menu_about">About Us</string>
+    <string name="menu_fixture_all">All Fixtures</string>
+
+    <string name="menu_fixtures_all">All Fixtures</string>
+    <string name="menu_results_all">All Results</string>
+
+
+    <string name="menu_fixtures"> Fixtures</string>
+    <string name="menu_results"> Results</string>
+    <string name="menu_teams"> Results</string>
+    <string name="menu_tables"> Tables</string>
+    <string name="menu_my_info">My Information</string>
+    <string name="menu_timer">Timer</string>
+    <string name="menu_training">Training</string>
 
     //Nav Drawer Titles
     <string name="result_title">Results</string>
@@ -134,15 +147,23 @@
     <string name="action_edit">Edit Donation</string>
     <string name="menu_result">Add Result</string>
     <string name="rate_app">Rate App</string>
-    <string name="nav_header_sub_title">GAAhead</string>
     <string name="skip_sign_in">Skip Sign In</string>
     <string name="skip_sign_in_text">Supporter ??</string>
-    <string name="menu_report_all">All Fixtures</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="select_profile_image">Select Profile Picture</string>
+    <string name="result_subtitle">Results</string>
+    <string name="fixture_subtitle">Fixtures</string>
+    <string name="menu_team_info">Team Information</string>
+    <string name="menu_add_result">Add Result</string>
+    <string name="menu_result_all">All Results</string>
+    <string name="nav_header_name">Michael Barcoe</string>
+
 
     <!--END Firebase Resources-->
+
+    //SUPPORTER NAV MENU
+
 
 </resources>

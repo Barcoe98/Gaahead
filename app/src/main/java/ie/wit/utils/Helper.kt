@@ -6,7 +6,6 @@ import android.graphics.Bitmap
 import android.graphics.drawable.AdaptiveIconDrawable
 import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
-import android.provider.MediaStore
 import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
@@ -22,7 +21,6 @@ import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import ie.wit.R
-import ie.wit.fragments.FixtureFragment
 import ie.wit.main.MainApp
 import ie.wit.models.UserPhotoModel
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
@@ -198,7 +196,7 @@ fun validatePhoto(app: MainApp, activity: Activity) {
                 .nav_header_name.text = app.auth.currentUser?.displayName
         else
             activity.navViewManager.getHeaderView(0)
-                .nav_header_name.text = activity.getText(R.string.nav_header_title)
+                .nav_header_name.text = activity.getText(R.string.nav_header_email)
 
         Picasso.get().load(imageUri)
             .resize(180, 180)

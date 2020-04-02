@@ -1,4 +1,4 @@
-package ie.wit.fragments
+package ie.wit.fragments.FixtureFragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,18 +8,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import com.google.firebase.database.ValueEventListener
-import com.squareup.picasso.Callback
-import com.squareup.picasso.Picasso
 import ie.wit.R
 import ie.wit.main.MainApp
 import ie.wit.models.FixtureModel
 import ie.wit.utils.*
-import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import kotlinx.android.synthetic.main.fragment_fixture.*
 import kotlinx.android.synthetic.main.fragment_fixture.view.*
-import kotlinx.android.synthetic.main.manager_home.*
-import kotlinx.android.synthetic.main.nav_header_home.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import java.util.HashMap
