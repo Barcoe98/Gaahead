@@ -133,7 +133,7 @@ open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
 
     override fun onFixtureClick(fixture: FixtureModel) {
         activity!!.supportFragmentManager.beginTransaction()
-            .replace(R.id.homeFrame, EditFragment.newInstance(fixture))
+            .replace(R.id.homeFrame, EditFixtureFragment.newInstance(fixture))
             .addToBackStack(null)
             .commit()
     }

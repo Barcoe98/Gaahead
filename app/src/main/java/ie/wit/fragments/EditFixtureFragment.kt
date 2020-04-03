@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_edit_fixture.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 
-class EditFragment : Fragment(), AnkoLogger {
+class EditFixtureFragment : Fragment(), AnkoLogger {
 
     lateinit var app: MainApp
     lateinit var loader : AlertDialog
@@ -64,7 +64,7 @@ class EditFragment : Fragment(), AnkoLogger {
     companion object {
         @JvmStatic
         fun newInstance(fixture: FixtureModel) =
-            EditFragment().apply {
+            EditFixtureFragment().apply {
                 arguments = Bundle().apply {
                     putParcelable("editfixture",fixture)
                 }
