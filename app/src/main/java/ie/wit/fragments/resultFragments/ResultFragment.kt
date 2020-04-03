@@ -1,6 +1,5 @@
-package ie.wit.fragments.FixtureFragments
+package ie.wit.fragments.resultFragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,15 +9,21 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import ie.wit.R
 import ie.wit.main.MainApp
-import ie.wit.models.FixtureModel
+import ie.wit.models.ResultModel
 import ie.wit.utils.*
-import kotlinx.android.synthetic.main.fragment_fixture.*
-import kotlinx.android.synthetic.main.fragment_fixture.view.*
+import kotlinx.android.synthetic.main.fragment_result.*
+import kotlinx.android.synthetic.main.fragment_result.teamAName
+import kotlinx.android.synthetic.main.fragment_result.teamBName
+import kotlinx.android.synthetic.main.fragment_result.view.*
+import kotlinx.android.synthetic.main.fragment_result.view.logoABtn
+import kotlinx.android.synthetic.main.fragment_result.view.logoBBtn
+import kotlinx.android.synthetic.main.fragment_result.view.teamAName
+import kotlinx.android.synthetic.main.fragment_result.view.teamBName
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import java.util.HashMap
 
-open class FixtureFragment : Fragment(), AnkoLogger {
+open class ResultFragment : Fragment(), AnkoLogger {
 
     lateinit var app: MainApp
     //private val imageRequest = 1
@@ -37,7 +42,7 @@ open class FixtureFragment : Fragment(), AnkoLogger {
         savedInstanceState: Bundle?
     ): View? {
 
-        val root = inflater.inflate(R.layout.fragment_fixture, container, false)
+        val root = inflater.inflate(R.layout.fragment_result, container, false)
         loader = createLoader(activity!!)
         activity?.title = getString(R.string.fixture_title)
 
@@ -51,7 +56,7 @@ open class FixtureFragment : Fragment(), AnkoLogger {
     companion object {
         @JvmStatic
         fun newInstance() =
-            FixtureFragment().apply {
+            ResultFragment().apply {
                 arguments = Bundle().apply {}
             }
     }
@@ -70,13 +75,14 @@ open class FixtureFragment : Fragment(), AnkoLogger {
 
 
     private fun setButtonListener(layout: View) {
-        layout.addFixtureBtn.setOnClickListener {
+        layout.addResultBtn.setOnClickListener {
 
             val teamAName = teamAName.text.toString()
+            val teamAScore = teamAScore.text.toString()
             val teamBName = teamBName.text.toString()
+            val teamBScore = teamBScore.text.toString()
             val date = date.text.toString()
-            val time = time.text.toString()
-            val location = location.text.toString()
+            val competition = competition.text.toString()
 
             when {
                 layout.teamAName.text.isEmpty() -> Toast.makeText(
@@ -89,37 +95,44 @@ open class FixtureFragment : Fragment(), AnkoLogger {
                     R.string.error_teamBName,
                     Toast.LENGTH_LONG
                 ).show()
-                layout.date.text.isEmpty() -> Toast.makeText(
+                layout.teamBScore.text.isEmpty() -> Toast.makeText(
                     app,
                     R.string.error_date,
                     Toast.LENGTH_LONG
                 ).show()
-                layout.time.text.isEmpty() -> Toast.makeText(
+                layout.teamAScore.text.isEmpty() -> Toast.makeText(
                     app,
                     R.string.error_time,
                     Toast.LENGTH_LONG
                 ).show()
-                layout.location.text.isEmpty() -> Toast.makeText(
+                layout.date.text.isEmpty() -> Toast.makeText(
                     app,
-                    R.string.error_location,
+                    R.string.error_time,
                     Toast.LENGTH_LONG
                 ).show()
-                else -> writeNewFixture(
-                    FixtureModel(
+                layout.competition.text.isEmpty() -> Toast.makeText(
+                    app,
+                    R.string.error_competition,
+                    Toast.LENGTH_LONG
+                ).show()
+                else -> writeNewResult(
+                    ResultModel(
                         teamAName = teamAName,
+                        teamAScore = teamAScore,
                         teamBName = teamBName,
-                        time = time,
+                        teamBScore = teamBScore,
                         date = date,
-                        location = location,
+                        competition = competition,
                         email = app.auth.currentUser?.email
                     )
                 )
             }
             layout.teamAName.setText("")
             layout.teamBName.setText("")
-            layout.location.setText("")
+            layout.teamAScore.setText("")
+            layout.teamBScore.setText("")
             layout.date.setText("")
-            layout.time.setText("")
+            layout.competition.setText("")
 
         }
     }
@@ -127,48 +140,49 @@ open class FixtureFragment : Fragment(), AnkoLogger {
 
     override fun onPause() {
         super.onPause()
-        app.database.child("user-fixtures")
+        app.database.child("user-results")
             .child(app.auth.currentUser!!.uid)
             //.removeEventListener(eventListener)
     }
 
-    fun writeNewFixture(fixture: FixtureModel) {
+    fun writeNewResult(result: ResultModel) {
 
-        // Create new fixture at /fixtures & /fixtures/$uid
-        showLoader(loader, "Adding fixture to Firebase")
+        // Create new result at /results & /results/$uid
+        showLoader(loader, "Adding result to Firebase")
         info("Firebase DB Reference : $app.database")
         val uid = app.auth.currentUser!!.uid
-        val key = app.database.child("fixtures").push().key
+        val key = app.database.child("results").push().key
         if (key == null) {
             info("Firebase Error : Key Empty")
             return
         }
-        fixture.uid = key
-        val fixtureValues = fixture.toMap()
+        result.uid = key
+        val resultValues = result.toMap()
 
         val childUpdates = HashMap<String, Any>()
-        childUpdates["/fixtures/$key"] = fixtureValues
-        childUpdates["/user-fixtures/$uid/$key"] = fixtureValues
+        childUpdates["/results/$key"] = resultValues
+        childUpdates["/user-results/$uid/$key"] = resultValues
 
         app.database.updateChildren(childUpdates)
         hideLoader(loader)
     }
 
-
+/*
      fun onResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
             IMAGE_REQUEST -> {
                 if (data != null) {
                     //fixture.logoTeamA
-                    uploadImageView(app,logoTeamA)
-                    uploadImageView(app,logoTeamB)
+                    uploadImageView(app,`@+id/TeamALogo`)
+                    uploadImageView(app,`@+id/TeamBLogo`)
                    // logoTeamA.setImageBitmap(readImage(this, resultCode, data))
                 }
             }
         }
     }
 
+ */
 
     /*
 

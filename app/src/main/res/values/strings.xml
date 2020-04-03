@@ -159,6 +159,8 @@
     <string name="menu_add_result">Add Result</string>
     <string name="menu_result_all">All Results</string>
     <string name="nav_header_name">Michael Barcoe</string>
+    <string name="hint_competition">Please enter the name of the competition</string>
+    <string name="error_competition">Please Enter a Competition</string>
 
 
     <!--END Firebase Resources-->

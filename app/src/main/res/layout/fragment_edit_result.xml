@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background = "@drawable/rectangle1"
+    tools:context=".activities.ResultActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/editTeamALogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                app:srcCompat="@mipmap/ic_launcher" />
+
+            <ImageView
+                android:id="@+id/editTeamBLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                app:srcCompat="@mipmap/ic_launcher" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/editLogoABtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/btn_addTeamALogo" />
+
+            <Button
+                android:id="@+id/editLogoBBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/btn_addTeamBLogo" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/editTeamAName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/hint_teamA"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/ediitTeamBName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/hint_teamB"
+                android:inputType="textPersonName" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/editTeamAScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/hint_teamBScore"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editTeamBScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/hint_teamBScore"
+                android:inputType="textPersonName" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editCompetition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:autofillHints="@string/hint_type"
+            android:ems="10"
+            android:hint="@string/hint_type"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/editResultBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/btn_addResult" />
+
+    </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

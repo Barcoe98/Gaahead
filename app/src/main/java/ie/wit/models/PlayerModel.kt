@@ -10,3 +10,5 @@ data class PlayerModel(var playerId: Long = 0,
                        var playerHeight: String = "",
                        var playerWeight: String = "",
                        var playerPosition: String = "") : Parcelable
+
+
