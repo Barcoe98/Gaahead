@@ -1,5 +1,4 @@
-
-package ie.wit.fragments.fixtureFragments
+package ie.wit.fragments.playerFragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,21 +14,21 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import ie.wit.R
-import ie.wit.adapters.FixtureAdapter
-import ie.wit.adapters.FixtureListener
+import ie.wit.adapters.PlayerAdapter
+import ie.wit.adapters.PlayerListener
 import ie.wit.utils.createLoader
 import ie.wit.utils.hideLoader
 import ie.wit.utils.showLoader
 import ie.wit.main.MainApp
-import ie.wit.models.FixtureModel
+import ie.wit.models.PlayerModel
 import ie.wit.utils.SwipeToDeleteCallback
 import ie.wit.utils.SwipeToEditCallback
-import kotlinx.android.synthetic.main.fragment_fixture_list.view.*
+import kotlinx.android.synthetic.main.fragment_player_list.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 
 
-open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
+open class PlayerListFragment : Fragment(), AnkoLogger, PlayerListener {
 
     lateinit var app: MainApp
     lateinit var loader: AlertDialog
@@ -40,137 +39,134 @@ open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
         app = activity?.application as MainApp
     }
 
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         // Inflate the layout for this fragment
-        root = inflater.inflate(R.layout.fragment_fixture_list, container, false)
-        activity?.title = getString(R.string.fixture_title)
+        root = inflater.inflate(R.layout.fragment_player_list, container, false)
+        activity?.title = getString(R.string.result_title)
 
-        root.fRecyclerView.layoutManager = LinearLayoutManager(activity)
+        root.pRecyclerView.layoutManager = LinearLayoutManager(activity)
         setSwipeRefresh()
 
         val swipeDeleteHandler = object : SwipeToDeleteCallback(activity!!) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val adapter = root.fRecyclerView.adapter as FixtureAdapter
+                val adapter = root.pRecyclerView.adapter as PlayerAdapter
                 adapter.removeAt(viewHolder.adapterPosition)
-                deleteFixture((viewHolder.itemView.tag as FixtureModel).uid)
-                deleteUserFixture(app.auth.currentUser!!.uid, (viewHolder.itemView.tag as FixtureModel).uid)
+                deletePlayer((viewHolder.itemView.tag as PlayerModel).uid)
+                deleteUserPlayer(app.auth.currentUser!!.uid, (viewHolder.itemView.tag as PlayerModel).uid)
             }
         }
         val itemTouchDeleteHelper = ItemTouchHelper(swipeDeleteHandler)
-        itemTouchDeleteHelper.attachToRecyclerView(root.fRecyclerView)
+        itemTouchDeleteHelper.attachToRecyclerView(root.pRecyclerView)
 
         val swipeEditHandler = object : SwipeToEditCallback(activity!!) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                onFixtureClick(viewHolder.itemView.tag as FixtureModel)
+                onPlayerClick(viewHolder.itemView.tag as PlayerModel)
             }
         }
         val itemTouchEditHelper = ItemTouchHelper(swipeEditHandler)
-        itemTouchEditHelper.attachToRecyclerView(root.fRecyclerView)
+        itemTouchEditHelper.attachToRecyclerView(root.pRecyclerView)
 
         return root
     }
 
+
     companion object {
         @JvmStatic
         fun newInstance() =
-            FixtureListFragment().apply {
+            PlayerListFragment().apply {
                 arguments = Bundle().apply { }
             }
     }
-/*
-    private fun setSwipeRefresh() {
-        root.swiperefresh.setOnRefreshListener {
-            root.swiperefresh.isRefreshing = true
-            getAllFixtures(app.auth.currentUser!!.uid)
-        }
-    }
 
- */
 
     open fun setSwipeRefresh() {
-        root.fixtureSwipeRefresh.setOnRefreshListener(object : SwipeRefreshLayout.OnRefreshListener {
+        root.playerSwipeRefresh.setOnRefreshListener(object : SwipeRefreshLayout.OnRefreshListener {
             override fun onRefresh() {
-                root.fixtureSwipeRefresh.isRefreshing = true
-                getAllFixtures(app.auth.currentUser!!.uid)
+                root.playerSwipeRefresh.isRefreshing = true
+                getAllPlayers(app.auth.currentUser!!.uid)
             }
         })
     }
 
 
     fun checkSwipeRefresh() {
-        if (root.fixtureSwipeRefresh.isRefreshing) root.fixtureSwipeRefresh.isRefreshing = false
+        if (root.playerSwipeRefresh.isRefreshing) root.playerSwipeRefresh.isRefreshing = false
     }
 
 
-    fun deleteFixture(uid: String?) {
-        app.database.child("fixtures").child(uid!!)
+    fun deletePlayer(uid: String?) {
+        app.database.child("players").child(uid!!)
             .addListenerForSingleValueEvent(
                 object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         snapshot.ref.removeValue()
                     }
                     override fun onCancelled(error: DatabaseError) {
-                        info("Firebase Fixture error : ${error.message}")
+                        info("Firebase Player error : ${error.message}")
                     }
                 })
     }
 
-    fun deleteUserFixture(userId: String, uid: String?) {
-        app.database.child("user-fixtures").child(userId).child(uid!!)
+
+    fun deleteUserPlayer(userId: String, uid: String?) {
+        app.database.child("user-players").child(userId).child(uid!!)
             .addListenerForSingleValueEvent(
                 object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         snapshot.ref.removeValue()
                     }
                     override fun onCancelled(error: DatabaseError) {
-                        info("Firebase Fixture error : ${error.message}")
+                        info("Firebase Player error : ${error.message}")
                     }
                 })
     }
 
 
 
-    override fun onFixtureClick(fixture: FixtureModel) {
+    override fun onPlayerClick(player: PlayerModel) {
         activity!!.supportFragmentManager.beginTransaction()
-            .replace(R.id.homeFrame, EditFragment.newInstance(fixture))
+            .replace(R.id.homeFrame, EditPlayerFragment.newInstance(player))
             .addToBackStack(null)
             .commit()
     }
 
-    fun getAllFixtures(userId: String?) {
+
+    fun getAllPlayers(userId: String?) {
         loader = createLoader(activity!!)
-        showLoader(loader, "Downloading Fixtures from Firebase")
-        val fixturesList = ArrayList<FixtureModel>()
-        app.database.child("user-fixtures").child(userId!!)
+        showLoader(loader, "Downloading Players from Firebase")
+        val playersList = ArrayList<PlayerModel>()
+        app.database.child("user-players").child(userId!!)
             .addValueEventListener(object : ValueEventListener {
                 override fun onCancelled(error: DatabaseError) {
-                    info("Firebase Fixture error : ${error.message}")
+                    info("Firebase Player error : ${error.message}")
                 }
 
                 override fun onDataChange(snapshot: DataSnapshot) {
                     hideLoader(loader)
                     val children = snapshot.children
                     children.forEach {
-                        val fixture = it.getValue<FixtureModel>(FixtureModel::class.java)
+                        val player = it.getValue<PlayerModel>(PlayerModel::class.java)
 
-                        fixturesList.add(fixture!!)
-                        root.fRecyclerView.adapter =
-                            FixtureAdapter(fixturesList, this@FixtureListFragment, false)
-                        root.fRecyclerView.adapter?.notifyDataSetChanged()
+                        playersList.add(player!!)
+                        root.pRecyclerView.adapter =
+                            PlayerAdapter(playersList, this@PlayerListFragment, false)
+                        root.pRecyclerView.adapter?.notifyDataSetChanged()
                         checkSwipeRefresh()
 
-                        app.database.child("user-fixtures").child(userId)
+                        app.database.child("user-players").child(userId)
                             .removeEventListener(this)
                     }
                 }
             })
     }
 
+
     override fun onResume() {
         super.onResume()
-        if(this::class == FixtureListFragment::class)
-        getAllFixtures(app.auth.currentUser!!.uid)
+        if(this::class == PlayerListFragment::class)
+        getAllPlayers(app.auth.currentUser!!.uid)
     }
 
 }

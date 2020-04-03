@@ -15,11 +15,6 @@
             android:id="@+id/nav_team"
             android:icon="@drawable/ic_menu_team"
             android:title="@string/menu_team" />
-        <item
-            android:id="@+id/nav_players"
-            android:icon="@drawable/ic_menu_player"
-            android:title="@string/menu_players" />
-
 
     </menu>
 </item>
@@ -58,6 +53,24 @@
 
         </menu>
     </item>
+
+        <item android:title="@string/player_subtitle">
+            <menu>
+                <item
+                    android:id="@+id/nav_add_player"
+                    android:icon="@drawable/ic_menu_add"
+                    android:title="@string/menu_add_player" />
+                <item
+                    android:id="@+id/nav_player_list"
+                    android:icon="@drawable/ic_menu_fixture_list"
+                    android:title="@string/menu_player_list" />
+                <item
+                    android:id="@+id/nav_player_all"
+                    android:icon="@drawable/ic_menu_fixtures_all"
+                    android:title="@string/menu_player_all" />
+
+            </menu>
+        </item>
 
     <item android:title="Access Control">
         <menu>

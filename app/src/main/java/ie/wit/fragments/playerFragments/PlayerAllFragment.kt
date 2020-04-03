@@ -1,4 +1,4 @@
-package ie.wit.fragments.fixtureFragments
+package ie.wit.fragments.playerFragments
 
 
 import android.os.Bundle
@@ -10,26 +10,26 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import ie.wit.R
-import ie.wit.adapters.FixtureAdapter
-import ie.wit.adapters.FixtureListener
-import ie.wit.models.FixtureModel
+import ie.wit.adapters.PlayerAdapter
+import ie.wit.adapters.PlayerListener
+import ie.wit.models.PlayerModel
 import ie.wit.utils.createLoader
 import ie.wit.utils.hideLoader
 import ie.wit.utils.showLoader
-import kotlinx.android.synthetic.main.fragment_fixture_list.view.*
+import kotlinx.android.synthetic.main.fragment_player_list.view.*
 import org.jetbrains.anko.info
 
-class FixtureAllFragment : FixtureListFragment(), FixtureListener {
+class PlayerAllFragment : PlayerListFragment(), PlayerListener {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        root = inflater.inflate(R.layout.fragment_fixture_list, container, false)
+        root = inflater.inflate(R.layout.fragment_player_list, container, false)
         activity?.title = getString(R.string.menu_fixture_all)
 
-        root.fRecyclerView.layoutManager = LinearLayoutManager(activity)
+        root.pRecyclerView.layoutManager = LinearLayoutManager(activity)
         setSwipeRefresh()
 
         return root
@@ -38,47 +38,47 @@ class FixtureAllFragment : FixtureListFragment(), FixtureListener {
     companion object {
         @JvmStatic
         fun newInstance() =
-            FixtureAllFragment().apply {
+            PlayerAllFragment().apply {
                 arguments = Bundle().apply { }
             }
     }
 
     override fun setSwipeRefresh() {
-        root.fixtureSwipeRefresh.setOnRefreshListener {
-            root.fixtureSwipeRefresh.isRefreshing = true
-            getAllUsersFixtures()
+        root.playerSwipeRefresh.setOnRefreshListener {
+            root.playerSwipeRefresh.isRefreshing = true
+            getAllUsersPlayers()
         }
     }
 
     override fun onResume() {
         super.onResume()
-        getAllUsersFixtures()
+        getAllUsersPlayers()
     }
 
-    fun getAllUsersFixtures() {
+    fun getAllUsersPlayers() {
         loader = createLoader(activity!!)
-        showLoader(loader, "Downloading All Users Fixtures from Firebase")
-        val fixturesList = ArrayList<FixtureModel>()
-        app.database.child("fixtures")
+        showLoader(loader, "Downloading All Users Players from Firebase")
+        val playerslist = ArrayList<PlayerModel>()
+        app.database.child("results")
             .addValueEventListener(object : ValueEventListener {
                 override fun onCancelled(error: DatabaseError) {
-                    info("Firebase Fixture error : ${error.message}")
+                    info("Firebase Player error : ${error.message}")
                 }
 
                 override fun onDataChange(snapshot: DataSnapshot) {
                     hideLoader(loader)
                     val children = snapshot.children
                     children.forEach {
-                        val fixture = it.
-                            getValue<FixtureModel>(FixtureModel::class.java)
+                        val player = it.
+                            getValue<PlayerModel>(PlayerModel::class.java)
 
-                        fixturesList.add(fixture!!)
-                        root.fRecyclerView.adapter =
-                            FixtureAdapter(fixturesList, this@FixtureAllFragment, true)
-                        root.fRecyclerView.adapter?.notifyDataSetChanged()
+                        playerslist.add(player!!)
+                        root.pRecyclerView.adapter =
+                            PlayerAdapter(playerslist, this@PlayerAllFragment, true)
+                        root.pRecyclerView.adapter?.notifyDataSetChanged()
                         checkSwipeRefresh()
 
-                        app.database.child("fixtures").removeEventListener(this)
+                        app.database.child("players").removeEventListener(this)
                     }
                 }
             })

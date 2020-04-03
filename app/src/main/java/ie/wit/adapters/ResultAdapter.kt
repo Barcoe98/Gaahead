@@ -3,20 +3,13 @@ package ie.wit.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import ie.wit.R
-import ie.wit.models.FixtureModel
 import ie.wit.models.ResultModel
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
-import kotlinx.android.synthetic.main.card_fixture.view.*
-import kotlinx.android.synthetic.main.card_fixture.view.fDate
 import kotlinx.android.synthetic.main.card_result.view.*
-import kotlinx.android.synthetic.main.fragment_fixture.view.*
-import kotlinx.android.synthetic.main.login.*
 
 interface ResultListener {
     fun onResultClick(result: ResultModel)

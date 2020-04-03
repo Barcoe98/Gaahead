@@ -1,5 +1,5 @@
 
-package ie.wit.fragments.FixtureFragments
+package ie.wit.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -89,9 +89,9 @@ open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
  */
 
     open fun setSwipeRefresh() {
-        root.swiperefresh.setOnRefreshListener(object : SwipeRefreshLayout.OnRefreshListener {
+        root.fixtureSwipeRefresh.setOnRefreshListener(object : SwipeRefreshLayout.OnRefreshListener {
             override fun onRefresh() {
-                root.swiperefresh.isRefreshing = true
+                root.fixtureSwipeRefresh.isRefreshing = true
                 getAllFixtures(app.auth.currentUser!!.uid)
             }
         })
@@ -99,7 +99,7 @@ open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
 
 
     fun checkSwipeRefresh() {
-        if (root.swiperefresh.isRefreshing) root.swiperefresh.isRefreshing = false
+        if (root.fixtureSwipeRefresh.isRefreshing) root.fixtureSwipeRefresh.isRefreshing = false
     }
 
 
