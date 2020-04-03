@@ -12,9 +12,9 @@ import com.google.android.material.navigation.NavigationView
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import ie.wit.R
-import ie.wit.fragments.FixtureAllFragment
-import ie.wit.fragments.FixtureFragment
-import ie.wit.fragments.FixtureListFragment
+import ie.wit.fragments.fixtureFragments.FixtureAllFragment
+import ie.wit.fragments.fixtureFragments.FixtureFragment
+import ie.wit.fragments.fixtureFragments.FixtureListFragment
 import ie.wit.fragments.playerFragments.PlayerAllFragment
 import ie.wit.fragments.playerFragments.PlayerFragment
 import ie.wit.fragments.playerFragments.PlayerListFragment

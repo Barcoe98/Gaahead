@@ -1,18 +1,15 @@
-package ie.wit.fragments
+package ie.wit.fragments.fixtureFragments
 
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import ie.wit.R
-import ie.wit.activities.Home
-import ie.wit.fragments.resultFragments.ResultFragment
 import ie.wit.main.MainApp
 import ie.wit.models.FixtureModel
 import ie.wit.utils.createLoader
 import kotlinx.android.synthetic.main.fragment_fixture_details.view.*
 import kotlinx.android.synthetic.main.fragment_player.view.*
-import org.jetbrains.anko.startActivity
 
 class FixtureDetailsFragment : Fragment() {
 

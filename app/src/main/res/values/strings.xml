@@ -144,7 +144,7 @@
     <string name="emailpassword_title_text">Please Login Below</string>
     <string name="btn_editToResults">Edit Results</string>
     <string name="menu_fixture">Add Fixture</string>
-    <string name="action_edit">Edit Donation</string>
+    <string name="action_edit">Edit fixture</string>
     <string name="menu_result">Add Result</string>
     <string name="rate_app">Rate App</string>
     <string name="skip_sign_in">Skip Sign In</string>

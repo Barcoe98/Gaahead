@@ -1,5 +1,5 @@
 
-package ie.wit.fragments
+package ie.wit.fragments.fixtureFragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -40,6 +40,7 @@ open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
         app = activity?.application as MainApp
     }
 
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         // Inflate the layout for this fragment
@@ -71,6 +72,7 @@ open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
         return root
     }
 
+
     companion object {
         @JvmStatic
         fun newInstance() =
@@ -78,15 +80,7 @@ open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
                 arguments = Bundle().apply { }
             }
     }
-/*
-    private fun setSwipeRefresh() {
-        root.swiperefresh.setOnRefreshListener {
-            root.swiperefresh.isRefreshing = true
-            getAllFixtures(app.auth.currentUser!!.uid)
-        }
-    }
 
- */
 
     open fun setSwipeRefresh() {
         root.fixtureSwipeRefresh.setOnRefreshListener(object : SwipeRefreshLayout.OnRefreshListener {
@@ -116,6 +110,7 @@ open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
                 })
     }
 
+
     fun deleteUserFixture(userId: String, uid: String?) {
         app.database.child("user-fixtures").child(userId).child(uid!!)
             .addListenerForSingleValueEvent(
@@ -130,13 +125,13 @@ open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
     }
 
 
-
     override fun onFixtureClick(fixture: FixtureModel) {
         activity!!.supportFragmentManager.beginTransaction()
             .replace(R.id.homeFrame, EditFixtureFragment.newInstance(fixture))
             .addToBackStack(null)
             .commit()
     }
+
 
     fun getAllFixtures(userId: String?) {
         loader = createLoader(activity!!)
@@ -166,6 +161,7 @@ open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
                 }
             })
     }
+
 
     override fun onResume() {
         super.onResume()

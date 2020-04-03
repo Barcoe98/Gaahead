@@ -1,4 +1,4 @@
-package ie.wit.fragments
+package ie.wit.fragments.fixtureFragments
 
 
 import android.os.Bundle
