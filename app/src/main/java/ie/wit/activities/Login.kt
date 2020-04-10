@@ -40,8 +40,6 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
 
     lateinit var app: MainApp
     lateinit var loader : AlertDialog
-    //val currentUser = app.auth.currentUser
-    //val CurrentUserType = app.auth.currentUser
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,13 +58,11 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
 
         app.auth = FirebaseAuth.getInstance()
 
-        // [START config_signin]
         // Configure Google Sign In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
-        // [END config_signin]
 
         app.googleSignInClient = GoogleSignIn.getClient(this, gso)
 
@@ -124,7 +120,6 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
             return
         }
         showLoader(loader, "Logging In...")
-        // [START sign_in_with_email]
         app.auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -139,14 +134,14 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
                         Toast.LENGTH_SHORT).show()
                     updateUI(null)
                 }
-                // [START_EXCLUDE]
+
                 if (!task.isSuccessful) {
                     status.setText(R.string.auth_failed)
                 }
                 hideLoader(loader)
-                // [END_EXCLUDE]
+
             }
-        // [END sign_in_with_email]
+
     }
 
     private fun signOut() {
@@ -210,13 +205,16 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
             fieldUserType.error = null
         }
 
+        //If user is not either manager, player or supporter
+        //invalid user will appear and asked to add a valid user
         val userTypeValidation = fieldUserType.text.toString()
-        if (userTypeValidation.equals("Manager") || userTypeValidation.equals("manager") ||
-            userTypeValidation.equals("Supporter") || userTypeValidation.equals("supporter") ||
-            userTypeValidation.equals("Player") || userTypeValidation.equals("player")) {
-            valid = true
+        if (userTypeValidation == "Manager" || userTypeValidation == "manager" ||
+            userTypeValidation == "Supporter" || userTypeValidation == "supporter" ||
+            userTypeValidation == "Player" || userTypeValidation == "player"
+        ) {
+            return valid
         } else {
-            fieldUserType.error = "Invalid User Type."
+            fieldUserType.error = "Invalid User Type, Please Enter Manager, Player or Supporter"
             valid = false
         }
 
@@ -247,28 +245,22 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
             val checkUserType = app.database.child("userType")
             val userType = fieldUserType.text.toString()
 
-            if (userType.equals("Supporter") || userType.equals("supporter")) {
+            if (userType == "Supporter" || userType == "supporter") {
                 showLoader(loader, " Loading Supporter Screen")
                 startActivity<SupporterHome>()
 
             }
 
-            else if (userType.equals("Manager") || userType.equals("manager")) {
+            else if (userType == "Manager" || userType == "manager") {
                 showLoader(loader, " Loading Manager Screen")
                 startActivity<ManagerHome>()
 
             }
-            else if (userType.equals("Player") || userType.equals("player")) {
+            else if (userType == "Player" || userType == "player") {
                 showLoader(loader, " Loading Player Screen")
                 startActivity<PlayerHome>()
 
             }
-            /*
-            else {
-                //showLoader(loader," Error error error error error")
-            }
-             */
-
 
         } else {
             status.setText(R.string.signed_out)
