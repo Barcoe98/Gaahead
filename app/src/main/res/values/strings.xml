@@ -64,21 +64,22 @@
 
 
     //Hints
-    <string name="hint_teamA">Please Team A\'s Name</string>
-    <string name="hint_teamALogo">Team A Logo</string>
-    <string name="hint_teamB">Please Enter Team B\'s Name</string>
-    <string name="hint_teamBLogo">Team B Logo</string>
-    <string name="hint_time">Please Enter A Time</string>
-    <string name="hint_date">Please Enter A Date</string>
-    <string name="hint_location">Please Enter A Location</string>
-    <string name="hint_Division">Please Enter A Division</string>
-    <string name="hint_type">Please Enter A Type Of Sport</string>
-    <string name="hint_teamAScore">Please Enter Team A\'s Score</string>
-    <string name="hint_teamBScore">Please Enter Team B\'s Score</string>
+    <string name="hint_teamA">Enter Team A\'s Name</string>
+    <string name="hint_teamALogo">Team A\'s Logo</string>
+    <string name="hint_teamB">Enter Team B\'s Name</string>
+    <string name="hint_teamBLogo">Team B\'s Logo</string>
+    <string name="hint_time">Enter A Time</string>
+    <string name="hint_date">Enter A Date</string>
+    <string name="hint_location">Enter A Location</string>
+    <string name="hint_Division">Enter A Division</string>
+    <string name="hint_type">Enter A Type Of Sport</string>
+    <string name="hint_teamAScore">Enter Team A\'s Score</string>
+    <string name="hint_teamBScore">Enter Team B\'s Score</string>
     <string name="select_teamA_image">Select Team A image</string>
     <string name="select_teamB_image">Select Team B image</string>
+    <string name="hint_type_of_user">Type of User</string>
 
-    //Enter Hints
+    //Error Hints
     <string name="error_teamAName">Please Enter Team A Name</string>
     <string name="error_teamBName">Please Enter Team B Name</string>
     <string name="error_teamAScore">Please Enter Team A Score</string>

@@ -27,5 +27,15 @@
     <dimen name="card_banner_padding">3dp</dimen>
     <dimen name="card_content_margin">10dp</dimen>
 
+    <dimen name="input_box_margin">10dp</dimen>
+    <dimen name="input_box_padding">6dp</dimen>
+    <dimen name="input_box_gap">10dp</dimen>
+
+    <dimen name="btn_height">40dp</dimen>
+    <dimen name="btn_gap">6dp</dimen>
+    <dimen name="layout_margin">30dp</dimen>
+
+
+
 
 </resources>

@@ -48,6 +48,6 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:contentDescription="@string/nav_header_desc"
-        app:srcCompat="@mipmap/ic_logoGrey_2" />
+        app:srcCompat="@mipmap/ic_app_icon_grey_2" />
 
 </LinearLayout>

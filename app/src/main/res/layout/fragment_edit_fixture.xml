@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background = "@drawable/rectangle1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBlack"
+    android:orientation="vertical"
     tools:context=".fragments.FixtureFragment">
 
     <ScrollView
@@ -15,12 +15,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
+            android:layout_margin="@dimen/layout_margin"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="10dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -28,8 +30,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
                     app:srcCompat="@mipmap/ic_launcher" />
 
                 <ImageView
@@ -37,32 +37,32 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
                     app:srcCompat="@mipmap/ic_launcher" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/editLogoABtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/btn_height"
+                    android:layout_margin="@dimen/btn_gap"
                     android:layout_weight="1"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
+                    android:background="@drawable/btn_rounded"
                     android:text="@string/btn_addTeamALogo" />
 
                 <Button
                     android:id="@+id/logoBBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/btn_height"
+                    android:layout_margin="@dimen/btn_gap"
+                    android:layout_marginTop="20dp"
                     android:layout_weight="1"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp"
+                    android:background="@drawable/btn_rounded"
                     android:text="@string/btn_addTeamBLogo" />
 
             </LinearLayout>
@@ -71,61 +71,76 @@
                 android:id="@+id/editTeamAName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/input_box_margin"
+                android:background="@drawable/btn_rounded"
                 android:ems="10"
                 android:hint="@string/hint_teamA"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:padding="@dimen/input_box_padding" />
 
             <EditText
                 android:id="@+id/editTeamBName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/input_box_margin"
+                android:background="@drawable/btn_rounded"
                 android:ems="10"
                 android:hint="@string/hint_teamB"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:padding="@dimen/input_box_padding" />
 
             <EditText
                 android:id="@+id/editDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/input_box_margin"
                 android:autofillHints="@string/hint_date"
+                android:background="@drawable/btn_rounded"
                 android:ems="10"
                 android:hint="@string/hint_date"
-                android:inputType="date" />
+                android:inputType="date"
+                android:padding="@dimen/input_box_padding" />
 
             <EditText
                 android:id="@+id/editTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/input_box_margin"
+                android:background="@drawable/btn_rounded"
                 android:ems="10"
                 android:hint="@string/hint_time"
-                android:inputType="time" />
+                android:inputType="time"
+                android:padding="@dimen/input_box_padding" />
 
             <EditText
                 android:id="@+id/editLocation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/input_box_margin"
+                android:background="@drawable/btn_rounded"
                 android:ems="10"
                 android:hint="@string/hint_location"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:padding="@dimen/input_box_padding" />
 
             <Button
                 android:id="@+id/editFixtureBtn"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_height="@dimen/btn_height"
+                android:layout_margin="30dp"
+                android:background="@drawable/btn_rounded"
                 android:text="@string/btn_editFixture" />
 
             <Button
                 android:id="@+id/editToResultsBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="20dp"
-                android:text="@string/btn_editToResults" />
+                android:layout_margin="30dp"
+                android:background="@drawable/btn_rounded"
+                android:text="@string/btn_editToResults"
+                android:visibility="invisible" />
 
         </LinearLayout>
     </ScrollView>
 
-</RelativeLayout>
+</LinearLayout>

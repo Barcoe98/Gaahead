@@ -46,6 +46,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_margin="@dimen/layout_margin"
         android:layout_weight="1"
         android:orientation="vertical">
 
@@ -53,22 +54,18 @@
             android:id="@+id/emailPasswordFields"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="5dp"
             android:orientation="vertical">
 
             <EditText
                 android:id="@+id/fieldEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="4dp"
+                android:layout_margin="@dimen/input_box_gap"
                 android:layout_weight="1"
                 android:background="@drawable/btn_rounded"
                 android:hint="@string/hint_email"
                 android:inputType="textEmailAddress"
-                android:padding="4dp"
+                android:padding="@dimen/input_box_padding"
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorWhite" />
 
@@ -76,12 +73,12 @@
                 android:id="@+id/fieldPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="4dp"
+                android:layout_margin="@dimen/input_box_gap"
                 android:layout_weight="1"
                 android:background="@drawable/btn_rounded"
                 android:hint="@string/hint_password"
                 android:inputType="textPassword"
-                android:padding="4dp"
+                android:padding="@dimen/input_box_padding"
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorWhite" />
 
@@ -89,12 +86,12 @@
                 android:id="@+id/fieldUserType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="4dp"
+                android:layout_margin="@dimen/input_box_gap"
                 android:layout_weight="1"
                 android:background="@drawable/btn_rounded"
                 android:ems="10"
-                android:hint="Type Of User"
-                android:padding="4dp"
+                android:hint="@string/hint_type_of_user"
+                android:padding="@dimen/input_box_padding"
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorWhite" />
         </LinearLayout>
@@ -103,18 +100,14 @@
             android:id="@+id/emailPasswordButtons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/emailSignInButton"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_margin="4dp"
-                android:layout_marginStart="60dp"
+                android:layout_height="@dimen/btn_height"
+                android:layout_margin="@dimen/btn_gap"
                 android:layout_weight="1"
                 android:background="@drawable/btn_rounded"
                 android:text="@string/sign_in"
@@ -123,8 +116,8 @@
             <Button
                 android:id="@+id/emailCreateAccountButton"
                 android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_margin="4dp"
+                android:layout_height="@dimen/btn_height"
+                android:layout_margin="@dimen/btn_gap"
                 android:layout_weight="1"
                 android:background="@drawable/btn_rounded"
                 android:text="@string/create_account"
@@ -135,17 +128,13 @@
             android:id="@+id/googleSignInButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="10dp"
             android:orientation="horizontal">
 
             <com.google.android.gms.common.SignInButton
                 android:id="@+id/sign_in_button"
-                android:layout_width="11dp"
-                android:layout_height="41dp"
-                android:layout_margin="4dp"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/google_btn_rounded" />
 
@@ -155,17 +144,13 @@
             android:id="@+id/skipSignIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="5dp"
             android:gravity="center"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/skipSignInBtn"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/btn_height"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
                 android:layout_weight="1"
@@ -182,18 +167,14 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:orientation="horizontal"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="5dp"
             android:visibility="gone"
             android:weightSum="2.0">
 
             <Button
                 android:id="@+id/signOutButton"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
+                android:layout_height="@dimen/btn_height"
+                android:layout_margin="@dimen/btn_gap"
                 android:layout_weight="1.0"
                 android:background="@drawable/btn_rounded"
                 android:text="@string/sign_out"
@@ -202,8 +183,8 @@
             <Button
                 android:id="@+id/verifyEmailButton"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
+                android:layout_height="@dimen/btn_height"
+                android:layout_margin="@dimen/btn_gap"
                 android:layout_weight="1.0"
                 android:background="@drawable/btn_rounded"
                 android:text="@string/verify_email"

@@ -13,7 +13,11 @@ import ie.wit.main.MainApp
 import ie.wit.models.FixtureModel
 import ie.wit.utils.*
 import kotlinx.android.synthetic.main.fragment_fixture.*
+import kotlinx.android.synthetic.main.fragment_fixture.date
+import kotlinx.android.synthetic.main.fragment_fixture.teamAName
+import kotlinx.android.synthetic.main.fragment_fixture.teamBName
 import kotlinx.android.synthetic.main.fragment_fixture.view.*
+import kotlinx.android.synthetic.main.fragment_result.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import java.util.HashMap
