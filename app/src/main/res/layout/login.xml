@@ -1,9 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWhite"
+    android:background="@color/colorBlack"
     android:orientation="vertical">
 
     <LinearLayout
@@ -14,12 +15,10 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/icon"
-            style="@style/ThemeOverlay.FirebaseIcon"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
-            android:contentDescription="@string/desc_firebase_lockup"
-            android:src="@mipmap/ic_app_icon_round" />
+            android:id="@+id/imageView6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@mipmap/ic_welcome_2_foreground" />
 
         <TextView
             android:id="@+id/titleText"
@@ -41,28 +40,25 @@
             style="@style/ThemeOverlay.MyTextDetail"
             tools:text="Firebase User ID: 123456789abc" />
 
+
     </LinearLayout>
 
-
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="30dp"
         android:layout_weight="1"
-        android:background="@color/colorWhite"
-        android:gravity="center_vertical">
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/emailPasswordFields"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp">
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/btn_rounded"
+            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/fieldEmail"
@@ -70,7 +66,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="@string/hint_email"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite" />
 
             <EditText
                 android:id="@+id/fieldPassword"
@@ -78,7 +76,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="@string/hint_password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite" />
 
             <EditText
                 android:id="@+id/fieldUserType"
@@ -87,66 +87,98 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="Type Of User"
-                android:inputType="textPersonName" />
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/emailPasswordButtons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/emailPasswordFields"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp">
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/emailSignInButton"
-                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="4dp"
+                android:layout_marginStart="60dp"
                 android:layout_weight="1"
+                android:background="@drawable/btn_rounded"
                 android:text="@string/sign_in"
-                android:theme="@style/ThemeOverlay.MyDarkButton" />
+                android:textColor="@color/colorWhite" />
 
             <Button
                 android:id="@+id/emailCreateAccountButton"
-                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="4dp"
                 android:layout_weight="1"
+                android:background="@drawable/btn_rounded"
                 android:text="@string/create_account"
-                android:theme="@style/ThemeOverlay.MyDarkButton" />
+                android:textColor="@color/colorWhite" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/googleSignInButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/emailPasswordButtons"
-            android:layout_marginStart="@dimen/btn_margin"
-            android:layout_marginTop="@dimen/btn_margin"
-            android:layout_marginEnd="@dimen/btn_margin"
-            android:layout_marginBottom="@dimen/btn_margin"
-            android:orientation="horizontal"
-            android:padding="@dimen/btn_padding">
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/fb_sign_in_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/google_btn_rounded" />
 
             <com.google.android.gms.common.SignInButton
                 android:id="@+id/sign_in_button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_width="11dp"
+                android:layout_height="41dp"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/google_btn_rounded" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/skipSignInBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_rounded"
+                android:text="@string/skip_sign_in"
+                android:textColor="@color/colorWhite" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/signedInButtons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:orientation="horizontal"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
@@ -155,50 +187,25 @@
 
             <Button
                 android:id="@+id/signOutButton"
-                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
+                android:background="@drawable/btn_rounded"
                 android:text="@string/sign_out"
                 android:theme="@style/ThemeOverlay.MyDarkButton" />
 
             <Button
                 android:id="@+id/verifyEmailButton"
-                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.0"
+                android:background="@drawable/btn_rounded"
                 android:text="@string/verify_email"
                 android:theme="@style/ThemeOverlay.MyDarkButton" />
 
         </LinearLayout>
 
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/skip_sign_in_text"
-            android:textAlignment="center"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/skipSignInBtn"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:padding="@dimen/btn_padding"
-            android:text="@string/skip_sign_in" />
-
     </LinearLayout>
+
 
 </LinearLayout>

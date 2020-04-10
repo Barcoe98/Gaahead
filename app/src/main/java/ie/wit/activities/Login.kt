@@ -53,8 +53,8 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
         sign_in_button.setOnClickListener(this)
 
 
-        sign_in_button.setSize(SignInButton.SIZE_WIDE)
-        sign_in_button.setColorScheme(0)
+        //sign_in_button.setSize(SignInButton.SIZE_WIDE)
+        //sign_in_button.setColorScheme(0)
 
         app.auth = FirebaseAuth.getInstance()
 
@@ -78,7 +78,7 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
         updateUI(currentUser)
     }
 
-    private fun createAccount(email: String, password: String) {
+    private fun createAccount() {
 
         val email = fieldEmail.text.toString()
         val password = fieldPassword.text.toString()
@@ -245,22 +245,23 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
             val checkUserType = app.database.child("userType")
             val userType = fieldUserType.text.toString()
 
-            if (userType == "Supporter" || userType == "supporter") {
-                showLoader(loader, " Loading Supporter Screen")
-                startActivity<SupporterHome>()
+            showLoader(loader, " Loading Screen")
 
+            if (userType == "Supporter" || userType == "supporter") {
+                //showLoader(loader, " Loading Supporter Screen")
+                startActivity<SupporterHome>()
             }
 
             else if (userType == "Manager" || userType == "manager") {
-                showLoader(loader, " Loading Manager Screen")
+                //showLoader(loader, " Loading Manager Screen")
                 startActivity<ManagerHome>()
-
             }
             else if (userType == "Player" || userType == "player") {
-                showLoader(loader, " Loading Player Screen")
+                //showLoader(loader, " Loading Player Screen")
                 startActivity<PlayerHome>()
-
             }
+
+            hideLoader(loader)
 
         } else {
             status.setText(R.string.signed_out)
@@ -275,7 +276,7 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
     override fun onClick(v: View) {
         val i = v.id
         when (i) {
-            R.id.emailCreateAccountButton -> createAccount(fieldEmail.text.toString(), fieldPassword.text.toString())
+            R.id.emailCreateAccountButton -> createAccount()
             R.id.emailSignInButton -> signIn(fieldEmail.text.toString(), fieldPassword.text.toString())
             R.id.signOutButton -> signOut()
             R.id.verifyEmailButton -> sendEmailVerification()
