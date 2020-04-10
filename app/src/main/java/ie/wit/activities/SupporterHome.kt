@@ -15,7 +15,6 @@ import ie.wit.R
 import ie.wit.fragments.FixtureAllFragment
 import ie.wit.fragments.FixtureFragment
 import ie.wit.fragments.FixtureListFragment
-import ie.wit.fragments.InfoFragment
 import ie.wit.fragments.playerFragments.PlayerAllFragment
 import ie.wit.fragments.playerFragments.PlayerFragment
 import ie.wit.fragments.playerFragments.PlayerListFragment
@@ -29,14 +28,14 @@ import ie.wit.utils.uploadImageView
 import ie.wit.utils.writeImageRef
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import kotlinx.android.synthetic.main.app_bar_home.*
-import kotlinx.android.synthetic.main.manager_home.*
 import kotlinx.android.synthetic.main.manager_home.drawerLayout
 import kotlinx.android.synthetic.main.nav_header_home.view.*
+import kotlinx.android.synthetic.main.supporter_home.*
 import org.jetbrains.anko.startActivity
 
 import org.jetbrains.anko.toast
 
-class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class SupporterHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     lateinit var ft: FragmentTransaction
     lateinit var app: MainApp
@@ -45,11 +44,11 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.manager_home)
+        setContentView(R.layout.supporter_home)
         setSupportActionBar(toolbar)
         app = application as MainApp
 
-        navViewManager.setNavigationItemSelectedListener(this)
+        navViewSupporter.setNavigationItemSelectedListener(this)
         val toggle = ActionBarDrawerToggle(
             this, drawerLayout, toolbar,
             R.string.navigation_drawer_open,
@@ -58,9 +57,9 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
-        navViewManager.getHeaderView(0).nav_header_email.text = app.auth.currentUser?.email
-        navViewManager.getHeaderView(0).nav_header_name.text = app.auth.currentUser?.displayName
-        navViewManager.getHeaderView(0).imageView.setOnClickListener { showImagePicker(this,IMAGE_REQUEST) }
+        navViewSupporter.getHeaderView(0).nav_header_email.text = app.auth.currentUser?.email
+        navViewSupporter.getHeaderView(0).nav_header_name.text = app.auth.currentUser?.displayName
+        navViewSupporter.getHeaderView(0).imageView.setOnClickListener { showImagePicker(this,IMAGE_REQUEST) }
 
         ft = supportFragmentManager.beginTransaction()
         val fragment =  FixtureListFragment.newInstance()
@@ -78,14 +77,14 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             // R.id.nav_team_info -> navigateTo(TeamInfoFragment.newInstance())
-            //R.id.nav_team -> navigateTo(.newInstance())
+            // R.id.nav_team -> navigateTo(TeamFragment.newInstance())
             R.id.nav_add_fixture -> navigateTo(FixtureFragment.newInstance())
             R.id.nav_fixture_list -> navigateTo(FixtureListFragment.newInstance())
             R.id.nav_fixture_all -> navigateTo(FixtureAllFragment.newInstance())
             R.id.nav_add_result -> navigateTo(ResultFragment.newInstance())
             R.id.nav_result_list -> navigateTo(ResultListFragment.newInstance())
             R.id.nav_results_all -> navigateTo(ResultAllFragment.newInstance())
-            R.id.nav_add_player -> navigateTo(InfoFragment.newInstance())
+            R.id.nav_add_player -> navigateTo(PlayerFragment.newInstance())
             R.id.nav_player_list -> navigateTo(PlayerListFragment.newInstance())
             R.id.nav_player_all -> navigateTo(PlayerAllFragment.newInstance())
             // R.id.nav_info -> navigateTo(InfoFragment.newInstance())
@@ -143,10 +142,10 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
                     Picasso.get().load(readImageUri(resultCode, data).toString())
                         .resize(180, 180)
                         .transform(CropCircleTransformation())
-                        .into(navViewManager.getHeaderView(0).imageView, object : Callback {
+                        .into(navViewSupporter.getHeaderView(0).imageView, object : Callback {
                             override fun onSuccess() {
                                 // Drawable is ready
-                                uploadImageView(app,navViewManager.getHeaderView(0).imageView)
+                                uploadImageView(app,navViewSupporter.getHeaderView(0).imageView)
                             }
                             override fun onError(e: Exception) {}
                         })

@@ -36,7 +36,7 @@ import org.jetbrains.anko.startActivity
 
 import org.jetbrains.anko.toast
 
-class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class ManagerHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     lateinit var ft: FragmentTransaction
     lateinit var app: MainApp

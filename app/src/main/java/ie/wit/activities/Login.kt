@@ -17,21 +17,31 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
+import com.wajahatkarim3.easyvalidation.core.view_ktx.textNotEqualTo
 import ie.wit.R
 import ie.wit.main.MainApp
+import ie.wit.models.FixtureModel
+import ie.wit.models.UserModel
 import ie.wit.utils.createLoader
 import ie.wit.utils.hideLoader
 import ie.wit.utils.showLoader
+import kotlinx.android.synthetic.main.fragment_fixture.*
 import kotlinx.android.synthetic.main.login.*
-import kotlinx.android.synthetic.main.supporter_home.*
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.info
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
+import java.util.HashMap
 
-class Login : AppCompatActivity(), View.OnClickListener {
+class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
 
     lateinit var app: MainApp
     lateinit var loader : AlertDialog
+    //val currentUser = app.auth.currentUser
+    //val CurrentUserType = app.auth.currentUser
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,6 +83,11 @@ class Login : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun createAccount(email: String, password: String) {
+
+        val email = fieldEmail.text.toString()
+        val password = fieldPassword.text.toString()
+        val userType = fieldUserType.text.toString()
+
         Log.d(TAG, "createAccount:$email")
         if (!validateForm()) {
             return
@@ -86,7 +101,9 @@ class Login : AppCompatActivity(), View.OnClickListener {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success")
                     val user = app.auth.currentUser
+                    writeNewUser(UserModel(userType = userType, email = email, password = password))
                     updateUI(user)
+
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
@@ -185,26 +202,74 @@ class Login : AppCompatActivity(), View.OnClickListener {
             fieldPassword.error = null
         }
 
+        val userType = fieldUserType.text.toString()
+        if (TextUtils.isEmpty(userType)) {
+            fieldUserType.error = "Required."
+            valid = false
+        } else {
+            fieldUserType.error = null
+        }
+
+        val userTypeValidation = fieldUserType.text.toString()
+        if (userTypeValidation.equals("Manager") || userTypeValidation.equals("manager") ||
+            userTypeValidation.equals("Supporter") || userTypeValidation.equals("supporter") ||
+            userTypeValidation.equals("Player") || userTypeValidation.equals("player")) {
+            valid = true
+        } else {
+            fieldUserType.error = "Invalid User Type."
+            valid = false
+        }
+
         return valid
     }
 
 
     private fun updateUI(user: FirebaseUser?) {
         hideLoader(loader)
+
         if (user != null) {
-            status.text = getString(R.string.emailpassword_status_fmt,
-                user.email, user.isEmailVerified)
-            detail.text = getString(R.string.firebase_status_fmt, user.uid)
 
-            emailPasswordButtons.visibility = View.GONE
-            emailPasswordFields.visibility = View.GONE
-            signedInButtons.visibility = View.VISIBLE
+                status.text = getString(
+                    R.string.emailpassword_status_fmt,
+                    user.email, user.isEmailVerified
+                )
+                detail.text = getString(R.string.firebase_status_fmt, user.uid)
 
-            verifyEmailButton.isEnabled = !user.isEmailVerified
-            app.database = FirebaseDatabase.getInstance().reference
-            app.storage = FirebaseStorage.getInstance().reference
+                emailPasswordButtons.visibility = View.GONE
+                emailPasswordFields.visibility = View.GONE
+                signedInButtons.visibility = View.VISIBLE
 
-            startActivity<Home>()
+                verifyEmailButton.isEnabled = !user.isEmailVerified
+                app.database = FirebaseDatabase.getInstance().reference
+                app.storage = FirebaseStorage.getInstance().reference
+
+
+            val checkUserType = app.database.child("userType")
+            val userType = fieldUserType.text.toString()
+
+            if (userType.equals("Supporter") || userType.equals("supporter")) {
+                showLoader(loader, " Loading Supporter Screen")
+                startActivity<SupporterHome>()
+
+            }
+
+            else if (userType.equals("Manager") || userType.equals("manager")) {
+                showLoader(loader, " Loading Manager Screen")
+                startActivity<ManagerHome>()
+
+            }
+            else if (userType.equals("Player") || userType.equals("player")) {
+                showLoader(loader, " Loading Player Screen")
+                startActivity<PlayerHome>()
+
+            }
+            /*
+            else {
+                //showLoader(loader," Error error error error error")
+            }
+             */
+
+
         } else {
             status.setText(R.string.signed_out)
             detail.text = null
@@ -232,6 +297,29 @@ class Login : AppCompatActivity(), View.OnClickListener {
         private const val RC_SIGN_IN = 9001
     }
 
+
+
+    fun writeNewUser(user: UserModel) {
+
+        // Create new fixture at /fixtures & /fixtures/$uid
+        showLoader(loader, "Adding User to Firebase")
+        info("Firebase DB Reference : $app.database")
+        val uid = app.auth.currentUser!!.uid
+        val key = app.database.child("users").push().key
+        if (key == null) {
+            info("Firebase Error : Key Empty")
+            return
+        }
+        user.uid = key
+        val userValues = user.toMap()
+
+        val childUpdates = HashMap<String, Any>()
+        childUpdates["/users/$key"] = userValues
+
+        app.database.updateChildren(childUpdates)
+        hideLoader(loader)
+
+    }
 
     // [START onactivityresult]
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -290,4 +378,6 @@ class Login : AppCompatActivity(), View.OnClickListener {
             }
     }
     // [END auth_with_google]
-}
+
+    }
+

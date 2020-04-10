@@ -23,7 +23,19 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".activities.ManagerHome"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
             android:name=".activities.Home"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".activities.PlayerHome"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".activities.SupporterHome"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <meta-data

@@ -81,7 +81,7 @@
                 android:inputType="textPassword" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/fieldUserType"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
