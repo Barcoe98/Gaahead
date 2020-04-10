@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBlack"
+    android:background="@color/colorWhite"
     android:orientation="vertical"
     tools:context=".fragments.FixtureFragment">
 
@@ -54,8 +54,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/btn_rounded"
                     android:text="@string/btn_addTeamALogo"
-                    android:textColor="@color/colorWhite"
-                    />
+                    android:textColor="@color/colorWhite" />
 
                 <Button
                     android:id="@+id/logoBBtn"
@@ -66,8 +65,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/btn_rounded"
                     android:text="@string/btn_addTeamBLogo"
-                    android:textColor="@color/colorWhite"
-                    />
+                    android:textColor="@color/colorWhite" />
 
             </LinearLayout>
 
@@ -82,8 +80,7 @@
                 android:inputType="textPersonName"
                 android:padding="@dimen/input_box_padding"
                 android:textColor="@color/colorWhite"
-                android:textColorHint="@color/colorWhite"
-                />
+                android:textColorHint="@color/colorWhite" />
 
             <EditText
                 android:id="@+id/editTeamBName"
@@ -96,7 +93,7 @@
                 android:inputType="textPersonName"
                 android:padding="@dimen/input_box_padding"
                 android:textColor="@color/colorWhite"
-                android:textColorHint="@color/colorWhite"/>
+                android:textColorHint="@color/colorWhite" />
 
             <EditText
                 android:id="@+id/editDate"
@@ -107,10 +104,9 @@
                 android:background="@drawable/btn_rounded"
                 android:ems="10"
                 android:hint="@string/hint_date"
-                android:inputType="date"
                 android:padding="@dimen/input_box_padding"
                 android:textColor="@color/colorWhite"
-                android:textColorHint="@color/colorWhite"/>
+                android:textColorHint="@color/colorWhite" />
 
             <EditText
                 android:id="@+id/editTime"
@@ -120,10 +116,9 @@
                 android:background="@drawable/btn_rounded"
                 android:ems="10"
                 android:hint="@string/hint_time"
-                android:inputType="time"
                 android:padding="@dimen/input_box_padding"
                 android:textColor="@color/colorWhite"
-                android:textColorHint="@color/colorWhite"/>
+                android:textColorHint="@color/colorWhite" />
 
             <EditText
                 android:id="@+id/editLocation"
@@ -136,7 +131,7 @@
                 android:inputType="textPersonName"
                 android:padding="@dimen/input_box_padding"
                 android:textColor="@color/colorWhite"
-                android:textColorHint="@color/colorWhite"/>
+                android:textColorHint="@color/colorWhite" />
 
             <Button
                 android:id="@+id/editFixtureBtn"
@@ -145,8 +140,7 @@
                 android:layout_margin="30dp"
                 android:background="@drawable/btn_rounded"
                 android:text="@string/btn_editFixture"
-                android:textColor="@color/colorWhite"
-                />
+                android:textColor="@color/colorWhite" />
 
             <Button
                 android:id="@+id/editToResultsBtn"
@@ -155,9 +149,8 @@
                 android:layout_margin="30dp"
                 android:background="@drawable/btn_rounded"
                 android:text="@string/btn_editToResults"
-                android:visibility="invisible"
                 android:textColor="@color/colorWhite"
-                />
+                android:visibility="invisible" />
 
         </LinearLayout>
     </ScrollView>

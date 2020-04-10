@@ -51,7 +51,7 @@ class EditResultFragment : Fragment(), AnkoLogger {
         root.editTeamAScore.setText(editResult!!.teamAScore)
         root.editTeamBName.setText(editResult!!.teamBName)
         root.editTeamBScore.setText(editResult!!.teamBScore)
-        root.editDate.setText(editResult!!.date)
+        root.editRDate.setText(editResult!!.date)
         root.editCompetition.setText(editResult!!.competition)
 
         root.editResultBtn.setOnClickListener {

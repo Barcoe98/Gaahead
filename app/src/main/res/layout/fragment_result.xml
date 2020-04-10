@@ -162,7 +162,6 @@
                 android:background="@drawable/btn_rounded"
                 android:ems="10"
                 android:hint="@string/hint_date"
-                android:inputType="text"
                 android:padding="@dimen/input_box_padding"
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorWhite" />

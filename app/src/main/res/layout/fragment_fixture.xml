@@ -103,10 +103,9 @@
                 android:background="@drawable/btn_rounded"
                 android:ems="10"
                 android:hint="@string/hint_date"
-                android:inputType="date"
                 android:padding="@dimen/input_box_padding"
                 android:textColor="@color/colorWhite"
-                android:textColorHint="@color/colorWhite"/>
+                android:textColorHint="@color/colorWhite" />
 
             <EditText
                 android:id="@+id/time"
@@ -116,10 +115,9 @@
                 android:background="@drawable/btn_rounded"
                 android:ems="10"
                 android:hint="@string/hint_time"
-                android:inputType="time"
                 android:padding="@dimen/input_box_padding"
                 android:textColor="@color/colorWhite"
-                android:textColorHint="@color/colorWhite"/>
+                android:textColorHint="@color/colorWhite" />
 
             <EditText
                 android:id="@+id/location"

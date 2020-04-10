@@ -155,7 +155,7 @@
             android:textColorHint="@color/colorWhite"/>
 
         <EditText
-            android:id="@+id/editDate"
+            android:id="@+id/editRDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/input_box_margin"
@@ -164,7 +164,6 @@
             android:background="@drawable/btn_rounded"
             android:ems="10"
             android:hint="@string/hint_date"
-            android:inputType="text"
             android:padding="@dimen/input_box_padding"
             android:textColor="@color/colorWhite"
             android:textColorHint="@color/colorWhite" />
