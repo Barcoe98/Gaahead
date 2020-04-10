@@ -72,7 +72,7 @@
             </menu>
         </item>
 
-    <item android:title="Access Control">
+    <item android:title="@string/menu_access_control">
         <menu>
             <item
                 android:id="@+id/nav_sign_out"

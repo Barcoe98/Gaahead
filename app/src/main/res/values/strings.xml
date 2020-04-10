@@ -165,6 +165,7 @@
     <string name="menu_player_all">All Players</string>
     <string name="menu_player_list">Players</string>
     <string name="menu_add_player">Add Player</string>
+    <string name="menu_access_control">Access Control</string>
 
 
     <!--END Firebase Resources-->
