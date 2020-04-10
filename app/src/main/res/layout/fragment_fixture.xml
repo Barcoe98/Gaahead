@@ -49,21 +49,22 @@
                 <Button
                     android:id="@+id/logoABtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_margin="6dp"
+                    android:layout_height="@dimen/btn_height"
+                    android:layout_margin="@dimen/btn_gap"
                     android:layout_weight="1"
                     android:background="@drawable/btn_rounded"
-                    android:text="@string/btn_addTeamALogo" />
+                    android:text="@string/btn_addTeamALogo"
+                    android:textColor="@color/colorWhite" />
 
                 <Button
                     android:id="@+id/logoBBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_margin="6dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_height="@dimen/btn_height"
+                    android:layout_margin="@dimen/btn_gap"
                     android:layout_weight="1"
                     android:background="@drawable/btn_rounded"
-                    android:text="@string/btn_addTeamBLogo" />
+                    android:text="@string/btn_addTeamBLogo"
+                    android:textColor="@color/colorWhite" />
 
             </LinearLayout>
 
@@ -76,7 +77,9 @@
                 android:ems="10"
                 android:hint="@string/hint_teamA"
                 android:inputType="textPersonName"
-                android:padding="@dimen/input_box_padding" />
+                android:padding="@dimen/input_box_padding"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"/>
 
             <EditText
                 android:id="@+id/teamBName"
@@ -87,7 +90,9 @@
                 android:ems="10"
                 android:hint="@string/hint_teamB"
                 android:inputType="textPersonName"
-                android:padding="@dimen/input_box_padding" />
+                android:padding="@dimen/input_box_padding"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"/>
 
             <EditText
                 android:id="@+id/date"
@@ -99,7 +104,9 @@
                 android:ems="10"
                 android:hint="@string/hint_date"
                 android:inputType="date"
-                android:padding="@dimen/input_box_padding" />
+                android:padding="@dimen/input_box_padding"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"/>
 
             <EditText
                 android:id="@+id/time"
@@ -110,7 +117,9 @@
                 android:ems="10"
                 android:hint="@string/hint_time"
                 android:inputType="time"
-                android:padding="@dimen/input_box_padding" />
+                android:padding="@dimen/input_box_padding"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"/>
 
             <EditText
                 android:id="@+id/location"
@@ -121,7 +130,9 @@
                 android:ems="10"
                 android:hint="@string/hint_location"
                 android:inputType="textPersonName"
-                android:padding="@dimen/input_box_padding" />
+                android:padding="@dimen/input_box_padding"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"/>
 
             <Button
                 android:id="@+id/addFixtureBtn"
@@ -129,7 +140,9 @@
                 android:layout_height="@dimen/btn_height"
                 android:layout_margin="30dp"
                 android:background="@drawable/btn_rounded"
-                android:text="@string/btn_addFixture" />
+                android:text="@string/btn_addFixture"
+                android:textColor="@color/colorWhite"
+                />
 
             <Button
                 android:id="@+id/addToResultsBtn"
@@ -138,7 +151,9 @@
                 android:layout_margin="30dp"
                 android:background="@drawable/btn_rounded"
                 android:text="@string/btn_addToResults"
-                android:visibility="invisible" />
+                android:visibility="invisible"
+                android:textColor="@color/colorWhite"
+                />
 
         </LinearLayout>
     </ScrollView>

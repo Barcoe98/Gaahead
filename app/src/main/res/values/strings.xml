@@ -64,20 +64,22 @@
 
 
     //Hints
-    <string name="hint_teamA">Enter Team A\'s Name</string>
+    <string name="hint_teamA">Team A\'s Name</string>
     <string name="hint_teamALogo">Team A\'s Logo</string>
-    <string name="hint_teamB">Enter Team B\'s Name</string>
+    <string name="hint_teamB">Team B\'s Name</string>
     <string name="hint_teamBLogo">Team B\'s Logo</string>
     <string name="hint_time">Enter A Time</string>
     <string name="hint_date">Enter A Date</string>
     <string name="hint_location">Enter A Location</string>
     <string name="hint_Division">Enter A Division</string>
     <string name="hint_type">Enter A Type Of Sport</string>
-    <string name="hint_teamAScore">Enter Team A\'s Score</string>
-    <string name="hint_teamBScore">Enter Team B\'s Score</string>
+    <string name="hint_teamAScore">Team A\'s Score</string>
+    <string name="hint_teamBScore">Team B\'s Score</string>
     <string name="select_teamA_image">Select Team A image</string>
     <string name="select_teamB_image">Select Team B image</string>
     <string name="hint_type_of_user">Type of User</string>
+    <string name="hint_competition">Enter Competition Name</string>
+
 
     //Error Hints
     <string name="error_teamAName">Please Enter Team A Name</string>
@@ -88,6 +90,7 @@
     <string name="error_time">Please Enter A Time</string>
     <string name="error_date">Please Enter A Date</string>
     <string name="error_type">Please Enter A Type</string>
+    <string name="error_competition">Please Enter a Competition</string>
 
 
     <string name="home_title">Welcome To GAAhead</string>
@@ -111,11 +114,11 @@
     <string name="btn_editPlayer">Edit Player</string>
 
     //PLAYER ERROR HINTS
-    <string name="error_playerName">Please Enter a Player Name</string>
-    <string name="error_playerWeight">Please Enter a Player Weight </string>
-    <string name="error_playerHeight">Please Enter a Player Height </string>
-    <string name="error_playerPosition">Please Enter a Player Position </string>
-    <string name="error_playerAge">Please Enter a Age Name </string>
+    <string name="error_playerName">Enter a Player Name</string>
+    <string name="error_playerWeight">Enter a Player Weight </string>
+    <string name="error_playerHeight">Enter a Player Height </string>
+    <string name="error_playerPosition">Enter a Player Position </string>
+    <string name="error_playerAge">Enter a Age Name </string>
     <string name="add_player">Add Player</string>
 
     <string name="messageLoading">Please wait while we Connect to the Server...</string>
@@ -160,8 +163,7 @@
     <string name="menu_add_result">Add Result</string>
     <string name="menu_result_all">All Results</string>
     <string name="nav_header_name">Michael Barcoe</string>
-    <string name="hint_competition">Please enter the name of the competition</string>
-    <string name="error_competition">Please Enter a Competition</string>
+
     <string name="player_subtitle">Players</string>
     <string name="menu_player_all">All Players</string>
     <string name="menu_player_list">Players</string>

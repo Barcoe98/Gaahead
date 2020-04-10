@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background = "@drawable/rectangle1"
-    tools:context=".activities.ResultActivity">
+    android:background = "@color/colorBlack"
+    tools:context="">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -15,16 +15,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:layout_margin="@dimen/layout_margin"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
             android:orientation="horizontal">
 
             <ImageView
@@ -32,8 +30,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
                 app:srcCompat="@mipmap/ic_launcher" />
 
             <ImageView
@@ -41,32 +37,33 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
                 app:srcCompat="@mipmap/ic_launcher" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/editLogoABtn"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:text="@string/btn_addTeamALogo" />
+                android:text="@string/btn_addTeamALogo"
+                android:layout_height="@dimen/btn_height"
+                android:layout_margin="@dimen/btn_gap"
+                android:background="@drawable/btn_rounded"
+                android:textColor="@color/colorWhite"/>
 
             <Button
                 android:id="@+id/editLogoBBtn"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
+                android:layout_height="@dimen/btn_height"
+                android:layout_margin="@dimen/btn_gap"
+                android:background="@drawable/btn_rounded"
+                android:textColor="@color/colorWhite"
                 android:text="@string/btn_addTeamBLogo" />
 
         </LinearLayout>
@@ -84,7 +81,12 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/hint_teamA"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:layout_margin="@dimen/input_box_margin"
+                android:background="@drawable/btn_rounded"
+                android:padding="@dimen/input_box_padding"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"/>
 
             <EditText
                 android:id="@+id/ediitTeamBName"
@@ -93,7 +95,12 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/hint_teamB"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:layout_margin="@dimen/input_box_margin"
+                android:background="@drawable/btn_rounded"
+                android:padding="@dimen/input_box_padding"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"/>
 
         </LinearLayout>
 
@@ -109,7 +116,12 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/hint_teamBScore"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:layout_margin="@dimen/input_box_margin"
+                android:background="@drawable/btn_rounded"
+                android:padding="@dimen/input_box_padding"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"/>
 
             <EditText
                 android:id="@+id/editTeamBScore"
@@ -118,7 +130,12 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/hint_teamBScore"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:layout_margin="@dimen/input_box_margin"
+                android:background="@drawable/btn_rounded"
+                android:padding="@dimen/input_box_padding"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"/>
 
         </LinearLayout>
 
@@ -130,14 +147,36 @@
             android:autofillHints="@string/hint_type"
             android:ems="10"
             android:hint="@string/hint_type"
-            android:inputType="text" />
+            android:inputType="text"
+            android:layout_margin="@dimen/input_box_margin"
+            android:background="@drawable/btn_rounded"
+            android:padding="@dimen/input_box_padding"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorWhite"/>
+
+        <EditText
+            android:id="@+id/editDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/input_box_margin"
+            android:layout_weight="1"
+            android:autofillHints="@string/hint_type"
+            android:background="@drawable/btn_rounded"
+            android:ems="10"
+            android:hint="@string/hint_date"
+            android:inputType="text"
+            android:padding="@dimen/input_box_padding"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorWhite" />
 
         <Button
             android:id="@+id/editResultBtn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@string/btn_addResult" />
+            android:text="@string/btn_addResult"
+            android:layout_height="@dimen/btn_height"
+            android:layout_margin="30dp"
+            android:background="@drawable/btn_rounded"
+            android:textColor="@color/colorWhite"/>
 
     </LinearLayout>
 
