@@ -90,7 +90,6 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
         }
 
         showLoader(loader, "Creating Account...")
-        // [START create_user_with_email]
         app.auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -107,11 +106,9 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
                         Toast.LENGTH_SHORT).show()
                     updateUI(null)
                 }
-                // [START_EXCLUDE]
                 hideLoader(loader)
-                // [END_EXCLUDE]
             }
-        // [END create_user_with_email]
+
     }
 
     private fun signIn(email: String, password: String) {
@@ -235,7 +232,9 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
 
                 emailPasswordButtons.visibility = View.GONE
                 emailPasswordFields.visibility = View.GONE
+                googleSignInButton.visibility = View.INVISIBLE
                 signedInButtons.visibility = View.VISIBLE
+                skipSignIn.visibility = View.INVISIBLE
 
                 verifyEmailButton.isEnabled = !user.isEmailVerified
                 app.database = FirebaseDatabase.getInstance().reference
@@ -269,7 +268,9 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
 
             emailPasswordButtons.visibility = View.VISIBLE
             emailPasswordFields.visibility = View.VISIBLE
+            googleSignInButton.visibility = View.VISIBLE
             signedInButtons.visibility = View.GONE
+            skipSignIn.visibility = View.VISIBLE
         }
     }
 
@@ -314,7 +315,6 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
 
     }
 
-    // [START onactivityresult]
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -334,16 +334,12 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
             }
         }
     }
-    // [END onactivityresult]
 
-    // [START google signin]
     private fun googleSignIn() {
         val signInIntent = app.googleSignInClient.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
-    // [END google signin]
 
-    // [START auth_with_google]
     private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.id!!)
         // [START_EXCLUDE silent]
@@ -370,7 +366,6 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
                 // [END_EXCLUDE]
             }
     }
-    // [END auth_with_google]
 
     }
 

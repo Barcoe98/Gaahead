@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight=".8"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
@@ -53,40 +53,48 @@
             android:id="@+id/emailPasswordFields"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
+            android:layout_marginLeft="50dp"
             android:layout_marginTop="5dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginRight="50dp"
             android:layout_marginBottom="5dp"
-            android:background="@drawable/btn_rounded"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <EditText
                 android:id="@+id/fieldEmail"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="4dp"
                 android:layout_weight="1"
+                android:background="@drawable/btn_rounded"
                 android:hint="@string/hint_email"
                 android:inputType="textEmailAddress"
+                android:padding="4dp"
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorWhite" />
 
             <EditText
                 android:id="@+id/fieldPassword"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="4dp"
                 android:layout_weight="1"
+                android:background="@drawable/btn_rounded"
                 android:hint="@string/hint_password"
                 android:inputType="textPassword"
+                android:padding="4dp"
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorWhite" />
 
             <EditText
                 android:id="@+id/fieldUserType"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="4dp"
                 android:layout_weight="1"
+                android:background="@drawable/btn_rounded"
                 android:ems="10"
                 android:hint="Type Of User"
+                android:padding="4dp"
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorWhite" />
         </LinearLayout>
@@ -127,19 +135,11 @@
             android:id="@+id/googleSignInButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
+            android:layout_marginLeft="50dp"
             android:layout_marginTop="30dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginRight="50dp"
             android:layout_marginBottom="10dp"
             android:orientation="horizontal">
-
-            <com.google.android.gms.common.SignInButton
-                android:id="@+id/fb_sign_in_button"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_margin="4dp"
-                android:layout_weight="1"
-                android:background="@drawable/google_btn_rounded" />
 
             <com.google.android.gms.common.SignInButton
                 android:id="@+id/sign_in_button"
@@ -152,11 +152,12 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/skipSignIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
+            android:layout_marginLeft="50dp"
             android:layout_marginTop="30dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginRight="50dp"
             android:layout_marginBottom="5dp"
             android:gravity="center"
             android:orientation="horizontal">
@@ -170,7 +171,8 @@
                 android:layout_weight="1"
                 android:background="@drawable/btn_rounded"
                 android:text="@string/skip_sign_in"
-                android:textColor="@color/colorWhite" />
+                android:textColor="@color/colorWhite"
+                android:visibility="invisible" />
         </LinearLayout>
 
         <LinearLayout
@@ -180,8 +182,10 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:orientation="horizontal"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="5dp"
             android:visibility="gone"
             android:weightSum="2.0">
 
@@ -189,6 +193,7 @@
                 android:id="@+id/signOutButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="4dp"
                 android:layout_weight="1.0"
                 android:background="@drawable/btn_rounded"
                 android:text="@string/sign_out"
@@ -198,6 +203,7 @@
                 android:id="@+id/verifyEmailButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="4dp"
                 android:layout_weight="1.0"
                 android:background="@drawable/btn_rounded"
                 android:text="@string/verify_email"
