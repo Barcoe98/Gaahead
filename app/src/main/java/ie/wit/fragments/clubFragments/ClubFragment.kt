@@ -1,4 +1,4 @@
-package ie.wit.fragments.teamFragments
+package ie.wit.fragments.clubFragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,18 +8,17 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import ie.wit.R
-import ie.wit.adapters.TeamListener
 import ie.wit.main.MainApp
-import ie.wit.models.TeamModel
+import ie.wit.models.ClubModel
 import ie.wit.utils.*
-import kotlinx.android.synthetic.main.fragment_team.*
-import kotlinx.android.synthetic.main.fragment_team.view.*
+import kotlinx.android.synthetic.main.fragment_club.*
+import kotlinx.android.synthetic.main.fragment_club.view.*
 
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import java.util.HashMap
 
-open class TeamFragment : Fragment(), AnkoLogger{
+open class ClubFragment : Fragment(), AnkoLogger{
 
     lateinit var app: MainApp
     lateinit var loader: AlertDialog
@@ -36,7 +35,7 @@ open class TeamFragment : Fragment(), AnkoLogger{
         savedInstanceState: Bundle?
     ): View? {
 
-        val root = inflater.inflate(R.layout.fragment_team, container, false)
+        val root = inflater.inflate(R.layout.fragment_club, container, false)
         loader = createLoader(activity!!)
         activity?.title = getString(R.string.team_title)
 
@@ -50,7 +49,7 @@ open class TeamFragment : Fragment(), AnkoLogger{
     companion object {
         @JvmStatic
         fun newInstance() =
-            TeamFragment().apply {
+            ClubFragment().apply {
                 arguments = Bundle().apply {}
             }
     }
@@ -65,63 +64,63 @@ open class TeamFragment : Fragment(), AnkoLogger{
 
 
     private fun setButtonListener(layout: View) {
-        layout.addTeamBtn.setOnClickListener {
+        layout.addClubBtn.setOnClickListener {
 
             val name = name.text.toString()
             val county = county.text.toString()
             val colours = colours.text.toString()
             val division = division.text.toString()
-            val location = location.text.toString()
-            val yearFounded = year_founded.text.toString()
+            val grounds = grounds.text.toString()
+            val yearFounded = yearFounded.text.toString()
 
             when {
                 layout.name.text.isEmpty() -> Toast.makeText(
                     app,
-                    R.string.error_teamAName,
+                    R.string.error_clubName,
                     Toast.LENGTH_LONG
                 ).show()
                 layout.county.text.isEmpty() -> Toast.makeText(
                     app,
-                    R.string.error_teamBName,
+                    R.string.error_county,
                     Toast.LENGTH_LONG
                 ).show()
                 layout.colours.text.isEmpty() -> Toast.makeText(
                     app,
-                    R.string.error_date,
+                    R.string.error_colours,
                     Toast.LENGTH_LONG
                 ).show()
-                layout.location.text.isEmpty() -> Toast.makeText(
+                layout.grounds.text.isEmpty() -> Toast.makeText(
                     app,
-                    R.string.error_time,
+                    R.string.error_grounds,
                     Toast.LENGTH_LONG
                 ).show()
                 layout.division.text.isEmpty() -> Toast.makeText(
                     app,
-                    R.string.error_time,
+                    R.string.error_division,
                     Toast.LENGTH_LONG
                 ).show()
-                layout.year_founded.text.isEmpty() -> Toast.makeText(
+                layout.yearFounded.text.isEmpty() -> Toast.makeText(
                     app,
-                    R.string.error_competition,
+                    R.string.error_yearFounded,
                     Toast.LENGTH_LONG
                 ).show()
-                else -> writeNewTeam(
-                    TeamModel(
+                else -> writeNewClub(
+                    ClubModel(
                         name = name,
                         county = county,
                         colours = colours,
-                        location = location,
+                        grounds = grounds,
                         division = division,
-                        year_founded = yearFounded
+                        yearFounded = yearFounded
                     )
                 )
             }
             layout.name.setText("")
             layout.county.setText("")
             layout.colours.setText("")
-            layout.location.setText("")
+            layout.grounds.setText("")
             layout.division.setText("")
-            layout.year_founded.setText("")
+            layout.yearFounded.setText("")
 
         }
     }
@@ -129,25 +128,25 @@ open class TeamFragment : Fragment(), AnkoLogger{
 
     override fun onPause() {
         super.onPause()
-        app.database.child("results")
+        app.database.child("clubs")
         //.removeEventListener(eventListener)
     }
 
-    fun writeNewTeam(team: TeamModel) {
+    fun writeNewClub(club: ClubModel) {
 
-        // Create new team at /teams
-        showLoader(loader, "Adding team to Firebase")
+        // Create new club at clubs
+        showLoader(loader, "Adding club to Firebase")
         info("Firebase DB Reference : $app.database")
-        val key = app.database.child("teams").push().key
+        val key = app.database.child("clubs").push().key
         if (key == null) {
             info("Firebase Error : Key Empty")
             return
         }
-        team.uid = key
-        val teamValues = team.toMap()
+        club.uid = key
+        val clubValues = club.toMap()
 
         val childUpdates = HashMap<String, Any>()
-        childUpdates["/teams/$key"] = teamValues
+        childUpdates["/clubs/$key"] = clubValues
 
         app.database.updateChildren(childUpdates)
         hideLoader(loader)

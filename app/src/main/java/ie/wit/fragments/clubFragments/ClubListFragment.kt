@@ -1,4 +1,4 @@
-package ie.wit.fragments.teamFragments
+package ie.wit.fragments.clubFragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,19 +11,19 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import ie.wit.R
-import ie.wit.adapters.TeamAdapter
-import ie.wit.adapters.TeamListener
+import ie.wit.adapters.ClubAdapter
+import ie.wit.adapters.ClubListener
 import ie.wit.utils.createLoader
 import ie.wit.utils.hideLoader
 import ie.wit.utils.showLoader
 import ie.wit.main.MainApp
-import ie.wit.models.TeamModel
+import ie.wit.models.ClubModel
 import kotlinx.android.synthetic.main.fragment_fixture_list.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 
 
-open class TeamListFragment : Fragment(), AnkoLogger, TeamListener {
+open class ClubListFragment : Fragment(), AnkoLogger, ClubListener {
 
     lateinit var app: MainApp
     lateinit var loader: AlertDialog
@@ -50,43 +50,43 @@ open class TeamListFragment : Fragment(), AnkoLogger, TeamListener {
     companion object {
         @JvmStatic
         fun newInstance() =
-            TeamListFragment().apply {
+            ClubListFragment().apply {
                 arguments = Bundle().apply { }
             }
     }
 
 
 
-    override fun onTeamClick(team: TeamModel) {
+    override fun onClubClick(club: ClubModel) {
         activity!!.supportFragmentManager.beginTransaction()
-            .replace(R.id.homeFrame, TeamDetailsFragment.newInstance(team))
+            .replace(R.id.homeFrame, ClubDetailsFragment.newInstance(club))
             .addToBackStack(null)
             .commit()
     }
 
 
-    fun getAllTeams() {
+    fun getAllClubs() {
         loader = createLoader(activity!!)
-        showLoader(loader, "Downloading Teams from Firebase")
-        val teamsList = ArrayList<TeamModel>()
-        app.database.child("teams")
+        showLoader(loader, "Downloading Clubs from Firebase")
+        val clubsList = ArrayList<ClubModel>()
+        app.database.child("clubs")
             .addValueEventListener(object : ValueEventListener {
                 override fun onCancelled(error: DatabaseError) {
-                    info("Firebase Team error : ${error.message}")
+                    info("Firebase Club error : ${error.message}")
                 }
 
                 override fun onDataChange(snapshot: DataSnapshot) {
                     hideLoader(loader)
                     val children = snapshot.children
                     children.forEach {
-                        val team = it.getValue<TeamModel>(TeamModel::class.java)
+                        val club = it.getValue<ClubModel>(ClubModel::class.java)
 
-                        teamsList.add(team!!)
+                        clubsList.add(club!!)
                         root.fRecyclerView.adapter =
-                            TeamAdapter(teamsList, this@TeamListFragment, false)
+                            ClubAdapter(clubsList, this@ClubListFragment, false)
                         root.fRecyclerView.adapter?.notifyDataSetChanged()
 
-                        app.database.child("teams")
+                        app.database.child("clubs")
                             .removeEventListener(this)
                     }
                 }
@@ -96,8 +96,8 @@ open class TeamListFragment : Fragment(), AnkoLogger, TeamListener {
 
     override fun onResume() {
         super.onResume()
-        if(this::class == TeamListFragment::class)
-            getAllTeams()
+        if(this::class == ClubListFragment::class)
+            getAllClubs()
     }
 
 }

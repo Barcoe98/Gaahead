@@ -14,25 +14,34 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_info">App Info</string>
-    <string name="menu_fixture_list">Fixtures</string>
-    <string name="menu_result_list">Results</string>
-    <string name="menu_players">Players</string>
-    <string name="menu_team">Team</string>
-    <string name="menu_about">About Us</string>
+
     <string name="menu_fixture_all">All Fixtures</string>
+    <string name="menu_fixture_list">Fixtures</string>
 
-    <string name="menu_fixtures_all">All Fixtures</string>
-    <string name="menu_results_all">All Results</string>
+    <string name="menu_add_result">Add Result</string>
+    <string name="menu_result_all">All Results</string>
+    <string name="menu_result_list">Results</string>
 
+    <string name="menu_add_player">Add Player</string>
+    <string name="menu_player_all">All Players</string>
+    <string name="menu_player_list">Players</string>
 
-    <string name="menu_fixtures"> Fixtures</string>
-    <string name="menu_results"> Results</string>
-    <string name="menu_teams"> Results</string>
+    <string name="menu_add_club">Add Club</string>
+    <string name="menu_club_list">Clubs</string>
+    <string name="menu_team_info">Team Information</string>
+
+    <string name="menu_info">App Info</string>
+    <string name="menu_about">About Us</string>
     <string name="menu_tables"> Tables</string>
     <string name="menu_my_info">My Information</string>
     <string name="menu_timer">Timer</string>
     <string name="menu_training">Training</string>
+
+
+
+
+
+    <string name="menu_access_control">Access Control</string>
 
     //Nav Drawer Titles
     <string name="result_title">Results</string>
@@ -92,15 +101,6 @@
     <string name="error_type">Please Enter A Type</string>
     <string name="error_competition">Please Enter a Competition</string>
 
-
-    <string name="home_title">Welcome To GAAhead</string>
-    <string name="home_subtitle">An App to manage your GAA team</string>
-    <string name="home_text">Features include:</string>
-    <string name="home_text2">Add Players to your team</string>
-    <string name="home_text3">Layout team for upcoming match</string>
-    <string name="home_text4">Keep track of your Team Fixtures and Results</string>
-    <string name="home_text5">Keep Track of Players Attributes</string>
-    <string name="home_more">\More Features to come</string>
     <string name="info_title">Information</string>
 
     //HINTS FOR PLAYER
@@ -159,16 +159,11 @@
     <string name="select_profile_image">Select Profile Picture</string>
     <string name="result_subtitle">Results</string>
     <string name="fixture_subtitle">Fixtures</string>
-    <string name="menu_team_info">Team Information</string>
-    <string name="menu_add_result">Add Result</string>
-    <string name="menu_result_all">All Results</string>
+
     <string name="nav_header_name">Michael Barcoe</string>
 
     <string name="player_subtitle">Players</string>
-    <string name="menu_player_all">All Players</string>
-    <string name="menu_player_list">Players</string>
-    <string name="menu_add_player">Add Player</string>
-    <string name="menu_access_control">Access Control</string>
+
     <string name="results_title">Results</string>
     <string name="btn_addLogoBtn">Add Logo</string>
     <string name="hint_teamName">Enter Team Name</string>
@@ -176,9 +171,16 @@
     <string name="hint_colours">Enter Team Colours</string>
     <string name="hint_year_founded">Enter Year Founded</string>
     <string name="hint_division">Enter Teams Division</string>
-    <string name="menu_team_list">Teams</string>
     <string name="team_subtitle">Teams</string>
-    <string name="menu_add_team">Add Team</string>
+    <string name="menu_team">Team</string>
+    <string name="error_clubName">Please Enter A Club Name</string>
+    <string name="error_county">Please Enter a Club County</string>
+    <string name="error_colours">Please Enter Club Colours</string>
+    <string name="error_grounds">Please Enter Club Grounds</string>
+    <string name="error_division">Please Enter a division</string>
+    <string name="error_yearFounded">Please Enter Year Founded</string>
+    <string name="action_club_details">Club Details</string>
+
 
     <!--END Firebase Resources-->
 

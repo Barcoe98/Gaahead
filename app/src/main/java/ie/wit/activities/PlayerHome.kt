@@ -19,8 +19,8 @@ import ie.wit.fragments.playerFragments.PlayerListFragment
 import ie.wit.fragments.resultFragments.ResultAllFragment
 import ie.wit.fragments.resultFragments.ResultFragment
 import ie.wit.fragments.resultFragments.ResultListFragment
-import ie.wit.fragments.teamFragments.TeamFragment
-import ie.wit.fragments.teamFragments.TeamListFragment
+import ie.wit.fragments.clubFragments.ClubFragment
+import ie.wit.fragments.clubFragments.ClubListFragment
 import ie.wit.main.MainApp
 import ie.wit.utils.readImageUri
 import ie.wit.utils.showImagePicker
@@ -77,11 +77,11 @@ class PlayerHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             // R.id.nav_team_info -> navigateTo(TeamInfoFragment.newInstance())
-            // R.id.nav_team -> navigateTo(TeamFragment.newInstance())
-            R.id.nav_add_fixture -> navigateTo(TeamFragment.newInstance())
-            R.id.nav_fixture_list -> navigateTo(TeamListFragment.newInstance())
-            R.id.nav_add_team -> navigateTo(TeamFragment.newInstance())
-            R.id.nav_team_list -> navigateTo(TeamListFragment.newInstance())
+            // R.id.nav_team -> navigateTo(ClubFragment.newInstance())
+            R.id.nav_add_fixture -> navigateTo(ClubFragment.newInstance())
+            R.id.nav_fixture_list -> navigateTo(ClubListFragment.newInstance())
+            R.id.nav_add_team -> navigateTo(ClubFragment.newInstance())
+            R.id.nav_team_list -> navigateTo(ClubListFragment.newInstance())
             R.id.nav_fixture_all -> navigateTo(FixtureAllFragment.newInstance())
             R.id.nav_add_result -> navigateTo(ResultFragment.newInstance())
             R.id.nav_result_list -> navigateTo(ResultListFragment.newInstance())

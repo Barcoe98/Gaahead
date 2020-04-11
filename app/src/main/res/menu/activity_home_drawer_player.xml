@@ -11,7 +11,7 @@
         <item
             android:id="@+id/nav_players"
             android:icon="@drawable/ic_menu_player"
-            android:title="@string/menu_players" />
+            android:title="@string/menu_player_list" />
         <item
             android:id="@+id/nav_timer"
             android:icon="@drawable/ic_menu_timer"
@@ -33,7 +33,7 @@
             <item
                 android:id="@+id/nav_fixture_all"
                 android:icon="@drawable/ic_menu_fixtures_all"
-                android:title="@string/menu_fixtures_all" />
+                android:title="@string/menu_fixture_all" />
             <item
                 android:id="@+id/nav_result_list"
                 android:icon="@drawable/ic_menu_result_list"
@@ -41,7 +41,7 @@
             <item
                 android:id="@+id/nav_results_all"
                 android:icon="@drawable/ic_menu_results_all"
-                android:title="@string/menu_results_all" />
+                android:title="@string/menu_result_all" />
 
         </menu>
     </item>

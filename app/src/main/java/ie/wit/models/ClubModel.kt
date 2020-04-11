@@ -7,14 +7,14 @@ import kotlinx.android.parcel.Parcelize
 
 @IgnoreExtraProperties
 @Parcelize
-data class TeamModel(var uid: String? = "",
+data class ClubModel(var uid: String? = "",
                      var logo: String = "",
                      var name: String = "Blacks & Whites",
                      var county: String = "Kilkenny",
                      var colours: String = "Black & White",
-                     var year_founded: String = "1974",
+                     var yearFounded: String = "1974",
                      var division: String = "Junior",
-                     var location: String = "Tom Walsh Park") : Parcelable
+                     var grounds: String = "Tom Walsh Park") : Parcelable
 
 {
     @Exclude
@@ -25,9 +25,9 @@ data class TeamModel(var uid: String? = "",
             "name" to name,
             "county" to county,
             "colours" to colours,
-            "year_founded" to year_founded,
+            "yearFounded" to yearFounded,
             "division" to division,
-            "location" to location
+            "grounds" to grounds
         )
     }
 }

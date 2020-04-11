@@ -17,7 +17,7 @@ import ie.wit.utils.createLoader
 import ie.wit.utils.hideLoader
 import ie.wit.utils.showLoader
 import kotlinx.android.synthetic.main.fragment_result_list.view.*
-import kotlinx.android.synthetic.main.fragment_team_list.view.*
+import kotlinx.android.synthetic.main.fragment_club_list.view.*
 import org.jetbrains.anko.info
 
 class ResultAllFragment : ResultListFragment(), ResultListener {
@@ -45,8 +45,8 @@ class ResultAllFragment : ResultListFragment(), ResultListener {
     }
 
     override fun setSwipeRefresh() {
-        root.resultSwipeRefresh.setOnRefreshListener {
-            root.resultSwipeRefresh.isRefreshing = true
+        root.clubSwipeRefresh.setOnRefreshListener {
+            root.clubSwipeRefresh.isRefreshing = true
             getAllUsersResults()
         }
     }

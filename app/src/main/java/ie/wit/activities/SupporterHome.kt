@@ -77,7 +77,7 @@ class SupporterHome : AppCompatActivity(), NavigationView.OnNavigationItemSelect
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             // R.id.nav_team_info -> navigateTo(TeamInfoFragment.newInstance())
-            // R.id.nav_team -> navigateTo(TeamFragment.newInstance())
+            // R.id.nav_team -> navigateTo(ClubFragment.newInstance())
             R.id.nav_add_fixture -> navigateTo(FixtureFragment.newInstance())
             R.id.nav_fixture_list -> navigateTo(FixtureListFragment.newInstance())
             R.id.nav_fixture_all -> navigateTo(FixtureAllFragment.newInstance())

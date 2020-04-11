@@ -16,8 +16,8 @@ import ie.wit.fragments.playerFragments.PlayerListFragment
 import ie.wit.fragments.resultFragments.ResultAllFragment
 import ie.wit.fragments.resultFragments.ResultFragment
 import ie.wit.fragments.resultFragments.ResultListFragment
-import ie.wit.fragments.teamFragments.TeamFragment
-import ie.wit.fragments.teamFragments.TeamListFragment
+import ie.wit.fragments.clubFragments.ClubFragment
+import ie.wit.fragments.clubFragments.ClubListFragment
 import ie.wit.main.MainApp
 import ie.wit.utils.showImagePicker
 import kotlinx.android.synthetic.main.admin_home.*
@@ -54,7 +54,7 @@ class AdminHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         navViewAdmin.getHeaderView(0).imageView.setOnClickListener { showImagePicker(this,IMAGE_REQUEST) }
 
         ft = supportFragmentManager.beginTransaction()
-        val fragment =  TeamListFragment.newInstance()
+        val fragment =  ClubListFragment.newInstance()
         ft.replace(R.id.homeFrame, fragment)
         ft.commit()
     }
@@ -71,8 +71,8 @@ class AdminHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             // R.id.nav_team_info -> navigateTo(TeamInfoFragment.newInstance())
             //R.id.nav_team -> navigateTo(.newInstance())
 
-            R.id.nav_add_team -> navigateTo(TeamFragment.newInstance())
-            R.id.nav_team_list -> navigateTo(TeamListFragment.newInstance())
+            R.id.nav_add_team -> navigateTo(ClubFragment.newInstance())
+            R.id.nav_team_list -> navigateTo(ClubListFragment.newInstance())
 
             R.id.nav_add_fixture -> navigateTo(FixtureFragment.newInstance())
             R.id.nav_fixture_list -> navigateTo(FixtureListFragment.newInstance())

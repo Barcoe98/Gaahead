@@ -15,7 +15,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import ie.wit.R
 import ie.wit.adapters.ResultAdapter
-import ie.wit.adapters.PlayerListener
 import ie.wit.adapters.ResultListener
 import ie.wit.utils.createLoader
 import ie.wit.utils.hideLoader
@@ -25,7 +24,7 @@ import ie.wit.models.ResultModel
 import ie.wit.utils.SwipeToDeleteCallback
 import ie.wit.utils.SwipeToEditCallback
 import kotlinx.android.synthetic.main.fragment_result_list.view.*
-import kotlinx.android.synthetic.main.fragment_team_list.view.*
+import kotlinx.android.synthetic.main.fragment_club_list.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 
@@ -84,9 +83,9 @@ open class ResultListFragment : Fragment(), AnkoLogger, ResultListener {
 
 
     open fun setSwipeRefresh() {
-        root.resultSwipeRefresh.setOnRefreshListener(object : SwipeRefreshLayout.OnRefreshListener {
+        root.clubSwipeRefresh.setOnRefreshListener(object : SwipeRefreshLayout.OnRefreshListener {
             override fun onRefresh() {
-                root.resultSwipeRefresh.isRefreshing = true
+                root.clubSwipeRefresh.isRefreshing = true
                 getAllResults(app.auth.currentUser!!.uid)
             }
         })
@@ -94,7 +93,7 @@ open class ResultListFragment : Fragment(), AnkoLogger, ResultListener {
 
 
     fun checkSwipeRefresh() {
-        if (root.resultSwipeRefresh.isRefreshing) root.resultSwipeRefresh.isRefreshing = false
+        if (root.clubSwipeRefresh.isRefreshing) root.clubSwipeRefresh.isRefreshing = false
     }
 
 

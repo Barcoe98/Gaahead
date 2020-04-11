@@ -93,7 +93,7 @@
                 android:textColorHint="@color/colorWhite" />
 
             <EditText
-                android:id="@+id/year_founded"
+                android:id="@+id/yearFounded"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/input_box_margin"
@@ -118,7 +118,7 @@
                 android:textColorHint="@color/colorWhite"/>
 
             <EditText
-                android:id="@+id/location"
+                android:id="@+id/grounds"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/input_box_margin"
@@ -131,7 +131,7 @@
                 android:textColorHint="@color/colorWhite"/>
 
             <Button
-                android:id="@+id/addTeamBtn"
+                android:id="@+id/addClubBtn"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/btn_height"
                 android:layout_margin="30dp"
