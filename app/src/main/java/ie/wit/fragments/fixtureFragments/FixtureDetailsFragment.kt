@@ -31,7 +31,7 @@ class FixtureDetailsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         root = inflater.inflate(R.layout.fragment_fixture_details, container, false)
-        activity?.title = getString(R.string.action_edit)
+        activity?.title = getString(R.string.action_fixture_details)
         loader = createLoader(activity!!)
 
         root.dDate.text = fixtureDetails!!.date

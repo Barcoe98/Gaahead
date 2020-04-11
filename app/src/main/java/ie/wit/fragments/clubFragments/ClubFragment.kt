@@ -37,7 +37,7 @@ open class ClubFragment : Fragment(), AnkoLogger{
 
         val root = inflater.inflate(R.layout.fragment_club, container, false)
         loader = createLoader(activity!!)
-        activity?.title = getString(R.string.team_title)
+        activity?.title = getString(R.string.action_club_add)
 
         setButtonListener(root)
         setImgBtnListener(root)

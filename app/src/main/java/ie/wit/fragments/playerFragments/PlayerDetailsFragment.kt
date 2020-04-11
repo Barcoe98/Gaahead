@@ -30,7 +30,7 @@ class PlayerDetailsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         root = inflater.inflate(R.layout.fragment_player_details, container, false)
-        activity?.title = getString(R.string.action_edit)
+        activity?.title = getString(R.string.action_player_details)
         loader = createLoader(activity!!)
 
         root.playerName.text = playerDetails!!.playerName

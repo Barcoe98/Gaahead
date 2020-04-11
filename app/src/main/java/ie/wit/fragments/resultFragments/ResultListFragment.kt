@@ -44,7 +44,7 @@ open class ResultListFragment : Fragment(), AnkoLogger, ResultListener {
 
         // Inflate the layout for this fragment
         root = inflater.inflate(R.layout.list_view, container, false)
-        activity?.title = getString(R.string.result_title)
+        activity?.title = getString(R.string.action_result_list)
 
         root.recyclerView.layoutManager = LinearLayoutManager(activity)
         setSwipeRefresh()

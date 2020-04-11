@@ -27,7 +27,7 @@ class ResultAllFragment : ResultListFragment(), ResultListener {
     ): View? {
         // Inflate the layout for this fragment
         root = inflater.inflate(R.layout.list_view, container, false)
-        activity?.title = getString(R.string.menu_result_all)
+        activity?.title = getString(R.string.action_result_all)
 
         root.recyclerView.layoutManager = LinearLayoutManager(activity)
         setSwipeRefresh()

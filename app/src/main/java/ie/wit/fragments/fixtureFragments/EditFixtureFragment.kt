@@ -41,7 +41,7 @@ class EditFixtureFragment : Fragment(), AnkoLogger {
     ): View? {
         // Inflate the layout for this fragment
         root = inflater.inflate(R.layout.fragment_edit_fixture, container, false)
-        activity?.title = getString(R.string.action_edit)
+        activity?.title = getString(R.string.action_fixture_edit)
         loader = createLoader(activity!!)
 
         root.editTeamAName.setText(editFixture!!.teamAName)

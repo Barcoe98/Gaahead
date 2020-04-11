@@ -45,7 +45,7 @@ open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
 
         // Inflate the layout for this fragment
         root = inflater.inflate(R.layout.list_view, container, false)
-        activity?.title = getString(R.string.fixture_title)
+        activity?.title = getString(R.string.action_fixture_list)
 
         root.recyclerView.layoutManager = LinearLayoutManager(activity)
         setSwipeRefresh()

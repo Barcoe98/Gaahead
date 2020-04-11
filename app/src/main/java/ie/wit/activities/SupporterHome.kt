@@ -62,7 +62,7 @@ class SupporterHome : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         navViewSupporter.getHeaderView(0).imageView.setOnClickListener { showImagePicker(this,IMAGE_REQUEST) }
 
         ft = supportFragmentManager.beginTransaction()
-        val fragment =  FixtureListFragment.newInstance()
+        val fragment =  FixtureAllFragment.newInstance()
         ft.replace(R.id.homeFrame, fragment)
         ft.commit()
     }

@@ -41,7 +41,7 @@ class EditPlayerFragment : Fragment(), AnkoLogger {
     ): View? {
         // Inflate the layout for this fragment
         root = inflater.inflate(R.layout.fragment_edit_player, container, false)
-        activity?.title = getString(R.string.action_edit)
+        activity?.title = getString(R.string.action_player_edit)
         loader = createLoader(activity!!)
 
         //fiture to player help

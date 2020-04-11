@@ -31,7 +31,7 @@
                 android:id="@+id/addPlayerImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_addPlayerImage" />
+                android:text="@string/btn_editPlayerImage" />
 
             <EditText
                 android:id="@+id/editPlayerName"
@@ -86,7 +86,7 @@
                 android:id="@+id/editPlayerBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_player" />
+                android:text="@string/btn_editPlayer" />
 
         </LinearLayout>
     </ScrollView>

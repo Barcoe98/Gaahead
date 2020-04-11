@@ -32,7 +32,7 @@
             <item
                 android:id="@+id/nav_fixture_all"
                 android:icon="@drawable/ic_menu_list_all"
-                android:title="@string/menu_fixture_all" />
+                android:title="@string/action_fixture_all" />
         </menu>
     </item>
 
@@ -47,9 +47,9 @@
                 android:icon="@drawable/ic_menu_list"
                 android:title="@string/menu_result_list" />
             <item
-                android:id="@+id/nav_results_all"
+                android:id="@+id/nav_result_all"
                 android:icon="@drawable/ic_menu_list_all"
-                android:title="@string/menu_result_all" />
+                android:title="@string/action_result_all" />
 
         </menu>
     </item>

@@ -176,12 +176,12 @@
             android:id="@+id/editResultBtn"
             android:layout_width="match_parent"
             android:layout_height="@dimen/btn_height"
-            android:background="@drawable/btn_rounded"
-            android:text="@string/btn_addResult"
-            android:layout_marginLeft="@dimen/two_btn_marginSides"
+            android:layout_marginLeft="@dimen/btn_marginSides"
             android:layout_marginTop="@dimen/btn_margintopBottom"
-            android:layout_marginRight="@dimen/two_btn_marginSides"
+            android:layout_marginRight="@dimen/btn_marginSides"
             android:layout_marginBottom="@dimen/btn_margintopBottom"
+            android:background="@drawable/btn_rounded"
+            android:text="@string/btn_editResult"
             android:textColor="@color/colorWhite" />
 
     </LinearLayout>

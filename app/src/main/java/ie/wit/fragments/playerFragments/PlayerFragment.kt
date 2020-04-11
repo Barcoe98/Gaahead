@@ -38,7 +38,7 @@ open class PlayerFragment : Fragment(), AnkoLogger {
 
         val root = inflater.inflate(R.layout.fragment_player, container, false)
         loader = createLoader(activity!!)
-        activity?.title = getString(R.string.player_title)
+        activity?.title = getString(R.string.action_player_add)
 
         setButtonListener(root)
         setImgBtnListener(root)

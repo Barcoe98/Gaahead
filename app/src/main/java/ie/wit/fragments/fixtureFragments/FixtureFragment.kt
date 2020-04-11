@@ -43,7 +43,7 @@ open class FixtureFragment : Fragment(), AnkoLogger {
 
         val root = inflater.inflate(R.layout.fragment_fixture, container, false)
         loader = createLoader(activity!!)
-        activity?.title = getString(R.string.fixture_title)
+        activity?.title = getString(R.string.action_fixture_add)
 
         setButtonListener(root)
         setImgBtnListener(root)

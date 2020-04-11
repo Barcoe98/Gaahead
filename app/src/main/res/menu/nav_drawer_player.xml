@@ -9,10 +9,6 @@
             android:icon="@drawable/ic_menu_my_info"
             android:title="@string/menu_my_info" />
         <item
-            android:id="@+id/nav_players"
-            android:icon="@drawable/ic_menu_player"
-            android:title="@string/menu_player_list" />
-        <item
             android:id="@+id/nav_timer"
             android:icon="@drawable/ic_menu_timer"
             android:title="@string/menu_timer" />
@@ -31,17 +27,21 @@
                 android:icon="@drawable/ic_menu_list"
                 android:title="@string/menu_fixture_list" />
             <item
-                android:id="@+id/nav_fixture_all"
+                android:id="@+id/nav_fixtures_all"
                 android:icon="@drawable/ic_menu_list_all"
-                android:title="@string/menu_fixture_all" />
+                android:title="@string/action_fixture_all" />
             <item
                 android:id="@+id/nav_result_list"
-                android:icon="@drawable/ic_menu_result_list"
+                android:icon="@drawable/ic_menu_list"
                 android:title="@string/menu_result_list" />
             <item
                 android:id="@+id/nav_results_all"
-                android:icon="@drawable/ic_menu_results_all"
-                android:title="@string/menu_result_all" />
+                android:icon="@drawable/ic_menu_list_all"
+                android:title="@string/action_result_all"/>
+            <item
+                android:id="@+id/nav_clubs_all"
+                android:icon="@drawable/ic_menu_list_all"
+                android:title="@string/menu_club_list" />
 
         </menu>
     </item>

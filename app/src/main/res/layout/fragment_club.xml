@@ -37,16 +37,18 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/logoBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/btn_height"
-                    android:layout_margin="@dimen/btn_gap"
+                    android:layout_marginLeft="@dimen/btn_marginSides"
+                    android:layout_marginTop="@dimen/btn_margintopBottom"
+                    android:layout_marginRight="@dimen/btn_marginSides"
+                    android:layout_marginBottom="@dimen/btn_margintopBottom"
                     android:layout_weight="1"
-                    android:background="@drawable/txt_rounded"
+                    android:background="@drawable/btn_rounded"
                     android:text="@string/btn_addLogoBtn"
                     android:textColor="@color/colorWhite" />
 
@@ -124,21 +126,23 @@
                 android:layout_margin="@dimen/input_box_margin"
                 android:background="@drawable/txt_rounded"
                 android:ems="10"
-                android:hint="@string/hint_location"
+                android:hint="@string/hint_grounds"
                 android:inputType="textPersonName"
                 android:padding="@dimen/input_box_padding"
                 android:textColor="@color/colorWhite"
-                android:textColorHint="@color/colorWhite"/>
+                android:textColorHint="@color/colorWhite" />
 
             <Button
                 android:id="@+id/addClubBtn"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/btn_height"
-                android:layout_margin="30dp"
-                android:background="@drawable/txt_rounded"
+                android:layout_marginLeft="@dimen/btn_marginSides"
+                android:layout_marginTop="@dimen/btn_margintopBottom"
+                android:layout_marginRight="@dimen/btn_marginSides"
+                android:layout_marginBottom="@dimen/btn_margintopBottom"
+                android:background="@drawable/btn_rounded"
                 android:text="@string/btn_addFixture"
-                android:textColor="@color/colorWhite"
-                />
+                android:textColor="@color/colorWhite" />
 
         </LinearLayout>
     </ScrollView>

@@ -56,7 +56,7 @@ class AdminHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         navViewAdmin.getHeaderView(0).imageView.setOnClickListener { showImagePicker(this,IMAGE_REQUEST) }
 
         ft = supportFragmentManager.beginTransaction()
-        val fragment =  ClubListFragment.newInstance()
+        val fragment =  FixtureListFragment.newInstance()
         ft.replace(R.id.homeFrame, fragment)
         ft.commit()
     }
@@ -70,22 +70,17 @@ class AdminHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            // R.id.nav_team_info -> navigateTo(TeamInfoFragment.newInstance())
-            //R.id.nav_team -> navigateTo(.newInstance())
 
             R.id.nav_add_club -> navigateTo(ClubFragment.newInstance())
             R.id.nav_club_all -> navigateTo(ClubListFragment.newInstance())
 
             R.id.nav_add_fixture -> navigateTo(FixtureFragment.newInstance())
-            R.id.nav_fixture_list -> navigateTo(FixtureListFragment.newInstance())
             R.id.nav_fixture_all -> navigateTo(FixtureAllFragment.newInstance())
 
             R.id.nav_add_result -> navigateTo(ResultFragment.newInstance())
-            R.id.nav_result_list -> navigateTo(ResultListFragment.newInstance())
             R.id.nav_results_all -> navigateTo(ResultAllFragment.newInstance())
 
             R.id.nav_add_player -> navigateTo(PlayerFragment.newInstance())
-            R.id.nav_player_list -> navigateTo(PlayerListFragment.newInstance())
             R.id.nav_player_all -> navigateTo(PlayerAllFragment.newInstance())
 
             // R.id.nav_info -> navigateTo(InfoFragment.newInstance())

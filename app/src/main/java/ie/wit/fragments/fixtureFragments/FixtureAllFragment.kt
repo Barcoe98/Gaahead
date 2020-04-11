@@ -27,7 +27,7 @@ class FixtureAllFragment : FixtureListFragment(), FixtureListener {
     ): View? {
         // Inflate the layout for this fragment
         root = inflater.inflate(R.layout.list_view, container, false)
-        activity?.title = getString(R.string.menu_fixture_all)
+        activity?.title = getString(R.string.action_fixture_all)
 
         root.recyclerView.layoutManager = LinearLayoutManager(activity)
         setSwipeRefresh()

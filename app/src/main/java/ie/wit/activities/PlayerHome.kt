@@ -77,20 +77,19 @@ class PlayerHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            // R.id.nav_team_info -> navigateTo(TeamInfoFragment.newInstance())
-            // R.id.nav_team -> navigateTo(ClubFragment.newInstance())
-            R.id.nav_add_fixture -> navigateTo(ClubFragment.newInstance())
-            R.id.nav_fixture_list -> navigateTo(ClubListFragment.newInstance())
-            R.id.nav_add_club -> navigateTo(ClubFragment.newInstance())
-            R.id.nav_club_all -> navigateTo(ClubListFragment.newInstance())
-            R.id.nav_fixture_all -> navigateTo(FixtureAllFragment.newInstance())
-            R.id.nav_add_result -> navigateTo(ResultFragment.newInstance())
+
+            //R.id.nav_my_info -> navigateTo(MyInfo.newInstance())
+            //R.id.nav_timer -> navigateTo(TimerFragment.newInstance())
+            //R.id.nav_training -> navigateTo(TrainingFrgament.newInstance())
+            R.id.nav_fixture_list -> navigateTo(FixtureListFragment.newInstance())
+            R.id.nav_fixtures_all -> navigateTo(FixtureAllFragment.newInstance())
+
             R.id.nav_result_list -> navigateTo(ResultListFragment.newInstance())
             R.id.nav_results_all -> navigateTo(ResultAllFragment.newInstance())
-            R.id.nav_add_player -> navigateTo(PlayerFragment.newInstance())
-            R.id.nav_player_list -> navigateTo(PlayerListFragment.newInstance())
-            R.id.nav_player_all -> navigateTo(PlayerAllFragment.newInstance())
-            // R.id.nav_info -> navigateTo(InfoFragment.newInstance())
+
+            R.id.nav_clubs_all -> navigateTo(ClubListFragment.newInstance())
+
+            // R.id.nav_info -> navigateTo(AppInfoFragment.newInstance())
             R.id.nav_sign_out -> signOut()
 
             else -> toast("You Selected Something Else")

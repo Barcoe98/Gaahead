@@ -14,34 +14,46 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-
-    <string name="menu_fixture_all">All Fixtures</string>
+    //NAV DRAWER ITEMS
     <string name="menu_fixture_list">Fixtures</string>
-
     <string name="menu_add_result">Add Result</string>
-    <string name="menu_result_all">All Results</string>
     <string name="menu_result_list">Results</string>
-
     <string name="menu_add_player">Add Player</string>
     <string name="menu_player_all">All Players</string>
     <string name="menu_player_list">Players</string>
-
     <string name="menu_add_club">Add Club</string>
     <string name="menu_club_list">Clubs</string>
     <string name="menu_team_info">Team Information</string>
-
     <string name="menu_info">App Info</string>
     <string name="menu_about">About Us</string>
     <string name="menu_tables"> Tables</string>
     <string name="menu_my_info">My Information</string>
     <string name="menu_timer">Timer</string>
     <string name="menu_training">Training</string>
-
-
-
-
-
     <string name="menu_access_control">Access Control</string>
+
+
+//TOOLBAR FRAGMENT TITLES
+    <string name="action_fixture_add">Add Fixture</string>
+    <string name="action_fixture_edit">Edit Fixture</string>
+    <string name="action_fixture_details">Fixture Details</string>
+    <string name="action_fixture_list">Fixtures</string>
+    <string name="action_fixture_all">All Fixtures</string>
+
+    <string name="action_player_edit">Edit Player</string>
+    <string name="action_player_details">Player Details</string>
+    <string name="action_player_add">Add Player</string>
+    <string name="action_player_list">Players</string>
+
+    <string name="action_result_add">Add Result</string>
+    <string name="action_result_edit">Edit Result</string>
+    <string name="action_result_list">Results</string>
+    <string name="action_result_all">All Results</string>
+
+    <string name="action_club_details">Club Details</string>
+    <string name="action_club_list">Clubs</string>
+    <string name="action_club_add">Add Club</string>
+
 
     //Nav Drawer Titles
     <string name="result_title">Results</string>
@@ -50,15 +62,14 @@
     <string name="player_title">Players</string>
     <string name="fixture_result_subtitle">Fixtures &amp; Results</string>
     <string name="management_subtitle">Team Management</string>
+    <string name="select_profile_image">Select Profile Picture</string>
+    <string name="result_subtitle">Results</string>
+    <string name="fixture_subtitle">Fixtures</string>
+    <string name="nav_header_name">Michael Barcoe</string>
+    <string name="player_subtitle">Players</string>
+    <string name="info_title">Information</string>
+    <string name="menu_team">Team</string>
 
-    //menu bar Titles
-    <string name="add_fixture">Add Fixture</string>
-    <string name="add_result">Add Result</string>
-    <string name="cancel_fixture">Cancel</string>
-    <string name="delete_fixture">Delete</string>
-
-    <string name="playerAge">Player Age</string>
-    <string name="playerPosition">Player Position</string>
 
     //buttons
     <string name="btn_addFixture">Add Fixture</string>
@@ -70,6 +81,12 @@
     <string name="btn_editFixture">Edit Fixture</string>
     <string name="btn_deleteFixture">Delete Fixture</string>
     <string name="btn_editResult">Edit Result</string>
+    <string name="btn_editToResults">Edit Results</string>
+    <string name="btn_addPlayerImage">Add Player Image</string>
+    <string name="btn_player">Add Player</string>
+    <string name="btn_editPlayer">Edit Player</string>
+    <string name="btn_addLogoBtn">Add Logo</string>
+    <string name="btn_editPlayerImage">Edit Player Image</string>
 
 
     //Hints
@@ -88,6 +105,17 @@
     <string name="select_teamB_image">Select Team B image</string>
     <string name="hint_type_of_user">Type of User</string>
     <string name="hint_competition">Enter Competition Name</string>
+    <string name="hint_playerName">Player Name</string>
+    <string name="hint_playerAge">Player Age</string>
+    <string name="hint_playerHeight">Player Height(cm)</string>
+    <string name="hint_playerWeight">Player Weight(kg)</string>
+    <string name="hint_playerPosition">Player Position</string>
+    <string name="hint_teamName">Enter Team Name</string>
+    <string name="hint_county">Enter County</string>
+    <string name="hint_colours">Enter Team Colours</string>
+    <string name="hint_year_founded">Enter Year Founded</string>
+    <string name="hint_division">Enter Teams Division</string>
+    <string name="hint_grounds">Enter Club Grounds</string>
 
 
     //Error Hints
@@ -100,32 +128,24 @@
     <string name="error_date">Please Enter A Date</string>
     <string name="error_type">Please Enter A Type</string>
     <string name="error_competition">Please Enter a Competition</string>
-
-    <string name="info_title">Information</string>
-
-    //HINTS FOR PLAYER
-    <string name="btn_addPlayerImage">Add Player Image</string>
-    <string name="hint_playerName">Player Name</string>
-    <string name="hint_playerAge">Player Age</string>
-    <string name="hint_playerHeight">Player Height(cm)</string>
-    <string name="hint_playerWeight">Player Weight(kg)</string>
-    <string name="hint_playerPosition">Player Position</string>
-    <string name="btn_player">Add Player</string>
-    <string name="btn_editPlayer">Edit Player</string>
-
-    //PLAYER ERROR HINTS
+    <string name="error_clubName">Please Enter A Club Name</string>
+    <string name="error_county">Please Enter a Club County</string>
+    <string name="error_colours">Please Enter Club Colours</string>
+    <string name="error_grounds">Please Enter Club Grounds</string>
+    <string name="error_division">Please Enter a division</string>
+    <string name="error_yearFounded">Please Enter Year Founded</string>
     <string name="error_playerName">Enter a Player Name</string>
     <string name="error_playerWeight">Enter a Player Weight </string>
     <string name="error_playerHeight">Enter a Player Height </string>
     <string name="error_playerPosition">Enter a Player Position </string>
     <string name="error_playerAge">Enter a Age Name </string>
-    <string name="add_player">Add Player</string>
 
-    <string name="messageLoading">Please wait while we Connect to the Server...</string>
+
 
 
     <!-- START Firebase Resources-->
-
+    //Login page
+    <string name="messageLoading">Please wait while we Connect to the Server...</string>
     <string name="label_emailpassword">Email/Password Authentication</string>
     <string name="desc_emailpassword">Use an email and password to authenticate with Firebase.</string>
     <string name="sign_in">Sign In</string>
@@ -146,45 +166,17 @@
     <string name="firebase_user_management">Firebase User Management</string>
     <string name="emailpassword_status_fmt">Email User: %1$s (verified: %2$b)</string>
     <string name="emailpassword_title_text">Please Login Below</string>
-    <string name="btn_editToResults">Edit Results</string>
     <string name="menu_fixture">Add Fixture</string>
-    <string name="action_edit">Edit fixture</string>
-    <string name="menu_result">Add Result</string>
     <string name="rate_app">Rate App</string>
     <string name="skip_sign_in">Skip Sign In</string>
     <string name="skip_sign_in_text">Supporter ??</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="select_profile_image">Select Profile Picture</string>
-    <string name="result_subtitle">Results</string>
-    <string name="fixture_subtitle">Fixtures</string>
-
-    <string name="nav_header_name">Michael Barcoe</string>
-
-    <string name="player_subtitle">Players</string>
-
-    <string name="results_title">Results</string>
-    <string name="btn_addLogoBtn">Add Logo</string>
-    <string name="hint_teamName">Enter Team Name</string>
-    <string name="hint_county">Enter County</string>
-    <string name="hint_colours">Enter Team Colours</string>
-    <string name="hint_year_founded">Enter Year Founded</string>
-    <string name="hint_division">Enter Teams Division</string>
-    <string name="team_subtitle">Teams</string>
-    <string name="menu_team">Team</string>
-    <string name="error_clubName">Please Enter A Club Name</string>
-    <string name="error_county">Please Enter a Club County</string>
-    <string name="error_colours">Please Enter Club Colours</string>
-    <string name="error_grounds">Please Enter Club Grounds</string>
-    <string name="error_division">Please Enter a division</string>
-    <string name="error_yearFounded">Please Enter Year Founded</string>
-    <string name="action_club_details">Club Details</string>
 
 
-    <!--END Firebase Resources-->
 
-    //SUPPORTER NAV MENU
+
+
+
 
 
 </resources>

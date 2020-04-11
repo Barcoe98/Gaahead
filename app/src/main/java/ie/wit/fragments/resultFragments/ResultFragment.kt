@@ -44,7 +44,7 @@ open class ResultFragment : Fragment(), AnkoLogger {
 
         val root = inflater.inflate(R.layout.fragment_result, container, false)
         loader = createLoader(activity!!)
-        activity?.title = getString(R.string.results_title)
+        activity?.title = getString(R.string.action_result_add)
 
         setButtonListener(root)
 
