@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import ie.wit.R
 import ie.wit.main.MainApp
 
-class TteamFragment : Fragment() {
+class TeamFragment : Fragment() {
 
     lateinit var app: MainApp
 
@@ -28,7 +28,7 @@ class TteamFragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance() =
-            TteamFragment().apply {
+            TeamFragment().apply {
                 arguments = Bundle().apply {}
             }
     }

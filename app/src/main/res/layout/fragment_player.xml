@@ -14,13 +14,10 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_margin="@dimen/layout_margin"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:orientation="vertical"
-            android:padding="20dp">
+
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/playerImage"
@@ -31,8 +28,15 @@
             <Button
                 android:id="@+id/addPlayerImage"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/btn_addPlayerImage" />
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginLeft="@dimen/btn_marginSides"
+                android:layout_marginTop="@dimen/btn_margintopBottom"
+                android:layout_marginRight="@dimen/btn_marginSides"
+                android:layout_marginBottom="@dimen/btn_margintopBottom"
+                android:layout_weight="1"
+                android:background="@drawable/btn_rounded"
+                android:text="@string/btn_addPlayerImage"
+                android:textColor="@color/colorWhite" />
 
             <EditText
                 android:id="@+id/playerName"
@@ -40,7 +44,12 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/hint_playerName"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:layout_margin="@dimen/input_box_margin"
+                android:background="@drawable/txt_rounded"
+                android:padding="@dimen/input_box_padding"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"/>
 
             <EditText
                 android:id="@+id/playerAge"
@@ -48,7 +57,12 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/hint_playerAge"
-                android:inputType="number" />
+                android:inputType="number"
+                android:layout_margin="@dimen/input_box_margin"
+                android:background="@drawable/txt_rounded"
+                android:padding="@dimen/input_box_padding"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -62,16 +76,26 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/hint_playerHeight"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    android:layout_margin="@dimen/input_box_margin"
+                    android:background="@drawable/txt_rounded"
+                    android:padding="@dimen/input_box_padding"
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorWhite"/>
 
                 <EditText
                     android:id="@+id/playerWeight"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/hint_playerWeight"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/input_box_margin"
+                    android:background="@drawable/txt_rounded"
+                    android:padding="@dimen/input_box_padding"
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorWhite"/>
 
             </LinearLayout>
 
@@ -81,13 +105,25 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="@string/hint_playerPosition"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:layout_margin="@dimen/input_box_margin"
+                android:background="@drawable/txt_rounded"
+                android:padding="@dimen/input_box_padding"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"/>
 
             <Button
                 android:id="@+id/addPlayerBtn"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/btn_player" />
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginLeft="@dimen/btn_marginSides"
+                android:layout_marginTop="@dimen/btn_margintopBottom"
+                android:layout_marginRight="@dimen/btn_marginSides"
+                android:layout_marginBottom="@dimen/btn_margintopBottom"
+                android:layout_weight="1"
+                android:background="@drawable/btn_rounded"
+                android:text="@string/btn_player"
+                android:textColor="@color/colorWhite" />
 
         </LinearLayout>
 

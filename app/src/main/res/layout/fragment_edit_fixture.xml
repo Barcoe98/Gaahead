@@ -52,7 +52,7 @@
                     android:layout_height="@dimen/btn_height"
                     android:layout_margin="@dimen/btn_gap"
                     android:layout_weight="1"
-                    android:background="@drawable/btn_rounded"
+                    android:background="@drawable/txt_rounded"
                     android:text="@string/btn_addTeamALogo"
                     android:textColor="@color/colorWhite" />
 
@@ -63,7 +63,7 @@
                     android:layout_margin="@dimen/btn_gap"
                     android:layout_marginTop="20dp"
                     android:layout_weight="1"
-                    android:background="@drawable/btn_rounded"
+                    android:background="@drawable/txt_rounded"
                     android:text="@string/btn_addTeamBLogo"
                     android:textColor="@color/colorWhite" />
 
@@ -74,7 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/input_box_margin"
-                android:background="@drawable/btn_rounded"
+                android:background="@drawable/txt_rounded"
                 android:ems="10"
                 android:hint="@string/hint_teamA"
                 android:inputType="textPersonName"
@@ -87,7 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/input_box_margin"
-                android:background="@drawable/btn_rounded"
+                android:background="@drawable/txt_rounded"
                 android:ems="10"
                 android:hint="@string/hint_teamB"
                 android:inputType="textPersonName"
@@ -101,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/input_box_margin"
                 android:autofillHints="@string/hint_date"
-                android:background="@drawable/btn_rounded"
+                android:background="@drawable/txt_rounded"
                 android:ems="10"
                 android:hint="@string/hint_date"
                 android:padding="@dimen/input_box_padding"
@@ -113,7 +113,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/input_box_margin"
-                android:background="@drawable/btn_rounded"
+                android:background="@drawable/txt_rounded"
                 android:ems="10"
                 android:hint="@string/hint_time"
                 android:padding="@dimen/input_box_padding"
@@ -125,7 +125,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/input_box_margin"
-                android:background="@drawable/btn_rounded"
+                android:background="@drawable/txt_rounded"
                 android:ems="10"
                 android:hint="@string/hint_location"
                 android:inputType="textPersonName"
@@ -138,7 +138,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/btn_height"
                 android:layout_margin="30dp"
-                android:background="@drawable/btn_rounded"
+                android:background="@drawable/txt_rounded"
                 android:text="@string/btn_editFixture"
                 android:textColor="@color/colorWhite" />
 
@@ -147,7 +147,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/btn_height"
                 android:layout_margin="30dp"
-                android:background="@drawable/btn_rounded"
+                android:background="@drawable/txt_rounded"
                 android:text="@string/btn_editToResults"
                 android:textColor="@color/colorWhite"
                 android:visibility="invisible" />

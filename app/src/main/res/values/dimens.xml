@@ -35,6 +35,9 @@
     <dimen name="btn_padding">20dp</dimen>
     <dimen name="btn_margin">20dp</dimen>
 
+    <dimen name="btn_marginSides">80dp</dimen>
+    <dimen name="btn_margintopBottom">20dp</dimen>
+
     <dimen name="layout_margin">20dp</dimen>
 
     <dimen name="detail_text_space">4dp</dimen>
