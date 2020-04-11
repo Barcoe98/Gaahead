@@ -15,7 +15,7 @@
         android:layout_height="match_parent" />
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navViewPlayer"
+        android:id="@+id/navViewSupporter"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
@@ -23,6 +23,6 @@
         app:headerLayout="@layout/nav_header_home"
         app:itemIconTint="@color/colorBlack"
         app:itemTextColor="@color/colorBlack"
-        app:menu="@menu/activity_home_drawer_player" />
+        app:menu="@menu/nav_drawer_supporter" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

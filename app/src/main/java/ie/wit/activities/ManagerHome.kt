@@ -28,8 +28,8 @@ import ie.wit.utils.uploadImageView
 import ie.wit.utils.writeImageRef
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import kotlinx.android.synthetic.main.app_bar_home.*
-import kotlinx.android.synthetic.main.manager_home.*
-import kotlinx.android.synthetic.main.manager_home.drawerLayout
+import kotlinx.android.synthetic.main.home_manager.*
+import kotlinx.android.synthetic.main.home_manager.drawerLayout
 import kotlinx.android.synthetic.main.nav_header_home.view.*
 import org.jetbrains.anko.startActivity
 
@@ -44,7 +44,7 @@ class ManagerHome : AppCompatActivity(), NavigationView.OnNavigationItemSelected
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.manager_home)
+        setContentView(R.layout.home_manager)
         setSupportActionBar(toolbar)
         app = application as MainApp
 

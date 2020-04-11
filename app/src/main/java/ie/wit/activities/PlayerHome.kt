@@ -29,9 +29,9 @@ import ie.wit.utils.uploadImageView
 import ie.wit.utils.writeImageRef
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import kotlinx.android.synthetic.main.app_bar_home.*
-import kotlinx.android.synthetic.main.manager_home.drawerLayout
+import kotlinx.android.synthetic.main.home_manager.drawerLayout
 import kotlinx.android.synthetic.main.nav_header_home.view.*
-import kotlinx.android.synthetic.main.player_home.*
+import kotlinx.android.synthetic.main.home_player.*
 import org.jetbrains.anko.startActivity
 
 import org.jetbrains.anko.toast
@@ -45,7 +45,7 @@ class PlayerHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.player_home)
+        setContentView(R.layout.home_player)
         setSupportActionBar(toolbar)
         app = application as MainApp
 

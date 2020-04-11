@@ -24,7 +24,7 @@ import ie.wit.R
 import ie.wit.main.MainApp
 import ie.wit.models.UserPhotoModel
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
-import kotlinx.android.synthetic.main.manager_home.*
+import kotlinx.android.synthetic.main.home_manager.*
 import kotlinx.android.synthetic.main.nav_header_home.view.*
 import java.io.ByteArrayOutputStream
 import java.io.IOException

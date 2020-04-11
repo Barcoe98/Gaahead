@@ -22,7 +22,7 @@ import ie.wit.fragments.fixtureFragments.FixtureFragment
 import ie.wit.fragments.fixtureFragments.FixtureListFragment
 import ie.wit.main.MainApp
 import ie.wit.utils.showImagePicker
-import kotlinx.android.synthetic.main.admin_home.*
+import kotlinx.android.synthetic.main.home_admin.*
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.nav_header_home.view.*
 import org.jetbrains.anko.startActivity
@@ -38,7 +38,7 @@ class AdminHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.admin_home)
+        setContentView(R.layout.home_admin)
         setSupportActionBar(toolbar)
         app = application as MainApp
 

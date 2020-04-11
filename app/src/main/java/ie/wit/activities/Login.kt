@@ -241,7 +241,7 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
                 app.storage = FirebaseStorage.getInstance().reference
 
 
-            val checkUserType = app.database.child("userType")
+            //val checkUserType = app.database.child("userType")
             val userType = fieldUserType.text.toString()
 
             showLoader(loader, " Loading Screen")
@@ -298,7 +298,6 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
         // Create new fixture at /fixtures & /fixtures/$uid
         showLoader(loader, "Adding User to Firebase")
         info("Firebase DB Reference : $app.database")
-        val uid = app.auth.currentUser!!.uid
         val key = app.database.child("users").push().key
         if (key == null) {
             info("Firebase Error : Key Empty")
