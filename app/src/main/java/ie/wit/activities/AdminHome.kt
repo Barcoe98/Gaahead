@@ -1,6 +1,5 @@
 package ie.wit.activities
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -9,8 +8,6 @@ import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
-import com.squareup.picasso.Callback
-import com.squareup.picasso.Picasso
 import ie.wit.R
 import ie.wit.fragments.*
 import ie.wit.fragments.playerFragments.PlayerAllFragment
@@ -19,12 +16,10 @@ import ie.wit.fragments.playerFragments.PlayerListFragment
 import ie.wit.fragments.resultFragments.ResultAllFragment
 import ie.wit.fragments.resultFragments.ResultFragment
 import ie.wit.fragments.resultFragments.ResultListFragment
+import ie.wit.fragments.teamFragments.TeamFragment
+import ie.wit.fragments.teamFragments.TeamListFragment
 import ie.wit.main.MainApp
-import ie.wit.utils.readImageUri
 import ie.wit.utils.showImagePicker
-import ie.wit.utils.uploadImageView
-import ie.wit.utils.writeImageRef
-import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import kotlinx.android.synthetic.main.admin_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.nav_header_home.view.*

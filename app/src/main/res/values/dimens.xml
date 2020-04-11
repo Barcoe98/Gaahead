@@ -34,6 +34,9 @@
     <dimen name="btn_gap">6dp</dimen>
     <dimen name="btn_padding">20dp</dimen>
     <dimen name="btn_margin">20dp</dimen>
-    <dimen name="layout_margin">30dp</dimen>
+
+    <dimen name="layout_margin">20dp</dimen>
+
+    <dimen name="detail_text_space">4dp</dimen>
 
 </resources>

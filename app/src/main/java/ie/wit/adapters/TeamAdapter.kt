@@ -47,15 +47,15 @@ class TeamAdapter constructor(var teams: ArrayList<TeamModel>, private val liste
             /////Card Text//////////////////////////model
             itemView.tag = team
             itemView.tName.text = team.name
-            itemView.tCounty.text = team.county
-            itemView.tColours.text = team.colours
-            itemView.tLocation.text = team.location
-            itemView.tYearFounded.text = team.year_founded
-            itemView.tDivision.text = team.division
+            //itemView.tCounty.text = team.county
+            // itemView.tColours.text = team.colours
+            //itemView.tLocation.text = team.location
+            //itemView.tYearFounded.text = team.year_founded
+            //itemView.tDivision.text = team.division
 
-            if(!teamAll)
+            if (!teamAll)
                 itemView.setOnClickListener { listener.onTeamClick(team) }
-
+/*
             if(!team.logo.isEmpty()) {
                 Picasso.get().load(team.logo.toUri())
                     //.resize(180, 180)
@@ -66,5 +66,8 @@ class TeamAdapter constructor(var teams: ArrayList<TeamModel>, private val liste
                 itemView.tLogo.setImageResource(R.mipmap.ic_app_icon_round)
                 itemView.tLogo.setImageResource(R.mipmap.ic_app_icon_round)
         }
+
+ */
         }
     }
+}

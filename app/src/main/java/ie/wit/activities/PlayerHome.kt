@@ -19,6 +19,8 @@ import ie.wit.fragments.playerFragments.PlayerListFragment
 import ie.wit.fragments.resultFragments.ResultAllFragment
 import ie.wit.fragments.resultFragments.ResultFragment
 import ie.wit.fragments.resultFragments.ResultListFragment
+import ie.wit.fragments.teamFragments.TeamFragment
+import ie.wit.fragments.teamFragments.TeamListFragment
 import ie.wit.main.MainApp
 import ie.wit.utils.readImageUri
 import ie.wit.utils.showImagePicker

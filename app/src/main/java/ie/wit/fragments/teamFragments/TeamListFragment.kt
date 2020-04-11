@@ -1,4 +1,4 @@
-package ie.wit.fragments
+package ie.wit.fragments.teamFragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,16 +11,13 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import ie.wit.R
-import ie.wit.adapters.FixtureAdapter
 import ie.wit.adapters.TeamAdapter
 import ie.wit.adapters.TeamListener
 import ie.wit.utils.createLoader
 import ie.wit.utils.hideLoader
 import ie.wit.utils.showLoader
 import ie.wit.main.MainApp
-import ie.wit.models.FixtureModel
 import ie.wit.models.TeamModel
-import kotlinx.android.synthetic.main.fragment_fixture_list.view.*
 import kotlinx.android.synthetic.main.fragment_team_list.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info

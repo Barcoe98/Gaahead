@@ -1,4 +1,4 @@
-package ie.wit.fragments
+package ie.wit.fragments.teamFragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

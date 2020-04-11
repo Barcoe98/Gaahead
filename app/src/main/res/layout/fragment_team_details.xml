@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorWhite"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.FixtureFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/layout_margin"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#4CAF50"
+                android:fontFamily="@font/roboto"
+                android:padding="@dimen/card_banner_padding"
+                android:text="Blacks and Whites"
+                android:textAlignment="center"
+                android:textColor="@color/text_black"
+                android:textSize="24sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_input_margin"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/tLogo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@mipmap/ic_black_white_crest_2" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tBanner"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="#4CAF50"
+                android:fontFamily="@font/roboto"
+                android:padding="@dimen/card_banner_padding"
+                android:textAlignment="center"
+                android:textColor="@color/text_black"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tYearFoundedText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:padding="@dimen/detail_text_space"
+                    android:text="Year Founded : "
+                    android:textAlignment="textStart"
+                    android:textColor="@color/text_black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tYearFounded"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="1927"
+                    android:padding="@dimen/detail_text_space"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/text_black"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tCountyText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/detail_text_space"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="County : "
+                    android:textAlignment="textStart"
+                    android:textColor="@color/text_black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tCounty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/detail_text_space"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Kilkenny"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/text_black"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tColoursText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Colours : "
+                    android:padding="@dimen/detail_text_space"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/text_black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tColours"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Black, White"
+                    android:padding="@dimen/detail_text_space"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/text_black"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tPitchNameText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Pitch Name : "
+                    android:padding="@dimen/detail_text_space"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/text_black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tPitchName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Tom Walsh Park"
+                    android:padding="@dimen/detail_text_space"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/text_black"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tTrophiesText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Trophies : "
+                    android:padding="@dimen/detail_text_space"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/text_black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tTrophies"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="47"
+                    android:padding="@dimen/detail_text_space"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/text_black"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tHistoryText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#4CAF50"
+                android:fontFamily="@font/roboto"
+                android:padding="@dimen/card_banner_padding"
+                android:text="History"
+                android:textAlignment="center"
+                android:textColor="@color/text_black"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/tHistory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/detail_text_space"
+                android:text="Excellent match , the ball play was from end to end. great show by all involved . was a great darw gae."
+                android:textAlignment="textStart"
+                android:textColor="@color/text_black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tLocationText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#4CAF50"
+                android:fontFamily="@font/roboto"
+                android:padding="@dimen/card_banner_padding"
+                android:text="Location"
+                android:textAlignment="center"
+                android:textColor="@color/text_black"
+                android:textSize="24sp" />
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
