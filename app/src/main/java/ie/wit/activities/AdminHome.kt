@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
 import ie.wit.R
-import ie.wit.fragments.*
 import ie.wit.fragments.playerFragments.PlayerAllFragment
 import ie.wit.fragments.playerFragments.PlayerFragment
 import ie.wit.fragments.playerFragments.PlayerListFragment
@@ -18,6 +17,9 @@ import ie.wit.fragments.resultFragments.ResultFragment
 import ie.wit.fragments.resultFragments.ResultListFragment
 import ie.wit.fragments.clubFragments.ClubFragment
 import ie.wit.fragments.clubFragments.ClubListFragment
+import ie.wit.fragments.fixtureFragments.FixtureAllFragment
+import ie.wit.fragments.fixtureFragments.FixtureFragment
+import ie.wit.fragments.fixtureFragments.FixtureListFragment
 import ie.wit.main.MainApp
 import ie.wit.utils.showImagePicker
 import kotlinx.android.synthetic.main.admin_home.*

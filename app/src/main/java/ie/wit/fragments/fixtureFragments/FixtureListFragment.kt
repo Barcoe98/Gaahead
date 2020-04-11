@@ -1,5 +1,5 @@
 
-package ie.wit.fragments
+package ie.wit.fragments.fixtureFragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -24,7 +24,7 @@ import ie.wit.main.MainApp
 import ie.wit.models.FixtureModel
 import ie.wit.utils.SwipeToDeleteCallback
 import ie.wit.utils.SwipeToEditCallback
-import kotlinx.android.synthetic.main.fragment_fixture_list.view.*
+import kotlinx.android.synthetic.main.list_view.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 
@@ -44,22 +44,22 @@ open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         // Inflate the layout for this fragment
-        root = inflater.inflate(R.layout.fragment_fixture_list, container, false)
+        root = inflater.inflate(R.layout.list_view, container, false)
         activity?.title = getString(R.string.fixture_title)
 
-        root.fRecyclerView.layoutManager = LinearLayoutManager(activity)
+        root.recyclerView.layoutManager = LinearLayoutManager(activity)
         setSwipeRefresh()
 
         val swipeDeleteHandler = object : SwipeToDeleteCallback(activity!!) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val adapter = root.fRecyclerView.adapter as FixtureAdapter
+                val adapter = root.recyclerView.adapter as FixtureAdapter
                 adapter.removeAt(viewHolder.adapterPosition)
                 deleteFixture((viewHolder.itemView.tag as FixtureModel).uid)
                 deleteUserFixture(app.auth.currentUser!!.uid, (viewHolder.itemView.tag as FixtureModel).uid)
             }
         }
         val itemTouchDeleteHelper = ItemTouchHelper(swipeDeleteHandler)
-        itemTouchDeleteHelper.attachToRecyclerView(root.fRecyclerView)
+        itemTouchDeleteHelper.attachToRecyclerView(root.recyclerView)
 
         val swipeEditHandler = object : SwipeToEditCallback(activity!!) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
@@ -67,7 +67,7 @@ open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
             }
         }
         val itemTouchEditHelper = ItemTouchHelper(swipeEditHandler)
-        itemTouchEditHelper.attachToRecyclerView(root.fRecyclerView)
+        itemTouchEditHelper.attachToRecyclerView(root.recyclerView)
 
         return root
     }
@@ -83,9 +83,9 @@ open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
 
 
     open fun setSwipeRefresh() {
-        root.fixtureSwipeRefresh.setOnRefreshListener(object : SwipeRefreshLayout.OnRefreshListener {
+        root.swipeRefresh.setOnRefreshListener(object : SwipeRefreshLayout.OnRefreshListener {
             override fun onRefresh() {
-                root.fixtureSwipeRefresh.isRefreshing = true
+                root.swipeRefresh.isRefreshing = true
                 getAllFixtures(app.auth.currentUser!!.uid)
             }
         })
@@ -93,7 +93,7 @@ open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
 
 
     fun checkSwipeRefresh() {
-        if (root.fixtureSwipeRefresh.isRefreshing) root.fixtureSwipeRefresh.isRefreshing = false
+        if (root.swipeRefresh.isRefreshing) root.swipeRefresh.isRefreshing = false
     }
 
 
@@ -150,9 +150,9 @@ open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
                         val fixture = it.getValue<FixtureModel>(FixtureModel::class.java)
 
                         fixturesList.add(fixture!!)
-                        root.fRecyclerView.adapter =
+                        root.recyclerView.adapter =
                             FixtureAdapter(fixturesList, this@FixtureListFragment, false)
-                        root.fRecyclerView.adapter?.notifyDataSetChanged()
+                        root.recyclerView.adapter?.notifyDataSetChanged()
                         checkSwipeRefresh()
 
                         app.database.child("user-fixtures").child(userId)

@@ -18,7 +18,7 @@ import ie.wit.utils.hideLoader
 import ie.wit.utils.showLoader
 import ie.wit.main.MainApp
 import ie.wit.models.ClubModel
-import kotlinx.android.synthetic.main.fragment_fixture_list.view.*
+import kotlinx.android.synthetic.main.list_view.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 
@@ -38,10 +38,10 @@ open class ClubListFragment : Fragment(), AnkoLogger, ClubListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         // Inflate the layout for this fragment
-        root = inflater.inflate(R.layout.fragment_fixture_list, container, false)
+        root = inflater.inflate(R.layout.list_view, container, false)
         activity?.title = getString(R.string.fixture_title)
 
-        root.fRecyclerView.layoutManager = LinearLayoutManager(activity)
+        root.recyclerView.layoutManager = LinearLayoutManager(activity)
 
         return root
     }
@@ -82,9 +82,9 @@ open class ClubListFragment : Fragment(), AnkoLogger, ClubListener {
                         val club = it.getValue<ClubModel>(ClubModel::class.java)
 
                         clubsList.add(club!!)
-                        root.fRecyclerView.adapter =
+                        root.recyclerView.adapter =
                             ClubAdapter(clubsList, this@ClubListFragment, false)
-                        root.fRecyclerView.adapter?.notifyDataSetChanged()
+                        root.recyclerView.adapter?.notifyDataSetChanged()
 
                         app.database.child("clubs")
                             .removeEventListener(this)

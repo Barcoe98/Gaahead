@@ -23,8 +23,7 @@ import ie.wit.main.MainApp
 import ie.wit.models.ResultModel
 import ie.wit.utils.SwipeToDeleteCallback
 import ie.wit.utils.SwipeToEditCallback
-import kotlinx.android.synthetic.main.fragment_result_list.view.*
-import kotlinx.android.synthetic.main.fragment_club_list.view.*
+import kotlinx.android.synthetic.main.list_view.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 
@@ -44,22 +43,22 @@ open class ResultListFragment : Fragment(), AnkoLogger, ResultListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         // Inflate the layout for this fragment
-        root = inflater.inflate(R.layout.fragment_result_list, container, false)
+        root = inflater.inflate(R.layout.list_view, container, false)
         activity?.title = getString(R.string.result_title)
 
-        root.rRecyclerView.layoutManager = LinearLayoutManager(activity)
+        root.recyclerView.layoutManager = LinearLayoutManager(activity)
         setSwipeRefresh()
 
         val swipeDeleteHandler = object : SwipeToDeleteCallback(activity!!) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val adapter = root.rRecyclerView.adapter as ResultAdapter
+                val adapter = root.recyclerView.adapter as ResultAdapter
                 adapter.removeAt(viewHolder.adapterPosition)
                 deleteResult((viewHolder.itemView.tag as ResultModel).uid)
                 deleteUserResult(app.auth.currentUser!!.uid, (viewHolder.itemView.tag as ResultModel).uid)
             }
         }
         val itemTouchDeleteHelper = ItemTouchHelper(swipeDeleteHandler)
-        itemTouchDeleteHelper.attachToRecyclerView(root.rRecyclerView)
+        itemTouchDeleteHelper.attachToRecyclerView(root.recyclerView)
 
         val swipeEditHandler = object : SwipeToEditCallback(activity!!) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
@@ -67,7 +66,7 @@ open class ResultListFragment : Fragment(), AnkoLogger, ResultListener {
             }
         }
         val itemTouchEditHelper = ItemTouchHelper(swipeEditHandler)
-        itemTouchEditHelper.attachToRecyclerView(root.rRecyclerView)
+        itemTouchEditHelper.attachToRecyclerView(root.recyclerView)
 
         return root
     }
@@ -83,9 +82,9 @@ open class ResultListFragment : Fragment(), AnkoLogger, ResultListener {
 
 
     open fun setSwipeRefresh() {
-        root.clubSwipeRefresh.setOnRefreshListener(object : SwipeRefreshLayout.OnRefreshListener {
+        root.swipeRefresh.setOnRefreshListener(object : SwipeRefreshLayout.OnRefreshListener {
             override fun onRefresh() {
-                root.clubSwipeRefresh.isRefreshing = true
+                root.swipeRefresh.isRefreshing = true
                 getAllResults(app.auth.currentUser!!.uid)
             }
         })
@@ -93,7 +92,7 @@ open class ResultListFragment : Fragment(), AnkoLogger, ResultListener {
 
 
     fun checkSwipeRefresh() {
-        if (root.clubSwipeRefresh.isRefreshing) root.clubSwipeRefresh.isRefreshing = false
+        if (root.swipeRefresh.isRefreshing) root.swipeRefresh.isRefreshing = false
     }
 
 
@@ -151,9 +150,9 @@ open class ResultListFragment : Fragment(), AnkoLogger, ResultListener {
                         val result = it.getValue<ResultModel>(ResultModel::class.java)
 
                         resultsList.add(result!!)
-                        root.rRecyclerView.adapter =
+                        root.recyclerView.adapter =
                             ResultAdapter(resultsList, this@ResultListFragment, false)
-                        root.rRecyclerView.adapter?.notifyDataSetChanged()
+                        root.recyclerView.adapter?.notifyDataSetChanged()
                         checkSwipeRefresh()
 
                         app.database.child("user-results").child(userId)

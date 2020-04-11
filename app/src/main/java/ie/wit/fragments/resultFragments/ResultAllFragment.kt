@@ -16,8 +16,7 @@ import ie.wit.models.ResultModel
 import ie.wit.utils.createLoader
 import ie.wit.utils.hideLoader
 import ie.wit.utils.showLoader
-import kotlinx.android.synthetic.main.fragment_result_list.view.*
-import kotlinx.android.synthetic.main.fragment_club_list.view.*
+import kotlinx.android.synthetic.main.list_view.view.*
 import org.jetbrains.anko.info
 
 class ResultAllFragment : ResultListFragment(), ResultListener {
@@ -27,10 +26,10 @@ class ResultAllFragment : ResultListFragment(), ResultListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        root = inflater.inflate(R.layout.fragment_result_list, container, false)
-        activity?.title = getString(R.string.menu_fixture_all)
+        root = inflater.inflate(R.layout.list_view, container, false)
+        activity?.title = getString(R.string.menu_result_all)
 
-        root.rRecyclerView.layoutManager = LinearLayoutManager(activity)
+        root.recyclerView.layoutManager = LinearLayoutManager(activity)
         setSwipeRefresh()
 
         return root
@@ -45,8 +44,8 @@ class ResultAllFragment : ResultListFragment(), ResultListener {
     }
 
     override fun setSwipeRefresh() {
-        root.clubSwipeRefresh.setOnRefreshListener {
-            root.clubSwipeRefresh.isRefreshing = true
+        root.swipeRefresh.setOnRefreshListener {
+            root.swipeRefresh.isRefreshing = true
             getAllUsersResults()
         }
     }
@@ -74,9 +73,9 @@ class ResultAllFragment : ResultListFragment(), ResultListener {
                             getValue<ResultModel>(ResultModel::class.java)
 
                         resultslist.add(result!!)
-                        root.rRecyclerView.adapter =
+                        root.recyclerView.adapter =
                             ResultAdapter(resultslist, this@ResultAllFragment, true)
-                        root.rRecyclerView.adapter?.notifyDataSetChanged()
+                        root.recyclerView.adapter?.notifyDataSetChanged()
                         checkSwipeRefresh()
 
                         app.database.child("results").removeEventListener(this)

@@ -23,7 +23,7 @@ import ie.wit.main.MainApp
 import ie.wit.models.PlayerModel
 import ie.wit.utils.SwipeToDeleteCallback
 import ie.wit.utils.SwipeToEditCallback
-import kotlinx.android.synthetic.main.fragment_player_list.view.*
+import kotlinx.android.synthetic.main.list_view.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 
@@ -43,22 +43,22 @@ open class PlayerListFragment : Fragment(), AnkoLogger, PlayerListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         // Inflate the layout for this fragment
-        root = inflater.inflate(R.layout.fragment_player_list, container, false)
-        activity?.title = getString(R.string.result_title)
+        root = inflater.inflate(R.layout.list_view, container, false)
+        activity?.title = getString(R.string.player_title)
 
-        root.pRecyclerView.layoutManager = LinearLayoutManager(activity)
+        root.recyclerView.layoutManager = LinearLayoutManager(activity)
         setSwipeRefresh()
 
         val swipeDeleteHandler = object : SwipeToDeleteCallback(activity!!) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val adapter = root.pRecyclerView.adapter as PlayerAdapter
+                val adapter = root.recyclerView.adapter as PlayerAdapter
                 adapter.removeAt(viewHolder.adapterPosition)
                 deletePlayer((viewHolder.itemView.tag as PlayerModel).uid)
                 deleteUserPlayer(app.auth.currentUser!!.uid, (viewHolder.itemView.tag as PlayerModel).uid)
             }
         }
         val itemTouchDeleteHelper = ItemTouchHelper(swipeDeleteHandler)
-        itemTouchDeleteHelper.attachToRecyclerView(root.pRecyclerView)
+        itemTouchDeleteHelper.attachToRecyclerView(root.recyclerView)
 
         val swipeEditHandler = object : SwipeToEditCallback(activity!!) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
@@ -66,7 +66,7 @@ open class PlayerListFragment : Fragment(), AnkoLogger, PlayerListener {
             }
         }
         val itemTouchEditHelper = ItemTouchHelper(swipeEditHandler)
-        itemTouchEditHelper.attachToRecyclerView(root.pRecyclerView)
+        itemTouchEditHelper.attachToRecyclerView(root.recyclerView)
 
         return root
     }
@@ -82,9 +82,9 @@ open class PlayerListFragment : Fragment(), AnkoLogger, PlayerListener {
 
 
     open fun setSwipeRefresh() {
-        root.playerSwipeRefresh.setOnRefreshListener(object : SwipeRefreshLayout.OnRefreshListener {
+        root.swipeRefresh.setOnRefreshListener(object : SwipeRefreshLayout.OnRefreshListener {
             override fun onRefresh() {
-                root.playerSwipeRefresh.isRefreshing = true
+                root.swipeRefresh.isRefreshing = true
                 getAllPlayers(app.auth.currentUser!!.uid)
             }
         })
@@ -92,7 +92,7 @@ open class PlayerListFragment : Fragment(), AnkoLogger, PlayerListener {
 
 
     fun checkSwipeRefresh() {
-        if (root.playerSwipeRefresh.isRefreshing) root.playerSwipeRefresh.isRefreshing = false
+        if (root.swipeRefresh.isRefreshing) root.swipeRefresh.isRefreshing = false
     }
 
 
@@ -150,9 +150,9 @@ open class PlayerListFragment : Fragment(), AnkoLogger, PlayerListener {
                         val player = it.getValue<PlayerModel>(PlayerModel::class.java)
 
                         playersList.add(player!!)
-                        root.pRecyclerView.adapter =
+                        root.recyclerView.adapter =
                             PlayerAdapter(playersList, this@PlayerListFragment, false)
-                        root.pRecyclerView.adapter?.notifyDataSetChanged()
+                        root.recyclerView.adapter?.notifyDataSetChanged()
                         checkSwipeRefresh()
 
                         app.database.child("user-players").child(userId)

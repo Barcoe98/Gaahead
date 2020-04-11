@@ -16,7 +16,7 @@ import ie.wit.models.PlayerModel
 import ie.wit.utils.createLoader
 import ie.wit.utils.hideLoader
 import ie.wit.utils.showLoader
-import kotlinx.android.synthetic.main.fragment_player_list.view.*
+import kotlinx.android.synthetic.main.list_view.view.*
 import org.jetbrains.anko.info
 
 class PlayerAllFragment : PlayerListFragment(), PlayerListener {
@@ -26,10 +26,10 @@ class PlayerAllFragment : PlayerListFragment(), PlayerListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        root = inflater.inflate(R.layout.fragment_player_list, container, false)
-        activity?.title = getString(R.string.menu_fixture_all)
+        root = inflater.inflate(R.layout.list_view, container, false)
+        activity?.title = getString(R.string.menu_player_all)
 
-        root.pRecyclerView.layoutManager = LinearLayoutManager(activity)
+        root.recyclerView.layoutManager = LinearLayoutManager(activity)
         setSwipeRefresh()
 
         return root
@@ -44,8 +44,8 @@ class PlayerAllFragment : PlayerListFragment(), PlayerListener {
     }
 
     override fun setSwipeRefresh() {
-        root.playerSwipeRefresh.setOnRefreshListener {
-            root.playerSwipeRefresh.isRefreshing = true
+        root.swipeRefresh.setOnRefreshListener {
+            root.swipeRefresh.isRefreshing = true
             getAllUsersPlayers()
         }
     }
@@ -73,9 +73,9 @@ class PlayerAllFragment : PlayerListFragment(), PlayerListener {
                             getValue<PlayerModel>(PlayerModel::class.java)
 
                         playerslist.add(player!!)
-                        root.pRecyclerView.adapter =
+                        root.recyclerView.adapter =
                             PlayerAdapter(playerslist, this@PlayerAllFragment, true)
-                        root.pRecyclerView.adapter?.notifyDataSetChanged()
+                        root.recyclerView.adapter?.notifyDataSetChanged()
                         checkSwipeRefresh()
 
                         app.database.child("players").removeEventListener(this)

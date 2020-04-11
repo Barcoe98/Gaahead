@@ -1,4 +1,4 @@
-package ie.wit.fragments
+package ie.wit.fragments.fixtureFragments
 
 
 import android.os.Bundle
@@ -16,7 +16,7 @@ import ie.wit.models.FixtureModel
 import ie.wit.utils.createLoader
 import ie.wit.utils.hideLoader
 import ie.wit.utils.showLoader
-import kotlinx.android.synthetic.main.fragment_fixture_list.view.*
+import kotlinx.android.synthetic.main.list_view.view.*
 import org.jetbrains.anko.info
 
 class FixtureAllFragment : FixtureListFragment(), FixtureListener {
@@ -26,10 +26,10 @@ class FixtureAllFragment : FixtureListFragment(), FixtureListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        root = inflater.inflate(R.layout.fragment_fixture_list, container, false)
+        root = inflater.inflate(R.layout.list_view, container, false)
         activity?.title = getString(R.string.menu_fixture_all)
 
-        root.fRecyclerView.layoutManager = LinearLayoutManager(activity)
+        root.recyclerView.layoutManager = LinearLayoutManager(activity)
         setSwipeRefresh()
 
         return root
@@ -44,8 +44,8 @@ class FixtureAllFragment : FixtureListFragment(), FixtureListener {
     }
 
     override fun setSwipeRefresh() {
-        root.fixtureSwipeRefresh.setOnRefreshListener {
-            root.fixtureSwipeRefresh.isRefreshing = true
+        root.swipeRefresh.setOnRefreshListener {
+            root.swipeRefresh.isRefreshing = true
             getAllUsersFixtures()
         }
     }
@@ -73,9 +73,9 @@ class FixtureAllFragment : FixtureListFragment(), FixtureListener {
                             getValue<FixtureModel>(FixtureModel::class.java)
 
                         fixturesList.add(fixture!!)
-                        root.fRecyclerView.adapter =
+                        root.recyclerView.adapter =
                             FixtureAdapter(fixturesList, this@FixtureAllFragment, true)
-                        root.fRecyclerView.adapter?.notifyDataSetChanged()
+                        root.recyclerView.adapter?.notifyDataSetChanged()
                         checkSwipeRefresh()
 
                         app.database.child("fixtures").removeEventListener(this)
