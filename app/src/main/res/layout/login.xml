@@ -18,6 +18,7 @@
             android:id="@+id/imageView6"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:scaleType="fitCenter"
             app:srcCompat="@mipmap/ic_welcome_2_foreground" />
 
         <TextView
@@ -62,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/input_box_gap"
                 android:layout_weight="1"
-                android:background="@drawable/txt_rounded"
+                android:background="@drawable/btn_rounded"
                 android:hint="@string/hint_email"
                 android:inputType="textEmailAddress"
                 android:padding="@dimen/input_box_padding"
@@ -75,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/input_box_gap"
                 android:layout_weight="1"
-                android:background="@drawable/txt_rounded"
+                android:background="@drawable/btn_rounded"
                 android:hint="@string/hint_password"
                 android:inputType="textPassword"
                 android:padding="@dimen/input_box_padding"
@@ -88,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/input_box_gap"
                 android:layout_weight="1"
-                android:background="@drawable/txt_rounded"
+                android:background="@drawable/btn_rounded"
                 android:ems="10"
                 android:hint="@string/hint_type_of_user"
                 android:padding="@dimen/input_box_padding"
@@ -109,7 +110,7 @@
                 android:layout_height="@dimen/btn_height"
                 android:layout_margin="@dimen/btn_gap"
                 android:layout_weight="1"
-                android:background="@drawable/txt_rounded"
+                android:background="@drawable/btn_rounded"
                 android:text="@string/sign_in"
                 android:textColor="@color/colorWhite" />
 
@@ -119,7 +120,7 @@
                 android:layout_height="@dimen/btn_height"
                 android:layout_margin="@dimen/btn_gap"
                 android:layout_weight="1"
-                android:background="@drawable/txt_rounded"
+                android:background="@drawable/btn_rounded"
                 android:text="@string/create_account"
                 android:textColor="@color/colorWhite" />
         </LinearLayout>
@@ -154,7 +155,7 @@
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
                 android:layout_weight="1"
-                android:background="@drawable/txt_rounded"
+                android:background="@drawable/btn_rounded"
                 android:text="@string/skip_sign_in"
                 android:textColor="@color/colorWhite"
                 android:visibility="invisible" />
@@ -176,7 +177,7 @@
                 android:layout_height="@dimen/btn_height"
                 android:layout_margin="@dimen/btn_gap"
                 android:layout_weight="1.0"
-                android:background="@drawable/txt_rounded"
+                android:background="@drawable/btn_rounded"
                 android:text="@string/sign_out"
                 android:theme="@style/ThemeOverlay.MyDarkButton" />
 
@@ -186,7 +187,7 @@
                 android:layout_height="@dimen/btn_height"
                 android:layout_margin="@dimen/btn_gap"
                 android:layout_weight="1.0"
-                android:background="@drawable/txt_rounded"
+                android:background="@drawable/btn_rounded"
                 android:text="@string/verify_email"
                 android:theme="@style/ThemeOverlay.MyDarkButton" />
 

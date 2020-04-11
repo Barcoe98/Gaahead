@@ -43,26 +43,31 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/logoABtn"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="@dimen/btn_height"
-                    android:layout_margin="@dimen/btn_gap"
+                    android:layout_marginLeft="@dimen/two_btn_marginSides"
+                    android:layout_marginTop="@dimen/btn_margintopBottom"
+                    android:layout_marginRight="@dimen/two_btn_marginSides"
+                    android:layout_marginBottom="@dimen/btn_margintopBottom"
                     android:layout_weight="1"
-                    android:background="@drawable/txt_rounded"
+                    android:background="@drawable/btn_rounded"
                     android:text="@string/btn_addTeamALogo"
                     android:textColor="@color/colorWhite" />
 
                 <Button
                     android:id="@+id/logoBBtn"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="@dimen/btn_height"
-                    android:layout_margin="@dimen/btn_gap"
+                    android:layout_marginLeft="@dimen/two_btn_marginSides"
+                    android:layout_marginTop="@dimen/btn_margintopBottom"
+                    android:layout_marginRight="@dimen/two_btn_marginSides"
+                    android:layout_marginBottom="@dimen/btn_margintopBottom"
                     android:layout_weight="1"
-                    android:background="@drawable/txt_rounded"
+                    android:background="@drawable/btn_rounded"
                     android:text="@string/btn_addTeamBLogo"
                     android:textColor="@color/colorWhite" />
 
@@ -136,9 +141,12 @@
                 android:id="@+id/addFixtureBtn"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/btn_height"
-                android:layout_margin="30dp"
-                android:background="@drawable/txt_rounded"
                 android:text="@string/btn_addFixture"
+                android:layout_marginLeft="@dimen/btn_marginSides"
+                android:layout_marginTop="@dimen/btn_margintopBottom"
+                android:layout_marginRight="@dimen/btn_marginSides"
+                android:layout_marginBottom="@dimen/btn_margintopBottom"
+                android:background="@drawable/btn_rounded"
                 android:textColor="@color/colorWhite"
                 />
 
@@ -146,8 +154,11 @@
                 android:id="@+id/addToResultsBtn"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/btn_height"
-                android:layout_margin="30dp"
-                android:background="@drawable/txt_rounded"
+                android:layout_marginLeft="@dimen/btn_marginSides"
+                android:layout_marginTop="@dimen/btn_margintopBottom"
+                android:layout_marginRight="@dimen/btn_marginSides"
+                android:layout_marginBottom="@dimen/btn_margintopBottom"
+                android:background="@drawable/btn_rounded"
                 android:text="@string/btn_addToResults"
                 android:visibility="invisible"
                 android:textColor="@color/colorWhite"

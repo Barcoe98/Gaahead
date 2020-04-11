@@ -43,16 +43,18 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/editLogoABtn"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/btn_height"
-                    android:layout_margin="@dimen/btn_gap"
+                    android:layout_marginLeft="@dimen/two_btn_marginSides"
+                    android:layout_marginTop="@dimen/btn_margintopBottom"
+                    android:layout_marginRight="@dimen/two_btn_marginSides"
+                    android:layout_marginBottom="@dimen/btn_margintopBottom"
                     android:layout_weight="1"
-                    android:background="@drawable/txt_rounded"
+                    android:background="@drawable/btn_rounded"
                     android:text="@string/btn_addTeamALogo"
                     android:textColor="@color/colorWhite" />
 
@@ -60,10 +62,12 @@
                     android:id="@+id/logoBBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/btn_height"
-                    android:layout_margin="@dimen/btn_gap"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="@dimen/two_btn_marginSides"
+                    android:layout_marginTop="@dimen/btn_margintopBottom"
+                    android:layout_marginRight="@dimen/two_btn_marginSides"
+                    android:layout_marginBottom="@dimen/btn_margintopBottom"
                     android:layout_weight="1"
-                    android:background="@drawable/txt_rounded"
+                    android:background="@drawable/btn_rounded"
                     android:text="@string/btn_addTeamBLogo"
                     android:textColor="@color/colorWhite" />
 
@@ -137,17 +141,23 @@
                 android:id="@+id/editFixtureBtn"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/btn_height"
-                android:layout_margin="30dp"
-                android:background="@drawable/txt_rounded"
+                android:background="@drawable/btn_rounded"
                 android:text="@string/btn_editFixture"
+                android:layout_marginLeft="@dimen/two_btn_marginSides"
+                android:layout_marginTop="@dimen/btn_margintopBottom"
+                android:layout_marginRight="@dimen/two_btn_marginSides"
+                android:layout_marginBottom="@dimen/btn_margintopBottom"
                 android:textColor="@color/colorWhite" />
 
             <Button
                 android:id="@+id/editToResultsBtn"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/btn_height"
-                android:layout_margin="30dp"
-                android:background="@drawable/txt_rounded"
+                android:layout_marginLeft="@dimen/two_btn_marginSides"
+                android:layout_marginTop="@dimen/btn_margintopBottom"
+                android:layout_marginRight="@dimen/two_btn_marginSides"
+                android:layout_marginBottom="@dimen/btn_margintopBottom"
+                android:background="@drawable/btn_rounded"
                 android:text="@string/btn_editToResults"
                 android:textColor="@color/colorWhite"
                 android:visibility="invisible" />

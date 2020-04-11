@@ -42,28 +42,33 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/editLogoABtn"
                 android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/btn_addTeamALogo"
                 android:layout_height="@dimen/btn_height"
-                android:layout_margin="@dimen/btn_gap"
-                android:background="@drawable/txt_rounded"
-                android:textColor="@color/colorWhite"/>
+                android:layout_marginLeft="@dimen/two_btn_marginSides"
+                android:layout_marginTop="@dimen/btn_margintopBottom"
+                android:layout_marginRight="@dimen/two_btn_marginSides"
+                android:layout_marginBottom="@dimen/btn_margintopBottom"
+                android:layout_weight="1"
+                android:background="@drawable/btn_rounded"
+                android:text="@string/btn_addTeamALogo"
+                android:textColor="@color/colorWhite" />
 
             <Button
                 android:id="@+id/editLogoBBtn"
                 android:layout_width="wrap_content"
-                android:layout_weight="1"
                 android:layout_height="@dimen/btn_height"
-                android:layout_margin="@dimen/btn_gap"
-                android:background="@drawable/txt_rounded"
-                android:textColor="@color/colorWhite"
-                android:text="@string/btn_addTeamBLogo" />
+                android:layout_marginLeft="@dimen/two_btn_marginSides"
+                android:layout_marginTop="@dimen/btn_margintopBottom"
+                android:layout_marginRight="@dimen/two_btn_marginSides"
+                android:layout_marginBottom="@dimen/btn_margintopBottom"
+                android:layout_weight="1"
+                android:background="@drawable/btn_rounded"
+                android:text="@string/btn_addTeamBLogo"
+                android:textColor="@color/colorWhite" />
 
         </LinearLayout>
 
@@ -170,11 +175,14 @@
         <Button
             android:id="@+id/editResultBtn"
             android:layout_width="match_parent"
-            android:text="@string/btn_addResult"
             android:layout_height="@dimen/btn_height"
-            android:layout_margin="30dp"
-            android:background="@drawable/txt_rounded"
-            android:textColor="@color/colorWhite"/>
+            android:background="@drawable/btn_rounded"
+            android:text="@string/btn_addResult"
+            android:layout_marginLeft="@dimen/two_btn_marginSides"
+            android:layout_marginTop="@dimen/btn_margintopBottom"
+            android:layout_marginRight="@dimen/two_btn_marginSides"
+            android:layout_marginBottom="@dimen/btn_margintopBottom"
+            android:textColor="@color/colorWhite" />
 
     </LinearLayout>
 
