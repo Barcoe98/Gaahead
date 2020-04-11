@@ -17,6 +17,7 @@ import ie.wit.utils.createLoader
 import ie.wit.utils.hideLoader
 import ie.wit.utils.showLoader
 import kotlinx.android.synthetic.main.fragment_result_list.view.*
+import kotlinx.android.synthetic.main.fragment_team_list.view.*
 import org.jetbrains.anko.info
 
 class ResultAllFragment : ResultListFragment(), ResultListener {

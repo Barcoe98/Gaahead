@@ -8,6 +8,7 @@ import ie.wit.R
 import ie.wit.main.MainApp
 import ie.wit.models.TeamModel
 import ie.wit.utils.createLoader
+import kotlinx.android.synthetic.main.fragment_team_details.view.*
 
 class TeamDetailsFragment : Fragment() {
 
@@ -35,9 +36,9 @@ class TeamDetailsFragment : Fragment() {
         root.tName.text = teamDetails!!.name
         root.tCounty.text = teamDetails!!.county
         root.tColours.text = teamDetails!!.colours
-        root.tYear_founded.text = teamDetails!!.year_founded
-        root.tLocation.text = teamDetails!!.location
-        root.tDivision.text = teamDetails!!.division
+        root.tYearFounded.text = teamDetails!!.year_founded
+        //root.tLocation.text = teamDetails!!.location
+        //root.tDivision.text = teamDetails!!.division
 
         return root
     }

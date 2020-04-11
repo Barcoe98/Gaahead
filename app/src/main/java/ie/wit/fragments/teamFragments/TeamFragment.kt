@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import ie.wit.R
+import ie.wit.adapters.TeamListener
 import ie.wit.main.MainApp
 import ie.wit.models.TeamModel
 import ie.wit.utils.*
@@ -18,7 +19,7 @@ import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import java.util.HashMap
 
-open class TeamFragment : Fragment(), AnkoLogger {
+open class TeamFragment : Fragment(), AnkoLogger{
 
     lateinit var app: MainApp
     lateinit var loader: AlertDialog

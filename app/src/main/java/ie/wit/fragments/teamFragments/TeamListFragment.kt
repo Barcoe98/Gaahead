@@ -18,7 +18,7 @@ import ie.wit.utils.hideLoader
 import ie.wit.utils.showLoader
 import ie.wit.main.MainApp
 import ie.wit.models.TeamModel
-import kotlinx.android.synthetic.main.fragment_team_list.view.*
+import kotlinx.android.synthetic.main.fragment_fixture_list.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 
@@ -34,16 +34,18 @@ open class TeamListFragment : Fragment(), AnkoLogger, TeamListener {
         app = activity?.application as MainApp
     }
 
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         // Inflate the layout for this fragment
-        root = inflater.inflate(R.layout.fragment_team_list, container, false)
-        activity?.title = getString(R.string.team_title)
+        root = inflater.inflate(R.layout.fragment_fixture_list, container, false)
+        activity?.title = getString(R.string.fixture_title)
 
-        root.tRecyclerView.layoutManager = LinearLayoutManager(activity)
+        root.fRecyclerView.layoutManager = LinearLayoutManager(activity)
 
         return root
     }
+
 
     companion object {
         @JvmStatic
@@ -53,24 +55,19 @@ open class TeamListFragment : Fragment(), AnkoLogger, TeamListener {
             }
     }
 
+
+
     override fun onTeamClick(team: TeamModel) {
-        /*
         activity!!.supportFragmentManager.beginTransaction()
-            .replace(R.id.homeFrame,TeamDetailFragment.newInstance(team))
+            .replace(R.id.homeFrame, TeamDetailsFragment.newInstance(team))
             .addToBackStack(null)
             .commit()
-
-         */
     }
 
-    override fun onResume() {
-        super.onResume()
-        getAllTeams()
-    }
 
     fun getAllTeams() {
         loader = createLoader(activity!!)
-        showLoader(loader, "Downloading All Teams from Firebase")
+        showLoader(loader, "Downloading Teams from Firebase")
         val teamsList = ArrayList<TeamModel>()
         app.database.child("teams")
             .addValueEventListener(object : ValueEventListener {
@@ -82,19 +79,27 @@ open class TeamListFragment : Fragment(), AnkoLogger, TeamListener {
                     hideLoader(loader)
                     val children = snapshot.children
                     children.forEach {
-                        val team = it.
-                            getValue<TeamModel>(TeamModel::class.java)
+                        val team = it.getValue<TeamModel>(TeamModel::class.java)
 
                         teamsList.add(team!!)
-                        root.tRecyclerView.adapter =
-                            TeamAdapter(teamsList, this@TeamListFragment, true)
-                        root.tRecyclerView.adapter?.notifyDataSetChanged()
+                        root.fRecyclerView.adapter =
+                            TeamAdapter(teamsList, this@TeamListFragment, false)
+                        root.fRecyclerView.adapter?.notifyDataSetChanged()
 
-                        app.database.child("teams").removeEventListener(this)
+                        app.database.child("teams")
+                            .removeEventListener(this)
                     }
                 }
             })
     }
+
+
+    override fun onResume() {
+        super.onResume()
+        if(this::class == TeamListFragment::class)
+            getAllTeams()
+    }
+
 }
 
 

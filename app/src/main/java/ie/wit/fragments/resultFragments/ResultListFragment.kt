@@ -25,6 +25,7 @@ import ie.wit.models.ResultModel
 import ie.wit.utils.SwipeToDeleteCallback
 import ie.wit.utils.SwipeToEditCallback
 import kotlinx.android.synthetic.main.fragment_result_list.view.*
+import kotlinx.android.synthetic.main.fragment_team_list.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 
