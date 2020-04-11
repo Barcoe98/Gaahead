@@ -73,8 +73,8 @@ class AdminHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             // R.id.nav_team_info -> navigateTo(TeamInfoFragment.newInstance())
             //R.id.nav_team -> navigateTo(.newInstance())
 
-            R.id.nav_add_team -> navigateTo(ClubFragment.newInstance())
-            R.id.nav_team_list -> navigateTo(ClubListFragment.newInstance())
+            R.id.nav_add_club -> navigateTo(ClubFragment.newInstance())
+            R.id.nav_club_all -> navigateTo(ClubListFragment.newInstance())
 
             R.id.nav_add_fixture -> navigateTo(FixtureFragment.newInstance())
             R.id.nav_fixture_list -> navigateTo(FixtureListFragment.newInstance())

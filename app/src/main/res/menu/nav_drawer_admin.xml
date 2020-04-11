@@ -5,33 +5,16 @@
 
     <group android:checkableBehavior="single">
 
-    <item android:title="@string/management_subtitle">
-    <menu>
-        <item
-            android:id="@+id/nav_team_info"
-            android:icon="@drawable/ic_menu_my_info"
-            android:title="@string/menu_team_info" />
-        <item
-            android:id="@+id/nav_team"
-            android:icon="@drawable/ic_menu_team"
-            android:title="@string/menu_team" />
-
-    </menu>
-</item>
-
     <item android:title="@string/fixture_subtitle">
         <menu>
             <item
                 android:id="@+id/nav_add_fixture"
                 android:icon="@drawable/ic_menu_add"
                 android:title="@string/menu_fixture" />
-            <item
-                android:id="@+id/nav_fixture_list"
-                android:icon="@drawable/ic_menu_fixture_list"
-                android:title="@string/menu_fixture_list" />
+
             <item
                 android:id="@+id/nav_fixture_all"
-                android:icon="@drawable/ic_menu_fixtures_all"
+                android:icon="@drawable/ic_menu_list_all"
                 android:title="@string/menu_fixture_all" />
         </menu>
     </item>
@@ -39,13 +22,12 @@
         <item android:title="@string/team_subtitle">
             <menu>
                 <item
-                    android:id="@+id/nav_add_team"
+                    android:id="@+id/nav_add_club"
                     android:icon="@drawable/ic_menu_add"
                     android:title="@string/menu_add_club" />
-
                 <item
-                    android:id="@+id/nav_team_list"
-                    android:icon="@drawable/ic_menu_fixture_list"
+                    android:id="@+id/nav_club_all"
+                    android:icon="@drawable/ic_menu_list_all"
                     android:title="@string/menu_club_list" />
             </menu>
         </item>
@@ -58,12 +40,8 @@
                 android:icon="@drawable/ic_menu_add"
                 android:title="@string/menu_add_result" />
             <item
-                android:id="@+id/nav_result_list"
-                android:icon="@drawable/ic_menu_fixture_list"
-                android:title="@string/menu_result_list" />
-            <item
                 android:id="@+id/nav_results_all"
-                android:icon="@drawable/ic_menu_fixtures_all"
+                android:icon="@drawable/ic_menu_list_all"
                 android:title="@string/menu_result_all" />
 
         </menu>
@@ -76,12 +54,8 @@
                     android:icon="@drawable/ic_menu_add"
                     android:title="@string/menu_add_player" />
                 <item
-                    android:id="@+id/nav_player_list"
-                    android:icon="@drawable/ic_menu_fixture_list"
-                    android:title="@string/menu_player_list" />
-                <item
                     android:id="@+id/nav_player_all"
-                    android:icon="@drawable/ic_menu_fixtures_all"
+                    android:icon="@drawable/ic_menu_list_all"
                     android:title="@string/menu_player_all" />
 
             </menu>
@@ -97,8 +71,6 @@
                 android:id="@+id/nav_info"
                 android:icon="@drawable/ic_menu_overview"
                 android:title="@string/menu_info" />
-
-
         </menu>
     </item>
 

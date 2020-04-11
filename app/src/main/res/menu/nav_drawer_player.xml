@@ -28,11 +28,11 @@
         <menu>
             <item
                 android:id="@+id/nav_fixture_list"
-                android:icon="@drawable/ic_menu_fixture_list"
+                android:icon="@drawable/ic_menu_list"
                 android:title="@string/menu_fixture_list" />
             <item
                 android:id="@+id/nav_fixture_all"
-                android:icon="@drawable/ic_menu_fixtures_all"
+                android:icon="@drawable/ic_menu_list_all"
                 android:title="@string/menu_fixture_all" />
             <item
                 android:id="@+id/nav_result_list"
