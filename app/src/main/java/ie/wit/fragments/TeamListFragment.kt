@@ -1,0 +1,103 @@
+package ie.wit.fragments
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import ie.wit.R
+import ie.wit.adapters.FixtureAdapter
+import ie.wit.adapters.TeamAdapter
+import ie.wit.adapters.TeamListener
+import ie.wit.utils.createLoader
+import ie.wit.utils.hideLoader
+import ie.wit.utils.showLoader
+import ie.wit.main.MainApp
+import ie.wit.models.FixtureModel
+import ie.wit.models.TeamModel
+import kotlinx.android.synthetic.main.fragment_fixture_list.view.*
+import kotlinx.android.synthetic.main.fragment_team_list.view.*
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.info
+
+
+open class TeamListFragment : Fragment(), AnkoLogger, TeamListener {
+
+    lateinit var app: MainApp
+    lateinit var loader: AlertDialog
+    lateinit var root: View
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        app = activity?.application as MainApp
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+        // Inflate the layout for this fragment
+        root = inflater.inflate(R.layout.fragment_team_list, container, false)
+        activity?.title = getString(R.string.team_title)
+
+        root.tRecyclerView.layoutManager = LinearLayoutManager(activity)
+
+        return root
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance() =
+            TeamListFragment().apply {
+                arguments = Bundle().apply { }
+            }
+    }
+
+    override fun onTeamClick(team: TeamModel) {
+        /*
+        activity!!.supportFragmentManager.beginTransaction()
+            .replace(R.id.homeFrame,TeamDetailFragment.newInstance(team))
+            .addToBackStack(null)
+            .commit()
+
+         */
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getAllTeams()
+    }
+
+    fun getAllTeams() {
+        loader = createLoader(activity!!)
+        showLoader(loader, "Downloading All Teams from Firebase")
+        val teamsList = ArrayList<TeamModel>()
+        app.database.child("teams")
+            .addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(error: DatabaseError) {
+                    info("Firebase Team error : ${error.message}")
+                }
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    hideLoader(loader)
+                    val children = snapshot.children
+                    children.forEach {
+                        val team = it.
+                            getValue<TeamModel>(TeamModel::class.java)
+
+                        teamsList.add(team!!)
+                        root.tRecyclerView.adapter =
+                            TeamAdapter(teamsList, this@TeamListFragment, true)
+                        root.tRecyclerView.adapter?.notifyDataSetChanged()
+
+                        app.database.child("teams").removeEventListener(this)
+                    }
+                }
+            })
+    }
+}
+
+

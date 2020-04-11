@@ -44,10 +44,9 @@ open class ResultFragment : Fragment(), AnkoLogger {
 
         val root = inflater.inflate(R.layout.fragment_result, container, false)
         loader = createLoader(activity!!)
-        activity?.title = getString(R.string.fixture_title)
+        activity?.title = getString(R.string.results_title)
 
         setButtonListener(root)
-        setImgBtnListener(root)
 
         return root
     }
@@ -78,8 +77,8 @@ open class ResultFragment : Fragment(), AnkoLogger {
         layout.addResultBtn.setOnClickListener {
 
             val teamAName = teamAName.text.toString()
-            val teamAScore = teamAScore.text.toString()
             val teamBName = teamBName.text.toString()
+            val teamAScore = teamAScore.text.toString()
             val teamBScore = teamBScore.text.toString()
             val date = date.text.toString()
             val competition = competition.text.toString()

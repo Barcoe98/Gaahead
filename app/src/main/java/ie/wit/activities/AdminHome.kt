@@ -12,10 +12,7 @@ import com.google.android.material.navigation.NavigationView
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import ie.wit.R
-import ie.wit.fragments.FixtureAllFragment
-import ie.wit.fragments.FixtureFragment
-import ie.wit.fragments.FixtureListFragment
-import ie.wit.fragments.InfoFragment
+import ie.wit.fragments.*
 import ie.wit.fragments.playerFragments.PlayerAllFragment
 import ie.wit.fragments.playerFragments.PlayerFragment
 import ie.wit.fragments.playerFragments.PlayerListFragment
@@ -28,6 +25,7 @@ import ie.wit.utils.showImagePicker
 import ie.wit.utils.uploadImageView
 import ie.wit.utils.writeImageRef
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
+import kotlinx.android.synthetic.main.admin_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.manager_home.*
 import kotlinx.android.synthetic.main.manager_home.drawerLayout
@@ -36,7 +34,7 @@ import org.jetbrains.anko.startActivity
 
 import org.jetbrains.anko.toast
 
-class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class AdminHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     lateinit var ft: FragmentTransaction
     lateinit var app: MainApp
@@ -49,7 +47,7 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
         setSupportActionBar(toolbar)
         app = application as MainApp
 
-        navViewManager.setNavigationItemSelectedListener(this)
+        navViewAdmin.setNavigationItemSelectedListener(this)
         val toggle = ActionBarDrawerToggle(
             this, drawerLayout, toolbar,
             R.string.navigation_drawer_open,
@@ -58,12 +56,12 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
-        navViewManager.getHeaderView(0).nav_header_email.text = app.auth.currentUser?.email
-        navViewManager.getHeaderView(0).nav_header_name.text = app.auth.currentUser?.displayName
-        navViewManager.getHeaderView(0).imageView.setOnClickListener { showImagePicker(this,IMAGE_REQUEST) }
+        navViewAdmin.getHeaderView(0).nav_header_email.text = app.auth.currentUser?.email
+        navViewAdmin.getHeaderView(0).nav_header_name.text = app.auth.currentUser?.displayName
+        navViewAdmin.getHeaderView(0).imageView.setOnClickListener { showImagePicker(this,IMAGE_REQUEST) }
 
         ft = supportFragmentManager.beginTransaction()
-        val fragment =  FixtureListFragment.newInstance()
+        val fragment =  TeamListFragment.newInstance()
         ft.replace(R.id.homeFrame, fragment)
         ft.commit()
     }
@@ -80,6 +78,8 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
             // R.id.nav_team_info -> navigateTo(TeamInfoFragment.newInstance())
             //R.id.nav_team -> navigateTo(.newInstance())
             R.id.nav_add_fixture -> navigateTo(FixtureFragment.newInstance())
+            R.id.nav_add_team -> navigateTo(TeamFragment.newInstance())
+            R.id.nav_team_list -> navigateTo(TeamListFragment.newInstance())
             R.id.nav_fixture_list -> navigateTo(FixtureListFragment.newInstance())
             R.id.nav_fixture_all -> navigateTo(FixtureAllFragment.newInstance())
             R.id.nav_add_result -> navigateTo(ResultFragment.newInstance())

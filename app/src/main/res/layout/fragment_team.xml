@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.TeamFragment">
+    android:background="@color/colorBlack"
+    android:orientation="vertical"
+    tools:context=".fragments.FixtureFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -13,356 +15,132 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/layout_margin"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="140dp"
-                android:layout_marginRight="140dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="10dp"
                 android:orientation="horizontal">
 
-                <LinearLayout
+                <ImageView
+                    android:id="@+id/logo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/pos1"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        app:srcCompat="@mipmap/ic_jersey_1_foreground" />
-
-                    <Spinner
-                        android:id="@+id/pos1Spinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                </LinearLayout>
+                    android:layout_weight="1"
+                    app:srcCompat="@mipmap/ic_launcher" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
                 android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                <Button
+                    android:id="@+id/logoBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/btn_height"
+                    android:layout_margin="@dimen/btn_gap"
                     android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:background="@drawable/btn_rounded"
+                    android:text="@string/btn_addLogoBtn"
+                    android:textColor="@color/colorWhite" />
 
-                    <ImageView
-                        android:id="@+id/pos2"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="1"
-                        app:srcCompat="@mipmap/ic_jersey_2_foreground" />
-
-                    <Spinner
-                        android:id="@+id/pos2Spinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/pos3"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="1"
-                        app:srcCompat="@mipmap/ic_jersey_3_foreground" />
-
-                    <Spinner
-                        android:id="@+id/pos3Spinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/pos4"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="1"
-                        app:srcCompat="@mipmap/ic_jersey_4_foreground" />
-
-                    <Spinner
-                        android:id="@+id/pos4Spinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                </LinearLayout>
 
             </LinearLayout>
 
-            <LinearLayout
+            <EditText
+                android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_margin="@dimen/input_box_margin"
+                android:background="@drawable/btn_rounded"
+                android:ems="10"
+                android:hint="@string/hint_teamName"
+                android:inputType="textPersonName"
+                android:padding="@dimen/input_box_padding"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/pos5"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        app:srcCompat="@mipmap/ic_jersey_5_foreground" />
-
-                    <Spinner
-                        android:id="@+id/pos5Spinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/pos6"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        app:srcCompat="@mipmap/ic_jersey_6_foreground" />
-
-                    <Spinner
-                        android:id="@+id/pos6Spinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/pos7"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        app:srcCompat="@mipmap/ic_jersey_7_foreground" />
-
-                    <Spinner
-                        android:id="@+id/pos7Spinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
+            <EditText
+                android:id="@+id/county"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_margin="@dimen/input_box_margin"
+                android:background="@drawable/btn_rounded"
+                android:ems="10"
+                android:hint="@string/hint_county"
+                android:inputType="textPersonName"
+                android:padding="@dimen/input_box_padding"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/pos8"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_marginLeft="100dp"
-                        app:srcCompat="@mipmap/ic_jersey_8_foreground" />
-
-                    <Spinner
-                        android:id="@+id/pos8Spinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/pos9"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        app:srcCompat="@mipmap/ic_jersey_9_foreground" />
-
-                    <Spinner
-                        android:id="@+id/pos9Spinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
+            <EditText
+                android:id="@+id/colours"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_margin="@dimen/input_box_margin"
+                android:autofillHints="@string/hint_colours"
+                android:background="@drawable/btn_rounded"
+                android:ems="10"
+                android:hint="@string/hint_colours"
+                android:padding="@dimen/input_box_padding"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/pos10"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="1"
-                        app:srcCompat="@mipmap/ic_jersey_10_foreground" />
-
-                    <Spinner
-                        android:id="@+id/pos10Spinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/pos11"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="1"
-                        app:srcCompat="@mipmap/ic_jersey_11_foreground" />
-
-                    <Spinner
-                        android:id="@+id/pos11Spinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/pos12"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="1"
-                        app:srcCompat="@mipmap/ic_jersey_12_foreground" />
-
-                    <Spinner
-                        android:id="@+id/pos12Spinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
+            <EditText
+                android:id="@+id/year_founded"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/input_box_margin"
+                android:background="@drawable/btn_rounded"
+                android:ems="10"
+                android:hint="@string/hint_year_founded"
+                android:padding="@dimen/input_box_padding"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+            <EditText
+                android:id="@+id/division"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/input_box_margin"
+                android:background="@drawable/btn_rounded"
+                android:ems="10"
+                android:hint="@string/hint_division"
+                android:inputType="textPersonName"
+                android:padding="@dimen/input_box_padding"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"/>
 
-                    <ImageView
-                        android:id="@+id/pos13"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="1"
-                        app:srcCompat="@mipmap/ic_jersey_13_foreground" />
+            <EditText
+                android:id="@+id/location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/input_box_margin"
+                android:background="@drawable/btn_rounded"
+                android:ems="10"
+                android:hint="@string/hint_location"
+                android:inputType="textPersonName"
+                android:padding="@dimen/input_box_padding"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"/>
 
-                    <Spinner
-                        android:id="@+id/pos13Spinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+            <Button
+                android:id="@+id/addTeamBtn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"
+                android:layout_margin="30dp"
+                android:background="@drawable/btn_rounded"
+                android:text="@string/btn_addFixture"
+                android:textColor="@color/colorWhite"
+                />
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/pos14"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="1"
-                        app:srcCompat="@mipmap/ic_jersey_14_foreground" />
-
-                    <Spinner
-                        android:id="@+id/pos14Spinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/pos15"
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="1"
-                        app:srcCompat="@mipmap/ic_jersey_15_foreground" />
-
-                    <Spinner
-                        android:id="@+id/pos15Spinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                </LinearLayout>
-
-            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
-</FrameLayout>
+</LinearLayout>

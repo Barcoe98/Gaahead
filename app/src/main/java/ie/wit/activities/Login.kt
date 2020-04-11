@@ -206,7 +206,7 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
         //invalid user will appear and asked to add a valid user
         val userTypeValidation = fieldUserType.text.toString()
         if (userTypeValidation == "Manager" || userTypeValidation == "manager" ||
-            userTypeValidation == "Supporter" || userTypeValidation == "supporter" ||
+            userTypeValidation == "Admin" || userTypeValidation == "admin" ||
             userTypeValidation == "Player" || userTypeValidation == "player"
         ) {
             return valid
@@ -246,9 +246,9 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
 
             showLoader(loader, " Loading Screen")
 
-            if (userType == "Supporter" || userType == "supporter") {
+            if (userType == "Admin" || userType == "admin") {
                 //showLoader(loader, " Loading Supporter Screen")
-                startActivity<SupporterHome>()
+                startActivity<AdminHome>()
             }
 
             else if (userType == "Manager" || userType == "manager") {

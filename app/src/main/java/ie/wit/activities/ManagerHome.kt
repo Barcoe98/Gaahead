@@ -12,10 +12,7 @@ import com.google.android.material.navigation.NavigationView
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import ie.wit.R
-import ie.wit.fragments.FixtureAllFragment
-import ie.wit.fragments.FixtureFragment
-import ie.wit.fragments.FixtureListFragment
-import ie.wit.fragments.InfoFragment
+import ie.wit.fragments.*
 import ie.wit.fragments.playerFragments.PlayerAllFragment
 import ie.wit.fragments.playerFragments.PlayerFragment
 import ie.wit.fragments.playerFragments.PlayerListFragment
@@ -79,7 +76,7 @@ class ManagerHome : AppCompatActivity(), NavigationView.OnNavigationItemSelected
         when (item.itemId) {
             // R.id.nav_team_info -> navigateTo(TeamInfoFragment.newInstance())
             //R.id.nav_team -> navigateTo(.newInstance())
-            R.id.nav_add_fixture -> navigateTo(FixtureFragment.newInstance())
+            R.id.nav_add_fixture -> navigateTo(TeamFragment.newInstance())
             R.id.nav_fixture_list -> navigateTo(FixtureListFragment.newInstance())
             R.id.nav_fixture_all -> navigateTo(FixtureAllFragment.newInstance())
             R.id.nav_add_result -> navigateTo(ResultFragment.newInstance())

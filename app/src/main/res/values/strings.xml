@@ -169,7 +169,16 @@
     <string name="menu_player_list">Players</string>
     <string name="menu_add_player">Add Player</string>
     <string name="menu_access_control">Access Control</string>
-
+    <string name="results_title">Results</string>
+    <string name="btn_addLogoBtn">Add Logo</string>
+    <string name="hint_teamName">Enter Team Name</string>
+    <string name="hint_county">Enter County</string>
+    <string name="hint_colours">Enter Team Colours</string>
+    <string name="hint_year_founded">Enter Year Founded</string>
+    <string name="hint_division">Enter Teams Division</string>
+    <string name="menu_team_list">Teams</string>
+    <string name="team_subtitle">Teams</string>
+    <string name="menu_add_team">Add Team</string>
 
     <!--END Firebase Resources-->
 
