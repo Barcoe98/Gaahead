@@ -27,8 +27,6 @@ import ie.wit.utils.writeImageRef
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import kotlinx.android.synthetic.main.admin_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*
-import kotlinx.android.synthetic.main.manager_home.*
-import kotlinx.android.synthetic.main.manager_home.drawerLayout
 import kotlinx.android.synthetic.main.nav_header_home.view.*
 import org.jetbrains.anko.startActivity
 
@@ -43,7 +41,7 @@ class AdminHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.manager_home)
+        setContentView(R.layout.admin_home)
         setSupportActionBar(toolbar)
         app = application as MainApp
 
@@ -77,17 +75,22 @@ class AdminHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         when (item.itemId) {
             // R.id.nav_team_info -> navigateTo(TeamInfoFragment.newInstance())
             //R.id.nav_team -> navigateTo(.newInstance())
-            R.id.nav_add_fixture -> navigateTo(FixtureFragment.newInstance())
+
             R.id.nav_add_team -> navigateTo(TeamFragment.newInstance())
             R.id.nav_team_list -> navigateTo(TeamListFragment.newInstance())
+
+            R.id.nav_add_fixture -> navigateTo(FixtureFragment.newInstance())
             R.id.nav_fixture_list -> navigateTo(FixtureListFragment.newInstance())
             R.id.nav_fixture_all -> navigateTo(FixtureAllFragment.newInstance())
+
             R.id.nav_add_result -> navigateTo(ResultFragment.newInstance())
             R.id.nav_result_list -> navigateTo(ResultListFragment.newInstance())
             R.id.nav_results_all -> navigateTo(ResultAllFragment.newInstance())
-            R.id.nav_add_player -> navigateTo(InfoFragment.newInstance())
+
+            R.id.nav_add_player -> navigateTo(PlayerFragment.newInstance())
             R.id.nav_player_list -> navigateTo(PlayerListFragment.newInstance())
             R.id.nav_player_all -> navigateTo(PlayerAllFragment.newInstance())
+
             // R.id.nav_info -> navigateTo(InfoFragment.newInstance())
             R.id.nav_sign_out -> signOut()
 
@@ -134,6 +137,7 @@ class AdminHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         finish()
     }
 
+    /*
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
@@ -143,10 +147,10 @@ class AdminHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                     Picasso.get().load(readImageUri(resultCode, data).toString())
                         .resize(180, 180)
                         .transform(CropCircleTransformation())
-                        .into(navViewManager.getHeaderView(0).imageView, object : Callback {
+                        .into(navViewAdmin.getHeaderView(0).imageView, object : Callback {
                             override fun onSuccess() {
                                 // Drawable is ready
-                                uploadImageView(app,navViewManager.getHeaderView(0).imageView)
+                                uploadImageView(app,navViewAdmin.getHeaderView(0).imageView)
                             }
                             override fun onError(e: Exception) {}
                         })
@@ -154,6 +158,7 @@ class AdminHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             }
         }
     }
+     */
 }
 
 
