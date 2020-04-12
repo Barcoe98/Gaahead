@@ -6,39 +6,40 @@ where you can manage the club u are managing or as a player yopu can view you st
 
 # App Walkthrough
 
-## Home Screen
+## Fixture Fragments
 
 When starting up the app you are greeted with a user type screen 
 where you select what type of user you are either Player or Manager.
 
-## Players
+## Players Fragments
 
-### Info
-when you select what type of user you are, you are greeted with a screen describes the features of the app
-### Features
-* 
-* Click on a movie and it shows a detailed view of the movie (to be added)
-   
+
+## Results Fragments
+
+
+## Clubs Fragments
 
 
 
 ## Built With
-
 * Android Studio
+* Kotlin
+* Firebase Authenticate
+* Firebase Database
+* Firebase Storage
+* Maps Api
+
+## Prerequisites
 * Kotlin
 
 ## Contributing
 
 * https://tutors-design.netlify.com/course/mobile-app-dev-2-2020.netlify.com
-*Mobile App 1
-
+* Mobile App 1
 
 ## Authors
+* @Michael Barcoe - barcoe98@gmail.com - https://github.com/barcoe98
 
-* @Michael Barcoe - barcoe98@gmail.com - StudentID : 20080330
-* (https://github.com/barcoe98)
-
-
-
- 
-
+## Acknowledgments
+* https://firebase.google.com/docs 
+* dDrohan
