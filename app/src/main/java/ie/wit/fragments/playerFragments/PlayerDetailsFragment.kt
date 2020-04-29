@@ -8,6 +8,7 @@ import ie.wit.R
 import ie.wit.main.MainApp
 import ie.wit.models.PlayerModel
 import ie.wit.utils.createLoader
+import kotlinx.android.synthetic.main.fragment_player.view.*
 import kotlinx.android.synthetic.main.fragment_player_details.view.*
 
 class PlayerDetailsFragment : Fragment() {
@@ -33,8 +34,8 @@ class PlayerDetailsFragment : Fragment() {
         activity?.title = getString(R.string.action_player_details)
         loader = createLoader(activity!!)
 
-        root.playerName.text = playerDetails!!.playerName
-        root.playerAge.text = playerDetails!!.playerAge
+        //root.playerName.text = playerDetails!!.playerName
+       // root.playerAge.text = playerDetails!!.playerAge
         //root.playerHeight.text = playerDetails!!.playerHeight
         //root.playerWeight.text = playerDetails!!.playerWeight
 

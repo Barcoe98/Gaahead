@@ -76,6 +76,8 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = app.auth.currentUser
         updateUI(currentUser)
+        //startActivity<Login>()
+
     }
 
     private fun createAccount() {
@@ -258,6 +260,13 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
             else if (userType == "Player" || userType == "player") {
                 //showLoader(loader, " Loading Player Screen")
                 startActivity<PlayerHome>()
+            }
+            else if (userType.isEmpty()) {
+                //showLoader(loader, " Loading Player Screen")
+                app.auth.signOut()
+                app.googleSignInClient.signOut()
+                updateUI(null)
+                //startActivity<SupporterHome>()
             }
 
             hideLoader(loader)

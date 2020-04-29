@@ -171,12 +171,9 @@
     <string name="skip_sign_in">Skip Sign In</string>
     <string name="skip_sign_in_text">Supporter ??</string>
 
-
-
-
-
-
-
+    <string name="sign_in_google">Sign In with Google</string>
+    <string name="sign_in_email">Sign In with Email</string>
+    <string name="sign_in_phone">Sign In with Phone</string>
 
 
 </resources>
