@@ -4,29 +4,22 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
+import com.firebase.ui.database.FirebaseRecyclerOptions
+import com.google.firebase.database.FirebaseDatabase
 import ie.wit.R
 import ie.wit.adapters.ClubAdapter
 import ie.wit.adapters.ClubListener
-import ie.wit.utils.createLoader
-import ie.wit.utils.hideLoader
-import ie.wit.utils.showLoader
 import ie.wit.main.MainApp
 import ie.wit.models.ClubModel
 import kotlinx.android.synthetic.main.list_view.view.*
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
 
 
 open class ClubListFragment : Fragment(), AnkoLogger, ClubListener {
 
     lateinit var app: MainApp
-    lateinit var loader: AlertDialog
     lateinit var root: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +35,17 @@ open class ClubListFragment : Fragment(), AnkoLogger, ClubListener {
         activity?.title = getString(R.string.action_club_list)
 
         root.recyclerView.layoutManager = LinearLayoutManager(activity)
+
+        var query = FirebaseDatabase.getInstance()
+            .reference
+            .child("clubs")
+
+        var options = FirebaseRecyclerOptions.Builder<ClubModel>()
+            .setQuery(query, ClubModel::class.java)
+            .setLifecycleOwner(this)
+            .build()
+
+        root.recyclerView.adapter = ClubAdapter(options, this)
 
         return root
     }
@@ -63,43 +67,6 @@ open class ClubListFragment : Fragment(), AnkoLogger, ClubListener {
             .addToBackStack(null)
             .commit()
     }
-
-
-    fun getAllClubs() {
-        loader = createLoader(activity!!)
-        showLoader(loader, "Downloading Clubs from Firebase")
-        val clubsList = ArrayList<ClubModel>()
-        app.database.child("clubs")
-            .addValueEventListener(object : ValueEventListener {
-                override fun onCancelled(error: DatabaseError) {
-                    info("Firebase Club error : ${error.message}")
-                }
-
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    hideLoader(loader)
-                    val children = snapshot.children
-                    children.forEach {
-                        val club = it.getValue<ClubModel>(ClubModel::class.java)
-
-                        clubsList.add(club!!)
-                        root.recyclerView.adapter =
-                            ClubAdapter(clubsList, this@ClubListFragment, false)
-                        root.recyclerView.adapter?.notifyDataSetChanged()
-
-                        app.database.child("clubs")
-                            .removeEventListener(this)
-                    }
-                }
-            })
-    }
-
-
-    override fun onResume() {
-        super.onResume()
-        if(this::class == ClubListFragment::class)
-            getAllClubs()
-    }
-
 }
 
 
