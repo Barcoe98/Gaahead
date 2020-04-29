@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import ie.wit.R
 import ie.wit.adapters.FixtureAdapter
@@ -30,7 +32,16 @@ class FixtureAllFragment : FixtureListFragment(), FixtureListener {
         activity?.title = getString(R.string.action_fixture_all)
 
         root.recyclerView.layoutManager = LinearLayoutManager(activity)
-        setSwipeRefresh()
+
+        var query = FirebaseDatabase.getInstance()
+            .reference.child("fixtures")
+
+        var options = FirebaseRecyclerOptions.Builder<FixtureModel>()
+            .setQuery(query, FixtureModel::class.java)
+            .setLifecycleOwner(this)
+            .build()
+
+        root.recyclerView.adapter = FixtureAdapter(options,this)
 
         return root
     }
@@ -41,46 +52,5 @@ class FixtureAllFragment : FixtureListFragment(), FixtureListener {
             FixtureAllFragment().apply {
                 arguments = Bundle().apply { }
             }
-    }
-
-    override fun setSwipeRefresh() {
-        root.swipeRefresh.setOnRefreshListener {
-            root.swipeRefresh.isRefreshing = true
-            getAllUsersFixtures()
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        getAllUsersFixtures()
-    }
-
-    fun getAllUsersFixtures() {
-        loader = createLoader(activity!!)
-        showLoader(loader, "Downloading All Users Fixtures from Firebase")
-        val fixturesList = ArrayList<FixtureModel>()
-        app.database.child("fixtures")
-            .addValueEventListener(object : ValueEventListener {
-                override fun onCancelled(error: DatabaseError) {
-                    info("Firebase Fixture error : ${error.message}")
-                }
-
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    hideLoader(loader)
-                    val children = snapshot.children
-                    children.forEach {
-                        val fixture = it.
-                            getValue<FixtureModel>(FixtureModel::class.java)
-
-                        fixturesList.add(fixture!!)
-                        root.recyclerView.adapter =
-                            FixtureAdapter(fixturesList, this@FixtureAllFragment, true)
-                        root.recyclerView.adapter?.notifyDataSetChanged()
-                        checkSwipeRefresh()
-
-                        app.database.child("fixtures").removeEventListener(this)
-                    }
-                }
-            })
     }
 }

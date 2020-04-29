@@ -10,8 +10,10 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import ie.wit.R
 import ie.wit.adapters.FixtureAdapter
@@ -31,14 +33,12 @@ import org.jetbrains.anko.info
 open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
 
     lateinit var app: MainApp
-    lateinit var loader: AlertDialog
     lateinit var root: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         app = activity?.application as MainApp
     }
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -47,12 +47,20 @@ open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
         activity?.title = getString(R.string.action_fixture_list)
 
         root.recyclerView.layoutManager = LinearLayoutManager(activity)
-        setSwipeRefresh()
+
+        var query = FirebaseDatabase.getInstance()
+            .reference
+            .child("user-fixtures").child(app.auth.currentUser!!.uid)
+
+        var options = FirebaseRecyclerOptions.Builder<FixtureModel>()
+            .setQuery(query, FixtureModel::class.java)
+            .setLifecycleOwner(this)
+            .build()
+
+        root.recyclerView.adapter = FixtureAdapter(options, this)
 
         val swipeDeleteHandler = object : SwipeToDeleteCallback(activity!!) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val adapter = root.recyclerView.adapter as FixtureAdapter
-                adapter.removeAt(viewHolder.adapterPosition)
                 deleteFixture((viewHolder.itemView.tag as FixtureModel).uid)
                 deleteUserFixture(app.auth.currentUser!!.uid, (viewHolder.itemView.tag as FixtureModel).uid)
             }
@@ -72,28 +80,12 @@ open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
         return root
     }
 
-
     companion object {
         @JvmStatic
         fun newInstance() =
             FixtureListFragment().apply {
                 arguments = Bundle().apply { }
             }
-    }
-
-
-    open fun setSwipeRefresh() {
-        root.swipeRefresh.setOnRefreshListener(object : SwipeRefreshLayout.OnRefreshListener {
-            override fun onRefresh() {
-                root.swipeRefresh.isRefreshing = true
-                getAllFixtures(app.auth.currentUser!!.uid)
-            }
-        })
-    }
-
-
-    fun checkSwipeRefresh() {
-        if (root.swipeRefresh.isRefreshing) root.swipeRefresh.isRefreshing = false
     }
 
 
@@ -132,42 +124,6 @@ open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
             .commit()
     }
 
-
-    fun getAllFixtures(userId: String?) {
-        loader = createLoader(activity!!)
-        showLoader(loader, "Downloading Fixtures from Firebase")
-        val fixturesList = ArrayList<FixtureModel>()
-        app.database.child("user-fixtures").child(userId!!)
-            .addValueEventListener(object : ValueEventListener {
-                override fun onCancelled(error: DatabaseError) {
-                    info("Firebase Fixture error : ${error.message}")
-                }
-
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    hideLoader(loader)
-                    val children = snapshot.children
-                    children.forEach {
-                        val fixture = it.getValue<FixtureModel>(FixtureModel::class.java)
-
-                        fixturesList.add(fixture!!)
-                        root.recyclerView.adapter =
-                            FixtureAdapter(fixturesList, this@FixtureListFragment, false)
-                        root.recyclerView.adapter?.notifyDataSetChanged()
-                        checkSwipeRefresh()
-
-                        app.database.child("user-fixtures").child(userId)
-                            .removeEventListener(this)
-                    }
-                }
-            })
-    }
-
-
-    override fun onResume() {
-        super.onResume()
-        if(this::class == FixtureListFragment::class)
-        getAllFixtures(app.auth.currentUser!!.uid)
-    }
 
 }
 
