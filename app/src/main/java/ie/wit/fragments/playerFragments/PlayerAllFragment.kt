@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import ie.wit.R
 import ie.wit.adapters.PlayerAdapter
@@ -30,10 +32,20 @@ class PlayerAllFragment : PlayerListFragment(), PlayerListener {
         activity?.title = getString(R.string.menu_player_all)
 
         root.recyclerView.layoutManager = LinearLayoutManager(activity)
-        setSwipeRefresh()
+
+        var query = FirebaseDatabase.getInstance()
+            .reference.child("players")
+
+        var options = FirebaseRecyclerOptions.Builder<PlayerModel>()
+            .setQuery(query, PlayerModel::class.java)
+            .setLifecycleOwner(this)
+            .build()
+
+        root.recyclerView.adapter = PlayerAdapter(options, this)
 
         return root
     }
+
 
     companion object {
         @JvmStatic
@@ -43,44 +55,5 @@ class PlayerAllFragment : PlayerListFragment(), PlayerListener {
             }
     }
 
-    override fun setSwipeRefresh() {
-        root.swipeRefresh.setOnRefreshListener {
-            root.swipeRefresh.isRefreshing = true
-            getAllUsersPlayers()
-        }
-    }
 
-    override fun onResume() {
-        super.onResume()
-        getAllUsersPlayers()
-    }
-
-    fun getAllUsersPlayers() {
-        loader = createLoader(activity!!)
-        showLoader(loader, "Downloading All Users Players from Firebase")
-        val playerslist = ArrayList<PlayerModel>()
-        app.database.child("results")
-            .addValueEventListener(object : ValueEventListener {
-                override fun onCancelled(error: DatabaseError) {
-                    info("Firebase Player error : ${error.message}")
-                }
-
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    hideLoader(loader)
-                    val children = snapshot.children
-                    children.forEach {
-                        val player = it.
-                            getValue<PlayerModel>(PlayerModel::class.java)
-
-                        playerslist.add(player!!)
-                        root.recyclerView.adapter =
-                            PlayerAdapter(playerslist, this@PlayerAllFragment, true)
-                        root.recyclerView.adapter?.notifyDataSetChanged()
-                        checkSwipeRefresh()
-
-                        app.database.child("players").removeEventListener(this)
-                    }
-                }
-            })
-    }
 }
