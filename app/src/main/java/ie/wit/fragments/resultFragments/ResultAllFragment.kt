@@ -1,13 +1,14 @@
 package ie.wit.fragments.resultFragments
 
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import ie.wit.R
 import ie.wit.adapters.ResultAdapter
@@ -25,12 +26,23 @@ class ResultAllFragment : ResultListFragment(), ResultListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
         // Inflate the layout for this fragment
         root = inflater.inflate(R.layout.list_view, container, false)
         activity?.title = getString(R.string.action_result_all)
 
+        var query = FirebaseDatabase.getInstance()
+            .reference.child("results")
+
+        var options = FirebaseRecyclerOptions.Builder<ResultModel>()
+            .setQuery(query, ResultModel::class.java)
+            .setLifecycleOwner(this)
+            .build()
+
+        root.recyclerView.adapter = ResultAdapter(options,this)
+
         root.recyclerView.layoutManager = LinearLayoutManager(activity)
-        setSwipeRefresh()
 
         return root
     }
@@ -43,44 +55,7 @@ class ResultAllFragment : ResultListFragment(), ResultListener {
             }
     }
 
-    override fun setSwipeRefresh() {
-        root.swipeRefresh.setOnRefreshListener {
-            root.swipeRefresh.isRefreshing = true
-            getAllUsersResults()
-        }
-    }
 
-    override fun onResume() {
-        super.onResume()
-        getAllUsersResults()
-    }
 
-    fun getAllUsersResults() {
-        loader = createLoader(activity!!)
-        showLoader(loader, "Downloading All Users Results from Firebase")
-        val resultslist = ArrayList<ResultModel>()
-        app.database.child("results")
-            .addValueEventListener(object : ValueEventListener {
-                override fun onCancelled(error: DatabaseError) {
-                    info("Firebase Result error : ${error.message}")
-                }
 
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    hideLoader(loader)
-                    val children = snapshot.children
-                    children.forEach {
-                        val result = it.
-                            getValue<ResultModel>(ResultModel::class.java)
-
-                        resultslist.add(result!!)
-                        root.recyclerView.adapter =
-                            ResultAdapter(resultslist, this@ResultAllFragment, true)
-                        root.recyclerView.adapter?.notifyDataSetChanged()
-                        checkSwipeRefresh()
-
-                        app.database.child("results").removeEventListener(this)
-                    }
-                }
-            })
-    }
 }
