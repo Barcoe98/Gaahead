@@ -18,6 +18,7 @@ import ie.wit.utils.showLoader
 import kotlinx.android.synthetic.main.fragment_edit_fixture.view.*
 import kotlinx.android.synthetic.main.fragment_edit_result.view.*
 import kotlinx.android.synthetic.main.fragment_edit_result.view.editTeamAName
+import kotlinx.android.synthetic.main.fragment_edit_result.view.editTeamBName
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 

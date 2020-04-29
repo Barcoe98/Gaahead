@@ -96,7 +96,7 @@ class EditFixtureFragment : Fragment(), AnkoLogger {
                     }
 
                     override fun onCancelled(error: DatabaseError) {
-                        info("Firebase Donation error : ${error.message}")
+                        info("Firebase Fixture error : ${error.message}")
                     }
                 })
     }
