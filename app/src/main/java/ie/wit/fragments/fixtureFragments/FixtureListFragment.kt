@@ -1,4 +1,3 @@
-
 package ie.wit.fragments.fixtureFragments
 
 import android.os.Bundle
@@ -58,6 +57,7 @@ open class FixtureListFragment : Fragment(), AnkoLogger, FixtureListener {
                 deleteUserFixture(app.auth.currentUser!!.uid, (viewHolder.itemView.tag as FixtureModel).uid)
             }
         }
+
         val itemTouchDeleteHelper = ItemTouchHelper(swipeDeleteHandler)
         itemTouchDeleteHelper.attachToRecyclerView(root.recyclerView)
 

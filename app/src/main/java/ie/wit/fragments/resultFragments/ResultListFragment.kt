@@ -57,6 +57,7 @@ open class ResultListFragment : Fragment(), AnkoLogger, ResultListener {
                 deleteUserResult(app.auth.currentUser!!.uid, (viewHolder.itemView.tag as ResultModel).uid)
             }
         }
+
         val itemTouchDeleteHelper = ItemTouchHelper(swipeDeleteHandler)
         itemTouchDeleteHelper.attachToRecyclerView(root.recyclerView)
 
@@ -122,7 +123,6 @@ open class ResultListFragment : Fragment(), AnkoLogger, ResultListener {
                     }
                 })
     }
-
 
 
     override fun onResultClick(result: ResultModel) {

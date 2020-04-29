@@ -26,10 +26,9 @@ import java.util.HashMap
 open class ResultFragment : Fragment(), AnkoLogger {
 
     lateinit var app: MainApp
-    //private val imageRequest = 1
     lateinit var loader: AlertDialog
-    //lateinit var eventListener : ValueEventListener
     val IMAGE_REQUEST = 1
+    //lateinit var eventListener : ValueEventListener
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +46,8 @@ open class ResultFragment : Fragment(), AnkoLogger {
         activity?.title = getString(R.string.action_result_add)
 
         setButtonListener(root)
+        setImgBtnListener(root)
+
 
         return root
     }
