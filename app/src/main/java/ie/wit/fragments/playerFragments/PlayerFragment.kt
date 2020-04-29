@@ -20,10 +20,9 @@ import java.util.HashMap
 open class PlayerFragment : Fragment(), AnkoLogger {
 
     lateinit var app: MainApp
-    //private val imageRequest = 1
     lateinit var loader: AlertDialog
-    //lateinit var eventListener : ValueEventListener
     val IMAGE_REQUEST = 1
+    //lateinit var eventListener : ValueEventListener
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

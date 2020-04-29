@@ -26,6 +26,7 @@ class EditFixtureFragment : Fragment(), AnkoLogger {
     lateinit var root: View
     var editFixture: FixtureModel? = null
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         app = activity?.application as MainApp
@@ -115,5 +116,8 @@ class EditFixtureFragment : Fragment(), AnkoLogger {
                     }
                 })
     }
+
+
+
 }
 

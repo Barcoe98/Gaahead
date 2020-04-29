@@ -47,14 +47,15 @@ open class PlayerListFragment : Fragment(), AnkoLogger, PlayerListener {
         activity?.title = getString(R.string.action_player_list)
 
         root.recyclerView.layoutManager = LinearLayoutManager(activity)
+
         setSwipeRefresh()
 
         val swipeDeleteHandler = object : SwipeToDeleteCallback(activity!!) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val adapter = root.recyclerView.adapter as PlayerAdapter
                 adapter.removeAt(viewHolder.adapterPosition)
-                deletePlayer((viewHolder.itemView.tag as PlayerModel).uid)
-                deleteUserPlayer(app.auth.currentUser!!.uid, (viewHolder.itemView.tag as PlayerModel).uid)
+//                deletePlayer((viewHolder.itemView.tag as PlayerModel).uid)
+  //              deleteUserPlayer(app.auth.currentUser!!.uid, (viewHolder.itemView.tag as PlayerModel).uid)
             }
         }
         val itemTouchDeleteHelper = ItemTouchHelper(swipeDeleteHandler)

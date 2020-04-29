@@ -9,15 +9,24 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import ie.wit.R
+import ie.wit.fragments.resultFragments.ResultFragment
 import ie.wit.main.MainApp
 import ie.wit.models.FixtureModel
+import ie.wit.models.ResultModel
 import ie.wit.utils.*
+import kotlinx.android.synthetic.main.fragment_edit_fixture.view.*
 import kotlinx.android.synthetic.main.fragment_fixture.*
 import kotlinx.android.synthetic.main.fragment_fixture.date
 import kotlinx.android.synthetic.main.fragment_fixture.teamAName
 import kotlinx.android.synthetic.main.fragment_fixture.teamBName
 import kotlinx.android.synthetic.main.fragment_fixture.view.*
+import kotlinx.android.synthetic.main.fragment_fixture.view.date
+import kotlinx.android.synthetic.main.fragment_fixture.view.logoABtn
+import kotlinx.android.synthetic.main.fragment_fixture.view.logoBBtn
+import kotlinx.android.synthetic.main.fragment_fixture.view.teamAName
+import kotlinx.android.synthetic.main.fragment_fixture.view.teamBName
 import kotlinx.android.synthetic.main.fragment_result.*
+import kotlinx.android.synthetic.main.fragment_result.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import java.util.HashMap
@@ -27,6 +36,8 @@ open class FixtureFragment : Fragment(), AnkoLogger {
     lateinit var app: MainApp
     lateinit var loader: AlertDialog
     val IMAGE_REQUEST = 1
+    lateinit var root: View
+    //var editResult: ResultModel? = null
     //lateinit var eventListener : ValueEventListener
 
 
@@ -46,6 +57,7 @@ open class FixtureFragment : Fragment(), AnkoLogger {
 
         setButtonListener(root)
         setImgBtnListener(root)
+        //fixtureToResultBtn(root)
 
         return root
     }
@@ -157,8 +169,28 @@ open class FixtureFragment : Fragment(), AnkoLogger {
         hideLoader(loader)
     }
 
+    fun fixtureToResultBtn(layout: View) {
+/*
+        layout.editToResultsBtn.setOnClickListener {
+            activity!!.supportFragmentManager.beginTransaction()
+                .replace(R.id.homeFrame, ResultFragment.newInstance())
+                .addToBackStack(null)
+                .commit()
 
-     fun onResult(requestCode: Int, resultCode: Int, data: Intent?) {
+            //fiture to result help
+            root.teamAName.setText(editResult!!.teamAName)
+            root.teamAScore.setText(editResult!!.teamAScore)
+            //root.editTeamBName.setText(editResult!!.teamBName)
+            ///root.editTeamBScore.setText(editResult!!.teamBScore)
+            //root.editRDate.setText(editResult!!.date)
+            //root.editCompetition.setText(editResult!!.competition)
+        }
+
+ */
+    }
+
+
+    fun onResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
             IMAGE_REQUEST -> {

@@ -160,7 +160,7 @@
                 android:background="@drawable/btn_rounded"
                 android:text="@string/btn_editToResults"
                 android:textColor="@color/colorWhite"
-                android:visibility="invisible" />
+                android:visibility="visible" />
 
         </LinearLayout>
     </ScrollView>

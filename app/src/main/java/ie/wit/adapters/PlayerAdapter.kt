@@ -46,6 +46,7 @@ class PlayerAdapter constructor(var players: ArrayList<PlayerModel>, private val
     class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(player: PlayerModel, listener: PlayerListener, playerAll: Boolean) {
+
             /////Card Text//////////////////////////model
             //itemView.tag = player
             itemView.pName.text = player.playerName
