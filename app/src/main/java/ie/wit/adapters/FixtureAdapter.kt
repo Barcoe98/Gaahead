@@ -13,6 +13,7 @@ import ie.wit.fragments.fixtureFragments.FixtureAllFragment
 import ie.wit.models.FixtureModel
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import kotlinx.android.synthetic.main.card_fixture.view.*
+import kotlinx.android.synthetic.main.fragment_fixture.view.*
 
 interface FixtureListener {
     fun onFixtureClick(fixture: FixtureModel)
@@ -41,7 +42,7 @@ class FixtureAdapter(options: FirebaseRecyclerOptions<FixtureModel>,
                 else
                     itemView.setOnClickListener { listener.onFixtureClick(fixture) }
 
-                //if(fixture.isfavourite) itemView.imagefavourite.setImageResource(android.R.drawable.star_big_on)
+                if(fixture.isfavourite) itemView.imagefavouriteStar.setImageResource(android.R.drawable.star_big_on)
 
                 if (!fixture.logoA.isEmpty()) {
                     Picasso.get().load(fixture.logoA.toUri())
@@ -72,5 +73,11 @@ class FixtureAdapter(options: FirebaseRecyclerOptions<FixtureModel>,
 
     override fun onBindViewHolder(holder: FixtureViewHolder, position: Int, model: FixtureModel) {
         holder.bind(model, listener!!)
+    }
+
+    override fun onDataChanged() {
+        // Called each time there is a new data snapshot. You may want to use this method
+        // to hide a loading spinner or check for the "no documents" state and update your UI.
+        // ...
     }
 }

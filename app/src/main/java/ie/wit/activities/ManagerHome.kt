@@ -12,6 +12,7 @@ import com.google.android.material.navigation.NavigationView
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import ie.wit.R
+import ie.wit.fragments.FavouritesFragment
 import ie.wit.fragments.playerFragments.PlayerAllFragment
 import ie.wit.fragments.playerFragments.PlayerListFragment
 import ie.wit.fragments.resultFragments.ResultAllFragment
@@ -91,6 +92,8 @@ class ManagerHome : AppCompatActivity(), NavigationView.OnNavigationItemSelected
             R.id.nav_add_player -> navigateTo(PlayerFragment.newInstance())
             R.id.nav_player_list -> navigateTo(PlayerListFragment.newInstance())
             R.id.nav_player_all -> navigateTo(PlayerAllFragment.newInstance())
+
+            R.id.nav_favourites -> navigateTo(FavouritesFragment.newInstance())
 
             //R.id.nav_info -> navigateTo(AppInfoFragment.newInstance())
             R.id.nav_sign_out -> signOut()

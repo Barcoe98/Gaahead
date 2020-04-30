@@ -169,6 +169,72 @@ fun updateAllFixtures(app: MainApp) {
     writeImageRef(app, app.userImage.toString())
 }
 
+fun updateAllPlayers(app: MainApp) {
+    val userId = app.auth.currentUser!!.uid
+    val userEmail = app.auth.currentUser!!.email
+    var fixtureRef = app.database.ref.child("fixtures")
+        .orderByChild("email")
+    val userfixtureRef = app.database.ref.child("user-fixtures")
+        .child(userId).orderByChild("uid")
+
+    fixtureRef.equalTo(userEmail).addListenerForSingleValueEvent(
+        object : ValueEventListener {
+            override fun onCancelled(error: DatabaseError) {}
+            override fun onDataChange(snapshot: DataSnapshot) {
+                snapshot.children.forEach {
+                    it.ref.child("profilepic")
+                        .setValue(app.userImage.toString())
+                }
+            }
+        })
+
+    userfixtureRef.addListenerForSingleValueEvent(
+        object : ValueEventListener {
+            override fun onCancelled(error: DatabaseError) {}
+            override fun onDataChange(snapshot: DataSnapshot) {
+                snapshot.children.forEach {
+                    it.ref.child("profilepic")
+                        .setValue(app.userImage.toString())
+                }
+            }
+        })
+
+    writeImageRef(app, app.userImage.toString())
+}
+
+fun updateAllResults(app: MainApp) {
+    val userId = app.auth.currentUser!!.uid
+    val userEmail = app.auth.currentUser!!.email
+    var fixtureRef = app.database.ref.child("fixtures")
+        .orderByChild("email")
+    val userfixtureRef = app.database.ref.child("user-fixtures")
+        .child(userId).orderByChild("uid")
+
+    fixtureRef.equalTo(userEmail).addListenerForSingleValueEvent(
+        object : ValueEventListener {
+            override fun onCancelled(error: DatabaseError) {}
+            override fun onDataChange(snapshot: DataSnapshot) {
+                snapshot.children.forEach {
+                    it.ref.child("profilepic")
+                        .setValue(app.userImage.toString())
+                }
+            }
+        })
+
+    userfixtureRef.addListenerForSingleValueEvent(
+        object : ValueEventListener {
+            override fun onCancelled(error: DatabaseError) {}
+            override fun onDataChange(snapshot: DataSnapshot) {
+                snapshot.children.forEach {
+                    it.ref.child("profilepic")
+                        .setValue(app.userImage.toString())
+                }
+            }
+        })
+
+    writeImageRef(app, app.userImage.toString())
+}
+
 fun writeImageRef(app: MainApp, imageRef: String) {
     val userId = app.auth.currentUser!!.uid
     val values = UserPhotoModel(userId,imageRef).toMap()

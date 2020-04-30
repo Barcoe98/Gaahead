@@ -10,8 +10,7 @@ import kotlinx.android.parcel.Parcelize
 data class UserModel(var uid: String? = "",
                      var profilepic: String = "",
                      var email: String? = "benfranklin@gmail.com",
-                     var password: String? = "Benfranklin1",
-                     //var name: String = "Ben Franklin",
+                     var name: String = "Ben Franklin",
                      var userType: String = "Manager") : Parcelable
 
 {

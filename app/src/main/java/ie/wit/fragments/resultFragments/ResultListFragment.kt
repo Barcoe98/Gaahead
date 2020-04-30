@@ -72,6 +72,7 @@ open class ResultListFragment : Fragment(), AnkoLogger, ResultListener {
         val itemTouchEditHelper = ItemTouchHelper(swipeEditHandler)
         itemTouchEditHelper.attachToRecyclerView(root.recyclerView)
 
+
         return root
     }
 

@@ -33,7 +33,7 @@
     <string name="menu_access_control">Access Control</string>
 
 
-//TOOLBAR FRAGMENT TITLES
+    //TOOLBAR FRAGMENT TITLES
     <string name="action_fixture_add">Add Fixture</string>
     <string name="action_fixture_edit">Edit Fixture</string>
     <string name="action_fixture_details">Fixture Details</string>
@@ -141,10 +141,8 @@
     <string name="error_playerAge">Enter a Age Name </string>
 
 
-
-
     <!-- START Firebase Resources-->
- 
+
     //Login page
     <string name="messageLoading">Please wait while we Connect to the Server...</string>
     <string name="label_emailpassword">Email/Password Authentication</string>
@@ -175,6 +173,9 @@
     <string name="sign_in_google">Sign In with Google</string>
     <string name="sign_in_email">Sign In with Email</string>
     <string name="sign_in_phone">Sign In with Phone</string>
+
+    <string name="favourites_title">Favourites</string>
+    <string name="menu_favourites">Favourites</string>
 
 
 </resources>

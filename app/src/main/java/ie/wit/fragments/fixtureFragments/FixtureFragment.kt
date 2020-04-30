@@ -37,6 +37,7 @@ open class FixtureFragment : Fragment(), AnkoLogger {
     lateinit var loader: AlertDialog
     val IMAGE_REQUEST = 1
     lateinit var root: View
+    var favourite = false
     //var editResult: ResultModel? = null
     //lateinit var eventListener : ValueEventListener
 
@@ -57,6 +58,7 @@ open class FixtureFragment : Fragment(), AnkoLogger {
 
         setButtonListener(root)
         setImgBtnListener(root)
+        setFavouriteListener(root)
         //fixtureToResultBtn(root)
 
         return root
@@ -83,6 +85,20 @@ open class FixtureFragment : Fragment(), AnkoLogger {
         }
     }
 
+    fun setFavouriteListener (layout: View) {
+        layout.imagefavourite.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(view: View?) {
+                if (!favourite) {
+                    layout.imagefavourite.setImageResource(android.R.drawable.star_big_on)
+                    favourite = true
+                }
+                else {
+                    layout.imagefavourite.setImageResource(android.R.drawable.star_big_off)
+                    favourite = false
+                }
+            }
+        })
+    }
 
     private fun setButtonListener(layout: View) {
         layout.addFixtureBtn.setOnClickListener {
@@ -126,6 +142,7 @@ open class FixtureFragment : Fragment(), AnkoLogger {
                         time = time,
                         date = date,
                         location = location,
+                        isfavourite = favourite,
                         email = app.auth.currentUser?.email
                     )
                 )

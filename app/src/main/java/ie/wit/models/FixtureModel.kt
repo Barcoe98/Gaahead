@@ -15,6 +15,7 @@ data class FixtureModel(var uid: String? = "",
                         var date: String = "10/10/10",
                         var time: String = "10:00",
                         var location: String = "Nolan Park",
+                        var isfavourite: Boolean = false,
                         var email: String? = "joe@bloggs.com") : Parcelable
 
 {
@@ -29,6 +30,7 @@ data class FixtureModel(var uid: String? = "",
             "date" to date,
             "time" to time,
             "location" to location,
+            "isfavourite" to isfavourite,
             "email" to email
         )
     }

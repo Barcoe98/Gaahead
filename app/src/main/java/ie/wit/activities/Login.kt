@@ -98,7 +98,7 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success")
                     val user = app.auth.currentUser
-                    writeNewUser(UserModel(userType = userType, email = email, password = password))
+                    writeNewUser(UserModel(userType = userType, email = email))
                     updateUI(user)
 
                 } else {
