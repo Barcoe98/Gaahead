@@ -1,37 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/myInfi"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="My Info" />
+        android:layout_height="match_parent">>
 
-    <TextView
-        android:id="@+id/myName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/myAge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+            <TextView
+                android:id="@+id/tDetailsBanner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ff9000"
+                android:fontFamily="@font/roboto"
+                android:text="My Information"
+                android:textAlignment="center"
+                android:textColor="@color/text_black"
+                android:textSize="24sp" />
 
-    <TextView
-        android:id="@+id/myTrophiesWon"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:padding="10dp"
+                tools:srcCompat="@tools:sample/avatars" />
 
-    <Button
-        android:id="@+id/addMyInfoBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add My Info" />
+            <TextView
+                android:id="@+id/tBanner2"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="#ff9000"
+                android:fontFamily="@font/roboto"
+                android:padding="@dimen/card_banner_padding"
+                android:textAlignment="center"
+                android:textColor="@color/text_black"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/layout_margin"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/uNameText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:padding="@dimen/detail_text_space"
+                    android:text="Name"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/text_black"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/uName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:padding="@dimen/detail_text_space"
+                    android:text="Michael Barcoe"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/text_black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/uAgeText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:padding="@dimen/detail_text_space"
+                    android:text="Age"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/text_black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/uAge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:padding="@dimen/detail_text_space"
+                    android:text="21"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/text_black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/uPlaceOfBirthText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:padding="@dimen/detail_text_space"
+                    android:text="Place Of Birth"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/text_black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/uPlaceOfBirth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:padding="@dimen/detail_text_space"
+                    android:text="Kilkenny"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/text_black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/uTrophiesWonText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:padding="@dimen/detail_text_space"
+                    android:text="Trophies Won "
+                    android:textAlignment="textStart"
+                    android:textColor="@color/text_black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/uTrophiesWon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:padding="@dimen/detail_text_space"
+                    android:text="12"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/text_black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/uBioText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:padding="@dimen/detail_text_space"
+                    android:text="Bio "
+                    android:textAlignment="textStart"
+                    android:textColor="@color/text_black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/uBio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:padding="@dimen/detail_text_space"
+                    android:text="Bunch Of Text"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/text_black"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tBanner3"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="#ff9000"
+                android:fontFamily="@font/roboto"
+                android:padding="@dimen/card_banner_padding"
+                android:textAlignment="center"
+                android:textColor="@color/text_black"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/addMyInfoBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add My Info" />
+
+
+        </LinearLayout>
+    </ScrollView>
 
 
 </LinearLayout>

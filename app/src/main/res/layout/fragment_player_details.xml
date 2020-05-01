@@ -14,7 +14,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/layout_margin"
             android:orientation="vertical">
 
             <TextView
@@ -186,8 +185,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="Trophies : "
                     android:padding="@dimen/detail_text_space"
+                    android:text="Trophies : "
                     android:textAlignment="textStart"
                     android:textColor="@color/text_black"
                     android:textSize="14sp" />
@@ -198,8 +197,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="47"
                     android:padding="@dimen/detail_text_space"
+                    android:text="47"
                     android:textAlignment="textStart"
                     android:textColor="@color/text_black"
                     android:textSize="18sp" />
@@ -228,7 +227,6 @@
                 android:textColor="@color/text_black"
                 android:textSize="16sp" />
 
-           
 
         </LinearLayout>
     </ScrollView>
