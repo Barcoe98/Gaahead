@@ -188,6 +188,7 @@
     <string name="hint_name">Full Name</string>
     <string name="btn_addProfilePic">Add Profile Pic</string>
     <string name="my_info_title">My Info</string>
+    <string name="user_info_title">Add User Information</string>
 
 
 </resources>

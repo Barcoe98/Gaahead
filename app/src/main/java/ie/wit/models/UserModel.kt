@@ -9,11 +9,11 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class UserModel(var uid: String? = "",
                      var profilepic: String = "",
-                     var email: String? = "benfranklin@gmail.com",
-                     var name: String = "Michael Barcoe",
-                     var age: String = "Michael Barcoe",
-                     var trophiesWon: String = "Michael Barcoe",
-                     var userType: String = "Manager") : Parcelable
+                     var email: String? = "bob@bob.com",
+                     var name: String = "",
+                     var age: String = "",
+                     var trophiesWon: String = "",
+                     var userType: String = "") : Parcelable
 
 {
     @Exclude

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     android:orientation="vertical"
-    tools:context=".fragments.fixtureFragments.FixtureFragment">
+    tools:context=".fragments.UserInfoFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -68,7 +68,7 @@
                 android:textColorHint="@color/colorWhite"/>
 
             <EditText
-                android:id="@+id/Age"
+                android:id="@+id/age"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/input_box_margin"

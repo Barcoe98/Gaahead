@@ -107,12 +107,14 @@ class EditFixtureFragment : Fragment(), AnkoLogger {
                 object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         snapshot.ref.setValue(fixture)
+                        ////////////////////////////////////////////////
                         activity!!.supportFragmentManager.beginTransaction()
                         .replace(R.id.homeFrame,
                             FixtureListFragment.newInstance()
                         )
                         .addToBackStack(null)
                         .commit()
+                        ///////////////////////////////////////////////
                         hideLoader(loader)
                     }
 
