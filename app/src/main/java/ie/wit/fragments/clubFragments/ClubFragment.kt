@@ -13,6 +13,7 @@ import ie.wit.models.ClubModel
 import ie.wit.utils.*
 import kotlinx.android.synthetic.main.fragment_club.*
 import kotlinx.android.synthetic.main.fragment_club.view.*
+import kotlinx.android.synthetic.main.fragment_fixture.view.*
 
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
@@ -23,6 +24,8 @@ open class ClubFragment : Fragment(), AnkoLogger{
     lateinit var app: MainApp
     lateinit var loader: AlertDialog
     val IMAGE_REQUEST = 1
+    var favourite = false
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,6 +44,8 @@ open class ClubFragment : Fragment(), AnkoLogger{
 
         setButtonListener(root)
         setImgBtnListener(root)
+        setFavouriteListener(root)
+
 
         return root
     }
@@ -111,6 +116,7 @@ open class ClubFragment : Fragment(), AnkoLogger{
                         colours = colours,
                         grounds = grounds,
                         division = division,
+                        isfavourite = favourite,
                         yearFounded = yearFounded
                     )
                 )
@@ -150,5 +156,20 @@ open class ClubFragment : Fragment(), AnkoLogger{
 
         app.database.updateChildren(childUpdates)
         hideLoader(loader)
+    }
+
+    fun setFavouriteListener (layout: View) {
+        layout.clubFavImg.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(view: View?) {
+                if (!favourite) {
+                    layout.clubFavImg.setImageResource(android.R.drawable.star_big_on)
+                    favourite = true
+                }
+                else {
+                    layout.clubFavImg.setImageResource(android.R.drawable.star_big_off)
+                    favourite = false
+                }
+            }
+        })
     }
 }

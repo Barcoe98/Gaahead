@@ -176,6 +176,10 @@
 
     <string name="favourites_title">Favourites</string>
     <string name="menu_favourites">Favourites</string>
+    <string name="club_favourites_title">Favourite Clubs</string>
+    <string name="menu_club_fav">Favourite Clubs</string>
+    <string name="btn_addClub">Add Club</string>
+    <string name="fixture_favourites_title">Favourite Fixtures</string>
 
 
 </resources>

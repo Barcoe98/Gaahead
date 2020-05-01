@@ -12,13 +12,15 @@ import com.google.android.material.navigation.NavigationView
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import ie.wit.R
-import ie.wit.fragments.FavouritesFragment
+import ie.wit.fragments.clubFragments.ClubFavouritesFragment
+import ie.wit.fragments.fixtureFragments.FavouritesFragment
 import ie.wit.fragments.playerFragments.PlayerAllFragment
 import ie.wit.fragments.playerFragments.PlayerListFragment
 import ie.wit.fragments.resultFragments.ResultAllFragment
 import ie.wit.fragments.resultFragments.ResultFragment
 import ie.wit.fragments.resultFragments.ResultListFragment
 import ie.wit.fragments.clubFragments.ClubFragment
+import ie.wit.fragments.clubFragments.ClubListFragment
 import ie.wit.fragments.fixtureFragments.FixtureAllFragment
 import ie.wit.fragments.fixtureFragments.FixtureFragment
 import ie.wit.fragments.fixtureFragments.FixtureListFragment
@@ -79,7 +81,7 @@ class ManagerHome : AppCompatActivity(), NavigationView.OnNavigationItemSelected
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             // R.id.nav_team_info -> navigateTo(TeamInfoFragment.newInstance())
-            //R.id.nav_team -> navigateTo(TeamFragment.newInstance())
+            R.id.nav_clubs -> navigateTo(ClubListFragment.newInstance())
 
             R.id.nav_add_fixture -> navigateTo(FixtureFragment.newInstance())
             R.id.nav_fixture_list -> navigateTo(FixtureListFragment.newInstance())
@@ -94,6 +96,7 @@ class ManagerHome : AppCompatActivity(), NavigationView.OnNavigationItemSelected
             R.id.nav_player_all -> navigateTo(PlayerAllFragment.newInstance())
 
             R.id.nav_favourites -> navigateTo(FavouritesFragment.newInstance())
+            R.id.nav_club_favs -> navigateTo(ClubFavouritesFragment.newInstance())
 
             //R.id.nav_info -> navigateTo(AppInfoFragment.newInstance())
             R.id.nav_sign_out -> signOut()

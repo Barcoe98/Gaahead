@@ -1,4 +1,4 @@
-package ie.wit.fragments
+package ie.wit.fragments.clubFragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,15 +9,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.FirebaseDatabase
 import ie.wit.R
-import ie.wit.adapters.FixtureAdapter
-import ie.wit.adapters.FixtureListener
+import ie.wit.adapters.ClubAdapter
+import ie.wit.adapters.ClubListener
 import ie.wit.main.MainApp
-import ie.wit.models.FixtureModel
+import ie.wit.models.ClubModel
 import kotlinx.android.synthetic.main.list_view.view.*
 import org.jetbrains.anko.AnkoLogger
 
 
-open class FavouritesFragment : Fragment(), AnkoLogger, FixtureListener {
+open class ClubFavouritesFragment : Fragment(), AnkoLogger, ClubListener {
 
     lateinit var app: MainApp
     lateinit var root: View
@@ -31,21 +31,22 @@ open class FavouritesFragment : Fragment(), AnkoLogger, FixtureListener {
 
         // Inflate the layout for this fragment
         root = inflater.inflate(R.layout.list_view, container, false)
-        activity?.title = getString(R.string.favourites_title)
+        activity?.title = getString(R.string.club_favourites_title)
 
         root.recyclerView.layoutManager = LinearLayoutManager(activity)
 
+        //Populates Recyclerviwew with just Club that are Pinned
         var query = FirebaseDatabase.getInstance()
             .reference
-            .child("user-fixtures").child(app.auth.currentUser!!.uid).orderByChild("isfavourite")
+            .child("clubs").orderByChild("isfavourite")
             .equalTo(true)
 
-        var options = FirebaseRecyclerOptions.Builder<FixtureModel>()
-            .setQuery(query, FixtureModel::class.java)
+        var options = FirebaseRecyclerOptions.Builder<ClubModel>()
+            .setQuery(query, ClubModel::class.java)
             .setLifecycleOwner(this)
             .build()
 
-        root.recyclerView.adapter = FixtureAdapter(options, this)
+        root.recyclerView.adapter = ClubAdapter(options, this)
 
         return root
     }
@@ -53,15 +54,17 @@ open class FavouritesFragment : Fragment(), AnkoLogger, FixtureListener {
     companion object {
         @JvmStatic
         fun newInstance() =
-            FavouritesFragment().apply {
+            ClubFavouritesFragment().apply {
                 arguments = Bundle().apply { }
             }
     }
 
-    override fun onFixtureClick(fixture: FixtureModel) {
+    override fun onClubClick(club: ClubModel) {
+        activity!!.supportFragmentManager.beginTransaction()
+            .replace(R.id.homeFrame, ClubDetailsFragment.newInstance(club))
+            .addToBackStack(null)
+            .commit()
     }
-
-
 }
 
 

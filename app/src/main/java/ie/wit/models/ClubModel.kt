@@ -14,6 +14,7 @@ data class ClubModel(var uid: String? = "",
                      var colours: String = "Black & White",
                      var yearFounded: String = "1974",
                      var division: String = "Junior",
+                     var isfavourite: Boolean = false,
                      var grounds: String = "Tom Walsh Park") : Parcelable
 
 {
@@ -27,6 +28,7 @@ data class ClubModel(var uid: String? = "",
             "colours" to colours,
             "yearFounded" to yearFounded,
             "division" to division,
+            "isfavourite" to isfavourite,
             "grounds" to grounds
         )
     }

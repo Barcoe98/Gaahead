@@ -12,9 +12,15 @@
             android:icon="@drawable/ic_menu_my_info"
             android:title="@string/menu_team_info" />
         <item
-            android:id="@+id/nav_team"
+            android:id="@+id/nav_clubs"
             android:icon="@drawable/ic_menu_team"
-            android:title="@string/menu_team" />
+            android:title="@string/menu_club_list" />
+
+        <item
+            android:id="@+id/nav_club_favs"
+            android:icon="@drawable/ic_menu_team"
+            android:title="@string/menu_club_fav" />
+
         <item
             android:id="@+id/nav_favourites"
             android:icon="@drawable/ic_star"

@@ -25,6 +25,8 @@ class EditFixtureFragment : Fragment(), AnkoLogger {
     lateinit var loader : AlertDialog
     lateinit var root: View
     var editFixture: FixtureModel? = null
+    var favourite = false
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,6 +61,8 @@ class EditFixtureFragment : Fragment(), AnkoLogger {
                                editFixture!!.uid, editFixture!!)
         }
 
+        setFavouriteListener(root)
+
         return root
     }
 
@@ -72,6 +76,21 @@ class EditFixtureFragment : Fragment(), AnkoLogger {
             }
     }
 
+    fun setFavouriteListener (layout: View) {
+        layout.editImageFavourite.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(view: View?) {
+                if (!favourite) {
+                    layout.editImageFavourite.setImageResource(android.R.drawable.star_big_on)
+                    favourite = true
+                }
+                else {
+                    layout.editImageFavourite.setImageResource(android.R.drawable.star_big_off)
+                    favourite = false
+                }
+            }
+        })
+    }
+
     fun updateFixtureData() {
 
         editFixture!!.teamAName = root.editTeamAName.text.toString()
@@ -79,6 +98,7 @@ class EditFixtureFragment : Fragment(), AnkoLogger {
         editFixture!!.date = root.editDate.text.toString()
         editFixture!!.time = root.editTime.text.toString()
         editFixture!!.location = root.editLocation.text.toString()
+
     }
 
     fun updateUserFixture(userId: String, uid: String?, fixture: FixtureModel) {
