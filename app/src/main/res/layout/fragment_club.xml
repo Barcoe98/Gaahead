@@ -18,13 +18,6 @@
             android:layout_margin="@dimen/layout_margin"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/clubFavImg"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="right"
-                app:srcCompat="@android:drawable/star_big_off" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,12 +55,41 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/pinAsFav"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/input_box_margin"
+                    android:layout_weight="1"
+                    android:background="@drawable/txt_rounded_blue"
+                    android:padding="@dimen/input_box_padding"
+                    android:text="@string/text_club_fav_pin"
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorWhite"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/clubFavImg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    app:srcCompat="@android:drawable/star_big_off" />
+
+            </LinearLayout>
+
             <EditText
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/input_box_margin"
-                android:background="@drawable/txt_rounded"
+                android:background="@drawable/txt_rounded_blue"
                 android:ems="10"
                 android:hint="@string/hint_teamName"
                 android:inputType="textPersonName"
@@ -80,7 +102,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/input_box_margin"
-                android:background="@drawable/txt_rounded"
+                android:background="@drawable/txt_rounded_blue"
                 android:ems="10"
                 android:hint="@string/hint_county"
                 android:inputType="textPersonName"
@@ -94,7 +116,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/input_box_margin"
                 android:autofillHints="@string/hint_colours"
-                android:background="@drawable/txt_rounded"
+                android:background="@drawable/txt_rounded_blue"
                 android:ems="10"
                 android:hint="@string/hint_colours"
                 android:padding="@dimen/input_box_padding"
@@ -106,7 +128,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/input_box_margin"
-                android:background="@drawable/txt_rounded"
+                android:background="@drawable/txt_rounded_blue"
                 android:ems="10"
                 android:hint="@string/hint_year_founded"
                 android:padding="@dimen/input_box_padding"
@@ -118,7 +140,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/input_box_margin"
-                android:background="@drawable/txt_rounded"
+                android:background="@drawable/txt_rounded_blue"
                 android:ems="10"
                 android:hint="@string/hint_division"
                 android:inputType="textPersonName"
@@ -131,7 +153,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/input_box_margin"
-                android:background="@drawable/txt_rounded"
+                android:background="@drawable/txt_rounded_blue"
                 android:ems="10"
                 android:hint="@string/hint_grounds"
                 android:inputType="textPersonName"

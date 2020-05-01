@@ -55,7 +55,7 @@
                     android:text="Kilkenny"
                     android:textAlignment="center"
                     android:textColor="@color/text_black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
             </LinearLayout>
 
@@ -94,7 +94,7 @@
                         android:text="2-33"
                         android:textAlignment="center"
                         android:textColor="@color/text_black"
-                        android:textSize="20sp" />
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/rTeamBScore"
@@ -108,7 +108,7 @@
                         android:text="2-12"
                         android:textAlignment="center"
                         android:textColor="@color/text_black"
-                        android:textSize="20sp" />
+                        android:textSize="18sp" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -138,7 +138,7 @@
                     android:text="Dublin"
                     android:textAlignment="center"
                     android:textColor="@color/text_black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
 
             </LinearLayout>
 

@@ -14,14 +14,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/layout_margin"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#4CAF50"
+                android:background="#2a9df4"
                 android:fontFamily="@font/roboto"
                 android:padding="@dimen/card_banner_padding"
                 android:text="Blacks and Whites"
@@ -38,8 +37,9 @@
                 <ImageView
                     android:id="@+id/tLogo"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="160dp"
                     android:layout_weight="1"
+                    android:padding="15dp"
                     app:srcCompat="@mipmap/ic_black_white_crest_2" />
 
             </LinearLayout>
@@ -47,8 +47,8 @@
             <TextView
                 android:id="@+id/tBanner"
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:background="#4CAF50"
+                android:layout_height="30dp"
+                android:background="#2a9df4"
                 android:fontFamily="@font/roboto"
                 android:padding="@dimen/card_banner_padding"
                 android:textAlignment="center"
@@ -58,181 +58,188 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_margin="@dimen/layout_margin"
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tYearFoundedText"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/roboto_medium"
-                    android:padding="@dimen/detail_text_space"
-                    android:text="Year Founded : "
-                    android:textAlignment="textStart"
-                    android:textColor="@color/text_black"
-                    android:textSize="14sp" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/tYearFounded"
+                    <TextView
+                        android:id="@+id/tYearFoundedText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:padding="@dimen/detail_text_space"
+                        android:text="Year Founded : "
+                        android:textAlignment="textStart"
+                        android:textColor="@color/text_black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tYearFounded"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:padding="@dimen/detail_text_space"
+                        android:text="1927"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/text_black"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="1927"
-                    android:padding="@dimen/detail_text_space"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/text_black"
-                    android:textSize="18sp" />
-            </LinearLayout>
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tCountyText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:padding="@dimen/detail_text_space"
+                        android:text="County : "
+                        android:textAlignment="textStart"
+                        android:textColor="@color/text_black"
+                        android:textSize="14sp" />
 
-                <TextView
-                    android:id="@+id/tCountyText"
+                    <TextView
+                        android:id="@+id/tCounty"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:padding="@dimen/detail_text_space"
+                        android:text="Kilkenny"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/text_black"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:padding="@dimen/detail_text_space"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="County : "
-                    android:textAlignment="textStart"
-                    android:textColor="@color/text_black"
-                    android:textSize="14sp" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/tCounty"
+                    <TextView
+                        android:id="@+id/tColoursText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:padding="@dimen/detail_text_space"
+                        android:text="Colours : "
+                        android:textAlignment="textStart"
+                        android:textColor="@color/text_black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tColours"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:padding="@dimen/detail_text_space"
+                        android:text="Black, White"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/text_black"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:padding="@dimen/detail_text_space"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="Kilkenny"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/text_black"
-                    android:textSize="18sp" />
-            </LinearLayout>
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tGroundsText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:padding="@dimen/detail_text_space"
+                        android:text="Pitch Name : "
+                        android:textAlignment="textStart"
+                        android:textColor="@color/text_black"
+                        android:textSize="14sp" />
 
-                <TextView
-                    android:id="@+id/tColoursText"
+                    <TextView
+                        android:id="@+id/tGrounds"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:padding="@dimen/detail_text_space"
+                        android:text="Tom Walsh Park"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/text_black"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="Colours : "
-                    android:padding="@dimen/detail_text_space"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/text_black"
-                    android:textSize="14sp" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/tColours"
+                    <TextView
+                        android:id="@+id/tDivisionText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:padding="@dimen/detail_text_space"
+                        android:text="Division : "
+                        android:textAlignment="textStart"
+                        android:textColor="@color/text_black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tDivision"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:padding="@dimen/detail_text_space"
+                        android:text="Junior"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/text_black"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="Black, White"
-                    android:padding="@dimen/detail_text_space"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/text_black"
-                    android:textSize="18sp" />
-            </LinearLayout>
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tTrophiesText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:padding="@dimen/detail_text_space"
+                        android:text="Trophies : "
+                        android:textAlignment="textStart"
+                        android:textColor="@color/text_black"
+                        android:textSize="14sp" />
 
-                <TextView
-                    android:id="@+id/tGroundsText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="Pitch Name : "
-                    android:padding="@dimen/detail_text_space"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/text_black"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tGrounds"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="Tom Walsh Park"
-                    android:padding="@dimen/detail_text_space"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/text_black"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tDivisionText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/roboto_medium"
-                    android:padding="@dimen/detail_text_space"
-                    android:text="Division : "
-                    android:textAlignment="textStart"
-                    android:textColor="@color/text_black"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tDivision"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/roboto_medium"
-                    android:padding="@dimen/detail_text_space"
-                    android:text="Junior"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/text_black"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tTrophiesText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="Trophies : "
-                    android:padding="@dimen/detail_text_space"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/text_black"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tTrophies"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="47"
-                    android:padding="@dimen/detail_text_space"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/text_black"
-                    android:textSize="18sp" />
+                    <TextView
+                        android:id="@+id/tTrophies"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:padding="@dimen/detail_text_space"
+                        android:text="47"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/text_black"
+                        android:textSize="18sp" />
+                </LinearLayout>
             </LinearLayout>
 
             <TextView
@@ -240,10 +247,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#4CAF50"
+                android:background="#2a9df4"
                 android:fontFamily="@font/roboto"
                 android:padding="@dimen/card_banner_padding"
-                android:text="History"
+                android:text="Club History"
                 android:textAlignment="center"
                 android:textColor="@color/text_black"
                 android:textSize="24sp" />
@@ -252,8 +259,9 @@
                 android:id="@+id/tHistory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/layout_margin"
                 android:padding="@dimen/detail_text_space"
-                android:text="Excellent match , the ball play was from end to end. great show by all involved . was a great darw gae."
+                android:text="History about the club"
                 android:textAlignment="textStart"
                 android:textColor="@color/text_black"
                 android:textSize="16sp" />
@@ -263,7 +271,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#4CAF50"
+                android:background="#2a9df4"
                 android:fontFamily="@font/roboto"
                 android:padding="@dimen/card_banner_padding"
                 android:text="Location"

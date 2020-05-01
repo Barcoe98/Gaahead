@@ -17,7 +17,7 @@
                 android:id="@+id/tDetailsBanner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#ff9000"
+                android:background="#4CAF50"
                 android:fontFamily="@font/roboto"
                 android:text="My Information"
                 android:textAlignment="center"
@@ -34,8 +34,8 @@
             <TextView
                 android:id="@+id/tBanner2"
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:background="#ff9000"
+                android:layout_height="30dp"
+                android:background="#4CAF50"
                 android:fontFamily="@font/roboto"
                 android:padding="@dimen/card_banner_padding"
                 android:textAlignment="center"
@@ -173,8 +173,8 @@
             <TextView
                 android:id="@+id/tBanner3"
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:background="#ff9000"
+                android:layout_height="30dp"
+                android:background="#4CAF50"
                 android:fontFamily="@font/roboto"
                 android:padding="@dimen/card_banner_padding"
                 android:textAlignment="center"
@@ -185,7 +185,11 @@
                 android:id="@+id/addMyInfoBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Add My Info" />
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="80dp"
+                android:text="Add My Info"
+                tools:layout_marginBottom="20dp" />
 
 
         </LinearLayout>
