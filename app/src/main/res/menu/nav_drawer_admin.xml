@@ -5,6 +5,19 @@
 
     <group android:checkableBehavior="single">
 
+       <item android:title="@string/action_club_list">
+        <menu>
+            <item
+                android:id="@+id/nav_add_club"
+                android:icon="@drawable/ic_menu_add"
+                android:title="@string/menu_add_club" />
+            <item
+                android:id="@+id/nav_club_all"
+                android:icon="@drawable/ic_menu_list_all"
+                android:title="@string/menu_club_list" />
+        </menu>
+    </item>
+
     <item android:title="@string/fixture_subtitle">
         <menu>
             <item
@@ -19,18 +32,7 @@
         </menu>
     </item>
 
-        <item android:title="@string/action_club_list">
-            <menu>
-                <item
-                    android:id="@+id/nav_add_club"
-                    android:icon="@drawable/ic_menu_add"
-                    android:title="@string/menu_add_club" />
-                <item
-                    android:id="@+id/nav_club_all"
-                    android:icon="@drawable/ic_menu_list_all"
-                    android:title="@string/menu_club_list" />
-            </menu>
-        </item>
+
 
 
         <item android:title="@string/result_subtitle">

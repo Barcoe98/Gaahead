@@ -190,6 +190,7 @@
     <string name="my_info_title">My Info</string>
     <string name="user_info_title">Add User Information</string>
     <string name="text_club_fav_pin">Pin As Favourite</string>
+    <string name="menu_fixture_favourites">Fixture Favourites</string>
 
 
 </resources>

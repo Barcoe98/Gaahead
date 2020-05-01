@@ -83,7 +83,7 @@ class AdminHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             R.id.nav_add_player -> navigateTo(PlayerFragment.newInstance())
             R.id.nav_player_all -> navigateTo(PlayerAllFragment.newInstance())
 
-            // R.id.nav_info -> navigateTo(InfoFragment.newInstance())
+            // R.id.nav_app_info -> navigateTo(AppInfoFragment.newInstance())
             R.id.nav_sign_out -> signOut()
 
             else -> toast("You Selected Something Else")
