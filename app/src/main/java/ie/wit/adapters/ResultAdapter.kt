@@ -28,7 +28,8 @@ class ResultAdapter(options: FirebaseRecyclerOptions<ResultModel>,
             fun bind(result: ResultModel, listener: ResultListener) {
                 with(result){
 
-                    /////Card Text//////////////////////////model itemView.tag = result
+                    /////Card Text//////////////////////////model
+                    itemView.tag = result
                     itemView.rTeamAName.text = result.teamAName
                     itemView.rTeamAScore.text = result.teamAScore
                     itemView.rTeamBName.text = result.teamBName

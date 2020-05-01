@@ -29,7 +29,7 @@ class PlayerAdapter (options: FirebaseRecyclerOptions<PlayerModel>, private val 
             with(player) {
 
                 /////Card Text//////////////////////////model
-                //itemView.tag = player
+                itemView.tag = player
                 itemView.pName.text = player.playerName
                 //itemView..text = player.playerImage
                 itemView.pAge.text = player.playerAge
