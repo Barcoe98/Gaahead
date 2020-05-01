@@ -12,6 +12,8 @@ import com.google.android.material.navigation.NavigationView
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import ie.wit.R
+import ie.wit.fragments.MyInfoFragment
+import ie.wit.fragments.UserInfoFragment
 import ie.wit.fragments.clubFragments.ClubFavouritesFragment
 import ie.wit.fragments.fixtureFragments.FavouritesFragment
 import ie.wit.fragments.playerFragments.PlayerAllFragment
@@ -80,7 +82,8 @@ class ManagerHome : AppCompatActivity(), NavigationView.OnNavigationItemSelected
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            // R.id.nav_team_info -> navigateTo(TeamInfoFragment.newInstance())
+            R.id.nav_team_info -> navigateTo(MyInfoFragment.newInstance())
+            //R.id.nav_my_info -> navigateTo(MyInfoFragment.newInstance())
             R.id.nav_clubs -> navigateTo(ClubListFragment.newInstance())
 
             R.id.nav_add_fixture -> navigateTo(FixtureFragment.newInstance())

@@ -180,6 +180,14 @@
     <string name="menu_club_fav">Favourite Clubs</string>
     <string name="btn_addClub">Add Club</string>
     <string name="fixture_favourites_title">Favourite Fixtures</string>
+    <string name="btn_addManagerInfo">Add My Info</string>
+    <string name="hint_trophiesWon">Trophies Won</string>
+    <string name="hint_background">Add Your Background</string>
+    <string name="hint_placeOfBirth">Add Place of Birth</string>
+    <string name="hint_age">Age</string>
+    <string name="hint_name">Full Name</string>
+    <string name="btn_addProfilePic">Add Profile Pic</string>
+    <string name="my_info_title">My Info</string>
 
 
 </resources>

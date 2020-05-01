@@ -10,7 +10,9 @@ import kotlinx.android.parcel.Parcelize
 data class UserModel(var uid: String? = "",
                      var profilepic: String = "",
                      var email: String? = "benfranklin@gmail.com",
-                     var name: String = "Ben Franklin",
+                     var name: String = "Michael Barcoe",
+                     var age: String = "Michael Barcoe",
+                     var trophiesWon: String = "Michael Barcoe",
                      var userType: String = "Manager") : Parcelable
 
 {
@@ -19,8 +21,10 @@ data class UserModel(var uid: String? = "",
         return mapOf(
             "uid" to uid,
             "profilepic" to profilepic,
+            "name" to name,
+            "age" to age,
+            "trophiesWon" to trophiesWon,
             "email" to email,
-            //"name" to name,
             "userType" to userType)
     }
 }

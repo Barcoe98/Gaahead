@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import ie.wit.R
 import ie.wit.main.MainApp
 
-class TeamFragment : Fragment() {
+class UserInfoFragment : Fragment() {
 
     lateinit var app: MainApp
 
@@ -20,16 +20,18 @@ class TeamFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val root = inflater.inflate(R.layout.fragment_tteam, container, false)
-        activity?.title = getString(R.string.team_title)
+        val root = inflater.inflate(R.layout.fragment_team_info, container, false)
+        activity?.title = getString(R.string.info_title)
         return root
     }
 
     companion object {
         @JvmStatic
         fun newInstance() =
-            TeamFragment().apply {
+            UserInfoFragment().apply {
                 arguments = Bundle().apply {}
             }
     }
+
+    
 }
