@@ -15,6 +15,7 @@ import ie.wit.fragments.clubFragments.ClubFavouritesFragment
 import ie.wit.main.MainApp
 import ie.wit.models.ClubModel
 import ie.wit.utils.createLoader
+import kotlinx.android.synthetic.main.fragment_edit_fixture.view.*
 import kotlinx.android.synthetic.main.fragment_my_info.view.*
 import kotlinx.android.synthetic.main.list_view.view.*
 import org.jetbrains.anko.AnkoLogger
@@ -34,6 +35,13 @@ open class MyInfoFragment : Fragment(), AnkoLogger {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_my_info, container, false)
         activity?.title = getString(R.string.my_info_title)
+
+        var query = FirebaseDatabase.getInstance()
+            .reference
+            .child("users").child(app.auth.currentUser!!.uid).orderByChild("userTpe").equalTo("Manager").toString()
+
+        //root.Uname.setText(query)
+        //root.uName.text = query
 
         onAddInfoClick(root)
 
@@ -58,6 +66,8 @@ open class MyInfoFragment : Fragment(), AnkoLogger {
                 .commit()
         }
     }
+
+
 }
 
 

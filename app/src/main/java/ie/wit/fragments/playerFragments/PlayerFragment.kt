@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import ie.wit.R
+import ie.wit.fragments.MyInfoFragment
 import ie.wit.main.MainApp
 import ie.wit.models.PlayerModel
 import ie.wit.utils.*
@@ -110,11 +111,11 @@ open class PlayerFragment : Fragment(), AnkoLogger {
                     )
                 )
             }
-            layout.playerName.setText("")
-            layout.playerAge.setText("")
-            layout.playerHeight.setText("")
-            layout.playerWeight.setText("")
-            layout.playerPosition.setText("")
+            activity!!.supportFragmentManager.beginTransaction()
+                .replace(R.id.homeFrame,
+                    PlayerListFragment.newInstance())
+                .addToBackStack(null)
+                .commit()
 
         }
     }

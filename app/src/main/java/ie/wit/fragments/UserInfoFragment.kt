@@ -84,8 +84,7 @@ class UserInfoFragment : Fragment(), AnkoLogger {
                         ////////////////////////////////////////////////
                         activity!!.supportFragmentManager.beginTransaction()
                             .replace(R.id.homeFrame,
-                                MyInfoFragment.newInstance()
-                            )
+                                MyInfoFragment.newInstance())
                             .addToBackStack(null)
                             .commit()
                         ///////////////////////////////////////////////

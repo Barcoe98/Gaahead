@@ -27,7 +27,6 @@ open class ClubListFragment : Fragment(), AnkoLogger, ClubListener {
         app = activity?.application as MainApp
     }
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         // Inflate the layout for this fragment
@@ -50,7 +49,6 @@ open class ClubListFragment : Fragment(), AnkoLogger, ClubListener {
         return root
     }
 
-
     companion object {
         @JvmStatic
         fun newInstance() =
@@ -58,7 +56,6 @@ open class ClubListFragment : Fragment(), AnkoLogger, ClubListener {
                 arguments = Bundle().apply { }
             }
     }
-
 
     override fun onClubClick(club: ClubModel) {
         activity!!.supportFragmentManager.beginTransaction()

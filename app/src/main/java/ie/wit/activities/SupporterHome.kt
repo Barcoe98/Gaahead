@@ -12,6 +12,7 @@ import com.google.android.material.navigation.NavigationView
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import ie.wit.R
+import ie.wit.fragments.AppInfoFragment
 import ie.wit.fragments.fixtureFragments.FixtureAllFragment
 import ie.wit.fragments.fixtureFragments.FixtureFragment
 import ie.wit.fragments.fixtureFragments.FixtureListFragment
@@ -85,7 +86,7 @@ class SupporterHome : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
             R.id.nav_clubs_all -> navigateTo(PlayerAllFragment.newInstance())
 
-            //R.id.nav_info -> navigateTo(AppInfoFragment.newInstance())
+            R.id.nav_info -> navigateTo(AppInfoFragment.newInstance())
 
             else -> toast("You Selected Something Else")
         }

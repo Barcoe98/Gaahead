@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import ie.wit.R
+import ie.wit.fragments.MyInfoFragment
 import ie.wit.main.MainApp
 import ie.wit.models.ClubModel
 import ie.wit.utils.*
@@ -25,8 +26,6 @@ open class ClubFragment : Fragment(), AnkoLogger{
     lateinit var loader: AlertDialog
     val IMAGE_REQUEST = 1
     var favourite = false
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +49,6 @@ open class ClubFragment : Fragment(), AnkoLogger{
         return root
     }
 
-
     companion object {
         @JvmStatic
         fun newInstance() =
@@ -59,14 +57,12 @@ open class ClubFragment : Fragment(), AnkoLogger{
             }
     }
 
-
     private fun setImgBtnListener(layout: View) {
 
         layout.logoBtn.setOnClickListener {
             showImagePickerFragment(this, IMAGE_REQUEST)
         }
     }
-
 
     private fun setButtonListener(layout: View) {
         layout.addClubBtn.setOnClickListener {
@@ -121,16 +117,13 @@ open class ClubFragment : Fragment(), AnkoLogger{
                     )
                 )
             }
-            layout.name.setText("")
-            layout.county.setText("")
-            layout.colours.setText("")
-            layout.grounds.setText("")
-            layout.division.setText("")
-            layout.yearFounded.setText("")
-
+            activity!!.supportFragmentManager.beginTransaction()
+                .replace(R.id.homeFrame,
+                    ClubListFragment.newInstance())
+                .addToBackStack(null)
+                .commit()
         }
     }
-
 
     override fun onPause() {
         super.onPause()

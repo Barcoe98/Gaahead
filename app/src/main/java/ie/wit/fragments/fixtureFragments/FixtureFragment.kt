@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import ie.wit.R
+import ie.wit.fragments.MyInfoFragment
 import ie.wit.fragments.resultFragments.ResultFragment
 import ie.wit.main.MainApp
 import ie.wit.models.FixtureModel
@@ -147,11 +148,11 @@ open class FixtureFragment : Fragment(), AnkoLogger {
                     )
                 )
             }
-            layout.teamAName.setText("")
-            layout.teamBName.setText("")
-            layout.location.setText("")
-            layout.date.setText("")
-            layout.time.setText("")
+            activity!!.supportFragmentManager.beginTransaction()
+                .replace(R.id.homeFrame,
+                    FixtureListFragment.newInstance())
+                .addToBackStack(null)
+                .commit()
 
         }
     }

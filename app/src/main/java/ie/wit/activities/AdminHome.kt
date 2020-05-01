@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
 import ie.wit.R
+import ie.wit.fragments.AppInfoFragment
 import ie.wit.fragments.playerFragments.PlayerAllFragment
 import ie.wit.fragments.playerFragments.PlayerFragment
 import ie.wit.fragments.playerFragments.PlayerListFragment
@@ -83,7 +84,7 @@ class AdminHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             R.id.nav_add_player -> navigateTo(PlayerFragment.newInstance())
             R.id.nav_player_all -> navigateTo(PlayerAllFragment.newInstance())
 
-            // R.id.nav_app_info -> navigateTo(AppInfoFragment.newInstance())
+            R.id.nav_app_info -> navigateTo(AppInfoFragment.newInstance())
             R.id.nav_sign_out -> signOut()
 
             else -> toast("You Selected Something Else")

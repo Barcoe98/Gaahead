@@ -17,7 +17,6 @@ class ClubDetailsFragment : Fragment() {
     lateinit var loader : AlertDialog
     var clubDetails: ClubModel? = null
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         app = activity?.application as MainApp
@@ -42,7 +41,6 @@ class ClubDetailsFragment : Fragment() {
 
         return root
     }
-
 
     companion object {
         @JvmStatic

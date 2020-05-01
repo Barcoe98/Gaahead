@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import ie.wit.R
+import ie.wit.fragments.MyInfoFragment
 import ie.wit.main.MainApp
 import ie.wit.models.ResultModel
 import ie.wit.utils.*
@@ -127,16 +128,13 @@ open class ResultFragment : Fragment(), AnkoLogger {
                     )
                 )
             }
-            layout.teamAName.setText("")
-            layout.teamBName.setText("")
-            layout.teamAScore.setText("")
-            layout.teamBScore.setText("")
-            layout.date.setText("")
-            layout.competition.setText("")
-
+            activity!!.supportFragmentManager.beginTransaction()
+                .replace(R.id.homeFrame,
+                    ResultListFragment.newInstance())
+                .addToBackStack(null)
+                .commit()
         }
     }
-
 
     override fun onPause() {
         super.onPause()

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -27,9 +28,12 @@ import ie.wit.models.FixtureModel
 import ie.wit.models.UserModel
 import ie.wit.utils.createLoader
 import ie.wit.utils.hideLoader
+import ie.wit.utils.showImagePickerFragment
 import ie.wit.utils.showLoader
 import kotlinx.android.synthetic.main.fragment_fixture.*
+import kotlinx.android.synthetic.main.fragment_fixture.view.*
 import kotlinx.android.synthetic.main.login.*
+import kotlinx.android.synthetic.main.login.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.startActivity
@@ -40,11 +44,14 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
 
     lateinit var app: MainApp
     lateinit var loader : AlertDialog
+    lateinit var root: View
+
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
         app = application as MainApp
+
         // Buttons
         emailSignInButton.setOnClickListener(this)
         emailCreateAccountButton.setOnClickListener(this)
@@ -52,13 +59,14 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
         verifyEmailButton.setOnClickListener(this)
         sign_in_button.setOnClickListener(this)
 
-
-        //sign_in_button.setSize(SignInButton.SIZE_WIDE)
-        //sign_in_button.setColorScheme(0)
+        val button = findViewById<Button>(R.id.skipSignInBtn)
+        button.setOnClickListener{
+            val intent = Intent(this, SupporterHome::class.java)
+            startActivity(intent)
+        }
 
         app.auth = FirebaseAuth.getInstance()
 
-        // Configure Google Sign In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
@@ -67,17 +75,12 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
         app.googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         loader = createLoader(this)
-
-
     }
 
     public override fun onStart() {
         super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = app.auth.currentUser
         updateUI(currentUser)
-        //startActivity<Login>()
-
     }
 
     private fun createAccount() {
@@ -213,7 +216,7 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
         ) {
             return valid
         } else {
-            fieldUserType.error = "Invalid User Type, Please Enter Manager, Player or Supporter"
+            fieldUserType.error = "Invalid User Type, Please Enter Manager or Player"
             valid = false
         }
 
@@ -242,31 +245,28 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
                 app.database = FirebaseDatabase.getInstance().reference
                 app.storage = FirebaseStorage.getInstance().reference
 
+            var query = FirebaseDatabase.getInstance()
+                .reference
+                .child("users").child(app.auth.currentUser!!.uid).orderByChild("userTpe").toString()
 
-            //val checkUserType = app.database.child("userType")
             val userType = fieldUserType.text.toString()
 
             showLoader(loader, " Loading Screen")
 
             if (userType == "Admin" || userType == "admin") {
-                //showLoader(loader, " Loading Supporter Screen")
                 startActivity<AdminHome>()
             }
-
             else if (userType == "Manager" || userType == "manager") {
-                //showLoader(loader, " Loading Manager Screen")
                 startActivity<ManagerHome>()
             }
             else if (userType == "Player" || userType == "player") {
-                //showLoader(loader, " Loading Player Screen")
                 startActivity<PlayerHome>()
             }
+
             else if (userType.isEmpty()) {
-                //showLoader(loader, " Loading Player Screen")
                 app.auth.signOut()
                 app.googleSignInClient.signOut()
                 updateUI(null)
-                //startActivity<SupporterHome>()
             }
 
             hideLoader(loader)
@@ -299,8 +299,6 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
         private const val TAG = "EmailPassword"
         private const val RC_SIGN_IN = 9001
     }
-
-
 
     fun writeNewUser(user: UserModel) {
 

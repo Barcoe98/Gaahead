@@ -141,7 +141,6 @@
     <string name="error_playerAge">Enter a Age Name </string>
 
 
-    <!-- START Firebase Resources-->
 
     //Login page
     <string name="messageLoading">Please wait while we Connect to the Server...</string>
@@ -167,7 +166,7 @@
     <string name="emailpassword_title_text">Please Login Below</string>
     <string name="menu_fixture">Add Fixture</string>
     <string name="rate_app">Rate App</string>
-    <string name="skip_sign_in">Skip Sign In</string>
+    <string name="skip_sign_in">Supporter??? Skip Sign In</string>
     <string name="skip_sign_in_text">Supporter ??</string>
 
     <string name="sign_in_google">Sign In with Google</string>

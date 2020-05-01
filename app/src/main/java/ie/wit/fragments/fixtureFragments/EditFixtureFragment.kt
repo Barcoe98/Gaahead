@@ -27,8 +27,6 @@ class EditFixtureFragment : Fragment(), AnkoLogger {
     var editFixture: FixtureModel? = null
     var favourite = false
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         app = activity?.application as MainApp

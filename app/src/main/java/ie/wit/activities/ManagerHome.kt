@@ -12,6 +12,7 @@ import com.google.android.material.navigation.NavigationView
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import ie.wit.R
+import ie.wit.fragments.AppInfoFragment
 import ie.wit.fragments.MyInfoFragment
 import ie.wit.fragments.UserInfoFragment
 import ie.wit.fragments.clubFragments.ClubFavouritesFragment
@@ -99,7 +100,7 @@ class ManagerHome : AppCompatActivity(), NavigationView.OnNavigationItemSelected
             R.id.nav_player_list -> navigateTo(PlayerListFragment.newInstance())
             R.id.nav_player_all -> navigateTo(PlayerAllFragment.newInstance())
 
-            //R.id.nav_app_info -> navigateTo(AppInfoFragment.newInstance())
+            R.id.nav_app_info -> navigateTo(AppInfoFragment.newInstance())
             R.id.nav_sign_out -> signOut()
 
             else -> toast("You Selected Something Else")
