@@ -192,5 +192,9 @@
     <string name="text_club_fav_pin">Pin As Favourite</string>
     <string name="menu_fixture_favourites">Fixture Favourites</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_info_title">App Information</string>
+
 
 </resources>
