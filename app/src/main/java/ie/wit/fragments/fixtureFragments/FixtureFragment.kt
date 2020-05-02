@@ -9,13 +9,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import ie.wit.R
-import ie.wit.fragments.MyInfoFragment
-import ie.wit.fragments.resultFragments.ResultFragment
 import ie.wit.main.MainApp
 import ie.wit.models.FixtureModel
-import ie.wit.models.ResultModel
 import ie.wit.utils.*
-import kotlinx.android.synthetic.main.fragment_edit_fixture.view.*
 import kotlinx.android.synthetic.main.fragment_fixture.*
 import kotlinx.android.synthetic.main.fragment_fixture.date
 import kotlinx.android.synthetic.main.fragment_fixture.teamAName
@@ -27,7 +23,6 @@ import kotlinx.android.synthetic.main.fragment_fixture.view.logoBBtn
 import kotlinx.android.synthetic.main.fragment_fixture.view.teamAName
 import kotlinx.android.synthetic.main.fragment_fixture.view.teamBName
 import kotlinx.android.synthetic.main.fragment_result.*
-import kotlinx.android.synthetic.main.fragment_result.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import java.util.HashMap
@@ -87,14 +82,14 @@ open class FixtureFragment : Fragment(), AnkoLogger {
     }
 
     fun setFavouriteListener (layout: View) {
-        layout.imagefavourite.setOnClickListener(object : View.OnClickListener {
+        layout.bookmarkImg.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {
                 if (!favourite) {
-                    layout.imagefavourite.setImageResource(android.R.drawable.star_big_on)
+                    layout.bookmarkImg.setImageResource(R.drawable.ic_bookmark_gold)
                     favourite = true
                 }
                 else {
-                    layout.imagefavourite.setImageResource(android.R.drawable.star_big_off)
+                    layout.bookmarkImg.setImageResource(R.drawable.ic_bookmark_border_black_24dp)
                     favourite = false
                 }
             }

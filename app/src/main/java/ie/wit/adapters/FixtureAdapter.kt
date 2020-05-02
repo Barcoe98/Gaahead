@@ -41,7 +41,7 @@ class FixtureAdapter(options: FirebaseRecyclerOptions<FixtureModel>,
                 else
                     itemView.setOnClickListener { listener.onFixtureClick(fixture) }
 
-                if(fixture.isfavourite) itemView.imagefavouriteStar.setImageResource(android.R.drawable.star_big_on)
+                if(fixture.isfavourite) itemView.imagefavouriteStar.setImageResource(R.drawable.ic_bookmark_gold)
 
                 if (!fixture.logoA.isEmpty()) {
                     Picasso.get().load(fixture.logoA.toUri())

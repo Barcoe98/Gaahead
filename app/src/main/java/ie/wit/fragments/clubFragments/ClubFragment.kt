@@ -155,11 +155,11 @@ open class ClubFragment : Fragment(), AnkoLogger{
         layout.clubFavImg.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {
                 if (!favourite) {
-                    layout.clubFavImg.setImageResource(android.R.drawable.star_big_on)
+                    layout.clubFavImg.setImageResource(R.drawable.ic_bookmark_gold)
                     favourite = true
                 }
                 else {
-                    layout.clubFavImg.setImageResource(android.R.drawable.star_big_off)
+                    layout.clubFavImg.setImageResource(R.drawable.ic_bookmark_border_black_24dp)
                     favourite = false
                 }
             }

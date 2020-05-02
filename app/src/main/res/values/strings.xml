@@ -203,6 +203,7 @@
     <string name="action_pins_map">Pins</string>
     <string name="pins_title">Pins</string>
     <string name="btn_pin">Add Pin</string>
+    <string name="pitch_pins_subtitle">Pitch Pins</string>
 
 
 </resources>

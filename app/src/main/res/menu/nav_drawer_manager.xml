@@ -10,7 +10,7 @@
         <item
             android:id="@+id/nav_my_info"
             android:icon="@drawable/ic_menu_my_info"
-            android:title="@string/menu_team_info" />
+            android:title="@string/menu_my_info" />
         <item
             android:id="@+id/nav_clubs"
             android:icon="@drawable/ic_menu_team"
@@ -77,6 +77,20 @@
                     android:id="@+id/nav_player_all"
                     android:icon="@drawable/ic_menu_list_all"
                     android:title="@string/menu_player_all" />
+
+            </menu>
+        </item>
+
+        <item android:title="@string/pitch_pins_subtitle">
+            <menu>
+                <item
+                    android:id="@+id/nav_pin_add"
+                    android:icon="@drawable/ic_menu_add"
+                    android:title="@string/action_pin_add"/>
+                <item
+                    android:id="@+id/nav_pins_all"
+                    android:icon="@drawable/ic_menu_pin"
+                    android:title="@string/menu_pins_all" />
 
             </menu>
         </item>

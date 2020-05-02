@@ -62,6 +62,8 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
         val button = findViewById<Button>(R.id.skipSignInBtn)
         button.setOnClickListener{
             val intent = Intent(this, SupporterHome::class.java)
+            app.database = FirebaseDatabase.getInstance().reference
+            app.storage = FirebaseStorage.getInstance().reference
             startActivity(intent)
         }
 

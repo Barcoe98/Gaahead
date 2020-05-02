@@ -34,7 +34,7 @@ class ClubAdapter(options: FirebaseRecyclerOptions<ClubModel>, private val liste
                 //itemView.tDivision.text = club.division
 
                 itemView.setOnClickListener { listener.onClubClick(club) }
-                if(club.isfavourite) itemView.clubFavIcon.setImageResource(android.R.drawable.star_big_on)
+                if(club.isfavourite) itemView.clubFavIcon.setImageResource(R.drawable.ic_bookmark_gold)
 
                 if(!club.logo.isEmpty()) {
                     Picasso.get().load(club.logo.toUri())
