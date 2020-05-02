@@ -194,6 +194,15 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="app_info_title">App Information</string>
+    <string name="action_pin_add">Add Pin</string>
+    <string name="error_pin_title">Please Enter a Pin Title</string>
+    <string name="error_pin_comment">Please Enter A Pin Comment</string>
+    <string name="hint_pinComment">Enter a Pin Comment</string>
+    <string name="hint_pinTitle">Enter Pin Title</string>
+    <string name="menu_pins_all">Pins</string>
+    <string name="action_pins_map">Pins</string>
+    <string name="pins_title">Pins</string>
+    <string name="btn_pin">Add Pin</string>
 
 
 </resources>

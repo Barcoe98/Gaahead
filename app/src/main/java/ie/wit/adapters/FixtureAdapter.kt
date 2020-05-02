@@ -13,7 +13,6 @@ import ie.wit.fragments.fixtureFragments.FixtureAllFragment
 import ie.wit.models.FixtureModel
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import kotlinx.android.synthetic.main.card_fixture.view.*
-import kotlinx.android.synthetic.main.fragment_fixture.view.*
 
 interface FixtureListener {
     fun onFixtureClick(fixture: FixtureModel)

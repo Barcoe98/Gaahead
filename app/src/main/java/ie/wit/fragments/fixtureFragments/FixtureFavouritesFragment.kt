@@ -10,6 +10,7 @@ import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.FirebaseDatabase
 import ie.wit.R
 import ie.wit.adapters.FixtureAdapter
+import ie.wit.adapters.PinAdapter
 import ie.wit.adapters.FixtureListener
 import ie.wit.main.MainApp
 import ie.wit.models.FixtureModel

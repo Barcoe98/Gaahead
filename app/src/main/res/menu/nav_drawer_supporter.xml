@@ -25,6 +25,17 @@
             android:title="@string/menu_player_list" />
 
         <item
+            android:id="@+id/nav_pins_all"
+            android:icon="@drawable/ic_menu_player"
+            android:title="@string/menu_pins_all" />
+
+        <item
+            android:id="@+id/nav_pin_add"
+            android:icon="@drawable/ic_menu_player"
+            android:title="@string/menu_pins_all" />
+
+
+        <item
             android:id="@+id/nav_info"
             android:icon="@drawable/ic_menu_overview"
             android:title="@string/menu_info" />

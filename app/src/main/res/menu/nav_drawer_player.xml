@@ -42,6 +42,14 @@
                 android:id="@+id/nav_clubs_all"
                 android:icon="@drawable/ic_menu_list_all"
                 android:title="@string/menu_club_list" />
+            <item
+                android:id="@+id/nav_pin_add"
+                android:icon="@drawable/ic_menu_list_all"
+                android:title="@string/action_pin_add"/>
+            <item
+                android:id="@+id/nav_pins_all"
+                android:icon="@drawable/ic_menu_list_all"
+                android:title="@string/menu_pins_all" />
 
         </menu>
     </item>

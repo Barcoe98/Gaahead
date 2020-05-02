@@ -4,12 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -17,10 +15,8 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import ie.wit.R
 import ie.wit.adapters.FixtureAdapter
+import ie.wit.adapters.PinAdapter
 import ie.wit.adapters.FixtureListener
-import ie.wit.utils.createLoader
-import ie.wit.utils.hideLoader
-import ie.wit.utils.showLoader
 import ie.wit.main.MainApp
 import ie.wit.models.FixtureModel
 import ie.wit.utils.SwipeToDeleteCallback
