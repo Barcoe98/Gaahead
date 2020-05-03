@@ -1,13 +1,16 @@
 package ie.wit.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.telecom.Call
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
+import com.squareup.picasso.Picasso
 import ie.wit.R
 import ie.wit.fragments.AppInfoFragment
 import ie.wit.fragments.playerFragments.PlayerAllFragment
@@ -22,13 +25,15 @@ import ie.wit.fragments.fixtureFragments.FixtureAllFragment
 import ie.wit.fragments.fixtureFragments.FixtureFragment
 import ie.wit.fragments.fixtureFragments.FixtureListFragment
 import ie.wit.main.MainApp
-import ie.wit.utils.showImagePicker
+import ie.wit.utils.*
+import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import kotlinx.android.synthetic.main.home_admin.*
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.nav_header_home.view.*
 import org.jetbrains.anko.startActivity
 
 import org.jetbrains.anko.toast
+import javax.security.auth.callback.Callback
 
 class AdminHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -55,6 +60,8 @@ class AdminHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         navViewAdmin.getHeaderView(0).nav_header_email.text = app.auth.currentUser?.email
         navViewAdmin.getHeaderView(0).nav_header_name.text = app.auth.currentUser?.displayName
         navViewAdmin.getHeaderView(0).imageView.setOnClickListener { showImagePicker(this,IMAGE_REQUEST) }
+
+        checkExistingAdminPhoto(app,this)
 
         ft = supportFragmentManager.beginTransaction()
         val fragment =  FixtureListFragment.newInstance()
@@ -130,7 +137,7 @@ class AdminHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
         finish()
     }
 
-    /*
+/*
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
@@ -140,7 +147,7 @@ class AdminHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
                     Picasso.get().load(readImageUri(resultCode, data).toString())
                         .resize(180, 180)
                         .transform(CropCircleTransformation())
-                        .into(navViewAdmin.getHeaderView(0).imageView, object : Callback {
+                        .into(navViewAdmin.getHeaderView(0).imageView, object :Callback {
                             override fun onSuccess() {
                                 // Drawable is ready
                                 uploadImageView(app,navViewAdmin.getHeaderView(0).imageView)
@@ -151,7 +158,9 @@ class AdminHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedLi
             }
         }
     }
-     */
+
+ */
+
 }
 
 

@@ -32,7 +32,7 @@ class PinAdapter(options: FirebaseRecyclerOptions<PinModel>,
                 //itemView.pinComment.text = pin.comment
 
 
-                if(pin.isPinned) itemView.pinFavIcon.setImageResource(android.R.drawable.star_big_on)
+                //if(pin.isPinned) itemView.pinFavIcon.setImageResource(R.drawable.star_big_on)
 
             }
         }

@@ -57,14 +57,11 @@ class ManagerHome : AppCompatActivity(), NavigationView.OnNavigationItemSelected
         setSupportActionBar(toolbar)
         app = application as MainApp
 
-        //Map
         app.locationClient = LocationServices.getFusedLocationProviderClient(this)
 
         if(checkLocationPermissions(this)) {
             setCurrentLocation(app)
         }
-        //
-
 
         navViewManager.setNavigationItemSelectedListener(this)
         val toggle = ActionBarDrawerToggle(
@@ -78,6 +75,9 @@ class ManagerHome : AppCompatActivity(), NavigationView.OnNavigationItemSelected
         navViewManager.getHeaderView(0).nav_header_email.text = app.auth.currentUser?.email
         navViewManager.getHeaderView(0).nav_header_name.text = app.auth.currentUser?.displayName
         navViewManager.getHeaderView(0).imageView.setOnClickListener { showImagePicker(this,IMAGE_REQUEST) }
+
+        checkExistingPhoto(app,this)
+
 
         ft = supportFragmentManager.beginTransaction()
         val fragment =  FixtureListFragment.newInstance()
@@ -143,7 +143,7 @@ class ManagerHome : AppCompatActivity(), NavigationView.OnNavigationItemSelected
                 if (data != null) {
                     writeImageRef(app, readImageUri(resultCode, data).toString())
                     Picasso.get().load(readImageUri(resultCode, data).toString())
-                        .resize(180, 180)
+                        .resize(100, 100)
                         .transform(CropCircleTransformation())
                         .into(navViewManager.getHeaderView(0).imageView, object : Callback {
                             override fun onSuccess() {

@@ -15,6 +15,7 @@ import ie.wit.models.UserModel
 import ie.wit.utils.createLoader
 import ie.wit.utils.hideLoader
 import ie.wit.utils.showLoader
+import kotlinx.android.synthetic.main.fragment_edit_fixture.view.*
 import kotlinx.android.synthetic.main.fragment_user_info.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
@@ -32,7 +33,7 @@ class UserInfoFragment : Fragment(), AnkoLogger {
         app = activity?.application as MainApp
 
         arguments?.let {
-            editUser = it.getParcelable("edituser")
+            //editUser = it.getParcelable("edituser")
         }
     }
 
@@ -46,12 +47,13 @@ class UserInfoFragment : Fragment(), AnkoLogger {
         loader = createLoader(activity!!)
 
         // fragment ////////////////  model///////////
-        root.name.setText("")
+        //root.name.setText("")
+//        root.editTeamAName.setText(editUser!!.name)
 
         root.addManagerInfoBtn.setOnClickListener {
             showLoader(loader, "Updating User on Server...")
-            updateUserData()
-            updateUser(editUser!!.uid, editUser!!)
+            //updateUserData()
+            //updateUser(editUser!!.uid, editUser!!)
         }
 
         return root
@@ -70,7 +72,7 @@ class UserInfoFragment : Fragment(), AnkoLogger {
     fun updateUserData() {
         //////////model//////Fragment/////////
 
-        editUser!!.name = root.name.text.toString()
+        editUser?.name = root.name.text.toString()
 
     }
 

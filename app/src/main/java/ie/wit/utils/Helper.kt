@@ -24,7 +24,9 @@ import ie.wit.R
 import ie.wit.main.MainApp
 import ie.wit.models.UserPhotoModel
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
+import kotlinx.android.synthetic.main.home_admin.*
 import kotlinx.android.synthetic.main.home_manager.*
+import kotlinx.android.synthetic.main.home_player.*
 import kotlinx.android.synthetic.main.nav_header_home.view.*
 import java.io.ByteArrayOutputStream
 import java.io.IOException
@@ -282,10 +284,87 @@ fun validatePhoto(app: MainApp, activity: Activity) {
     }
 }
 
+fun validateAdminPhoto(app: MainApp, activity: Activity) {
+
+    var imageUri: Uri? = null
+    val imageExists = app.userImage.toString().isNotEmpty()
+    val googlePhotoExists = app.auth.currentUser?.photoUrl != null
+
+    if(imageExists)
+        imageUri = app.userImage
+    else
+        if (googlePhotoExists)
+            imageUri = app.auth.currentUser?.photoUrl!!
+
+    if (googlePhotoExists || imageExists) {
+        if(!app.auth.currentUser?.displayName.isNullOrEmpty())
+            activity.navViewAdmin.getHeaderView(0)
+                .nav_header_name.text = app.auth.currentUser?.displayName
+        else
+            activity.navViewAdmin.getHeaderView(0)
+                .nav_header_name.text = activity.getText(R.string.nav_header_email)
+
+        Picasso.get().load(imageUri)
+            .resize(180, 180)
+            .transform(CropCircleTransformation())
+            .into(activity.navViewAdmin.getHeaderView(0).imageView, object : Callback {
+                override fun onSuccess() {
+                    // Drawable is ready
+                    uploadImageView(app,activity.navViewAdmin.getHeaderView(0).imageView)
+                }
+                override fun onError(e: Exception) {}
+            })
+    }
+    else    // New Regular User, upload default pic of homer
+    {
+        activity.navViewAdmin.getHeaderView(0).imageView.setImageResource(R.mipmap.ic_app_icon_round)
+        uploadImageView(app, activity.navViewAdmin.getHeaderView(0).imageView)
+    }
+}
+
+
+fun validatePlayerPhoto(app: MainApp, activity: Activity) {
+
+    var imageUri: Uri? = null
+    val imageExists = app.userImage.toString().isNotEmpty()
+    val googlePhotoExists = app.auth.currentUser?.photoUrl != null
+
+    if(imageExists)
+        imageUri = app.userImage
+    else
+        if (googlePhotoExists)
+            imageUri = app.auth.currentUser?.photoUrl!!
+
+    if (googlePhotoExists || imageExists) {
+        if(!app.auth.currentUser?.displayName.isNullOrEmpty())
+            activity.navViewPlayer.getHeaderView(0)
+                .nav_header_name.text = app.auth.currentUser?.displayName
+        else
+            activity.navViewPlayer.getHeaderView(0)
+                .nav_header_name.text = activity.getText(R.string.nav_header_email)
+
+        Picasso.get().load(imageUri)
+            .resize(180, 180)
+            .transform(CropCircleTransformation())
+            .into(activity.navViewPlayer.getHeaderView(0).imageView, object : Callback {
+                override fun onSuccess() {
+                    // Drawable is ready
+                    uploadImageView(app,activity.navViewPlayer.getHeaderView(0).imageView)
+                }
+                override fun onError(e: Exception) {}
+            })
+    }
+    else    // New Regular User, upload default pic of homer
+    {
+        activity.navViewPlayer.getHeaderView(0).imageView.setImageResource(R.mipmap.ic_app_icon_round)
+        uploadImageView(app, activity.navViewPlayer.getHeaderView(0).imageView)
+    }
+}
+
 fun checkExistingPhoto(app: MainApp,activity: Activity) {
 
     app.userImage = "".toUri()
-    Log.v("Donation","checkExistingPhoto 1 app.userImage : ${app.userImage}")
+    Log.v("Fixture","checkExistingPhoto 1 app.userImage : ${app.userImage}")
 
     app.database.child("user-photos").orderByChild("uid")
         .equalTo(app.auth.currentUser!!.uid)
@@ -299,6 +378,50 @@ fun checkExistingPhoto(app: MainApp,activity: Activity) {
                 }
                 Log.v("Fixture","validatePhoto 3 app.userImage : ${app.userImage}")
                 validatePhoto(app,activity)
+            }
+            override fun onCancelled(databaseError: DatabaseError ) {}
+        })
+}
+
+fun checkExistingAdminPhoto(app: MainApp,activity: Activity) {
+
+    app.userImage = "".toUri()
+    Log.v("Fixture","checkExistingPhoto 1 app.userImage : ${app.userImage}")
+
+    app.database.child("user-photos").orderByChild("uid")
+        .equalTo(app.auth.currentUser!!.uid)
+        .addListenerForSingleValueEvent(object : ValueEventListener {
+
+            override fun onDataChange(snapshot: DataSnapshot ) {
+                snapshot.children.forEach {
+                    val usermodel = it.getValue<UserPhotoModel>(UserPhotoModel::class.java)
+                    app.userImage = usermodel!!.profilepic.toUri()
+                    Log.v("fixture","checkExistingPhoto 2 app.userImage : ${app.userImage}")
+                }
+                Log.v("Fixture","validatePhoto 3 app.userImage : ${app.userImage}")
+                validateAdminPhoto(app,activity)
+            }
+            override fun onCancelled(databaseError: DatabaseError ) {}
+        })
+}
+
+fun checkExistingPlayerPhoto(app: MainApp,activity: Activity) {
+
+    app.userImage = "".toUri()
+    Log.v("Fixture","checkExistingPhoto 1 app.userImage : ${app.userImage}")
+
+    app.database.child("user-photos").orderByChild("uid")
+        .equalTo(app.auth.currentUser!!.uid)
+        .addListenerForSingleValueEvent(object : ValueEventListener {
+
+            override fun onDataChange(snapshot: DataSnapshot ) {
+                snapshot.children.forEach {
+                    val usermodel = it.getValue<UserPhotoModel>(UserPhotoModel::class.java)
+                    app.userImage = usermodel!!.profilepic.toUri()
+                    Log.v("fixture","checkExistingPhoto 2 app.userImage : ${app.userImage}")
+                }
+                Log.v("Fixture","validatePhoto 3 app.userImage : ${app.userImage}")
+                validatePlayerPhoto(app,activity)
             }
             override fun onCancelled(databaseError: DatabaseError ) {}
         })

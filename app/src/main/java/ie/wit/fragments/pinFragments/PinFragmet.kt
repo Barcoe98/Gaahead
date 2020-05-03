@@ -41,11 +41,26 @@ open class PinFragment : Fragment(), AnkoLogger {
         loader = createLoader(activity!!)
         activity?.title = getString(R.string.action_pin_add)
 
+        setPinnedListener(root)
         setButtonListener(root)
 
         return root
     }
 
+    fun setPinnedListener (layout: View) {
+        layout.imgPin.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(view: View?) {
+                if (!pinned) {
+                    layout.imgPin.setImageResource(R.drawable.ic_bookmark_gold)
+                    pinned = true
+                }
+                else {
+                    layout.imgPin.setImageResource(R.drawable.ic_bookmark_border_black_24dp)
+                    pinned = false
+                }
+            }
+        })
+    }
 
     companion object {
         @JvmStatic

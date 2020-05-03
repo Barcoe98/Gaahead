@@ -82,7 +82,7 @@ class EditResultFragment : Fragment(), AnkoLogger {
         editResult!!.teamBName = root.editTeamBName.text.toString()
         editResult!!.teamAScore = root.editTeamAScore.text.toString()
         editResult!!.teamBScore = root.editTeamBScore.text.toString()
-        editResult!!.date = root.editDate.text.toString()
+        //editResult!!.date = root.editDate.text.toString()
         editResult!!.competition = root.editCompetition.text.toString()
     }
 

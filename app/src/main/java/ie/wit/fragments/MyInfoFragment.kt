@@ -38,7 +38,7 @@ open class MyInfoFragment : Fragment(), AnkoLogger {
 
         var query = FirebaseDatabase.getInstance()
             .reference
-            .child("users").child(app.auth.currentUser!!.uid).orderByChild("userTpe").equalTo("Manager").toString()
+            .child("users").child(app.auth.currentUser!!.uid).orderByChild("userTpye").equalTo("Manager").toString()
 
         //root.Uname.setText(query)
         //root.uName.text = query

@@ -68,6 +68,8 @@ class PlayerHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
         navViewPlayer.getHeaderView(0).nav_header_name.text = app.auth.currentUser?.displayName
         navViewPlayer.getHeaderView(0).imageView.setOnClickListener { showImagePicker(this,IMAGE_REQUEST) }
 
+        checkExistingPlayerPhoto(app,this)
+
         ft = supportFragmentManager.beginTransaction()
         val fragment =  FixtureListFragment.newInstance()
         ft.replace(R.id.homeFrame, fragment)
@@ -152,7 +154,7 @@ class PlayerHome : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
                 if (data != null) {
                     writeImageRef(app, readImageUri(resultCode, data).toString())
                     Picasso.get().load(readImageUri(resultCode, data).toString())
-                        .resize(180, 180)
+                        .resize(100, 100)
                         .transform(CropCircleTransformation())
                         .into(navViewPlayer.getHeaderView(0).imageView, object : Callback {
                             override fun onSuccess() {
