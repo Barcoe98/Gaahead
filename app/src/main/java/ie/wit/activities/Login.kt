@@ -32,6 +32,7 @@ import ie.wit.utils.showImagePickerFragment
 import ie.wit.utils.showLoader
 import kotlinx.android.synthetic.main.fragment_fixture.*
 import kotlinx.android.synthetic.main.fragment_fixture.view.*
+import kotlinx.android.synthetic.main.fragment_player.view.*
 import kotlinx.android.synthetic.main.login.*
 import kotlinx.android.synthetic.main.login.view.*
 import org.jetbrains.anko.AnkoLogger
@@ -58,14 +59,9 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
         signOutButton.setOnClickListener(this)
         verifyEmailButton.setOnClickListener(this)
         sign_in_button.setOnClickListener(this)
+        skipSignInBtn.setOnClickListener(this)
 
-        val button = findViewById<Button>(R.id.skipSignInBtn)
-        button.setOnClickListener{
-            val intent = Intent(this, SupporterHome::class.java)
-            app.database = FirebaseDatabase.getInstance().reference
-            app.storage = FirebaseStorage.getInstance().reference
-            startActivity(intent)
-        }
+
 
         app.auth = FirebaseAuth.getInstance()
 
@@ -214,6 +210,7 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
         val userTypeValidation = fieldUserType.text.toString()
         if (userTypeValidation == "Manager" || userTypeValidation == "manager" ||
             userTypeValidation == "Admin" || userTypeValidation == "admin" ||
+            userTypeValidation == "Supporter" || userTypeValidation == "supporter" ||
             userTypeValidation == "Player" || userTypeValidation == "player"
         ) {
             return valid
@@ -264,12 +261,20 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
             else if (userType == "Player" || userType == "player") {
                 startActivity<PlayerHome>()
             }
+            else if (userType == "Supporter" || userType == "supporter") {
+                startActivity<SupporterHome>()
+            }
 
             else if (userType.isEmpty()) {
+                startActivity<SupporterHome>()
+
+                /*
                 app.auth.signOut()
                 app.googleSignInClient.signOut()
                 updateUI(null)
+                 */
             }
+
 
             hideLoader(loader)
 
@@ -293,10 +298,20 @@ class Login : AppCompatActivity(), AnkoLogger, View.OnClickListener {
             R.id.signOutButton -> signOut()
             R.id.verifyEmailButton -> sendEmailVerification()
             R.id.sign_in_button -> googleSignIn()
+            R.id.skipSignInBtn -> skipSign()
 
         }
     }
 
+    private fun skipSign() {
+
+        skipSignInBtn.setOnClickListener {
+            app.database = FirebaseDatabase.getInstance().reference
+            app.storage = FirebaseStorage.getInstance().reference
+            startActivity<SupporterHome>()
+        }
+
+    }
     companion object {
         private const val TAG = "EmailPassword"
         private const val RC_SIGN_IN = 9001

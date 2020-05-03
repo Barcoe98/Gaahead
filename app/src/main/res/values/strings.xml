@@ -204,6 +204,12 @@
     <string name="pins_title">Pins</string>
     <string name="btn_pin">Add Pin</string>
     <string name="pitch_pins_subtitle">Pitch Pins</string>
+    <string name="error_history">Enter History</string>
+    <string name="error_trophies">Enter Number Of Trophies</string>
+    <string name="hint_history">Enter History</string>
+    <string name="hint_trophies">Enter Number of Trophies</string>
+    <string name="menu_sign_out">Sign Out</string>
+    <string name="app_info_text">This App is a college assignment.It was App was developed using Android studio in Kotlin. It utilises FirebaseUi, Authentication, Database and Storage.</string>
 
 
 </resources>

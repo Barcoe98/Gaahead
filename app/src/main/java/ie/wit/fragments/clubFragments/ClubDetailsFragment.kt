@@ -38,6 +38,8 @@ class ClubDetailsFragment : Fragment() {
         root.tYearFounded.text = clubDetails!!.yearFounded
         root.tGrounds.text = clubDetails!!.grounds
         root.tDivision.text = clubDetails!!.division
+        root.tTrophies.text = clubDetails!!.trophies
+        root.tHistory.text = clubDetails!!.history
 
         return root
     }

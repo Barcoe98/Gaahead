@@ -1,13 +1,16 @@
 package ie.wit.activities
 
 import android.content.Intent
+import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.google.android.gms.location.LocationServices
 import com.google.android.material.navigation.NavigationView
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
@@ -27,12 +30,11 @@ import ie.wit.fragments.clubFragments.ClubListFragment
 import ie.wit.fragments.fixtureFragments.FixtureAllFragment
 import ie.wit.fragments.fixtureFragments.FixtureFragment
 import ie.wit.fragments.fixtureFragments.FixtureListFragment
+import ie.wit.fragments.pinFragments.PinFragment
+import ie.wit.fragments.pinFragments.PinMapFragment
 import ie.wit.fragments.playerFragments.PlayerFragment
 import ie.wit.main.MainApp
-import ie.wit.utils.readImageUri
-import ie.wit.utils.showImagePicker
-import ie.wit.utils.uploadImageView
-import ie.wit.utils.writeImageRef
+import ie.wit.utils.*
 import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.home_manager.*
@@ -54,6 +56,15 @@ class ManagerHome : AppCompatActivity(), NavigationView.OnNavigationItemSelected
         setContentView(R.layout.home_manager)
         setSupportActionBar(toolbar)
         app = application as MainApp
+
+        //Map
+        app.locationClient = LocationServices.getFusedLocationProviderClient(this)
+
+        if(checkLocationPermissions(this)) {
+            setCurrentLocation(app)
+        }
+        //
+
 
         navViewManager.setNavigationItemSelectedListener(this)
         val toggle = ActionBarDrawerToggle(
@@ -100,6 +111,9 @@ class ManagerHome : AppCompatActivity(), NavigationView.OnNavigationItemSelected
             R.id.nav_player_list -> navigateTo(PlayerListFragment.newInstance())
             R.id.nav_player_all -> navigateTo(PlayerAllFragment.newInstance())
 
+            R.id.nav_pins_all -> navigateTo(PinMapFragment.newInstance())
+            R.id.nav_pin_add -> navigateTo(PinFragment.newInstance())
+
             R.id.nav_app_info -> navigateTo(AppInfoFragment.newInstance())
             R.id.nav_sign_out -> signOut()
 
@@ -108,30 +122,6 @@ class ManagerHome : AppCompatActivity(), NavigationView.OnNavigationItemSelected
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
-
-    /*
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.item_addFixture -> {
-                //startActivityForResult<FixtureActivity>(0)
-            }
-            R.id.item_addResult -> {
-                //startActivityForResult<ResultActivity>(0)
-            }
-            R.id.item_addPlayer -> {
-                //startActivityForResult<PlayerActivity>(0)
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
-    //redundant
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-     */
-
 
     override fun onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START))
@@ -165,6 +155,20 @@ class ManagerHome : AppCompatActivity(), NavigationView.OnNavigationItemSelected
                 }
             }
         }
+    }
+
+    //map
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        if (isPermissionGranted(requestCode, grantResults)) {
+            setCurrentLocation(app)
+        } else {
+            // permissions denied, so use the default location
+            app.currentLocation = Location("Default").apply {
+                latitude = 52.245696
+                longitude = -7.139102
+            }
+        }
+        Log.v("Fixture", "Home LAT: ${app.currentLocation.latitude} LNG: ${app.currentLocation.longitude}")
     }
 }
 

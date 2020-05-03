@@ -1,6 +1,5 @@
 package ie.wit.activities
 
-import android.content.Intent
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,8 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.navigation.NavigationView
-import com.squareup.picasso.Callback
-import com.squareup.picasso.Picasso
 import ie.wit.R
 import ie.wit.fragments.AppInfoFragment
 import ie.wit.fragments.fixtureFragments.FixtureAllFragment
@@ -23,10 +20,8 @@ import ie.wit.fragments.playerFragments.PlayerAllFragment
 import ie.wit.fragments.resultFragments.ResultAllFragment
 import ie.wit.main.MainApp
 import ie.wit.utils.*
-import jp.wasabeef.picasso.transformations.CropCircleTransformation
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.home_manager.drawerLayout
-import kotlinx.android.synthetic.main.nav_header_home.view.*
 import kotlinx.android.synthetic.main.home_supporter.*
 import org.jetbrains.anko.startActivity
 
@@ -36,7 +31,6 @@ class SupporterHome : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
     lateinit var ft: FragmentTransaction
     lateinit var app: MainApp
-    val IMAGE_REQUEST = 1
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,12 +53,9 @@ class SupporterHome : AppCompatActivity(), NavigationView.OnNavigationItemSelect
             R.string.navigation_drawer_open,
             R.string.navigation_drawer_close
         )
+
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-
-        navViewSupporter.getHeaderView(0).nav_header_email.text = app.auth.currentUser?.email
-        navViewSupporter.getHeaderView(0).nav_header_name.text = app.auth.currentUser?.displayName
-        navViewSupporter.getHeaderView(0).imageView.setOnClickListener { showImagePicker(this,IMAGE_REQUEST) }
 
         ft = supportFragmentManager.beginTransaction()
         val fragment =  FixtureAllFragment.newInstance()
@@ -96,6 +87,8 @@ class SupporterHome : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
             R.id.nav_pins_all -> navigateTo(PinMapFragment.newInstance())
 
+            R.id.nav_sign_out -> signOut()
+
             R.id.nav_info -> navigateTo(AppInfoFragment.newInstance())
 
             else -> toast("You Selected Something Else")
@@ -103,30 +96,6 @@ class SupporterHome : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
-
-    /*
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.item_addFixture -> {
-                //startActivityForResult<FixtureActivity>(0)
-            }
-            R.id.item_addResult -> {
-                //startActivityForResult<ResultActivity>(0)
-            }
-            R.id.item_addPlayer -> {
-                //startActivityForResult<PlayerActivity>(0)
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
-    //redundant
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-     */
-
 
     override fun onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START))
@@ -140,28 +109,6 @@ class SupporterHome : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         startActivity<Login>()
         finish()
     }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        when (requestCode) {
-            IMAGE_REQUEST -> {
-                if (data != null) {
-                    writeImageRef(app, readImageUri(resultCode, data).toString())
-                    Picasso.get().load(readImageUri(resultCode, data).toString())
-                        .resize(180, 180)
-                        .transform(CropCircleTransformation())
-                        .into(navViewSupporter.getHeaderView(0).imageView, object : Callback {
-                            override fun onSuccess() {
-                                // Drawable is ready
-                                uploadImageView(app,navViewSupporter.getHeaderView(0).imageView)
-                            }
-                            override fun onError(e: Exception) {}
-                        })
-                }
-            }
-        }
-    }
-
 
     //map
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {

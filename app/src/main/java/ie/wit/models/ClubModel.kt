@@ -14,6 +14,8 @@ data class ClubModel(var uid: String? = "",
                      var colours: String = "Black & White",
                      var yearFounded: String = "1974",
                      var division: String = "Junior",
+                     var trophies: String = "21",
+                     var history: String = "History About club",
                      var isfavourite: Boolean = false,
                      var grounds: String = "Tom Walsh Park") : Parcelable
 
@@ -28,6 +30,8 @@ data class ClubModel(var uid: String? = "",
             "colours" to colours,
             "yearFounded" to yearFounded,
             "division" to division,
+            "trophies" to trophies,
+            "history" to history,
             "isfavourite" to isfavourite,
             "grounds" to grounds
         )

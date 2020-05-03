@@ -73,6 +73,8 @@ open class ClubFragment : Fragment(), AnkoLogger{
             val division = division.text.toString()
             val grounds = grounds.text.toString()
             val yearFounded = yearFounded.text.toString()
+            val trophies = trophies.text.toString()
+            val history = history.text.toString()
 
             when {
                 layout.name.text.isEmpty() -> Toast.makeText(
@@ -100,6 +102,16 @@ open class ClubFragment : Fragment(), AnkoLogger{
                     R.string.error_division,
                     Toast.LENGTH_LONG
                 ).show()
+                layout.history.text.isEmpty() -> Toast.makeText(
+                    app,
+                    R.string.error_history,
+                    Toast.LENGTH_LONG
+                ).show()
+                layout.trophies.text.isEmpty() -> Toast.makeText(
+                    app,
+                    R.string.error_trophies,
+                    Toast.LENGTH_LONG
+                ).show()
                 layout.yearFounded.text.isEmpty() -> Toast.makeText(
                     app,
                     R.string.error_yearFounded,
@@ -112,6 +124,8 @@ open class ClubFragment : Fragment(), AnkoLogger{
                         colours = colours,
                         grounds = grounds,
                         division = division,
+                        trophies = trophies,
+                        history = history,
                         isfavourite = favourite,
                         yearFounded = yearFounded
                     )

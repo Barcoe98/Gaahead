@@ -18,10 +18,16 @@
             android:layout_margin="@dimen/layout_margin"
             android:orientation="vertical">
 
+            <ImageView
+                android:id="@+id/clubFavImg"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="right"
+                app:srcCompat="@drawable/ic_bookmark_border_black_24dp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
                 android:layout_marginBottom="10dp"
                 android:orientation="horizontal">
 
@@ -52,35 +58,6 @@
                     android:text="@string/btn_addLogoBtn"
                     android:textColor="@color/colorWhite" />
 
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <TextView
-                    android:id="@+id/pinAsFav"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/input_box_margin"
-                    android:layout_weight="1"
-                    android:background="@drawable/txt_rounded_blue"
-                    android:padding="@dimen/input_box_padding"
-                    android:text="@string/text_club_fav_pin"
-                    android:textColor="@color/colorWhite"
-                    android:textColorHint="@color/colorWhite"
-                    android:textSize="18sp" />
-
-                <ImageView
-                    android:id="@+id/clubFavImg"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    app:srcCompat="@android:drawable/star_big_off" />
 
             </LinearLayout>
 
@@ -148,6 +125,7 @@
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorWhite"/>
 
+
             <EditText
                 android:id="@+id/grounds"
                 android:layout_width="match_parent"
@@ -161,6 +139,32 @@
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorWhite" />
 
+            <EditText
+                android:id="@+id/trophies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/input_box_margin"
+                android:background="@drawable/txt_rounded_blue"
+                android:ems="10"
+                android:hint="@string/hint_trophies"
+                android:inputType="textPersonName"
+                android:padding="@dimen/input_box_padding"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite" />
+
+            <EditText
+                android:id="@+id/history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/input_box_margin"
+                android:background="@drawable/txt_rounded_blue"
+                android:ems="10"
+                android:hint="@string/hint_history"
+                android:inputType="textMultiLine"
+                android:padding="@dimen/input_box_padding"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite" />
+
             <Button
                 android:id="@+id/addClubBtn"
                 android:layout_width="match_parent"
@@ -168,7 +172,7 @@
                 android:layout_marginLeft="@dimen/btn_marginSides"
                 android:layout_marginTop="@dimen/btn_margintopBottom"
                 android:layout_marginRight="@dimen/btn_marginSides"
-                android:layout_marginBottom="@dimen/btn_margintopBottom"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/btn_rounded"
                 android:text="@string/btn_addClub"
                 android:textColor="@color/colorWhite" />

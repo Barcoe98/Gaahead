@@ -75,14 +75,14 @@ class EditFixtureFragment : Fragment(), AnkoLogger {
     }
 
     fun setFavouriteListener (layout: View) {
-        layout.editImageFavourite.setOnClickListener(object : View.OnClickListener {
+        layout.editImgBookmark.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {
                 if (!favourite) {
-                    layout.editImageFavourite.setImageResource(android.R.drawable.star_big_on)
+                    layout.editImgBookmark.setImageResource(android.R.drawable.star_big_on)
                     favourite = true
                 }
                 else {
-                    layout.editImageFavourite.setImageResource(android.R.drawable.star_big_off)
+                    layout.editImgBookmark.setImageResource(android.R.drawable.star_big_off)
                     favourite = false
                 }
             }

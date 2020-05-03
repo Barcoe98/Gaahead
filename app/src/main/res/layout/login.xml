@@ -159,7 +159,7 @@
                 android:background="@color/text_black"
                 android:text="@string/skip_sign_in"
                 android:textColor="@color/colorWhite"
-                android:visibility="visible" />
+                android:visibility="invisible" />
         </LinearLayout>
 
         <LinearLayout

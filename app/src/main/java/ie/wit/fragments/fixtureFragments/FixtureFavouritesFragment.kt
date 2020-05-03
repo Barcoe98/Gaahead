@@ -35,6 +35,7 @@ open class FavouritesFragment : Fragment(), AnkoLogger, FixtureListener {
 
         root.recyclerView.layoutManager = LinearLayoutManager(activity)
 
+        //query to just get bookmarked fixtures
         var query = FirebaseDatabase.getInstance()
             .reference
             .child("user-fixtures").child(app.auth.currentUser!!.uid).orderByChild("isfavourite")

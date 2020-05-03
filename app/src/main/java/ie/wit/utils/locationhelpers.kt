@@ -150,7 +150,7 @@ fun addMapMarkers(dl : ArrayList<PinModel>, map: GoogleMap) {
                 .title(it.title)
                 .snippet(it.comment)
                 .icon(
-                    BitmapDescriptorFactory.fromResource(R.mipmap.ic_homer_map)
+                    BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)
                 )
         )
     }
