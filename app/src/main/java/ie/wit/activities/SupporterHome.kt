@@ -23,7 +23,9 @@ import ie.wit.main.MainApp
 import ie.wit.utils.*
 import kotlinx.android.synthetic.main.app_bar_home.*
 import kotlinx.android.synthetic.main.home_manager.drawerLayout
+import kotlinx.android.synthetic.main.home_player.*
 import kotlinx.android.synthetic.main.home_supporter.*
+import kotlinx.android.synthetic.main.nav_header_home.view.*
 import org.jetbrains.anko.startActivity
 
 import org.jetbrains.anko.toast
@@ -32,6 +34,8 @@ class SupporterHome : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
     lateinit var ft: FragmentTransaction
     lateinit var app: MainApp
+    val IMAGE_REQUEST = 1
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,6 +61,13 @@ class SupporterHome : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
+
+
+        navViewSupporter.getHeaderView(0).nav_header_email.text = app.auth.currentUser?.email
+        navViewSupporter.getHeaderView(0).nav_header_name.text = app.auth.currentUser?.displayName
+        navViewSupporter.getHeaderView(0).imageView.setOnClickListener { showImagePicker(this,IMAGE_REQUEST) }
+        checkExistingSupporterPhoto(app,this)
+
 
         ft = supportFragmentManager.beginTransaction()
         val fragment =  FixtureAllFragment.newInstance()
