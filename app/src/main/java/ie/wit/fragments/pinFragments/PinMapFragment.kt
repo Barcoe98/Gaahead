@@ -26,7 +26,7 @@ class PinMapFragment : SupportMapFragment(), OnMapReadyCallback {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity?.title = getString(R.string.pins_title)
+        activity?.title = getString(R.string.pins_map_title)
     }
 
     override fun onMapReady(googleMap: GoogleMap) {

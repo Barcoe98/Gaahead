@@ -25,15 +25,14 @@
             android:title="@string/menu_player_list" />
 
         <item
-            android:id="@+id/nav_pins_all"
-            android:icon="@drawable/ic_menu_player"
-            android:title="@string/menu_pins_all" />
+            android:id="@+id/nav_pin_add"
+            android:icon="@drawable/ic_menu_add"
+            android:title="@string/menu_pins_add" />
 
         <item
-            android:id="@+id/nav_pin_add"
+            android:id="@+id/nav_pins_all"
             android:icon="@drawable/ic_menu_player"
-            android:title="@string/menu_pins_all" />
-
+            android:title="@string/menu_pins_all_map" />
 
         <item
             android:id="@+id/nav_info"

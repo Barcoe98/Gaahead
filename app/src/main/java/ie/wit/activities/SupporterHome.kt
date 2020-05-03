@@ -13,6 +13,7 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.material.navigation.NavigationView
 import ie.wit.R
 import ie.wit.fragments.AppInfoFragment
+import ie.wit.fragments.clubFragments.ClubListFragment
 import ie.wit.fragments.fixtureFragments.FixtureAllFragment
 import ie.wit.fragments.pinFragments.PinFragment
 import ie.wit.fragments.pinFragments.PinMapFragment
@@ -81,7 +82,7 @@ class SupporterHome : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
             R.id.nav_players_all -> navigateTo(PlayerAllFragment.newInstance())
 
-            R.id.nav_clubs_all -> navigateTo(PlayerAllFragment.newInstance())
+            R.id.nav_clubs_all -> navigateTo(ClubListFragment.newInstance())
 
             R.id.nav_pin_add -> navigateTo(PinFragment.newInstance())
 

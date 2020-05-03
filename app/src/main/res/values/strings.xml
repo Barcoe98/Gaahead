@@ -210,6 +210,9 @@
     <string name="hint_trophies">Enter Number of Trophies</string>
     <string name="menu_sign_out">Sign Out</string>
     <string name="app_info_text">This App is a college assignment.It was App was developed using Android studio in Kotlin. It utilises FirebaseUi, Authentication, Database and Storage.</string>
+    <string name="pins_map_title">Pins Map</string>
+    <string name="menu_pins_all_map">Pins Map</string>
+    <string name="menu_pins_add">Add Pin</string>
 
 
 </resources>
