@@ -8,7 +8,7 @@ where you can manage the club u are managing or as a player yopu can view you st
 ## Login Fragments
 When you launch the app, you are greeted with a login screen. There are 3 options here, sign in, Create Account and Sign in with Google.
 
-<img src="https://res.cloudinary.com/dmikx06rt/image/upload/v1588542212/login1_uaqaj9.png">
+"https://res.cloudinary.com/dmikx06rt/image/upload/v1588542212/login1_uaqaj9.png"
 
 ### Sign In
 To Sign in you must enter the email and password of the account and the type of user you are either Admin, Manager or Player. Depending on which user type you enter you with be brought to the corresponding fragments. 
